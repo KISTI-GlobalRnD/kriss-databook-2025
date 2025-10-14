@@ -1,0 +1,53 @@
+# 4.2 Operations & Restart Strategy / 운영 및 재시작 전략
+
+Long-running jobs benefit from planned checkpoints. This section details what to persist and how to
+recover quickly.
+
+## 세부 목차 / Section Outline
+
+1. Recommended Savepoints
+2. Restart Recipe
+3. Canonicalisation Checklist
+4. Operations Log Template
+
+## Recommended Savepoints / 권장 저장 지점
+
+1. **After Stage 0** – Persist `vec_uni`, `vec_phrase` using `joblib.dump`.
+2. **After Stage 1** – Save `C_uni`, `C_phrase`, `DF_*`, `cluster_doc_counts` via `scipy.sparse.save_npz`
+   and `numpy.save`.
+3. **After Stage 2** – Export `top_df` as Parquet for downstream canonicalisation or year-series runs.
+4. **After Stage 3** – Store the `term_year` dictionary (JSON or pickle) for trend dashboards.
+
+## Restart Recipe / 재시작 절차
+
+1. Reload persisted artefacts into a new `KeywordExtractionPipeline` instance.
+2. Set internal attributes (`pipe.vec_uni = joblib.load(...)`, etc.).
+3. Jump to the next unfinished stage and continue execution.
+4. Update run logs to note the restored state and remaining tasks.
+
+## Canonicalisation Checklist / 정규화 점검표
+
+- Collect per-cluster metadata: `term`, `score`, `frequency`, `coverage`, and example contexts.
+- Prompt LLMs deterministically (`temperature=0`) for `{original, canonical, action}` triples.
+- Validate responses; ignore malformed rows and fall back to original tokens.
+- Merge counts/coverage per canonical term and recompute Stage 2/3 outputs.
+- Annotate final tables with `source_terms` and `correction_notes` for auditability.
+
+## Operations Log Template / 운영 로그 템플릿
+
+```
+Run ID: 2024-08-15-A
+Stage Completed: Stage 1 aggregation
+Savepoint Artifacts:
+  - vec_uni.joblib, vec_phrase.joblib
+  - C_uni.npz, DF_uni.npz, cluster_doc_counts.npy
+Next Action:
+  Resume at Stage 2 scoring with config = configs/prod.yaml
+Issues:
+  Minor memory spike mitigated by batch size 5k.
+```
+
+---
+
+Keep operational artefacts in versioned buckets or git-annex to ensure that analysts can reproduce
+results months later. / 결과 재현성을 위해 버전 관리된 스토리지에 중간 산출물을 보관하세요.

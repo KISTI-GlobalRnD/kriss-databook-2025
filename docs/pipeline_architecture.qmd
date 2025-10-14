@@ -1,0 +1,78 @@
+# 1.2 파이프라인 아키텍처 / Pipeline Architecture
+
+The keyword extraction pipeline contains four mandatory stages and one optional canonicalisation pass.
+Each stage corresponds to a method on `KeywordExtractionPipeline`.
+
+## 세부 목차 / Section Outline
+
+1. Stage 0 – Vectoriser Fit
+2. Stage 1 – Cluster Aggregation
+3. Stage 2 – Scoring & Candidate Selection
+4. Stage 2.5 – Canonicalisation (Optional)
+5. Stage 3 – Year Series
+6. Export & Diagnostics
+
+## Stage 0 – Vectoriser Fit / 벡터라이저 학습
+
+- Stream titles and abstracts, optionally weighting titles higher.
+- Fit separate `CountVectorizer` instances for unigrams and phrases.
+- Persist vectorisers with `joblib.dump` so that subsequent runs can skip refitting.
+
+## Stage 1 – Cluster Aggregation / 클러스터 집계
+
+- Transform incoming batches into sparse document-term matrices.
+- Map document IDs to cluster indices and sum counts per cluster.
+- Track both total term frequency and document coverage for later filtering.
+
+### Pseudocode (EN)
+
+```
+for batch in stream_documents():
+    X_uni = vec_uni.transform(batch.texts)
+    codes = map_to_cluster_indices(batch.cluster_ids)
+    C_uni += group_sum(X_uni, codes)
+    DF_uni += group_sum(X_uni > 0, codes)
+    if vec_phrase:
+        X_phrase = vec_phrase.transform(batch.texts)
+        C_phrase += group_sum(X_phrase, codes)
+        DF_phrase += group_sum(X_phrase > 0, codes)
+```
+
+### 단계 요약 (KO)
+
+```
+for batch in 문서 스트림:
+    X_uni = vec_uni.transform(batch.texts)
+    codes = 클러스터 인덱스 목록
+    C_uni에 group_sum(X_uni, codes) 누적
+    DF_uni에 group_sum(X_uni > 0, codes) 누적
+    바이그램/트라이그램도 동일하게 처리
+```
+
+## Stage 2 – Scoring & Candidate Selection / 스코어링 및 후보 선택
+
+- Compute class-based TF-IDF (c‑TF‑IDF) matrices.
+- Optionally compute Log-Likelihood Ratio (LLR) per term using cluster vs. remainder counts.
+- Apply coverage thresholds, remove subphrases, and run Maximal Marginal Relevance (MMR) with Jaccard
+  similarity to reduce redundancy.
+
+## Stage 2.5 – Canonicalisation (Optional) / 정규화(선택)
+
+- Request LLM or domain dictionary mappings to merge plural/singular and spelling variants.
+- Merge counts and coverage for terms that share the same canonical form.
+- Recompute Stage 2 scoring and Stage 3 series if any aliases changed.
+
+## Stage 3 – Year Series / 연도별 집계
+
+- Reuse the restricted vocabulary of selected keywords.
+- Replay the document stream to collect `{year: frequency}` counters for each keyword.
+- Export enriched tables that include scores, raw counts, coverage, and temporal signals.
+
+---
+
+**Checklist / 점검표**
+
+- [ ] Vectorisers persisted (`vec_uni`, `vec_phrase`).
+- [ ] Cluster matrices stored (`C_*`, `DF_*`, `cluster_doc_counts`).
+- [ ] Candidate tables saved (`top_df`) for restart.
+- [ ] Year series cached (`term_year`) for downstream trend analysis.

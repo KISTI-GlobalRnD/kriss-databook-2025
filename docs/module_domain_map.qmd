@@ -1,0 +1,42 @@
+# 2.1 Macro & Emerging Areas / 표준연구 지형도
+
+Module 1 focuses on constructing a research landscape for standard science and extracting emerging
+domains worth strategic investment.
+
+## 세부 목차 / Section Outline
+
+1. 연구지형도 구축 (Macro 레벨)
+2. 유망연구영역 도출 (Meso/Micro 연결)
+3. Analyst 체크포인트
+
+## 2.1.1 연구지형도 구축 / Landscape Construction
+
+- **Corpus Expansion**: Incorporate curated keywords, flagship journals, and citation links to avoid
+  blind spots.
+- **클러스터링**: Apply Leiden algorithm on citation graphs to derive coherent research areas.
+- **Global ↔ Domain Views**: Build a global overlay map first, then filter to standard-research clusters
+  to preserve context.
+- **LLM 보조 설명**: Generate bilingual descriptions for each cluster to support analyst briefings.
+
+## 2.1.2 유망연구영역 도출 / Emerging Area Detection
+
+- **지표 묶음**: Growth, diffusion (파급성), influence, industrial linkage, novelty.
+- **Scoring Mechanics**: Combine c‑TF‑IDF/LLR keyword signals with bibliometric metrics to prioritise.
+- **LLM 리포팅**: Produce quick memos summarising why each area matters, including exemplar keywords,
+  institutions, and potential applications.
+- **Synthesis Artifacts**: 
+  - Ranked tables by indicator weights.
+  - Heatmaps comparing emerging vs. mature domains.
+  - Narrative briefing decks for leadership reviews.
+
+## 2.1.3 Analyst Actions / 분석자 체크포인트
+
+- Validate cluster coherence before trusting indicator outputs.
+- Compare emerging-area lists with KRISS strategic themes; mark overlaps and gaps.
+- Archive LLM prompts/responses to ensure auditability and reproducibility.
+
+## 연결 자료 / Related Pages
+
+- See **1.3 Algorithmic Scoring** for the detailed breakdown of c‑TF‑IDF, LLR, and z-score normalisation.
+- See **1.4 Configuration Playbook** for thresholds and parameters that govern candidate selection.
+- See **Diagnostics** for coverage, redundancy, and trend checks to confirm quality.

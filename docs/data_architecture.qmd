@@ -1,0 +1,50 @@
+# 1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy
+
+This section mirrors the previous 4PN databook structure so analysts can quickly navigate between
+projects while reusing the same mental model.
+
+## 세부 목차 / Section Outline
+
+1. 데이터 소스 구성
+2. 아이템(클러스터) 유형화
+3. 글로벌 ↔ 표준연 매핑
+4. 분류 연계표 & 리포트 템플릿
+
+## 1.1.1 데이터 소스 구성 / Corpus Assembly
+
+- **Web of Science XML**: Core bibliographic feed with titles, abstracts, affiliations, subject
+  categories, and citation links.
+- **표준연 키워드 팩**: Curated scientific terms, BIPM 기관명, 핵심 저널 리스트로 표준연구 관련 문헌을
+  우선 필터링.
+- **인용 확장**: Seed 문헌에서 전방/후방 인용을 따라가 정보 손실을 최소화.
+- **메타데이터 정제**: 기관·국가·분야 코드 표준화, 다언어 표기 통합, 산업 연계 태그 추가.
+
+## 1.1.2 아이템(클러스터) 유형화 / Cluster Typing
+
+- **Macro 레벨**: 글로벌 연구지형도에서 표준연구와 시너지를 이루는 대영역(예: 계측, 소재, 에너지).
+- **Meso 레벨**: 각 Macro 내부의 하위 세부영역. Leiden 클러스터링 결과에 LLM 보조 설명을 붙여
+  실무자가 바로 이해할 수 있게 구성.
+- **Micro 레벨**: `KeywordExtractionPipeline` 이 산출한 대표 키워드와 연관 기관/산업 태그. 연도별
+  시계열과 결합해 성숙도 라벨을 부여.
+
+## 1.1.3 글로벌 ↔ 표준연 매핑 / Overlay Mapping
+
+- **Base Map**: 전체 과학지형도 위에 표준연구 영역을 강조하여 맥락 보존.
+- **Overlay 기법**: 주요 국가/기관별 성과 지표를 레이어로 올려 겹쳐보기. KRISS와 벤치마킹 대상의
+  위치 차이를 시각적으로 전달.
+- **LLM 내레이션**: Macro·Meso 별 핵심 이슈, 대표 논문, 활용 분야를 요약해 슬라이드나 데이터북에
+  바로 반영 가능.
+
+## 1.1.4 분류 연계표 & 리포트 템플릿 / Crosswalk & Reporting
+
+- **클러스터 ID 연계표**: Macro → Meso → Micro → 대표 키워드/기관명으로 이어지는 하나의 테이블을
+  유지하여 탐색형 UI와 정적 보고서 모두에서 재활용.
+- **자동 리포트 뼈대**: Notebook/LLM 템플릿을 통해 각 세부영역의 ① 핵심 키워드, ② 주요 기관/국가,
+  ③ 성장 지표, ④ 산업 적용 예시를 자동 채움.
+- **전이 가능성**: 기존 4PN 데이터북과 동일한 섹션 번호를 채택해 신규 모듈도 빠르게 온보딩.
+
+## 연결 페이지
+
+- **추진 전략 & 수행**: 데이터 파이프라인과 모듈 조직을 연결한 추진 전략.
+- **1.2 파이프라인 아키텍처**: 수집·벡터라이저·집계·스코어링 파이프라인 세부 단계.
+- **2.1 Macro & Emerging Areas**: Macro/Meso 수준의 분석 결과와 해석 가이드.

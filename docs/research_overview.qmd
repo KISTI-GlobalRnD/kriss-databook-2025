@@ -1,0 +1,47 @@
+# 프로젝트 개요 / Research Overview
+
+This section distils the kickoff deck into a concise summary of project intent, scope, and expected
+deliverables.
+
+## 세부 목차 / Section Outline
+
+1. Mission Statement
+2. Workstreams
+3. Data & Toolchain
+4. Expected Deliverables
+
+## Mission Statement / 추진 목적
+
+- **미래 전략 지원**: Leverage global publication data to surface emerging standard-science research
+  areas and guide long-term planning for KRISS.
+- **기관 성과 벤치마크**: Compare KRISS against peer national metrology institutes (NIST, PTB, NPL,
+  NIM, NMIJ) through consistent bibliometric indicators.
+- **데이터 기반 의사결정**: Produce reproducible metrics (growth, impact, industrial relevance) that
+  anchor portfolio scenarios and investment choices.
+
+## Workstreams / 세부 모듈
+
+| 모듈 | 영어 설명 | 한국어 설명 | 주요 산출물 |
+|------|-----------|-------------|-------------|
+| 1-1 | Global & domain-level landscape mapping | 글로벌·표준 연구지형도 구축 | 영역별 클러스터, 과학계량지표 |
+| 1-2 | Emerging area detection | 미래 유망연구영역 도출 | 성장성·파급성 지표, LLM 리포트 |
+| 2-1 | Country & institution benchmarking | 국가·기관별 성과 수준 분석 | 엑셀런스 지표, 분위수 기반 평가 |
+| 2-2 | Institutional profiling & networks | 연구기관 프로파일 및 협력 네트워크 | Overlay map, 협력 네트워크 |
+| 2-3 | Portfolio design & monitoring | KRISS 포트폴리오 구상 | 데이터북, 대시보드, 전략 시나리오 |
+
+## Data & Toolchain / 데이터 및 도구
+
+- **데이터 소스**: Web of Science XML (institution, country, category metadata) with keyword,
+  journal, citation expansion for coverage.
+- **핵심 기법**: Leiden clustering, c‑TF‑IDF + LLR scoring, overlay mapping, percentile-based impact
+  metrics, LLM-assisted summarisation.
+- **인프라**: HPC batch processing, sparse matrix aggregation, MkDocs-based documentation, interactive
+  dashboards for dissemination.
+
+## Expected Deliverables / 산출물 요약
+
+1. Analysis-ready corpus with curated standard-research vocabulary.
+2. Cluster-level indicator tables for landscape and emerging area assessment.
+3. Benchmarking reports for priority institutions and countries.
+4. Portfolio dashboards + databook covering research strengths, gaps, and trajectories.
+5. This final report site capturing methodology, governance, and decision guides.

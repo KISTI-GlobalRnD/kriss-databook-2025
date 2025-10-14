@@ -1,0 +1,52 @@
+# 1.4 Configuration Playbook / 구성 가이드
+
+Fine-tuning the pipeline involves balancing coverage, discriminative power, and redundancy. Start with
+the baseline configuration and adjust only when diagnostics reveal an issue.
+
+## 세부 목차 / Section Outline
+
+1. Core Parameters
+2. Tuning Workflow
+3. Environment Considerations
+4. Change Log Template
+
+## Core Parameters / 핵심 파라미터
+
+| Parameter | Typical Range | Effect (EN) | 설명 (KO) |
+|-----------|---------------|-------------|-----------|
+| `min_df_unigram` | 3–10 | Remove rare noisy tokens | 너무 드문 토큰 제거 |
+| `max_df_unigram` | 0.95–0.99 | Drop ubiquitous stopwords | 지나치게 자주 등장하는 일반어 제거 |
+| `phrase_min_count_per_cluster` | 5–20 | Require meaningful phrases | 최소 등장 횟수 제한 |
+| `min_cluster_doc_coverage` | 5–20 | Ensure multi-document support | 여러 문서에 걸쳐 등장해야 유지 |
+| `min_cluster_doc_coverage_ratio` | 0.5–2% | Scale coverage to cluster size | 클러스터 규모 대비 조건 |
+| `mmr_jaccard_lambda` | 0.2–0.4 | Higher value → less redundancy | 값이 클수록 중복 억제 강화 |
+| `w_llr` | 0–0.5 | Emphasise discriminativeness | 클러스터 간 차별성 강조 |
+
+## Tuning Workflow / 튜닝 절차
+
+1. Run the pipeline with baseline settings and inspect coverage histograms.
+2. If many keywords fail coverage, relax `min_cluster_doc_coverage_ratio`.
+3. If redundancy persists, increase `mmr_jaccard_lambda` or tighten `phrase_min_count_per_cluster`.
+4. When LLR scores are near zero, raise coverage thresholds or increase unigram `min_df`.
+5. Document any changes in `config/keyword_pipeline.yaml` (if present) to maintain reproducibility.
+
+## Environment Considerations / 실행 환경
+
+- Use streaming I/O for large corpora to avoid loading all documents into memory.
+- Persist intermediate artefacts on shared storage so interrupted jobs can resume.
+- Prefer deterministic tokenisation (fixed `token_pattern`, `ngram_range`) across experiments.
+
+## Change Log Template / 변경 기록 템플릿
+
+```
+Date: YYYY-MM-DD
+Dataset: e.g., KRISS_2024_F
+Baseline Config: configs/base_keyword.yaml
+Changes:
+  - min_cluster_doc_coverage = 8 → 12
+  - w_llr = 0.3 → 0.4
+Rationale:
+  Coverage histogram skewed low; redundant phrases in top 20 list.
+Outcome:
+  Coverage mean +12%, redundancy ratio -0.08, analyst feedback positive.
+```

@@ -1,0 +1,63 @@
+# 1.3 Algorithmic Scoring / 알고리즘 스코어링
+
+This section details the notation, equations, and statistical checks that power the keyword ranking
+pipeline.
+
+## 세부 목차 / Section Outline
+
+1. Notation
+2. c‑TF‑IDF
+3. Log-Likelihood Ratio
+4. Score Combination
+5. Practical Notes
+
+## Notation / 표기
+
+- \( D = \{d_1, \ldots, d_N\} \): document set (title + abstract).
+- \( C = \{c_1, \ldots, c_K\} \): cluster labels (e.g. `cluster_micro`).
+- \( X \in \mathbb{R}^{N \times V} \): document-term matrix from `CountVectorizer`.
+- \( f_{c,j} = \sum_{d \in c} X_{d,j} \): frequency of term \(j\) in cluster \(c\).
+- \( n_c = |\{d : d \in c\}| \): number of documents in cluster \(c\).
+- \( df_{c,j} = |\{d \in c : X_{d,j} > 0\}| \): document coverage within cluster.
+- \( df_j = |\{c : f_{c,j} > 0\}| \): number of clusters containing term \(j\).
+- \( \tilde{n} = \sum_c n_c \) (practically \( = N \)).
+
+## c‑TF‑IDF
+
+\[
+tf_{c,j} = \frac{f_{c,j}}{\sum_k f_{c,k}}, \quad
+idf_j = \log\frac{1 + K}{1 + df_j} + 1, \quad
+score^{ctfidf}_{c,j} = tf_{c,j} \cdot idf_j
+\]
+
+## Log-Likelihood Ratio (Optional) / 로그우도비 (선택)
+
+Compare cluster \(c\) against the remainder of the corpus using the contingency table:
+
+|            | term \(j\) present | term \(j\) absent |
+|------------|-------------------|-------------------|
+| **in c**   | \(k_{11} = df_{c,j}\) | \(k_{12} = n_c - df_{c,j}\) |
+| **outside**| \(k_{21} = df_j - df_{c,j}\) | \(k_{22} = \tilde{n} - n_c - k_{21}\) |
+
+\[
+\mathrm{LLR} = 2\sum_{i=1}^{4} k_i \log \frac{k_i}{e_i}, \quad e_i = \text{expected count under independence}
+\]
+
+## Score Combination / 최종 점수 결합
+
+\[
+score_{c,j} =
+ w_{ctfidf} \cdot z\!\left(score^{ctfidf}_{c,j}\right)
+ + w_{llr} \cdot z\!\left(\mathrm{LLR}_{c,j}\right)
+\]
+
+- \(w_{ctfidf}\), \(w_{llr}\) are configurable weights.
+- \(z(\cdot)\) denotes the within-cluster z-score (mean 0, std 1).
+- If LLR is disabled, set \(w_{llr}=0\).
+
+## Practical Notes / 실무 팁
+
+- Normalise scores within cluster to keep scales comparable.
+- Apply coverage thresholds **before** combining scores to avoid inflating rare, noisy terms.
+- Use sparse matrix operations (`csr_matrix`) to preserve memory efficiency on million-document corpora.
+- After scoring, sort descending and pass the ordered list to phrase suppression and MMR heuristics.
