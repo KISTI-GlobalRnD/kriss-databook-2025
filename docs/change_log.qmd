@@ -7,6 +7,7 @@ description: "Running log of code and documentation updates applied to the KRISS
 
 - **Post-canonical workflow docs** — Documented the Stage 2.6 global stopword drop (`Output/keywords_set.csv`), Stage 2.7 GPT-5 pass (`artifacts/canonicalise/main-gpt/mapping/`), and the priority merge that produces `artifacts/second_canonical.csv` / `Output/canonical.csv` in both `docs/keyword_extraction.md` and `final_report_site/docs/pipeline_architecture.qmd`.
 - **Quarto navigation checklist** — Extended the pipeline checklist with reminders to archive `main-drop` / `main-gpt` manifests and refreshed the gh-pages build.
+- **Keyword explorer data refresh** — Swapped the site asset from the Top-5 sample to the full `Output/keyword_all_timeseries.csv` export and retired `docs/assets/keyword_top5_timeseries.csv`.
 
 ## 2025-10-22
 

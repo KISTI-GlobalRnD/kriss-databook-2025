@@ -8,7 +8,8 @@ page-title: false
 
 Interactively inspect how the highest-ranked keywords evolve across years for each research cluster.
 Use the selectors to switch between clusters and metrics while the legend lets you toggle individual
-keyword curves on and off. All data are sourced from the latest `_top5` time series export.
+keyword curves on and off. All data are sourced from the comprehensive `keyword_all_timeseries`
+export generated after canonical integration.
 
 ::: callout-tip
 모든 곡선은 문헌 비중(`ppm_series_val`, parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면
@@ -90,6 +91,7 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
 
 <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
 
 <div class="keyword-timeseries-wrapper">
 <div class="keyword-timeseries-controls" id="keyword-timeseries-controls"></div>
@@ -107,7 +109,7 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
 
 <script>
 (() => {
-  const dataUrl = "assets/keyword_top5_timeseries.csv";
+  const dataUrl = "assets/keyword_all_timeseries.csv.gz";
   const chartEl = document.getElementById("keyword-timeseries-chart");
   const controlsEl = document.getElementById("keyword-timeseries-controls");
   const clusterGroup = document.createElement("div");
@@ -458,8 +460,16 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
     return clusterOptions;
   }
 
-  function loadData() {
-    d3.csv(dataUrl).then(rows => {
+  async function loadData() {
+    try {
+      const response = await fetch(dataUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      const arrayBuffer = await response.arrayBuffer();
+      const decompressed = pako.ungzip(new Uint8Array(arrayBuffer), { to: "string" });
+      const rows = d3.csvParse(decompressed);
+
       const clusters = new Map();
 
       rows.forEach(rawRow => {
@@ -513,10 +523,10 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
       }
 
       clusterSelect.addEventListener("change", handleUpdate);
-    }).catch(err => {
+    } catch (err) {
       console.error("Failed to load keyword time series.", err);
-      metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. CSV 경로 또는 접근 권한을 확인하세요.</p>";
-    });
+      metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. ZIP 경로 또는 접근 권한을 확인하세요.</p>";
+    }
   }
 
   loadData();
