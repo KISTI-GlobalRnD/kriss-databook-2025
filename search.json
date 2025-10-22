@@ -151,7 +151,7 @@
     "href": "docs/keyword_trends.html",
     "title": "Keyword Trend Explorer / 키워드 추세 탐색기",
     "section": "",
-    "text": "Keyword Trend Explorer / 키워드 추세 탐색기\nInteractively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the latest _top5 time series export.\n\n\n\n\n\n\nTip\n\n\n\n키워드 지표는 하나의 클러스터 안에서 점수(score), 문헌 비중(ppm_series_val), 출현 빈도(frequency) 중에서 선택할 수 있습니다. 범례를 클릭하면 개별 키워드를 강조하거나 숨길 수 있습니다.\n\n\n\n\n\n\n\nCluster / 클러스터 \n\n\nMetric / 지표  TF-IDF Score (score) Document Share (ppm_series_val) Frequency (frequency)"
+    "text": "Keyword Trend Explorer / 키워드 추세 탐색기\nInteractively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the latest _top5 time series export.\n\n\n\n\n\n\nTip\n\n\n\n키워드 지표는 하나의 클러스터 안에서 점수(score), 문헌 비중(ppm_series_val), 출현 빈도(frequency) 중에서 선택할 수 있습니다. 범례를 클릭하면 개별 키워드를 강조하거나 숨길 수 있습니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDocument Share (PPM) · Parts per million of the cluster’s total unigram tokens for each term-year pair. ( _{c,y}(t) = 10^{6} )\n\n\nScore · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).\n\n\nFrequency · Count of documents within the cluster that contain the keyword (constant across years).\n\n\nBoth Score and Frequency appear inside the hover tooltips for each point."
   },
   {
     "objectID": "docs/delivery_plan.html",
