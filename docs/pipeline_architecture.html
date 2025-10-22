@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>pipeline_architecture – KRISS Keyword Pipeline Report</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-07effa53395b745c4c67794b4fcd4554.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">KRISS Keyword Pipeline Report</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-document-guide" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">문서 안내 / Document Guide</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-document-guide">    
+        <li>
+    <a class="dropdown-item" href="../index.html">
+ <span class="dropdown-text">홈 / Home</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/research_overview.html">
+ <span class="dropdown-text">프로젝트 개요</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/strategy_execution.html">
+ <span class="dropdown-text">추진 전략 &amp; 수행</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">1. 데이터 &amp; 방법론</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../docs/data_architecture.html">
+ <span class="dropdown-text">1.1 데이터 구조 &amp; 아이템 체계</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/pipeline_architecture.html">
+ <span class="dropdown-text">1.2 파이프라인 아키텍처</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/algorithmic_scoring.html">
+ <span class="dropdown-text">1.3 Algorithmic Scoring</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/configuration.html">
+ <span class="dropdown-text">1.4 Configuration Playbook</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">2. 도메인 연구지형도</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
+        <li>
+    <a class="dropdown-item" href="../docs/module_domain_map.html">
+ <span class="dropdown-text">연구지형 개요 / Landscape Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/keyword_trends.html">
+ <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../docs/module_institutional.html"> 
+<span class="menu-text">3. 기관 성과 &amp; 포트폴리오</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--2" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">4. 운영 &amp; 일정</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu--2">    
+        <li>
+    <a class="dropdown-item" href="../docs/delivery_plan.html">
+ <span class="dropdown-text">4.1 수행 체계 &amp; 일정</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/operations.html">
+ <span class="dropdown-text">4.2 Operations &amp; Restart</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-diagnostics--appendix" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Diagnostics &amp; Appendix</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-diagnostics--appendix">    
+        <li>
+    <a class="dropdown-item" href="../docs/diagnostics.html">
+ <span class="dropdown-text">Diagnostics</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/appendix.html">
+ <span class="dropdown-text">Appendix</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/change_log.html">
+ <span class="dropdown-text">Change Log</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#파이프라인-아키텍처-pipeline-architecture" id="toc-파이프라인-아키텍처-pipeline-architecture" class="nav-link active" data-scroll-target="#파이프라인-아키텍처-pipeline-architecture">1.2 파이프라인 아키텍처 / Pipeline Architecture</a>
+  <ul class="collapse">
+  <li><a href="#세부-목차-section-outline" id="toc-세부-목차-section-outline" class="nav-link" data-scroll-target="#세부-목차-section-outline">세부 목차 / Section Outline</a></li>
+  <li><a href="#stage-0-vectoriser-fit-벡터라이저-학습" id="toc-stage-0-vectoriser-fit-벡터라이저-학습" class="nav-link" data-scroll-target="#stage-0-vectoriser-fit-벡터라이저-학습">Stage 0 – Vectoriser Fit / 벡터라이저 학습</a></li>
+  <li><a href="#stage-1-cluster-aggregation-클러스터-집계" id="toc-stage-1-cluster-aggregation-클러스터-집계" class="nav-link" data-scroll-target="#stage-1-cluster-aggregation-클러스터-집계">Stage 1 – Cluster Aggregation / 클러스터 집계</a></li>
+  <li><a href="#stage-2-scoring-candidate-selection-스코어링-및-후보-선택" id="toc-stage-2-scoring-candidate-selection-스코어링-및-후보-선택" class="nav-link" data-scroll-target="#stage-2-scoring-candidate-selection-스코어링-및-후보-선택">Stage 2 – Scoring &amp; Candidate Selection / 스코어링 및 후보 선택</a></li>
+  <li><a href="#stage-2.5-canonicalisation-optional-정규화선택" id="toc-stage-2.5-canonicalisation-optional-정규화선택" class="nav-link" data-scroll-target="#stage-2.5-canonicalisation-optional-정규화선택">Stage 2.5 – Canonicalisation (Optional) / 정규화(선택)</a></li>
+  <li><a href="#stage-3-year-series-연도별-집계" id="toc-stage-3-year-series-연도별-집계" class="nav-link" data-scroll-target="#stage-3-year-series-연도별-집계">Stage 3 – Year Series / 연도별 집계</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/pipeline_architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+<section id="파이프라인-아키텍처-pipeline-architecture" class="level1">
+<h1>1.2 파이프라인 아키텍처 / Pipeline Architecture</h1>
+<p>The keyword extraction pipeline contains four mandatory stages and one optional canonicalisation pass. Each stage corresponds to a method on <code>KeywordExtractionPipeline</code>.</p>
+<section id="세부-목차-section-outline" class="level2">
+<h2 class="anchored" data-anchor-id="세부-목차-section-outline">세부 목차 / Section Outline</h2>
+<ol type="1">
+<li>Stage 0 – Vectoriser Fit</li>
+<li>Stage 1 – Cluster Aggregation</li>
+<li>Stage 2 – Scoring &amp; Candidate Selection</li>
+<li>Stage 2.5 – Canonicalisation (Optional)</li>
+<li>Stage 3 – Year Series</li>
+<li>Export &amp; Diagnostics</li>
+</ol>
+</section>
+<section id="stage-0-vectoriser-fit-벡터라이저-학습" class="level2">
+<h2 class="anchored" data-anchor-id="stage-0-vectoriser-fit-벡터라이저-학습">Stage 0 – Vectoriser Fit / 벡터라이저 학습</h2>
+<ul>
+<li>Stream titles and abstracts, optionally weighting titles higher.</li>
+<li>Fit separate <code>CountVectorizer</code> instances for unigrams and phrases.</li>
+<li>Persist vectorisers with <code>joblib.dump</code> so that subsequent runs can skip refitting.</li>
+<li>Append auxiliary surface forms (e.g., WoS author keywords) to the streamed text at this point so that their counts flow through every downstream stage. / 부가 메타데이터(예: 저자 키워드)는 이 시점에 텍스트에 합쳐 Stage 1 이후까지 전파되도록 합니다.</li>
+<li>Disable the built-in stopword list by setting <code>use_default_stopwords=False</code> when deferring stopword cleansing to Stage 2.5. / 불용어 정리를 Stage 2.5 이후로 미루려면 <code>use_default_stopwords=False</code> 로 설정합니다.</li>
+<li>HTML-style tags such as <code>&lt;sup&gt;</code> are stripped during normalisation to avoid artefact tokens (<code>sup sup</code>). / 정규화 단계에서 <code>&lt;sup&gt;</code> 같은 태그를 제거하여 <code>sup sup</code> 과 같은 잡음 토큰을 방지합니다.</li>
+</ul>
+</section>
+<section id="stage-1-cluster-aggregation-클러스터-집계" class="level2">
+<h2 class="anchored" data-anchor-id="stage-1-cluster-aggregation-클러스터-집계">Stage 1 – Cluster Aggregation / 클러스터 집계</h2>
+<ul>
+<li>Transform incoming batches into sparse document-term matrices.</li>
+<li>Map document IDs to cluster indices and sum counts per cluster.</li>
+<li>Track both total term frequency and document coverage for later filtering.</li>
+</ul>
+<section id="pseudocode-en" class="level3">
+<h3 class="anchored" data-anchor-id="pseudocode-en">Pseudocode (EN)</h3>
+<pre><code>for batch in stream_documents():
+    X_uni = vec_uni.transform(batch.texts)
+    codes = map_to_cluster_indices(batch.cluster_ids)
+    C_uni += group_sum(X_uni, codes)
+    DF_uni += group_sum(X_uni &gt; 0, codes)
+    if vec_phrase:
+        X_phrase = vec_phrase.transform(batch.texts)
+        C_phrase += group_sum(X_phrase, codes)
+        DF_phrase += group_sum(X_phrase &gt; 0, codes)</code></pre>
+</section>
+<section id="단계-요약-ko" class="level3">
+<h3 class="anchored" data-anchor-id="단계-요약-ko">단계 요약 (KO)</h3>
+<pre><code>for batch in 문서 스트림:
+    X_uni = vec_uni.transform(batch.texts)
+    codes = 클러스터 인덱스 목록
+    C_uni에 group_sum(X_uni, codes) 누적
+    DF_uni에 group_sum(X_uni &gt; 0, codes) 누적
+    바이그램/트라이그램도 동일하게 처리</code></pre>
+</section>
+</section>
+<section id="stage-2-scoring-candidate-selection-스코어링-및-후보-선택" class="level2">
+<h2 class="anchored" data-anchor-id="stage-2-scoring-candidate-selection-스코어링-및-후보-선택">Stage 2 – Scoring &amp; Candidate Selection / 스코어링 및 후보 선택</h2>
+<ul>
+<li>Compute class-based TF-IDF (c‑TF‑IDF) matrices.</li>
+<li>Optionally compute Log-Likelihood Ratio (LLR) per term using cluster vs.&nbsp;remainder counts.</li>
+<li>Apply coverage thresholds, remove subphrases, and run Maximal Marginal Relevance (MMR) with Jaccard similarity to reduce redundancy.</li>
+<li>The resulting candidate list is already a filtered subset of the vectoriser vocabulary; only terms that pass coverage and redundancy checks progress to Stage 2.5. / 이 단계 결과는 벡터라이저 전체 어휘 중 필터를 통과한 용어만 남긴 부분집합입니다.</li>
+<li>Pure stopword n-grams (예: “in the”, “of the”) are discarded automatically at this step. / 순수 불용어 n-그램은 이 단계에서 자동으로 제거됩니다.</li>
+<li>Each row now tracks <code>frequency</code>, <code>doc_coverage</code>, and (post-canonicalisation) <code>source_terms</code> metadata. / 행마다 빈도, 커버리지, 그리고 정규화 이후에는 <code>source_terms</code> 메타데이터를 보존합니다.</li>
+</ul>
+</section>
+<section id="stage-2.5-canonicalisation-optional-정규화선택" class="level2">
+<h2 class="anchored" data-anchor-id="stage-2.5-canonicalisation-optional-정규화선택">Stage 2.5 – Canonicalisation (Optional) / 정규화(선택)</h2>
+<ul>
+<li>Request LLM or domain dictionary mappings to merge plural/singular, spelling variants, or multilingual terms.</li>
+<li>Supported actions: <code>keep</code>, <code>merge_into</code>, <code>translate</code>, <code>drop</code>. Canonical terms retain a <code>source_terms</code> list so downstream metrics still aggregate over every alias. / LLM 응답은 <code>keep</code>, <code>merge_into</code>, <code>translate</code>, <code>drop</code> 중 하나를 선택하며, 최종 용어는 <code>source_terms</code> 목록으로 원본 표면형을 추적합니다.</li>
+<li>Combined scores and coverage are recomputed on the merged buckets while the underlying vectorisers remain unchanged. / 정규화 이후 병합된 버킷을 기준으로 점수와 커버리지를 재계산하며 벡터라이저는 그대로 유지됩니다.</li>
+<li>Alias responses are cached under <code>alias_cache_path</code> so reruns skip repeated LLM calls while Stage 2 terms are recomputed every time. / LLM 응답만 <code>alias_cache_path</code>에 캐시되어 재실행 시 호출을 생략하고 Stage 2 용어는 매번 새로 계산됩니다.</li>
+<li>The prompt enforces <code>drop</code> for pure stopword phrases so low-information terms do not persist. / 프롬프트는 순수 불용어 구절에 대해 <code>drop</code>을 강제하여 저정보 용어가 남지 않도록 합니다.</li>
+</ul>
+</section>
+<section id="stage-3-year-series-연도별-집계" class="level2">
+<h2 class="anchored" data-anchor-id="stage-3-year-series-연도별-집계">Stage 3 – Year Series / 연도별 집계</h2>
+<ul>
+<li>Reuse the restricted vocabulary of selected keywords.</li>
+<li>Replay the document stream to collect <code>{year: frequency}</code> counters for each canonical keyword, summing across all <code>source_terms</code>. / <code>source_terms</code>에 속한 모든 별칭을 합산해 <code>{year: frequency}</code> 시계열을 계산합니다.</li>
+<li>Capture per-cluster/year unigram totals (<code>pipeline.cluster_year_token_denoms</code>) so ppm/log-lift style normalisation is available downstream. If (n_{c,y}(t)) denotes the term count and (N_{c,y}) the unigram denominator, you can compute (<em>{c,y}(t) = 10^{6} ) or other log-lift style metrics. / 클러스터·연도별 유니그램 총량을 <code>pipeline.cluster_year_token_denoms</code>에 보관하여, (n</em>{c,y}(t)) (용어 빈도)와 (N_{c,y}) (유니그램 분모)를 이용해 (_{c,y}(t) = 10^{6} ) 같은 정규화 지표를 계산할 수 있습니다.</li>
+<li>Default normalised curves (<code>ppm_series</code>, <code>loglift_series</code>, <code>bayesian_log_odds_series</code>) are attached to the canonical table for immediate plotting. / 기본 정규화 시계열(<code>ppm_series</code>, <code>loglift_series</code>, <code>bayesian_log_odds_series</code>)이 canonical 테이블에 포함됩니다.</li>
+<li>Export enriched tables that include scores, raw counts, coverage, and temporal signals.</li>
+<li>Ensure this replay happens after any canonicalisation or manual vocabulary curation so that the time series reflect the cleaned term set. / 정규화나 수동 정제가 끝난 뒤에 재생을 수행하여 정제된 용어 기준의 시계열을 얻습니다.</li>
+<li>A final cleanup step removes any residual stopword-only n-grams before export. / 최종 단계에서 순수 불용어 n-그램을 제거한 뒤 결과를 내보냅니다.</li>
+</ul>
+<hr>
+<p><strong>Checklist / 점검표</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Vectorisers persisted (<code>vec_uni</code>, <code>vec_phrase</code>).</label></li>
+<li><label><input type="checkbox">Cluster matrices stored (<code>C_*</code>, <code>DF_*</code>, <code>cluster_doc_counts</code>).</label></li>
+<li><label><input type="checkbox">Candidate tables saved (<code>top_df</code>) for restart.</label></li>
+<li><label><input type="checkbox">Year series cached (<code>term_year</code>) for downstream trend analysis.</label></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/pipeline_architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

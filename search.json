@@ -1,0 +1,555 @@
+[
+  {
+    "objectID": "docs/strategy_execution.html",
+    "href": "docs/strategy_execution.html",
+    "title": "추진 전략 & 수행 개요 / Strategy & Execution",
+    "section": "",
+    "text": "데이터셋 구축 로드맵\n글로벌 ↔︎ 표준연 매핑 전략\n모듈 간 연계 및 역할 정의\n\nThe presentation highlights a dual-track strategy: build comprehensive research landscapes and deliver actionable institutional insights. This page maps those goals to the operational pipeline.\n\n\n\n\nStrategy 1 – 데이터셋 구축: Expand the corpus with standard-specific keywords, BIPM institute lists, core journals, and citation snowballing to capture relevant literature.\nStrategy 1 – 글로벌/도메인 맵 구축: Compute similarity across the full corpus, then zoom into the standard-research subset using Leiden clustering and overlay mapping.\nStrategy 1 – 유망영역 평가: Attach bibliometric indicators (growth, influence, industrial linkage) to each cluster and triage promising areas for deeper review.\nStrategy 2 – 성과 및 네트워크 분석: Benchmark countries and institutes, reveal collaboration patterns, and contrast KRISS against peers.\nStrategy 2 – 포트폴리오 지원: Package findings into dashboards, databooks, and narrative briefs that feed executive decisions.\n\n\n\n\n\nData Engineering: Stream ingestion, metadata enrichment, sparse aggregation (Stage 0–1).\nKeyword Intelligence: Scoring, redundancy control, canonicalisation (Stage 2–2.5).\nTemporal Analytics: Year-series replay, indicator smoothing (Stage 3).\nLLM 지원: Prompt engineering for cluster narration and emerging-area memos.\n시각화/배포: Overlay maps, collaboration networks, MkDocs/PBI dashboards.\n\nRefer to Pipeline Architecture & Flow for implementation specifics and hand-offs.\n\n\n\n\nCheckpoint Review (월별): Validate cluster quality, indicator behaviour, and LLM summaries.\n분석 블록 (격주): Module 1 vs Module 2 teams share discoveries to keep emerging-area insights aligned with benchmarking outputs.\n사전 킥오프 산출물: Scope definitions, success metrics, schedule baselines, and documentation plan (this site + dashboard roadmap)."
+  },
+  {
+    "objectID": "docs/strategy_execution.html#세부-목차-section-outline",
+    "href": "docs/strategy_execution.html#세부-목차-section-outline",
+    "title": "추진 전략 & 수행 개요 / Strategy & Execution",
+    "section": "",
+    "text": "데이터셋 구축 로드맵\n글로벌 ↔︎ 표준연 매핑 전략\n모듈 간 연계 및 역할 정의\n\nThe presentation highlights a dual-track strategy: build comprehensive research landscapes and deliver actionable institutional insights. This page maps those goals to the operational pipeline."
+  },
+  {
+    "objectID": "docs/strategy_execution.html#integrated-flow-통합-연계-구조",
+    "href": "docs/strategy_execution.html#integrated-flow-통합-연계-구조",
+    "title": "추진 전략 & 수행 개요 / Strategy & Execution",
+    "section": "",
+    "text": "Strategy 1 – 데이터셋 구축: Expand the corpus with standard-specific keywords, BIPM institute lists, core journals, and citation snowballing to capture relevant literature.\nStrategy 1 – 글로벌/도메인 맵 구축: Compute similarity across the full corpus, then zoom into the standard-research subset using Leiden clustering and overlay mapping.\nStrategy 1 – 유망영역 평가: Attach bibliometric indicators (growth, influence, industrial linkage) to each cluster and triage promising areas for deeper review.\nStrategy 2 – 성과 및 네트워크 분석: Benchmark countries and institutes, reveal collaboration patterns, and contrast KRISS against peers.\nStrategy 2 – 포트폴리오 지원: Package findings into dashboards, databooks, and narrative briefs that feed executive decisions."
+  },
+  {
+    "objectID": "docs/strategy_execution.html#pipeline-responsibilities-파이프라인-역할",
+    "href": "docs/strategy_execution.html#pipeline-responsibilities-파이프라인-역할",
+    "title": "추진 전략 & 수행 개요 / Strategy & Execution",
+    "section": "",
+    "text": "Data Engineering: Stream ingestion, metadata enrichment, sparse aggregation (Stage 0–1).\nKeyword Intelligence: Scoring, redundancy control, canonicalisation (Stage 2–2.5).\nTemporal Analytics: Year-series replay, indicator smoothing (Stage 3).\nLLM 지원: Prompt engineering for cluster narration and emerging-area memos.\n시각화/배포: Overlay maps, collaboration networks, MkDocs/PBI dashboards.\n\nRefer to Pipeline Architecture & Flow for implementation specifics and hand-offs."
+  },
+  {
+    "objectID": "docs/strategy_execution.html#governance-hooks-거버넌스-포인트",
+    "href": "docs/strategy_execution.html#governance-hooks-거버넌스-포인트",
+    "title": "추진 전략 & 수행 개요 / Strategy & Execution",
+    "section": "",
+    "text": "Checkpoint Review (월별): Validate cluster quality, indicator behaviour, and LLM summaries.\n분석 블록 (격주): Module 1 vs Module 2 teams share discoveries to keep emerging-area insights aligned with benchmarking outputs.\n사전 킥오프 산출물: Scope definitions, success metrics, schedule baselines, and documentation plan (this site + dashboard roadmap)."
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html",
+    "href": "docs/pipeline_architecture.html",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "The keyword extraction pipeline contains four mandatory stages and one optional canonicalisation pass. Each stage corresponds to a method on KeywordExtractionPipeline.\n\n\n\nStage 0 – Vectoriser Fit\nStage 1 – Cluster Aggregation\nStage 2 – Scoring & Candidate Selection\nStage 2.5 – Canonicalisation (Optional)\nStage 3 – Year Series\nExport & Diagnostics\n\n\n\n\n\nStream titles and abstracts, optionally weighting titles higher.\nFit separate CountVectorizer instances for unigrams and phrases.\nPersist vectorisers with joblib.dump so that subsequent runs can skip refitting.\nAppend auxiliary surface forms (e.g., WoS author keywords) to the streamed text at this point so that their counts flow through every downstream stage. / 부가 메타데이터(예: 저자 키워드)는 이 시점에 텍스트에 합쳐 Stage 1 이후까지 전파되도록 합니다.\nDisable the built-in stopword list by setting use_default_stopwords=False when deferring stopword cleansing to Stage 2.5. / 불용어 정리를 Stage 2.5 이후로 미루려면 use_default_stopwords=False 로 설정합니다.\nHTML-style tags such as &lt;sup&gt; are stripped during normalisation to avoid artefact tokens (sup sup). / 정규화 단계에서 &lt;sup&gt; 같은 태그를 제거하여 sup sup 과 같은 잡음 토큰을 방지합니다.\n\n\n\n\n\nTransform incoming batches into sparse document-term matrices.\nMap document IDs to cluster indices and sum counts per cluster.\nTrack both total term frequency and document coverage for later filtering.\n\n\n\nfor batch in stream_documents():\n    X_uni = vec_uni.transform(batch.texts)\n    codes = map_to_cluster_indices(batch.cluster_ids)\n    C_uni += group_sum(X_uni, codes)\n    DF_uni += group_sum(X_uni &gt; 0, codes)\n    if vec_phrase:\n        X_phrase = vec_phrase.transform(batch.texts)\n        C_phrase += group_sum(X_phrase, codes)\n        DF_phrase += group_sum(X_phrase &gt; 0, codes)\n\n\n\nfor batch in 문서 스트림:\n    X_uni = vec_uni.transform(batch.texts)\n    codes = 클러스터 인덱스 목록\n    C_uni에 group_sum(X_uni, codes) 누적\n    DF_uni에 group_sum(X_uni &gt; 0, codes) 누적\n    바이그램/트라이그램도 동일하게 처리\n\n\n\n\n\nCompute class-based TF-IDF (c‑TF‑IDF) matrices.\nOptionally compute Log-Likelihood Ratio (LLR) per term using cluster vs. remainder counts.\nApply coverage thresholds, remove subphrases, and run Maximal Marginal Relevance (MMR) with Jaccard similarity to reduce redundancy.\nThe resulting candidate list is already a filtered subset of the vectoriser vocabulary; only terms that pass coverage and redundancy checks progress to Stage 2.5. / 이 단계 결과는 벡터라이저 전체 어휘 중 필터를 통과한 용어만 남긴 부분집합입니다.\nPure stopword n-grams (예: “in the”, “of the”) are discarded automatically at this step. / 순수 불용어 n-그램은 이 단계에서 자동으로 제거됩니다.\nEach row now tracks frequency, doc_coverage, and (post-canonicalisation) source_terms metadata. / 행마다 빈도, 커버리지, 그리고 정규화 이후에는 source_terms 메타데이터를 보존합니다.\n\n\n\n\n\nRequest LLM or domain dictionary mappings to merge plural/singular, spelling variants, or multilingual terms.\nSupported actions: keep, merge_into, translate, drop. Canonical terms retain a source_terms list so downstream metrics still aggregate over every alias. / LLM 응답은 keep, merge_into, translate, drop 중 하나를 선택하며, 최종 용어는 source_terms 목록으로 원본 표면형을 추적합니다.\nCombined scores and coverage are recomputed on the merged buckets while the underlying vectorisers remain unchanged. / 정규화 이후 병합된 버킷을 기준으로 점수와 커버리지를 재계산하며 벡터라이저는 그대로 유지됩니다.\nAlias responses are cached under alias_cache_path so reruns skip repeated LLM calls while Stage 2 terms are recomputed every time. / LLM 응답만 alias_cache_path에 캐시되어 재실행 시 호출을 생략하고 Stage 2 용어는 매번 새로 계산됩니다.\nThe prompt enforces drop for pure stopword phrases so low-information terms do not persist. / 프롬프트는 순수 불용어 구절에 대해 drop을 강제하여 저정보 용어가 남지 않도록 합니다.\n\n\n\n\n\nReuse the restricted vocabulary of selected keywords.\nReplay the document stream to collect {year: frequency} counters for each canonical keyword, summing across all source_terms. / source_terms에 속한 모든 별칭을 합산해 {year: frequency} 시계열을 계산합니다.\nCapture per-cluster/year unigram totals (pipeline.cluster_year_token_denoms) so ppm/log-lift style normalisation is available downstream. If (n_{c,y}(t)) denotes the term count and (N_{c,y}) the unigram denominator, you can compute ({c,y}(t) = 10^{6} ) or other log-lift style metrics. / 클러스터·연도별 유니그램 총량을 pipeline.cluster_year_token_denoms에 보관하여, (n{c,y}(t)) (용어 빈도)와 (N_{c,y}) (유니그램 분모)를 이용해 (_{c,y}(t) = 10^{6} ) 같은 정규화 지표를 계산할 수 있습니다.\nDefault normalised curves (ppm_series, loglift_series, bayesian_log_odds_series) are attached to the canonical table for immediate plotting. / 기본 정규화 시계열(ppm_series, loglift_series, bayesian_log_odds_series)이 canonical 테이블에 포함됩니다.\nExport enriched tables that include scores, raw counts, coverage, and temporal signals.\nEnsure this replay happens after any canonicalisation or manual vocabulary curation so that the time series reflect the cleaned term set. / 정규화나 수동 정제가 끝난 뒤에 재생을 수행하여 정제된 용어 기준의 시계열을 얻습니다.\nA final cleanup step removes any residual stopword-only n-grams before export. / 최종 단계에서 순수 불용어 n-그램을 제거한 뒤 결과를 내보냅니다.\n\n\nChecklist / 점검표\n\nVectorisers persisted (vec_uni, vec_phrase).\nCluster matrices stored (C_*, DF_*, cluster_doc_counts).\nCandidate tables saved (top_df) for restart.\nYear series cached (term_year) for downstream trend analysis."
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html#세부-목차-section-outline",
+    "href": "docs/pipeline_architecture.html#세부-목차-section-outline",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "Stage 0 – Vectoriser Fit\nStage 1 – Cluster Aggregation\nStage 2 – Scoring & Candidate Selection\nStage 2.5 – Canonicalisation (Optional)\nStage 3 – Year Series\nExport & Diagnostics"
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html#stage-0-vectoriser-fit-벡터라이저-학습",
+    "href": "docs/pipeline_architecture.html#stage-0-vectoriser-fit-벡터라이저-학습",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "Stream titles and abstracts, optionally weighting titles higher.\nFit separate CountVectorizer instances for unigrams and phrases.\nPersist vectorisers with joblib.dump so that subsequent runs can skip refitting.\nAppend auxiliary surface forms (e.g., WoS author keywords) to the streamed text at this point so that their counts flow through every downstream stage. / 부가 메타데이터(예: 저자 키워드)는 이 시점에 텍스트에 합쳐 Stage 1 이후까지 전파되도록 합니다.\nDisable the built-in stopword list by setting use_default_stopwords=False when deferring stopword cleansing to Stage 2.5. / 불용어 정리를 Stage 2.5 이후로 미루려면 use_default_stopwords=False 로 설정합니다.\nHTML-style tags such as &lt;sup&gt; are stripped during normalisation to avoid artefact tokens (sup sup). / 정규화 단계에서 &lt;sup&gt; 같은 태그를 제거하여 sup sup 과 같은 잡음 토큰을 방지합니다."
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html#stage-1-cluster-aggregation-클러스터-집계",
+    "href": "docs/pipeline_architecture.html#stage-1-cluster-aggregation-클러스터-집계",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "Transform incoming batches into sparse document-term matrices.\nMap document IDs to cluster indices and sum counts per cluster.\nTrack both total term frequency and document coverage for later filtering.\n\n\n\nfor batch in stream_documents():\n    X_uni = vec_uni.transform(batch.texts)\n    codes = map_to_cluster_indices(batch.cluster_ids)\n    C_uni += group_sum(X_uni, codes)\n    DF_uni += group_sum(X_uni &gt; 0, codes)\n    if vec_phrase:\n        X_phrase = vec_phrase.transform(batch.texts)\n        C_phrase += group_sum(X_phrase, codes)\n        DF_phrase += group_sum(X_phrase &gt; 0, codes)\n\n\n\nfor batch in 문서 스트림:\n    X_uni = vec_uni.transform(batch.texts)\n    codes = 클러스터 인덱스 목록\n    C_uni에 group_sum(X_uni, codes) 누적\n    DF_uni에 group_sum(X_uni &gt; 0, codes) 누적\n    바이그램/트라이그램도 동일하게 처리"
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html#stage-2-scoring-candidate-selection-스코어링-및-후보-선택",
+    "href": "docs/pipeline_architecture.html#stage-2-scoring-candidate-selection-스코어링-및-후보-선택",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "Compute class-based TF-IDF (c‑TF‑IDF) matrices.\nOptionally compute Log-Likelihood Ratio (LLR) per term using cluster vs. remainder counts.\nApply coverage thresholds, remove subphrases, and run Maximal Marginal Relevance (MMR) with Jaccard similarity to reduce redundancy.\nThe resulting candidate list is already a filtered subset of the vectoriser vocabulary; only terms that pass coverage and redundancy checks progress to Stage 2.5. / 이 단계 결과는 벡터라이저 전체 어휘 중 필터를 통과한 용어만 남긴 부분집합입니다.\nPure stopword n-grams (예: “in the”, “of the”) are discarded automatically at this step. / 순수 불용어 n-그램은 이 단계에서 자동으로 제거됩니다.\nEach row now tracks frequency, doc_coverage, and (post-canonicalisation) source_terms metadata. / 행마다 빈도, 커버리지, 그리고 정규화 이후에는 source_terms 메타데이터를 보존합니다."
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html#stage-2.5-canonicalisation-optional-정규화선택",
+    "href": "docs/pipeline_architecture.html#stage-2.5-canonicalisation-optional-정규화선택",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "Request LLM or domain dictionary mappings to merge plural/singular, spelling variants, or multilingual terms.\nSupported actions: keep, merge_into, translate, drop. Canonical terms retain a source_terms list so downstream metrics still aggregate over every alias. / LLM 응답은 keep, merge_into, translate, drop 중 하나를 선택하며, 최종 용어는 source_terms 목록으로 원본 표면형을 추적합니다.\nCombined scores and coverage are recomputed on the merged buckets while the underlying vectorisers remain unchanged. / 정규화 이후 병합된 버킷을 기준으로 점수와 커버리지를 재계산하며 벡터라이저는 그대로 유지됩니다.\nAlias responses are cached under alias_cache_path so reruns skip repeated LLM calls while Stage 2 terms are recomputed every time. / LLM 응답만 alias_cache_path에 캐시되어 재실행 시 호출을 생략하고 Stage 2 용어는 매번 새로 계산됩니다.\nThe prompt enforces drop for pure stopword phrases so low-information terms do not persist. / 프롬프트는 순수 불용어 구절에 대해 drop을 강제하여 저정보 용어가 남지 않도록 합니다."
+  },
+  {
+    "objectID": "docs/pipeline_architecture.html#stage-3-year-series-연도별-집계",
+    "href": "docs/pipeline_architecture.html#stage-3-year-series-연도별-집계",
+    "title": "1.2 파이프라인 아키텍처 / Pipeline Architecture",
+    "section": "",
+    "text": "Reuse the restricted vocabulary of selected keywords.\nReplay the document stream to collect {year: frequency} counters for each canonical keyword, summing across all source_terms. / source_terms에 속한 모든 별칭을 합산해 {year: frequency} 시계열을 계산합니다.\nCapture per-cluster/year unigram totals (pipeline.cluster_year_token_denoms) so ppm/log-lift style normalisation is available downstream. If (n_{c,y}(t)) denotes the term count and (N_{c,y}) the unigram denominator, you can compute ({c,y}(t) = 10^{6} ) or other log-lift style metrics. / 클러스터·연도별 유니그램 총량을 pipeline.cluster_year_token_denoms에 보관하여, (n{c,y}(t)) (용어 빈도)와 (N_{c,y}) (유니그램 분모)를 이용해 (_{c,y}(t) = 10^{6} ) 같은 정규화 지표를 계산할 수 있습니다.\nDefault normalised curves (ppm_series, loglift_series, bayesian_log_odds_series) are attached to the canonical table for immediate plotting. / 기본 정규화 시계열(ppm_series, loglift_series, bayesian_log_odds_series)이 canonical 테이블에 포함됩니다.\nExport enriched tables that include scores, raw counts, coverage, and temporal signals.\nEnsure this replay happens after any canonicalisation or manual vocabulary curation so that the time series reflect the cleaned term set. / 정규화나 수동 정제가 끝난 뒤에 재생을 수행하여 정제된 용어 기준의 시계열을 얻습니다.\nA final cleanup step removes any residual stopword-only n-grams before export. / 최종 단계에서 순수 불용어 n-그램을 제거한 뒤 결과를 내보냅니다.\n\n\nChecklist / 점검표\n\nVectorisers persisted (vec_uni, vec_phrase).\nCluster matrices stored (C_*, DF_*, cluster_doc_counts).\nCandidate tables saved (top_df) for restart.\nYear series cached (term_year) for downstream trend analysis."
+  },
+  {
+    "objectID": "docs/module_institutional.html",
+    "href": "docs/module_institutional.html",
+    "title": "3.1 기관 성과·프로파일 / Institutional Performance & Portfolio",
+    "section": "",
+    "text": "Module 2 benchmarks KRISS against international peers and informs portfolio decisions.\n\n\n\n국가·기관 성과수준 분석\n연구기관 프로파일 및 협력 네트워크\n포트폴리오 구성 프레임워크\n운영 메모\n\n\n\n\n\n지표 세트: Growth, novelty, excellence percentiles, industrial linkage, collaboration spread.\n다중 스케일 분석: Compute metrics at global, domain, and micro-area levels to reveal nuanced strengths.\n장기 추이 추적: Track percentile distributions over time to measure momentum rather than single snapshots.\n결합 분석: Blend excellence (상대 우위) with share of output in top quantiles (절대 규모).\n\n\n\n\n\n협력 네트워크: Derive co-authorship graphs to visualise partnership intensity and broker roles.\nOverlay Maps: Project institutional footprints onto the standard-research base map to spot unique niches and white spaces.\n전략 인사이트: Identify KRISS capability gaps vs. leading institutes and flag collaboration candidates.\n\n\n\n\n\n프레임워크 개발: Tailor a decision matrix capturing capability, competitiveness, and future potential.\n데이터북 & 대시보드: Curate explanations, indicators, and interactive visuals into a databook and dashboard channel (https://road2you.github.io/kist_4pn_databook/ as reference).\n시나리오 분석: Use module outputs to propose investment scenarios, including exiting weak areas or doubling down on emerging strengths.\n\n\n\n\n\nRecord every benchmarking configuration (filters, percentile thresholds) for reproducibility.\nAlign module cadence with Module 1 so portfolio insights incorporate the latest emerging-area view.\nFeed results into executive briefings and yearly strategic reviews."
+  },
+  {
+    "objectID": "docs/module_institutional.html#세부-목차-section-outline",
+    "href": "docs/module_institutional.html#세부-목차-section-outline",
+    "title": "3.1 기관 성과·프로파일 / Institutional Performance & Portfolio",
+    "section": "",
+    "text": "국가·기관 성과수준 분석\n연구기관 프로파일 및 협력 네트워크\n포트폴리오 구성 프레임워크\n운영 메모"
+  },
+  {
+    "objectID": "docs/module_institutional.html#주요-국가기관-성과수준-분석-benchmarking",
+    "href": "docs/module_institutional.html#주요-국가기관-성과수준-분석-benchmarking",
+    "title": "3.1 기관 성과·프로파일 / Institutional Performance & Portfolio",
+    "section": "",
+    "text": "지표 세트: Growth, novelty, excellence percentiles, industrial linkage, collaboration spread.\n다중 스케일 분석: Compute metrics at global, domain, and micro-area levels to reveal nuanced strengths.\n장기 추이 추적: Track percentile distributions over time to measure momentum rather than single snapshots.\n결합 분석: Blend excellence (상대 우위) with share of output in top quantiles (절대 규모)."
+  },
+  {
+    "objectID": "docs/module_institutional.html#연구기관-프로파일-협력-네트워크-institutional-profiling",
+    "href": "docs/module_institutional.html#연구기관-프로파일-협력-네트워크-institutional-profiling",
+    "title": "3.1 기관 성과·프로파일 / Institutional Performance & Portfolio",
+    "section": "",
+    "text": "협력 네트워크: Derive co-authorship graphs to visualise partnership intensity and broker roles.\nOverlay Maps: Project institutional footprints onto the standard-research base map to spot unique niches and white spaces.\n전략 인사이트: Identify KRISS capability gaps vs. leading institutes and flag collaboration candidates."
+  },
+  {
+    "objectID": "docs/module_institutional.html#포트폴리오-구성-portfolio-design",
+    "href": "docs/module_institutional.html#포트폴리오-구성-portfolio-design",
+    "title": "3.1 기관 성과·프로파일 / Institutional Performance & Portfolio",
+    "section": "",
+    "text": "프레임워크 개발: Tailor a decision matrix capturing capability, competitiveness, and future potential.\n데이터북 & 대시보드: Curate explanations, indicators, and interactive visuals into a databook and dashboard channel (https://road2you.github.io/kist_4pn_databook/ as reference).\n시나리오 분석: Use module outputs to propose investment scenarios, including exiting weak areas or doubling down on emerging strengths."
+  },
+  {
+    "objectID": "docs/module_institutional.html#운영-메모-operational-notes",
+    "href": "docs/module_institutional.html#운영-메모-operational-notes",
+    "title": "3.1 기관 성과·프로파일 / Institutional Performance & Portfolio",
+    "section": "",
+    "text": "Record every benchmarking configuration (filters, percentile thresholds) for reproducibility.\nAlign module cadence with Module 1 so portfolio insights incorporate the latest emerging-area view.\nFeed results into executive briefings and yearly strategic reviews."
+  },
+  {
+    "objectID": "docs/keyword_trends.html",
+    "href": "docs/keyword_trends.html",
+    "title": "Keyword Trend Explorer / 키워드 추세 탐색기",
+    "section": "",
+    "text": "Keyword Trend Explorer / 키워드 추세 탐색기\nInteractively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the latest _top5 time series export.\n\n\n\n\n\n\nTip\n\n\n\n키워드 지표는 하나의 클러스터 안에서 점수(score), 문헌 비중(ppm_series_val), 출현 빈도(frequency) 중에서 선택할 수 있습니다. 범례를 클릭하면 개별 키워드를 강조하거나 숨길 수 있습니다.\n\n\n\n\n\n\n&lt;div&gt;\n  &lt;label for=\"cluster-select\"&gt;Cluster / 클러스터&lt;/label&gt;\n  &lt;select id=\"cluster-select\" aria-label=\"Select cluster\"&gt;&lt;/select&gt;\n&lt;/div&gt;\n&lt;div&gt;\n  &lt;label for=\"metric-select\"&gt;Metric / 지표&lt;/label&gt;\n  &lt;select id=\"metric-select\" aria-label=\"Select metric\"&gt;\n    &lt;option value=\"score\"&gt;TF-IDF Score (score)&lt;/option&gt;\n    &lt;option value=\"ppm_series_val\"&gt;Document Share (ppm_series_val)&lt;/option&gt;\n    &lt;option value=\"frequency\"&gt;Frequency (frequency)&lt;/option&gt;\n  &lt;/select&gt;\n&lt;/div&gt;"
+  },
+  {
+    "objectID": "docs/delivery_plan.html",
+    "href": "docs/delivery_plan.html",
+    "title": "4.1 수행 체계 및 일정 / Delivery Plan & Timeline",
+    "section": "",
+    "text": "The kickoff deck closes with governance and schedule expectations. This page captures those elements and links them to operational practices.\n\n\n\n수행 체계\n일정 개요\n리스크 & 대응\n산출물 체계\n\n\n\n\n\n주관 기관: KRISS with KISTI analytics support for HPC, bibliometrics, and dashboard engineering.\n핵심 역할:\n\nProject Lead: Aligns scope, milestones, risk mitigation.\nData Engineering Squad: Corpus curation, ingestion, pipeline maintenance.\nAnalysis Squad – Module 1: Landscape, emerging area evaluation, LLM summarisation.\nAnalysis Squad – Module 2: Benchmarking, network analysis, portfolio modelling.\nExperience Team: Dashboard/databook design, stakeholder enablement.\n\n협업 채널: Weekly stand-ups, bi-weekly module syncs, monthly steering committee.\n\n\n\n\n\n\n\n\n\n\n\n\n기간\n마일스톤\n주요 활동\n\n\n\n\n월 1\nKickoff & data acquisition\nFinalise scope, ingest WOS XML, confirm keyword lists\n\n\n월 2\nLandscape baseline\nComplete clustering, initial indicators, share early maps\n\n\n월 3\nEmerging area review\nRun coverage diagnostics, release LLM summaries, align with KRISS priorities\n\n\n월 4\nBenchmarking sprint\nProduce percentile dashboards, collaboration networks\n\n\n월 5\nPortfolio synthesis\nDraft scenarios, databook mock-ups, iterate with stakeholders\n\n\n월 6\nFinal delivery\nFreeze analyses, publish MkDocs site, deploy dashboard/databook\n\n\n\n(Update actual dates once project plan is confirmed.)\n\n\n\n\n데이터 품질: Maintain anomaly logs; rerun vectoriser fit if new sources added.\nLLM 의존도: Provide human-in-the-loop validation and fallbacks to raw metrics.\n일정 지연: Use mid-sprint demos to catch scope creep early.\n\n\n\n\n\nMkDocs site (this repository) as the canonical methodology & governance reference.\nInteractive dashboards + databook for ongoing exploration.\nExecutive summary deck aligned with emerging area and portfolio findings."
+  },
+  {
+    "objectID": "docs/delivery_plan.html#세부-목차-section-outline",
+    "href": "docs/delivery_plan.html#세부-목차-section-outline",
+    "title": "4.1 수행 체계 및 일정 / Delivery Plan & Timeline",
+    "section": "",
+    "text": "수행 체계\n일정 개요\n리스크 & 대응\n산출물 체계"
+  },
+  {
+    "objectID": "docs/delivery_plan.html#수행-체계-delivery-structure",
+    "href": "docs/delivery_plan.html#수행-체계-delivery-structure",
+    "title": "4.1 수행 체계 및 일정 / Delivery Plan & Timeline",
+    "section": "",
+    "text": "주관 기관: KRISS with KISTI analytics support for HPC, bibliometrics, and dashboard engineering.\n핵심 역할:\n\nProject Lead: Aligns scope, milestones, risk mitigation.\nData Engineering Squad: Corpus curation, ingestion, pipeline maintenance.\nAnalysis Squad – Module 1: Landscape, emerging area evaluation, LLM summarisation.\nAnalysis Squad – Module 2: Benchmarking, network analysis, portfolio modelling.\nExperience Team: Dashboard/databook design, stakeholder enablement.\n\n협업 채널: Weekly stand-ups, bi-weekly module syncs, monthly steering committee."
+  },
+  {
+    "objectID": "docs/delivery_plan.html#일정-개요-timeline-highlights",
+    "href": "docs/delivery_plan.html#일정-개요-timeline-highlights",
+    "title": "4.1 수행 체계 및 일정 / Delivery Plan & Timeline",
+    "section": "",
+    "text": "기간\n마일스톤\n주요 활동\n\n\n\n\n월 1\nKickoff & data acquisition\nFinalise scope, ingest WOS XML, confirm keyword lists\n\n\n월 2\nLandscape baseline\nComplete clustering, initial indicators, share early maps\n\n\n월 3\nEmerging area review\nRun coverage diagnostics, release LLM summaries, align with KRISS priorities\n\n\n월 4\nBenchmarking sprint\nProduce percentile dashboards, collaboration networks\n\n\n월 5\nPortfolio synthesis\nDraft scenarios, databook mock-ups, iterate with stakeholders\n\n\n월 6\nFinal delivery\nFreeze analyses, publish MkDocs site, deploy dashboard/databook\n\n\n\n(Update actual dates once project plan is confirmed.)"
+  },
+  {
+    "objectID": "docs/delivery_plan.html#리스크-대응-risk-management",
+    "href": "docs/delivery_plan.html#리스크-대응-risk-management",
+    "title": "4.1 수행 체계 및 일정 / Delivery Plan & Timeline",
+    "section": "",
+    "text": "데이터 품질: Maintain anomaly logs; rerun vectoriser fit if new sources added.\nLLM 의존도: Provide human-in-the-loop validation and fallbacks to raw metrics.\n일정 지연: Use mid-sprint demos to catch scope creep early."
+  },
+  {
+    "objectID": "docs/delivery_plan.html#산출물-체계-deliverable-packaging",
+    "href": "docs/delivery_plan.html#산출물-체계-deliverable-packaging",
+    "title": "4.1 수행 체계 및 일정 / Delivery Plan & Timeline",
+    "section": "",
+    "text": "MkDocs site (this repository) as the canonical methodology & governance reference.\nInteractive dashboards + databook for ongoing exploration.\nExecutive summary deck aligned with emerging area and portfolio findings."
+  },
+  {
+    "objectID": "docs/configuration.html",
+    "href": "docs/configuration.html",
+    "title": "1.4 Configuration Playbook / 구성 가이드",
+    "section": "",
+    "text": "Fine-tuning the pipeline involves balancing coverage, discriminative power, and redundancy. Start with the baseline configuration and adjust only when diagnostics reveal an issue.\n\n\n\nCore Parameters\nTuning Workflow\nEnvironment Considerations\nChange Log Template\n\n\n\n\n\n\n\n\n\n\n\n\n\nParameter\nTypical Range\nEffect (EN)\n설명 (KO)\n\n\n\n\nmin_df_unigram\n3–10\nRemove rare noisy tokens\n너무 드문 토큰 제거\n\n\nmax_df_unigram\n0.95–0.99\nDrop ubiquitous stopwords\n지나치게 자주 등장하는 일반어 제거\n\n\nuse_default_stopwords\nTrue / False\nToggle built-in English stopwords\n기본 영문 불용어 사용 여부\n\n\nphrase_min_count_per_cluster\n5–20\nRequire meaningful phrases\n최소 등장 횟수 제한\n\n\nmin_cluster_doc_coverage\n5–20\nEnsure multi-document support\n여러 문서에 걸쳐 등장해야 유지\n\n\nmin_cluster_doc_coverage_ratio\n0.5–2%\nScale coverage to cluster size\n클러스터 규모 대비 조건\n\n\nmmr_jaccard_lambda\n0.2–0.4\nHigher value → less redundancy\n값이 클수록 중복 억제 강화\n\n\nw_llr\n0–0.5\nEmphasise discriminativeness\n클러스터 간 차별성 강조\n\n\napply_alias_map\nTrue / False\nToggle Stage 2.5 canonicalisation\nStage 2.5 정규화 사용 여부\n\n\nalias_strategy\n\"none\" / \"llm\"\nSelect canonicalisation backend\n정규화 백엔드 선택\n\n\nalias_model\nmodel id\nLLM model to invoke\n호출할 LLM 모델\n\n\nalias_max_terms_per_prompt\n20–50\nBatch size per request\n요청당 처리할 용어 수\n\n\nalias_stopword_strictness\ndrop_if_empty / allow\nStopword handling after merge\n병합 후 불용어 처리 방식\n\n\nalias_cache_enabled\nTrue / False\nCache LLM responses/canonical outputs\nLLM 응답 및 canonical 결과 캐시\n\n\nalias_cache_path\npath / None\nCache directory (None → timestamped folder)\n캐시 저장 경로 (None이면 자동 생성)\n\n\nalias_cache_key_fields\ntuple[str]\nFields hashed to identify cache chunks\n캐시 키를 구성하는 필드 목록\n\n\nverbose\nTrue / False\nEmit stage progress logs\n단계별 로그 출력\n\n\n\n\n\n\n\nRun the pipeline with baseline settings and inspect coverage histograms.\nIf many keywords fail coverage, relax min_cluster_doc_coverage_ratio.\nIf redundancy persists, increase mmr_jaccard_lambda or tighten phrase_min_count_per_cluster.\nWhen LLR scores are near zero, raise coverage thresholds or increase unigram min_df.\nDocument any changes in config/keyword_pipeline.yaml (if present) to maintain reproducibility.\n\n\n\n\n\nUse streaming I/O for large corpora to avoid loading all documents into memory.\nPersist intermediate artefacts on shared storage so interrupted jobs can resume.\nPrefer deterministic tokenisation (fixed token_pattern, ngram_range) across experiments.\n\n\n\n\nDate: YYYY-MM-DD\nDataset: e.g., KRISS_2024_F\nBaseline Config: configs/base_keyword.yaml\nChanges:\n  - min_cluster_doc_coverage = 8 → 12\n  - w_llr = 0.3 → 0.4\nRationale:\n  Coverage histogram skewed low; redundant phrases in top 20 list.\nOutcome:\n  Coverage mean +12%, redundancy ratio -0.08, analyst feedback positive."
+  },
+  {
+    "objectID": "docs/configuration.html#세부-목차-section-outline",
+    "href": "docs/configuration.html#세부-목차-section-outline",
+    "title": "1.4 Configuration Playbook / 구성 가이드",
+    "section": "",
+    "text": "Core Parameters\nTuning Workflow\nEnvironment Considerations\nChange Log Template"
+  },
+  {
+    "objectID": "docs/configuration.html#core-parameters-핵심-파라미터",
+    "href": "docs/configuration.html#core-parameters-핵심-파라미터",
+    "title": "1.4 Configuration Playbook / 구성 가이드",
+    "section": "",
+    "text": "Parameter\nTypical Range\nEffect (EN)\n설명 (KO)\n\n\n\n\nmin_df_unigram\n3–10\nRemove rare noisy tokens\n너무 드문 토큰 제거\n\n\nmax_df_unigram\n0.95–0.99\nDrop ubiquitous stopwords\n지나치게 자주 등장하는 일반어 제거\n\n\nuse_default_stopwords\nTrue / False\nToggle built-in English stopwords\n기본 영문 불용어 사용 여부\n\n\nphrase_min_count_per_cluster\n5–20\nRequire meaningful phrases\n최소 등장 횟수 제한\n\n\nmin_cluster_doc_coverage\n5–20\nEnsure multi-document support\n여러 문서에 걸쳐 등장해야 유지\n\n\nmin_cluster_doc_coverage_ratio\n0.5–2%\nScale coverage to cluster size\n클러스터 규모 대비 조건\n\n\nmmr_jaccard_lambda\n0.2–0.4\nHigher value → less redundancy\n값이 클수록 중복 억제 강화\n\n\nw_llr\n0–0.5\nEmphasise discriminativeness\n클러스터 간 차별성 강조\n\n\napply_alias_map\nTrue / False\nToggle Stage 2.5 canonicalisation\nStage 2.5 정규화 사용 여부\n\n\nalias_strategy\n\"none\" / \"llm\"\nSelect canonicalisation backend\n정규화 백엔드 선택\n\n\nalias_model\nmodel id\nLLM model to invoke\n호출할 LLM 모델\n\n\nalias_max_terms_per_prompt\n20–50\nBatch size per request\n요청당 처리할 용어 수\n\n\nalias_stopword_strictness\ndrop_if_empty / allow\nStopword handling after merge\n병합 후 불용어 처리 방식\n\n\nalias_cache_enabled\nTrue / False\nCache LLM responses/canonical outputs\nLLM 응답 및 canonical 결과 캐시\n\n\nalias_cache_path\npath / None\nCache directory (None → timestamped folder)\n캐시 저장 경로 (None이면 자동 생성)\n\n\nalias_cache_key_fields\ntuple[str]\nFields hashed to identify cache chunks\n캐시 키를 구성하는 필드 목록\n\n\nverbose\nTrue / False\nEmit stage progress logs\n단계별 로그 출력"
+  },
+  {
+    "objectID": "docs/configuration.html#tuning-workflow-튜닝-절차",
+    "href": "docs/configuration.html#tuning-workflow-튜닝-절차",
+    "title": "1.4 Configuration Playbook / 구성 가이드",
+    "section": "",
+    "text": "Run the pipeline with baseline settings and inspect coverage histograms.\nIf many keywords fail coverage, relax min_cluster_doc_coverage_ratio.\nIf redundancy persists, increase mmr_jaccard_lambda or tighten phrase_min_count_per_cluster.\nWhen LLR scores are near zero, raise coverage thresholds or increase unigram min_df.\nDocument any changes in config/keyword_pipeline.yaml (if present) to maintain reproducibility."
+  },
+  {
+    "objectID": "docs/configuration.html#environment-considerations-실행-환경",
+    "href": "docs/configuration.html#environment-considerations-실행-환경",
+    "title": "1.4 Configuration Playbook / 구성 가이드",
+    "section": "",
+    "text": "Use streaming I/O for large corpora to avoid loading all documents into memory.\nPersist intermediate artefacts on shared storage so interrupted jobs can resume.\nPrefer deterministic tokenisation (fixed token_pattern, ngram_range) across experiments."
+  },
+  {
+    "objectID": "docs/configuration.html#change-log-template-변경-기록-템플릿",
+    "href": "docs/configuration.html#change-log-template-변경-기록-템플릿",
+    "title": "1.4 Configuration Playbook / 구성 가이드",
+    "section": "",
+    "text": "Date: YYYY-MM-DD\nDataset: e.g., KRISS_2024_F\nBaseline Config: configs/base_keyword.yaml\nChanges:\n  - min_cluster_doc_coverage = 8 → 12\n  - w_llr = 0.3 → 0.4\nRationale:\n  Coverage histogram skewed low; redundant phrases in top 20 list.\nOutcome:\n  Coverage mean +12%, redundancy ratio -0.08, analyst feedback positive."
+  },
+  {
+    "objectID": "docs/appendix.html",
+    "href": "docs/appendix.html",
+    "title": "Appendix / 부록",
+    "section": "",
+    "text": "def run_keyword_pipeline(cfg):\n    pipe = KeywordExtractionPipeline(cfg)\n    pipe._fit_vectorizers()\n    pipe._aggregate_counts()\n    top_df = pipe._stage_scores_and_topk()\n    if cfg.apply_alias_map:\n        top_df = canonicalise(top_df, pipe)\n    term_year = pipe._compute_year_series(top_df)\n    return attach_year_series(top_df, term_year)\n\n\n\n\nc‑TF‑IDF: Class-based TF-IDF weighting scheme that treats each cluster as a pseudo-document.\nLLR: Log-Likelihood Ratio, measures discriminative power of a term for a cluster.\nMMR: Maximal Marginal Relevance, balances relevance and diversity in ranked lists.\nCoverage: Number of documents within a cluster that mention a term at least once.\n\n\n\n\n\nAngelov, D. (2020). Top2Vec. c‑TF‑IDF inspiration.\nRayson, P., & Garside, R. (2000). Comparing corpora using frequency profiling. LLR usage.\nCarbonell, J., & Goldstein, J. (1998). The use of MMR for summarisation and retrieval.\n\n\n\n\n\nmkdocs.yml validated and navigation tested.\nDocs spellchecked; bilingual headers reviewed.\nDiagnostics notebook updated with the latest run.\nFinal artefacts mirrored to long-term storage."
+  },
+  {
+    "objectID": "docs/appendix.html#complete-pipeline-pseudocode-en",
+    "href": "docs/appendix.html#complete-pipeline-pseudocode-en",
+    "title": "Appendix / 부록",
+    "section": "",
+    "text": "def run_keyword_pipeline(cfg):\n    pipe = KeywordExtractionPipeline(cfg)\n    pipe._fit_vectorizers()\n    pipe._aggregate_counts()\n    top_df = pipe._stage_scores_and_topk()\n    if cfg.apply_alias_map:\n        top_df = canonicalise(top_df, pipe)\n    term_year = pipe._compute_year_series(top_df)\n    return attach_year_series(top_df, term_year)"
+  },
+  {
+    "objectID": "docs/appendix.html#glossary-용어-사전",
+    "href": "docs/appendix.html#glossary-용어-사전",
+    "title": "Appendix / 부록",
+    "section": "",
+    "text": "c‑TF‑IDF: Class-based TF-IDF weighting scheme that treats each cluster as a pseudo-document.\nLLR: Log-Likelihood Ratio, measures discriminative power of a term for a cluster.\nMMR: Maximal Marginal Relevance, balances relevance and diversity in ranked lists.\nCoverage: Number of documents within a cluster that mention a term at least once."
+  },
+  {
+    "objectID": "docs/appendix.html#references-참고-문헌",
+    "href": "docs/appendix.html#references-참고-문헌",
+    "title": "Appendix / 부록",
+    "section": "",
+    "text": "Angelov, D. (2020). Top2Vec. c‑TF‑IDF inspiration.\nRayson, P., & Garside, R. (2000). Comparing corpora using frequency profiling. LLR usage.\nCarbonell, J., & Goldstein, J. (1998). The use of MMR for summarisation and retrieval."
+  },
+  {
+    "objectID": "docs/appendix.html#release-checklist-배포-체크리스트",
+    "href": "docs/appendix.html#release-checklist-배포-체크리스트",
+    "title": "Appendix / 부록",
+    "section": "",
+    "text": "mkdocs.yml validated and navigation tested.\nDocs spellchecked; bilingual headers reviewed.\nDiagnostics notebook updated with the latest run.\nFinal artefacts mirrored to long-term storage."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "KRISS Keyword Extraction Final Report / 최종 보고서",
+    "section": "",
+    "text": "Welcome to the Quarto site for the KRISS keyword extraction pipeline. This report distils the hands-on lessons from the clustering and c‑TF‑IDF workflow into an operational handbook.\n\n\n\nDeliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR reinforcement.\nPersist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs resilient to interruptions.\nProvide bilingual documentation so new collaborators can get productive quickly.\n\n\n\n\n\nReview the 문서 안내 / Document Guide section (index, research_overview, strategy_execution) to grasp project intent and stakeholder alignment.\nWalk through 1. 데이터 & 방법론 for corpus architecture, pipeline stages, scoring, and configuration defaults.\nExplore 2. 도메인 연구지형도 and 3. 기관 성과 & 포트폴리오 to inspect macro/meso findings and benchmarking insights.\nVisit 4. 운영 & 일정 when preparing production runs, governance updates, or resourcing plans.\nKeep Diagnostics & Appendix handy for quality checks, pseudocode, and reference materials.\n\n\n\n\n\nInstall the Quarto CLI from https://quarto.org/docs/get-started/.\nFrom the repository root run:\n\ncd final_report_site\nquarto preview\nQuarto serves the site at http://127.0.0.1:4200/ (default). Edit any .qmd file to trigger live reloads.\n\n즐거운 분석 되세요! Happy analysing!"
+  },
+  {
+    "objectID": "index.html#executive-summary-요약",
+    "href": "index.html#executive-summary-요약",
+    "title": "KRISS Keyword Extraction Final Report / 최종 보고서",
+    "section": "",
+    "text": "Deliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR reinforcement.\nPersist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs resilient to interruptions.\nProvide bilingual documentation so new collaborators can get productive quickly."
+  },
+  {
+    "objectID": "index.html#how-to-use-this-site-활용-방법",
+    "href": "index.html#how-to-use-this-site-활용-방법",
+    "title": "KRISS Keyword Extraction Final Report / 최종 보고서",
+    "section": "",
+    "text": "Review the 문서 안내 / Document Guide section (index, research_overview, strategy_execution) to grasp project intent and stakeholder alignment.\nWalk through 1. 데이터 & 방법론 for corpus architecture, pipeline stages, scoring, and configuration defaults.\nExplore 2. 도메인 연구지형도 and 3. 기관 성과 & 포트폴리오 to inspect macro/meso findings and benchmarking insights.\nVisit 4. 운영 & 일정 when preparing production runs, governance updates, or resourcing plans.\nKeep Diagnostics & Appendix handy for quality checks, pseudocode, and reference materials."
+  },
+  {
+    "objectID": "index.html#getting-started-locally-로컬-사용-안내",
+    "href": "index.html#getting-started-locally-로컬-사용-안내",
+    "title": "KRISS Keyword Extraction Final Report / 최종 보고서",
+    "section": "",
+    "text": "Install the Quarto CLI from https://quarto.org/docs/get-started/.\nFrom the repository root run:\n\ncd final_report_site\nquarto preview\nQuarto serves the site at http://127.0.0.1:4200/ (default). Edit any .qmd file to trigger live reloads.\n\n즐거운 분석 되세요! Happy analysing!"
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html",
+    "href": "docs/algorithmic_scoring.html",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "This section details the notation, equations, and statistical checks that power the keyword ranking pipeline.\n\n\n\nNotation\nc‑TF‑IDF\nLog-Likelihood Ratio\nScore Combination\nPractical Notes\n\n\n\n\n\n( D = {d_1, , d_N} ): document set (title + abstract).\n( C = {c_1, , c_K} ): cluster labels (e.g. cluster_micro).\n( X ^{N V} ): document-term matrix from CountVectorizer.\n( f_{c,j} = {d c} X{d,j} ): frequency of term (j) in cluster (c).\n( n_c = |{d : d c}| ): number of documents in cluster (c).\n( df_{c,j} = |{d c : X_{d,j} &gt; 0}| ): document coverage within cluster.\n( df_j = |{c : f_{c,j} &gt; 0}| ): number of clusters containing term (j).\n( = _c n_c ) (practically ( = N )).\n\n\n\n\n[ tf_{c,j} = , idf_j = + 1, score^{ctfidf}{c,j} = tf{c,j} idf_j ]\n\n\n\nCompare cluster (c) against the remainder of the corpus using the contingency table:\n\n\n\n\n\n\n\n\n\nterm (j) present\nterm (j) absent\n\n\n\n\nin c\n(k_{11} = df_{c,j})\n(k_{12} = n_c - df_{c,j})\n\n\noutside\n(k_{21} = df_j - df_{c,j})\n(k_{22} = - n_c - k_{21})\n\n\n\n[ = 2_{i=1}^{4} k_i , e_i = ]\n\n\n\n[ score_{c,j} = w_{ctfidf} z!(score^{ctfidf}{c,j}) + w{llr} z!(_{c,j}) ]\n\n(w_{ctfidf}), (w_{llr}) are configurable weights.\n(z()) denotes the within-cluster z-score (mean 0, std 1).\nIf LLR is disabled, set (w_{llr}=0).\n\n\n\n\n\nNormalise scores within cluster to keep scales comparable.\nApply coverage thresholds before combining scores to avoid inflating rare, noisy terms.\nUse sparse matrix operations (csr_matrix) to preserve memory efficiency on million-document corpora.\nAfter scoring, sort descending and pass the ordered list to phrase suppression and MMR heuristics."
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html#세부-목차-section-outline",
+    "href": "docs/algorithmic_scoring.html#세부-목차-section-outline",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "Notation\nc‑TF‑IDF\nLog-Likelihood Ratio\nScore Combination\nPractical Notes"
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html#notation-표기",
+    "href": "docs/algorithmic_scoring.html#notation-표기",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "( D = {d_1, , d_N} ): document set (title + abstract).\n( C = {c_1, , c_K} ): cluster labels (e.g. cluster_micro).\n( X ^{N V} ): document-term matrix from CountVectorizer.\n( f_{c,j} = {d c} X{d,j} ): frequency of term (j) in cluster (c).\n( n_c = |{d : d c}| ): number of documents in cluster (c).\n( df_{c,j} = |{d c : X_{d,j} &gt; 0}| ): document coverage within cluster.\n( df_j = |{c : f_{c,j} &gt; 0}| ): number of clusters containing term (j).\n( = _c n_c ) (practically ( = N ))."
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html#ctfidf",
+    "href": "docs/algorithmic_scoring.html#ctfidf",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "[ tf_{c,j} = , idf_j = + 1, score^{ctfidf}{c,j} = tf{c,j} idf_j ]"
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html#log-likelihood-ratio-optional-로그우도비-선택",
+    "href": "docs/algorithmic_scoring.html#log-likelihood-ratio-optional-로그우도비-선택",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "Compare cluster (c) against the remainder of the corpus using the contingency table:\n\n\n\n\n\n\n\n\n\nterm (j) present\nterm (j) absent\n\n\n\n\nin c\n(k_{11} = df_{c,j})\n(k_{12} = n_c - df_{c,j})\n\n\noutside\n(k_{21} = df_j - df_{c,j})\n(k_{22} = - n_c - k_{21})\n\n\n\n[ = 2_{i=1}^{4} k_i , e_i = ]"
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html#score-combination-최종-점수-결합",
+    "href": "docs/algorithmic_scoring.html#score-combination-최종-점수-결합",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "[ score_{c,j} = w_{ctfidf} z!(score^{ctfidf}{c,j}) + w{llr} z!(_{c,j}) ]\n\n(w_{ctfidf}), (w_{llr}) are configurable weights.\n(z()) denotes the within-cluster z-score (mean 0, std 1).\nIf LLR is disabled, set (w_{llr}=0)."
+  },
+  {
+    "objectID": "docs/algorithmic_scoring.html#practical-notes-실무-팁",
+    "href": "docs/algorithmic_scoring.html#practical-notes-실무-팁",
+    "title": "1.3 Algorithmic Scoring / 알고리즘 스코어링",
+    "section": "",
+    "text": "Normalise scores within cluster to keep scales comparable.\nApply coverage thresholds before combining scores to avoid inflating rare, noisy terms.\nUse sparse matrix operations (csr_matrix) to preserve memory efficiency on million-document corpora.\nAfter scoring, sort descending and pass the ordered list to phrase suppression and MMR heuristics."
+  },
+  {
+    "objectID": "docs/change_log.html",
+    "href": "docs/change_log.html",
+    "title": "Change Log",
+    "section": "",
+    "text": "Canonical drop enforcement — Updated leiden_module/keyword_extraction.py:1898 and leiden_module/keyword_extraction.py:2016 so Stage 2.5 retains a canonical (cluster_id, term) whitelist when rescoring. This guarantees drop actions in manual/LLM alias instructions stay removed after the c‑TF‑IDF matrix is rebuilt.\nSnapshot workflow docs — Expanded leiden_module/README.md and docs/keyword_extraction.md:338/docs/keyword_extraction.md:362 with instructions for Stage 2 snapshots, alias strategies, and the new drop-handling behaviour.\nLocal reproducibility setup — Provisioned a project .venv (pandas, pyarrow, polars, scikit-learn, scipy, joblib) and documented the requirement to keep vec_uni.joblib alongside Stage 2 artefacts so year_denominators populate correctly when resuming from snapshots.\nSite maintenance — Added this change log to final_report_site for ongoing tracking of operational updates.\n\nFuture contributors should append new entries (newest first) with clear references to impacted files/sections."
+  },
+  {
+    "objectID": "docs/change_log.html#section",
+    "href": "docs/change_log.html#section",
+    "title": "Change Log",
+    "section": "",
+    "text": "Canonical drop enforcement — Updated leiden_module/keyword_extraction.py:1898 and leiden_module/keyword_extraction.py:2016 so Stage 2.5 retains a canonical (cluster_id, term) whitelist when rescoring. This guarantees drop actions in manual/LLM alias instructions stay removed after the c‑TF‑IDF matrix is rebuilt.\nSnapshot workflow docs — Expanded leiden_module/README.md and docs/keyword_extraction.md:338/docs/keyword_extraction.md:362 with instructions for Stage 2 snapshots, alias strategies, and the new drop-handling behaviour.\nLocal reproducibility setup — Provisioned a project .venv (pandas, pyarrow, polars, scikit-learn, scipy, joblib) and documented the requirement to keep vec_uni.joblib alongside Stage 2 artefacts so year_denominators populate correctly when resuming from snapshots.\nSite maintenance — Added this change log to final_report_site for ongoing tracking of operational updates.\n\nFuture contributors should append new entries (newest first) with clear references to impacted files/sections."
+  },
+  {
+    "objectID": "docs/data_architecture.html",
+    "href": "docs/data_architecture.html",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "This section mirrors the previous 4PN databook structure so analysts can quickly navigate between projects while reusing the same mental model.\n\n\n\n데이터 소스 구성\n아이템(클러스터) 유형화\n글로벌 ↔︎ 표준연 매핑\n분류 연계표 & 리포트 템플릿\n\n\n\n\n\nWeb of Science XML: Core bibliographic feed with titles, abstracts, affiliations, subject categories, and citation links.\n표준연 키워드 팩: Curated scientific terms, BIPM 기관명, 핵심 저널 리스트로 표준연구 관련 문헌을 우선 필터링.\n인용 확장: Seed 문헌에서 전방/후방 인용을 따라가 정보 손실을 최소화.\n메타데이터 정제: 기관·국가·분야 코드 표준화, 다언어 표기 통합, 산업 연계 태그 추가.\n\n\n\n\n\nMacro 레벨: 글로벌 연구지형도에서 표준연구와 시너지를 이루는 대영역(예: 계측, 소재, 에너지).\nMeso 레벨: 각 Macro 내부의 하위 세부영역. Leiden 클러스터링 결과에 LLM 보조 설명을 붙여 실무자가 바로 이해할 수 있게 구성.\nMicro 레벨: KeywordExtractionPipeline 이 산출한 대표 키워드와 연관 기관/산업 태그. 연도별 시계열과 결합해 성숙도 라벨을 부여.\n\n\n\n\n\nBase Map: 전체 과학지형도 위에 표준연구 영역을 강조하여 맥락 보존.\nOverlay 기법: 주요 국가/기관별 성과 지표를 레이어로 올려 겹쳐보기. KRISS와 벤치마킹 대상의 위치 차이를 시각적으로 전달.\nLLM 내레이션: Macro·Meso 별 핵심 이슈, 대표 논문, 활용 분야를 요약해 슬라이드나 데이터북에 바로 반영 가능.\n\n\n\n\n\n클러스터 ID 연계표: Macro → Meso → Micro → 대표 키워드/기관명으로 이어지는 하나의 테이블을 유지하여 탐색형 UI와 정적 보고서 모두에서 재활용.\n자동 리포트 뼈대: Notebook/LLM 템플릿을 통해 각 세부영역의 ① 핵심 키워드, ② 주요 기관/국가, ③ 성장 지표, ④ 산업 적용 예시를 자동 채움.\n전이 가능성: 기존 4PN 데이터북과 동일한 섹션 번호를 채택해 신규 모듈도 빠르게 온보딩.\n\n\n\n\n\n추진 전략 & 수행: 데이터 파이프라인과 모듈 조직을 연결한 추진 전략.\n1.2 파이프라인 아키텍처: 수집·벡터라이저·집계·스코어링 파이프라인 세부 단계.\n2.1 Macro & Emerging Areas: Macro/Meso 수준의 분석 결과와 해석 가이드."
+  },
+  {
+    "objectID": "docs/data_architecture.html#세부-목차-section-outline",
+    "href": "docs/data_architecture.html#세부-목차-section-outline",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "데이터 소스 구성\n아이템(클러스터) 유형화\n글로벌 ↔︎ 표준연 매핑\n분류 연계표 & 리포트 템플릿"
+  },
+  {
+    "objectID": "docs/data_architecture.html#데이터-소스-구성-corpus-assembly",
+    "href": "docs/data_architecture.html#데이터-소스-구성-corpus-assembly",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "Web of Science XML: Core bibliographic feed with titles, abstracts, affiliations, subject categories, and citation links.\n표준연 키워드 팩: Curated scientific terms, BIPM 기관명, 핵심 저널 리스트로 표준연구 관련 문헌을 우선 필터링.\n인용 확장: Seed 문헌에서 전방/후방 인용을 따라가 정보 손실을 최소화.\n메타데이터 정제: 기관·국가·분야 코드 표준화, 다언어 표기 통합, 산업 연계 태그 추가."
+  },
+  {
+    "objectID": "docs/data_architecture.html#아이템클러스터-유형화-cluster-typing",
+    "href": "docs/data_architecture.html#아이템클러스터-유형화-cluster-typing",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "Macro 레벨: 글로벌 연구지형도에서 표준연구와 시너지를 이루는 대영역(예: 계측, 소재, 에너지).\nMeso 레벨: 각 Macro 내부의 하위 세부영역. Leiden 클러스터링 결과에 LLM 보조 설명을 붙여 실무자가 바로 이해할 수 있게 구성.\nMicro 레벨: KeywordExtractionPipeline 이 산출한 대표 키워드와 연관 기관/산업 태그. 연도별 시계열과 결합해 성숙도 라벨을 부여."
+  },
+  {
+    "objectID": "docs/data_architecture.html#글로벌-표준연-매핑-overlay-mapping",
+    "href": "docs/data_architecture.html#글로벌-표준연-매핑-overlay-mapping",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "Base Map: 전체 과학지형도 위에 표준연구 영역을 강조하여 맥락 보존.\nOverlay 기법: 주요 국가/기관별 성과 지표를 레이어로 올려 겹쳐보기. KRISS와 벤치마킹 대상의 위치 차이를 시각적으로 전달.\nLLM 내레이션: Macro·Meso 별 핵심 이슈, 대표 논문, 활용 분야를 요약해 슬라이드나 데이터북에 바로 반영 가능."
+  },
+  {
+    "objectID": "docs/data_architecture.html#분류-연계표-리포트-템플릿-crosswalk-reporting",
+    "href": "docs/data_architecture.html#분류-연계표-리포트-템플릿-crosswalk-reporting",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "클러스터 ID 연계표: Macro → Meso → Micro → 대표 키워드/기관명으로 이어지는 하나의 테이블을 유지하여 탐색형 UI와 정적 보고서 모두에서 재활용.\n자동 리포트 뼈대: Notebook/LLM 템플릿을 통해 각 세부영역의 ① 핵심 키워드, ② 주요 기관/국가, ③ 성장 지표, ④ 산업 적용 예시를 자동 채움.\n전이 가능성: 기존 4PN 데이터북과 동일한 섹션 번호를 채택해 신규 모듈도 빠르게 온보딩."
+  },
+  {
+    "objectID": "docs/data_architecture.html#연결-페이지",
+    "href": "docs/data_architecture.html#연결-페이지",
+    "title": "1.1 데이터 구조 & 아이템 체계 / Data Architecture & Item Taxonomy",
+    "section": "",
+    "text": "추진 전략 & 수행: 데이터 파이프라인과 모듈 조직을 연결한 추진 전략.\n1.2 파이프라인 아키텍처: 수집·벡터라이저·집계·스코어링 파이프라인 세부 단계.\n2.1 Macro & Emerging Areas: Macro/Meso 수준의 분석 결과와 해석 가이드."
+  },
+  {
+    "objectID": "docs/diagnostics.html",
+    "href": "docs/diagnostics.html",
+    "title": "Diagnostics & Quality Checks / 진단과 품질 점검",
+    "section": "",
+    "text": "Diagnostics ensure that generated keywords remain interpretable, discriminative, and useful for downstream analysis.\n\n\n\n\n\n\n\n\n\n\nCheck\nPurpose\n방법\n\n\n\n\nCoverage histogram\nEnsure keywords touch enough documents\nfinal_df['doc_cov'] 분포 확인\n\n\nLLR distribution\nDetect overly generic terms\nz-score 합계 분석\n\n\nYear series sparsity\nIdentify seasonal or noisy terms\nterm_year 요약\n\n\nRedundancy ratio\nMonitor MMR effectiveness\nTop-N 결과에서 유사도 평가\n\n\n\n\n\n\n\nPlot coverage histogram; if fat-tailed, adjust min_cluster_doc_coverage.\nReview LLR z-scores; near-zero or negative values suggest raising coverage thresholds.\nInspect year-series sparsity to flag seasonal signals for domain experts.\nCalculate redundancy ratio (unique terms ÷ total terms). Target ≥ 0.85 for top-20 lists.\nCapture findings in a diagnostics notebook (notebooks/kriss_clustering_demo.ipynb) or dedicated report cell.\n\n\n\n\n\nSchedule nightly quality checks that load the latest top_df and emit dashboards as PNG/HTML.\nIntegrate with monitoring tools (e.g., MLflow, Weights & Biases) for historical trend tracking.\nFail CI jobs when redundancy ratio or coverage median falls below agreed thresholds.\n\n\n\n\n\nCoverage median above threshold (≥ min_cluster_doc_coverage).\nLLR z-score mean positive for priority clusters.\nRedundancy ratio within acceptable range.\nYear-series anomalies annotated for presentation decks."
+  },
+  {
+    "objectID": "docs/diagnostics.html#key-dashboards-핵심-대시보드",
+    "href": "docs/diagnostics.html#key-dashboards-핵심-대시보드",
+    "title": "Diagnostics & Quality Checks / 진단과 품질 점검",
+    "section": "",
+    "text": "Check\nPurpose\n방법\n\n\n\n\nCoverage histogram\nEnsure keywords touch enough documents\nfinal_df['doc_cov'] 분포 확인\n\n\nLLR distribution\nDetect overly generic terms\nz-score 합계 분석\n\n\nYear series sparsity\nIdentify seasonal or noisy terms\nterm_year 요약\n\n\nRedundancy ratio\nMonitor MMR effectiveness\nTop-N 결과에서 유사도 평가"
+  },
+  {
+    "objectID": "docs/diagnostics.html#analysis-workflow-분석-절차",
+    "href": "docs/diagnostics.html#analysis-workflow-분석-절차",
+    "title": "Diagnostics & Quality Checks / 진단과 품질 점검",
+    "section": "",
+    "text": "Plot coverage histogram; if fat-tailed, adjust min_cluster_doc_coverage.\nReview LLR z-scores; near-zero or negative values suggest raising coverage thresholds.\nInspect year-series sparsity to flag seasonal signals for domain experts.\nCalculate redundancy ratio (unique terms ÷ total terms). Target ≥ 0.85 for top-20 lists.\nCapture findings in a diagnostics notebook (notebooks/kriss_clustering_demo.ipynb) or dedicated report cell."
+  },
+  {
+    "objectID": "docs/diagnostics.html#automation-tips-자동화-팁",
+    "href": "docs/diagnostics.html#automation-tips-자동화-팁",
+    "title": "Diagnostics & Quality Checks / 진단과 품질 점검",
+    "section": "",
+    "text": "Schedule nightly quality checks that load the latest top_df and emit dashboards as PNG/HTML.\nIntegrate with monitoring tools (e.g., MLflow, Weights & Biases) for historical trend tracking.\nFail CI jobs when redundancy ratio or coverage median falls below agreed thresholds."
+  },
+  {
+    "objectID": "docs/diagnostics.html#analyst-checklist-분석자용-체크리스트",
+    "href": "docs/diagnostics.html#analyst-checklist-분석자용-체크리스트",
+    "title": "Diagnostics & Quality Checks / 진단과 품질 점검",
+    "section": "",
+    "text": "Coverage median above threshold (≥ min_cluster_doc_coverage).\nLLR z-score mean positive for priority clusters.\nRedundancy ratio within acceptable range.\nYear-series anomalies annotated for presentation decks."
+  },
+  {
+    "objectID": "docs/module_domain_map.html",
+    "href": "docs/module_domain_map.html",
+    "title": "2.1 Macro & Emerging Areas / 표준연구 지형도",
+    "section": "",
+    "text": "Module 1 focuses on constructing a research landscape for standard science and extracting emerging domains worth strategic investment.\n\n\n\n연구지형도 구축 (Macro 레벨)\n유망연구영역 도출 (Meso/Micro 연결)\nAnalyst 체크포인트\n\n\n\n\n\nCorpus Expansion: Incorporate curated keywords, flagship journals, and citation links to avoid blind spots.\n클러스터링: Apply Leiden algorithm on citation graphs to derive coherent research areas.\nGlobal ↔︎ Domain Views: Build a global overlay map first, then filter to standard-research clusters to preserve context.\nLLM 보조 설명: Generate bilingual descriptions for each cluster to support analyst briefings.\n\n\n\n\n\n지표 묶음: Growth, diffusion (파급성), influence, industrial linkage, novelty.\nScoring Mechanics: Combine c‑TF‑IDF/LLR keyword signals with bibliometric metrics to prioritise.\nLLM 리포팅: Produce quick memos summarising why each area matters, including exemplar keywords, institutions, and potential applications.\nSynthesis Artifacts:\n\nRanked tables by indicator weights.\nHeatmaps comparing emerging vs. mature domains.\nNarrative briefing decks for leadership reviews.\n\n\n\n\n\n\nValidate cluster coherence before trusting indicator outputs.\nCompare emerging-area lists with KRISS strategic themes; mark overlaps and gaps.\nArchive LLM prompts/responses to ensure auditability and reproducibility.\n\n\n\n\n\nSee 1.3 Algorithmic Scoring for the detailed breakdown of c‑TF‑IDF, LLR, and z-score normalisation.\nSee 1.4 Configuration Playbook for thresholds and parameters that govern candidate selection.\nSee Diagnostics for coverage, redundancy, and trend checks to confirm quality."
+  },
+  {
+    "objectID": "docs/module_domain_map.html#세부-목차-section-outline",
+    "href": "docs/module_domain_map.html#세부-목차-section-outline",
+    "title": "2.1 Macro & Emerging Areas / 표준연구 지형도",
+    "section": "",
+    "text": "연구지형도 구축 (Macro 레벨)\n유망연구영역 도출 (Meso/Micro 연결)\nAnalyst 체크포인트"
+  },
+  {
+    "objectID": "docs/module_domain_map.html#연구지형도-구축-landscape-construction",
+    "href": "docs/module_domain_map.html#연구지형도-구축-landscape-construction",
+    "title": "2.1 Macro & Emerging Areas / 표준연구 지형도",
+    "section": "",
+    "text": "Corpus Expansion: Incorporate curated keywords, flagship journals, and citation links to avoid blind spots.\n클러스터링: Apply Leiden algorithm on citation graphs to derive coherent research areas.\nGlobal ↔︎ Domain Views: Build a global overlay map first, then filter to standard-research clusters to preserve context.\nLLM 보조 설명: Generate bilingual descriptions for each cluster to support analyst briefings."
+  },
+  {
+    "objectID": "docs/module_domain_map.html#유망연구영역-도출-emerging-area-detection",
+    "href": "docs/module_domain_map.html#유망연구영역-도출-emerging-area-detection",
+    "title": "2.1 Macro & Emerging Areas / 표준연구 지형도",
+    "section": "",
+    "text": "지표 묶음: Growth, diffusion (파급성), influence, industrial linkage, novelty.\nScoring Mechanics: Combine c‑TF‑IDF/LLR keyword signals with bibliometric metrics to prioritise.\nLLM 리포팅: Produce quick memos summarising why each area matters, including exemplar keywords, institutions, and potential applications.\nSynthesis Artifacts:\n\nRanked tables by indicator weights.\nHeatmaps comparing emerging vs. mature domains.\nNarrative briefing decks for leadership reviews."
+  },
+  {
+    "objectID": "docs/module_domain_map.html#analyst-actions-분석자-체크포인트",
+    "href": "docs/module_domain_map.html#analyst-actions-분석자-체크포인트",
+    "title": "2.1 Macro & Emerging Areas / 표준연구 지형도",
+    "section": "",
+    "text": "Validate cluster coherence before trusting indicator outputs.\nCompare emerging-area lists with KRISS strategic themes; mark overlaps and gaps.\nArchive LLM prompts/responses to ensure auditability and reproducibility."
+  },
+  {
+    "objectID": "docs/module_domain_map.html#연결-자료-related-pages",
+    "href": "docs/module_domain_map.html#연결-자료-related-pages",
+    "title": "2.1 Macro & Emerging Areas / 표준연구 지형도",
+    "section": "",
+    "text": "See 1.3 Algorithmic Scoring for the detailed breakdown of c‑TF‑IDF, LLR, and z-score normalisation.\nSee 1.4 Configuration Playbook for thresholds and parameters that govern candidate selection.\nSee Diagnostics for coverage, redundancy, and trend checks to confirm quality."
+  },
+  {
+    "objectID": "docs/operations.html",
+    "href": "docs/operations.html",
+    "title": "4.2 Operations & Restart Strategy / 운영 및 재시작 전략",
+    "section": "",
+    "text": "Long-running jobs benefit from planned checkpoints. This section details what to persist and how to recover quickly.\n\n\n\nRecommended Savepoints\nRestart Recipe\nCanonicalisation Checklist\nOperations Log Template\n\n\n\n\n\nAfter Stage 0 – Persist vec_uni, vec_phrase using joblib.dump.\nAfter Stage 1 – Save C_uni, C_phrase, DF_*, cluster_doc_counts via scipy.sparse.save_npz and numpy.save.\nAfter Stage 2 – Export top_df as Parquet for downstream canonicalisation or year-series runs.\nAfter Stage 3 – Store the term_year dictionary (JSON or pickle) for trend dashboards.\n\n\n\n\n\nReload persisted artefacts into a new KeywordExtractionPipeline instance.\nSet internal attributes (pipe.vec_uni = joblib.load(...), etc.).\nJump to the next unfinished stage and continue execution.\nUpdate run logs to note the restored state and remaining tasks.\n\n\n\n\n\nCollect per-cluster metadata: term, score, frequency, coverage, and example contexts.\nPrompt LLMs deterministically (temperature=0) for {original, canonical, action} triples.\nValidate responses; ignore malformed rows and fall back to original tokens.\nMerge counts/coverage per canonical term and recompute Stage 2/3 outputs.\nAnnotate final tables with source_terms and correction_notes for auditability.\n\n\n\n\nRun ID: 2024-08-15-A\nStage Completed: Stage 1 aggregation\nSavepoint Artifacts:\n  - vec_uni.joblib, vec_phrase.joblib\n  - C_uni.npz, DF_uni.npz, cluster_doc_counts.npy\nNext Action:\n  Resume at Stage 2 scoring with config = configs/prod.yaml\nIssues:\n  Minor memory spike mitigated by batch size 5k.\n\nKeep operational artefacts in versioned buckets or git-annex to ensure that analysts can reproduce results months later. / 결과 재현성을 위해 버전 관리된 스토리지에 중간 산출물을 보관하세요."
+  },
+  {
+    "objectID": "docs/operations.html#세부-목차-section-outline",
+    "href": "docs/operations.html#세부-목차-section-outline",
+    "title": "4.2 Operations & Restart Strategy / 운영 및 재시작 전략",
+    "section": "",
+    "text": "Recommended Savepoints\nRestart Recipe\nCanonicalisation Checklist\nOperations Log Template"
+  },
+  {
+    "objectID": "docs/operations.html#recommended-savepoints-권장-저장-지점",
+    "href": "docs/operations.html#recommended-savepoints-권장-저장-지점",
+    "title": "4.2 Operations & Restart Strategy / 운영 및 재시작 전략",
+    "section": "",
+    "text": "After Stage 0 – Persist vec_uni, vec_phrase using joblib.dump.\nAfter Stage 1 – Save C_uni, C_phrase, DF_*, cluster_doc_counts via scipy.sparse.save_npz and numpy.save.\nAfter Stage 2 – Export top_df as Parquet for downstream canonicalisation or year-series runs.\nAfter Stage 3 – Store the term_year dictionary (JSON or pickle) for trend dashboards."
+  },
+  {
+    "objectID": "docs/operations.html#restart-recipe-재시작-절차",
+    "href": "docs/operations.html#restart-recipe-재시작-절차",
+    "title": "4.2 Operations & Restart Strategy / 운영 및 재시작 전략",
+    "section": "",
+    "text": "Reload persisted artefacts into a new KeywordExtractionPipeline instance.\nSet internal attributes (pipe.vec_uni = joblib.load(...), etc.).\nJump to the next unfinished stage and continue execution.\nUpdate run logs to note the restored state and remaining tasks."
+  },
+  {
+    "objectID": "docs/operations.html#canonicalisation-checklist-정규화-점검표",
+    "href": "docs/operations.html#canonicalisation-checklist-정규화-점검표",
+    "title": "4.2 Operations & Restart Strategy / 운영 및 재시작 전략",
+    "section": "",
+    "text": "Collect per-cluster metadata: term, score, frequency, coverage, and example contexts.\nPrompt LLMs deterministically (temperature=0) for {original, canonical, action} triples.\nValidate responses; ignore malformed rows and fall back to original tokens.\nMerge counts/coverage per canonical term and recompute Stage 2/3 outputs.\nAnnotate final tables with source_terms and correction_notes for auditability."
+  },
+  {
+    "objectID": "docs/operations.html#operations-log-template-운영-로그-템플릿",
+    "href": "docs/operations.html#operations-log-template-운영-로그-템플릿",
+    "title": "4.2 Operations & Restart Strategy / 운영 및 재시작 전략",
+    "section": "",
+    "text": "Run ID: 2024-08-15-A\nStage Completed: Stage 1 aggregation\nSavepoint Artifacts:\n  - vec_uni.joblib, vec_phrase.joblib\n  - C_uni.npz, DF_uni.npz, cluster_doc_counts.npy\nNext Action:\n  Resume at Stage 2 scoring with config = configs/prod.yaml\nIssues:\n  Minor memory spike mitigated by batch size 5k.\n\nKeep operational artefacts in versioned buckets or git-annex to ensure that analysts can reproduce results months later. / 결과 재현성을 위해 버전 관리된 스토리지에 중간 산출물을 보관하세요."
+  },
+  {
+    "objectID": "docs/research_overview.html",
+    "href": "docs/research_overview.html",
+    "title": "프로젝트 개요 / Research Overview",
+    "section": "",
+    "text": "This section distils the kickoff deck into a concise summary of project intent, scope, and expected deliverables.\n\n\n\nMission Statement\nWorkstreams\nData & Toolchain\nExpected Deliverables\n\n\n\n\n\n미래 전략 지원: Leverage global publication data to surface emerging standard-science research areas and guide long-term planning for KRISS.\n기관 성과 벤치마크: Compare KRISS against peer national metrology institutes (NIST, PTB, NPL, NIM, NMIJ) through consistent bibliometric indicators.\n데이터 기반 의사결정: Produce reproducible metrics (growth, impact, industrial relevance) that anchor portfolio scenarios and investment choices.\n\n\n\n\n\n\n\n\n\n\n\n\n\n모듈\n영어 설명\n한국어 설명\n주요 산출물\n\n\n\n\n1-1\nGlobal & domain-level landscape mapping\n글로벌·표준 연구지형도 구축\n영역별 클러스터, 과학계량지표\n\n\n1-2\nEmerging area detection\n미래 유망연구영역 도출\n성장성·파급성 지표, LLM 리포트\n\n\n2-1\nCountry & institution benchmarking\n국가·기관별 성과 수준 분석\n엑셀런스 지표, 분위수 기반 평가\n\n\n2-2\nInstitutional profiling & networks\n연구기관 프로파일 및 협력 네트워크\nOverlay map, 협력 네트워크\n\n\n2-3\nPortfolio design & monitoring\nKRISS 포트폴리오 구상\n데이터북, 대시보드, 전략 시나리오\n\n\n\n\n\n\n\n데이터 소스: Web of Science XML (institution, country, category metadata) with keyword, journal, citation expansion for coverage.\n핵심 기법: Leiden clustering, c‑TF‑IDF + LLR scoring, overlay mapping, percentile-based impact metrics, LLM-assisted summarisation.\n인프라: HPC batch processing, sparse matrix aggregation, MkDocs-based documentation, interactive dashboards for dissemination.\n\n\n\n\n\nAnalysis-ready corpus with curated standard-research vocabulary.\nCluster-level indicator tables for landscape and emerging area assessment.\nBenchmarking reports for priority institutions and countries.\nPortfolio dashboards + databook covering research strengths, gaps, and trajectories.\nThis final report site capturing methodology, governance, and decision guides."
+  },
+  {
+    "objectID": "docs/research_overview.html#세부-목차-section-outline",
+    "href": "docs/research_overview.html#세부-목차-section-outline",
+    "title": "프로젝트 개요 / Research Overview",
+    "section": "",
+    "text": "Mission Statement\nWorkstreams\nData & Toolchain\nExpected Deliverables"
+  },
+  {
+    "objectID": "docs/research_overview.html#mission-statement-추진-목적",
+    "href": "docs/research_overview.html#mission-statement-추진-목적",
+    "title": "프로젝트 개요 / Research Overview",
+    "section": "",
+    "text": "미래 전략 지원: Leverage global publication data to surface emerging standard-science research areas and guide long-term planning for KRISS.\n기관 성과 벤치마크: Compare KRISS against peer national metrology institutes (NIST, PTB, NPL, NIM, NMIJ) through consistent bibliometric indicators.\n데이터 기반 의사결정: Produce reproducible metrics (growth, impact, industrial relevance) that anchor portfolio scenarios and investment choices."
+  },
+  {
+    "objectID": "docs/research_overview.html#workstreams-세부-모듈",
+    "href": "docs/research_overview.html#workstreams-세부-모듈",
+    "title": "프로젝트 개요 / Research Overview",
+    "section": "",
+    "text": "모듈\n영어 설명\n한국어 설명\n주요 산출물\n\n\n\n\n1-1\nGlobal & domain-level landscape mapping\n글로벌·표준 연구지형도 구축\n영역별 클러스터, 과학계량지표\n\n\n1-2\nEmerging area detection\n미래 유망연구영역 도출\n성장성·파급성 지표, LLM 리포트\n\n\n2-1\nCountry & institution benchmarking\n국가·기관별 성과 수준 분석\n엑셀런스 지표, 분위수 기반 평가\n\n\n2-2\nInstitutional profiling & networks\n연구기관 프로파일 및 협력 네트워크\nOverlay map, 협력 네트워크\n\n\n2-3\nPortfolio design & monitoring\nKRISS 포트폴리오 구상\n데이터북, 대시보드, 전략 시나리오"
+  },
+  {
+    "objectID": "docs/research_overview.html#data-toolchain-데이터-및-도구",
+    "href": "docs/research_overview.html#data-toolchain-데이터-및-도구",
+    "title": "프로젝트 개요 / Research Overview",
+    "section": "",
+    "text": "데이터 소스: Web of Science XML (institution, country, category metadata) with keyword, journal, citation expansion for coverage.\n핵심 기법: Leiden clustering, c‑TF‑IDF + LLR scoring, overlay mapping, percentile-based impact metrics, LLM-assisted summarisation.\n인프라: HPC batch processing, sparse matrix aggregation, MkDocs-based documentation, interactive dashboards for dissemination."
+  },
+  {
+    "objectID": "docs/research_overview.html#expected-deliverables-산출물-요약",
+    "href": "docs/research_overview.html#expected-deliverables-산출물-요약",
+    "title": "프로젝트 개요 / Research Overview",
+    "section": "",
+    "text": "Analysis-ready corpus with curated standard-research vocabulary.\nCluster-level indicator tables for landscape and emerging area assessment.\nBenchmarking reports for priority institutions and countries.\nPortfolio dashboards + databook covering research strengths, gaps, and trajectories.\nThis final report site capturing methodology, governance, and decision guides."
+  }
+]
