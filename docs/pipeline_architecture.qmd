@@ -9,8 +9,11 @@ Each stage corresponds to a method on `KeywordExtractionPipeline`.
 2. Stage 1 – Cluster Aggregation
 3. Stage 2 – Scoring & Candidate Selection
 4. Stage 2.5 – Canonicalisation (Optional)
-5. Stage 3 – Year Series
-6. Export & Diagnostics
+5. Stage 2.6 – Global Stopword Pruning
+6. Stage 2.7 – Secondary LLM Canonicalisation
+7. Stage 2.8 – Priority Integration & Snapshots
+8. Stage 3 – Year Series
+9. Export & Diagnostics
 
 ## Stage 0 – Vectoriser Fit / 벡터라이저 학습
 
@@ -73,6 +76,25 @@ for batch in 문서 스트림:
 - The prompt enforces `drop` for pure stopword phrases so low-information terms do not persist. / 프롬프트는
   순수 불용어 구절에 대해 `drop`을 강제하여 저정보 용어가 남지 않도록 합니다.
 
+## Stage 2.6 – Global Stopword Pruning / 전역 불용어 제거
+
+- Cross-check canonical terms against global document coverage (from `Output/keywords_set.csv`) and
+  drop any residual high-frequency stopwords that survived Stage 2.5. / Stage 2.5 이후에도 남은 전역 불용어는 `Output/keywords_set.csv`의 문서 커버리지 지표를 이용해 제거합니다.
+- Persist the drop manifest to `artifacts/canonicalise/main-drop/mapping/` so QA reviewers can audit
+  which aliases were filtered out. / 제거 내역은 `artifacts/canonicalise/main-drop/mapping/`에 저장하여 QA 검토가 가능하도록 합니다.
+
+## Stage 2.7 – Secondary LLM Canonicalisation / 2차 LLM 정규화
+
+- Run a focused GPT-5 pass (`artifacts/canonicalise/main-gpt/mapping/`) on the surviving vocabulary to
+  merge edge-case variants without disturbing previously approved terms. / 잔여 변이만을 대상으로 GPT-5 정규화를 실행해 기존 승인 용어는 유지합니다.
+- Reuse the same alias action schema, ensuring traceability across both canonicalisation rounds. / 동일한 alias 스키마를 사용하여 두 차수의 정규화 결과를 추적할 수 있도록 합니다.
+
+## Stage 2.8 – Priority Integration & Snapshots / 우선순위 통합 및 스냅샷
+
+- Consolidate tables in the order `main → main-drop → main-gpt`, producing the canonical export at
+  `artifacts/second_canonical.csv`. / `main → main-drop → main-gpt` 순서로 통합하여 `artifacts/second_canonical.csv`에 저장합니다.
+- Emit `Output/canonical.csv` as the analyst-ready deck delivered before manual cleansing begins. / 수동 정제 전에 분석자에게 제공하는 최종 키워드 세트는 `Output/canonical.csv`에 저장됩니다.
+
 ## Stage 3 – Year Series / 연도별 집계
 
 - Reuse the restricted vocabulary of selected keywords.
@@ -94,4 +116,7 @@ for batch in 문서 스트림:
 - [ ] Vectorisers persisted (`vec_uni`, `vec_phrase`).
 - [ ] Cluster matrices stored (`C_*`, `DF_*`, `cluster_doc_counts`).
 - [ ] Candidate tables saved (`top_df`) for restart.
+- [ ] Global stopword drop manifest archived (`artifacts/canonicalise/main-drop/mapping/`).
+- [ ] GPT-5 canonical mappings stored (`artifacts/canonicalise/main-gpt/mapping/`).
+- [ ] Consolidated canonical exports written (`artifacts/second_canonical.csv`, `Output/canonical.csv`).
 - [ ] Year series cached (`term_year`) for downstream trend analysis.

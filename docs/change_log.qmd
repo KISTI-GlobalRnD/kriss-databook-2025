@@ -3,6 +3,11 @@ title: "Change Log"
 description: "Running log of code and documentation updates applied to the KRISS keyword pipeline workspace."
 ---
 
+## 2025-10-23
+
+- **Post-canonical workflow docs** — Documented the Stage 2.6 global stopword drop (`Output/keywords_set.csv`), Stage 2.7 GPT-5 pass (`artifacts/canonicalise/main-gpt/mapping/`), and the priority merge that produces `artifacts/second_canonical.csv` / `Output/canonical.csv` in both `docs/keyword_extraction.md` and `final_report_site/docs/pipeline_architecture.qmd`.
+- **Quarto navigation checklist** — Extended the pipeline checklist with reminders to archive `main-drop` / `main-gpt` manifests and refreshed the gh-pages build.
+
 ## 2025-10-22
 
 - **Canonical drop enforcement** — Updated `leiden_module/keyword_extraction.py:1898` and `leiden_module/keyword_extraction.py:2016` so Stage 2.5 retains a canonical `(cluster_id, term)` whitelist when rescoring. This guarantees `drop` actions in manual/LLM alias instructions stay removed after the c‑TF‑IDF matrix is rebuilt.
