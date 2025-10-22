@@ -236,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="keyword-trend-explorer-키워드-추세-탐색기" class="level1">
 <h1>Keyword Trend Explorer / 키워드 추세 탐색기</h1>
-<p>Interactively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the latest <code>_top5</code> time series export.</p>
+<p>Interactively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the comprehensive <code>keyword_all_timeseries</code> export generated after canonical integration.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -324,6 +324,7 @@ Tip
 </style>
 <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
 <div class="keyword-timeseries-wrapper">
 <div id="keyword-timeseries-controls" class="keyword-timeseries-controls">
 
@@ -354,7 +355,7 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
 </div>
 <script>
 (() => {
-  const dataUrl = "assets/keyword_top5_timeseries.csv";
+  const dataUrl = "assets/keyword_all_timeseries.csv.gz";
   const chartEl = document.getElementById("keyword-timeseries-chart");
   const controlsEl = document.getElementById("keyword-timeseries-controls");
   const clusterGroup = document.createElement("div");
@@ -705,8 +706,16 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
     return clusterOptions;
   }
 
-  function loadData() {
-    d3.csv(dataUrl).then(rows => {
+  async function loadData() {
+    try {
+      const response = await fetch(dataUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      const arrayBuffer = await response.arrayBuffer();
+      const decompressed = pako.ungzip(new Uint8Array(arrayBuffer), { to: "string" });
+      const rows = d3.csvParse(decompressed);
+
       const clusters = new Map();
 
       rows.forEach(rawRow => {
@@ -760,10 +769,10 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
       }
 
       clusterSelect.addEventListener("change", handleUpdate);
-    }).catch(err => {
+    } catch (err) {
       console.error("Failed to load keyword time series.", err);
-      metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. CSV 경로 또는 접근 권한을 확인하세요.</p>";
-    });
+      metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. ZIP 경로 또는 접근 권한을 확인하세요.</p>";
+    }
   }
 
   loadData();

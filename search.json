@@ -151,7 +151,7 @@
     "href": "docs/keyword_trends.html",
     "title": "Keyword Trend Explorer / 키워드 추세 탐색기",
     "section": "",
-    "text": "Keyword Trend Explorer / 키워드 추세 탐색기\nInteractively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the latest _top5 time series export.\n\n\n\n\n\n\nTip\n\n\n\n모든 곡선은 문헌 비중(ppm_series_val, parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면 각 용어의 score(c‑TF‑IDF)와 frequency(문헌 수)를 함께 확인할 수 있습니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDocument Share (PPM) · Parts per million of the cluster’s total unigram tokens for each term-year pair. ( _{c,y}(t) = 10^{6} )\n\n\nScore · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).\n\n\nFrequency · Count of documents within the cluster that contain the keyword (constant across years).\n\n\nBoth Score and Frequency appear inside the hover tooltips for each point."
+    "text": "Keyword Trend Explorer / 키워드 추세 탐색기\nInteractively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selectors to switch between clusters and metrics while the legend lets you toggle individual keyword curves on and off. All data are sourced from the comprehensive keyword_all_timeseries export generated after canonical integration.\n\n\n\n\n\n\nTip\n\n\n\n모든 곡선은 문헌 비중(ppm_series_val, parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면 각 용어의 score(c‑TF‑IDF)와 frequency(문헌 수)를 함께 확인할 수 있습니다.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDocument Share (PPM) · Parts per million of the cluster’s total unigram tokens for each term-year pair. ( _{c,y}(t) = 10^{6} )\n\n\nScore · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).\n\n\nFrequency · Count of documents within the cluster that contain the keyword (constant across years).\n\n\nBoth Score and Frequency appear inside the hover tooltips for each point."
   },
   {
     "objectID": "docs/delivery_plan.html",
@@ -354,14 +354,14 @@
     "href": "docs/change_log.html",
     "title": "Change Log",
     "section": "",
-    "text": "Post-canonical workflow docs — Documented the Stage 2.6 global stopword drop (Output/keywords_set.csv), Stage 2.7 GPT-5 pass (artifacts/canonicalise/main-gpt/mapping/), and the priority merge that produces artifacts/second_canonical.csv / Output/canonical.csv in both docs/keyword_extraction.md and final_report_site/docs/pipeline_architecture.qmd.\nQuarto navigation checklist — Extended the pipeline checklist with reminders to archive main-drop / main-gpt manifests and refreshed the gh-pages build."
+    "text": "Post-canonical workflow docs — Documented the Stage 2.6 global stopword drop (Output/keywords_set.csv), Stage 2.7 GPT-5 pass (artifacts/canonicalise/main-gpt/mapping/), and the priority merge that produces artifacts/second_canonical.csv / Output/canonical.csv in both docs/keyword_extraction.md and final_report_site/docs/pipeline_architecture.qmd.\nQuarto navigation checklist — Extended the pipeline checklist with reminders to archive main-drop / main-gpt manifests and refreshed the gh-pages build.\nKeyword explorer data refresh — Swapped the site asset from the Top-5 sample to the full Output/keyword_all_timeseries.csv export and retired docs/assets/keyword_top5_timeseries.csv."
   },
   {
     "objectID": "docs/change_log.html#section",
     "href": "docs/change_log.html#section",
     "title": "Change Log",
     "section": "",
-    "text": "Post-canonical workflow docs — Documented the Stage 2.6 global stopword drop (Output/keywords_set.csv), Stage 2.7 GPT-5 pass (artifacts/canonicalise/main-gpt/mapping/), and the priority merge that produces artifacts/second_canonical.csv / Output/canonical.csv in both docs/keyword_extraction.md and final_report_site/docs/pipeline_architecture.qmd.\nQuarto navigation checklist — Extended the pipeline checklist with reminders to archive main-drop / main-gpt manifests and refreshed the gh-pages build."
+    "text": "Post-canonical workflow docs — Documented the Stage 2.6 global stopword drop (Output/keywords_set.csv), Stage 2.7 GPT-5 pass (artifacts/canonicalise/main-gpt/mapping/), and the priority merge that produces artifacts/second_canonical.csv / Output/canonical.csv in both docs/keyword_extraction.md and final_report_site/docs/pipeline_architecture.qmd.\nQuarto navigation checklist — Extended the pipeline checklist with reminders to archive main-drop / main-gpt manifests and refreshed the gh-pages build.\nKeyword explorer data refresh — Swapped the site asset from the Top-5 sample to the full Output/keyword_all_timeseries.csv export and retired docs/assets/keyword_top5_timeseries.csv."
   },
   {
     "objectID": "docs/change_log.html#section-1",
