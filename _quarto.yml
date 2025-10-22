@@ -33,7 +33,11 @@ website:
           - text: "1.4 Configuration Playbook"
             href: docs/configuration.qmd
       - text: "2. 도메인 연구지형도"
-        href: docs/module_domain_map.qmd
+        menu:
+          - text: "연구지형 개요 / Landscape Overview"
+            href: docs/module_domain_map.qmd
+          - text: "키워드 추세 탐색기 / Keyword Trends"
+            href: docs/keyword_trends.qmd
       - text: "3. 기관 성과 & 포트폴리오"
         href: docs/module_institutional.qmd
       - text: "4. 운영 & 일정"
@@ -48,6 +52,8 @@ website:
             href: docs/diagnostics.qmd
           - text: "Appendix"
             href: docs/appendix.qmd
+          - text: "Change Log"
+            href: docs/change_log.qmd
   page-navigation: true
 
 format:
