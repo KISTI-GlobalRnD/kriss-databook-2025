@@ -1,0 +1,13 @@
+---
+title: "Change Log"
+description: "Running log of code and documentation updates applied to the KRISS keyword pipeline workspace."
+---
+
+## 2025-10-22
+
+- **Canonical drop enforcement** — Updated `leiden_module/keyword_extraction.py:1898` and `leiden_module/keyword_extraction.py:2016` so Stage 2.5 retains a canonical `(cluster_id, term)` whitelist when rescoring. This guarantees `drop` actions in manual/LLM alias instructions stay removed after the c‑TF‑IDF matrix is rebuilt.
+- **Snapshot workflow docs** — Expanded `leiden_module/README.md` and `docs/keyword_extraction.md:338`/`docs/keyword_extraction.md:362` with instructions for Stage 2 snapshots, alias strategies, and the new drop-handling behaviour.
+- **Local reproducibility setup** — Provisioned a project `.venv` (pandas, pyarrow, polars, scikit-learn, scipy, joblib) and documented the requirement to keep `vec_uni.joblib` alongside Stage 2 artefacts so `year_denominators` populate correctly when resuming from snapshots.
+- **Site maintenance** — Added this change log to `final_report_site` for ongoing tracking of operational updates.
+
+_Future contributors should append new entries (newest first) with clear references to impacted files/sections._

@@ -1,0 +1,20 @@
+# Quarto build artifacts
+_site/
+.quarto/
+
+# Python / R caches
+__pycache__/
+.ipynb_checkpoints/
+.Rhistory
+.Rproj.user/
+
+# OS-specific clutter
+.DS_Store
+Thumbs.db
+
+# Editor settings
+.vscode/
+.idea/
+
+/.quarto/
+**/*.quarto_ipynb
