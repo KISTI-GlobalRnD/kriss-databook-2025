@@ -27,60 +27,73 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
   }
   .keyword-timeseries-controls label {
+    display: block;
     font-weight: 600;
-    margin-right: 0.5rem;
+    margin-bottom: 0.35rem;
   }
   .keyword-timeseries-controls select {
-    min-width: 14rem;
+    min-width: 16rem;
   }
   .keyword-timeseries-meta {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     font-size: 0.95rem;
-    line-height: 1.5;
+    line-height: 1.55;
   }
   .keyword-timeseries-meta strong {
     font-weight: 600;
   }
+  .keyword-timeseries-defs {
+    margin-top: 1.75rem;
+    padding: 1rem 1.2rem;
+    border-left: 4px solid #2c7be5;
+    background: #ffffff;
+  }
+  .keyword-timeseries-defs p {
+    margin-bottom: 0.4rem;
+  }
+  .keyword-timeseries-defs p:last-child {
+    margin-bottom: 0;
+  }
 </style>
 
 <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
 
 <div class="keyword-timeseries-wrapper">
-<div class="keyword-timeseries-controls">
-<div class="keyword-timeseries-control">
-<label for="cluster-select">Cluster / 클러스터</label>
-<select id="cluster-select" aria-label="Select cluster"></select>
-</div>
-<div class="keyword-timeseries-control">
-<label for="metric-select">Metric / 지표</label>
-<select id="metric-select" aria-label="Select metric">
-<option value="score">TF-IDF Score (score)</option>
-<option value="ppm_series_val">Document Share (ppm_series_val)</option>
-<option value="frequency">Frequency (frequency)</option>
-</select>
-</div>
-</div>
+<div class="keyword-timeseries-controls" id="keyword-timeseries-controls"></div>
 <div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;"></div>
 <div class="keyword-timeseries-meta" id="keyword-timeseries-meta"></div>
+<div class="keyword-timeseries-defs">
+  <p><strong>Document Share (PPM)</strong> · Parts per million of the cluster’s total unigram tokens for each term-year pair. \( \mathrm{PPM}_{c,y}(t) = 10^{6} \cdot \frac{n_{c,y}(t)}{N_{c,y}} \)</p>
+  <p><strong>Score</strong> · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).</p>
+  <p><strong>Frequency</strong> · Count of documents within the cluster that contain the keyword (constant across years).</p>
+  <p>Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for each point.</p>
+</div>
 </div>
 
 <script>
 (() => {
   const dataUrl = "assets/keyword_top5_timeseries.csv";
   const chartEl = document.getElementById("keyword-timeseries-chart");
-  const clusterSelect = document.getElementById("cluster-select");
-  const metricSelect = document.getElementById("metric-select");
+  const controlsEl = document.getElementById("keyword-timeseries-controls");
+  const clusterGroup = document.createElement("div");
+  const clusterLabel = document.createElement("label");
+  clusterLabel.setAttribute("for", "cluster-select");
+  clusterLabel.textContent = "Cluster / 클러스터";
+  const clusterSelect = document.createElement("select");
+  clusterSelect.id = "cluster-select";
+  clusterSelect.setAttribute("aria-label", "Select cluster");
+  clusterGroup.appendChild(clusterLabel);
+  clusterGroup.appendChild(clusterSelect);
+  controlsEl.appendChild(clusterGroup);
   const metaEl = document.getElementById("keyword-timeseries-meta");
 
-  const metricConfig = {
-    score: { label: "TF-IDF Score", description: "Keyword weight derived from c-TF-IDF" },
-    ppm_series_val: { label: "Document Share (ppm)", description: "Proportion of documents per million" },
-    frequency: { label: "Raw Frequency", description: "Document count containing the keyword" }
-  };
+  const metricKey = "ppm_series_val";
+  const metricLabel = "Document Share (PPM)";
 
   function cleanText(value) {
     if (value === null || value === undefined) {
@@ -126,7 +139,7 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
     metaEl.innerHTML = lines.map(line => `<p>${line}</p>`).join("");
   }
 
-  function buildTraces(cluster, metricKey) {
+  function buildTraces(cluster) {
     const rowsByTerm = new Map();
     cluster.rows.forEach(row => {
       const termRows = rowsByTerm.get(row.term) || [];
@@ -146,11 +159,13 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
         name: term,
         x: sorted.map(r => r.year),
         y: sorted.map(r => r[metricKey]),
-        text: sorted.map(r => `Rank ${r.rank}`),
         hovertemplate:
-          "<b>%{text}</b><br>Term: %{meta.term}<br>Year: %{x}<br>" +
-          `${metricConfig[metricKey].label}: %{y:.3f}<extra></extra>`,
-        meta: { term },
+          "<b>%{customdata[0]}</b><br>" +
+          "Year: %{x}<br>" +
+          "Document Share (PPM): %{y:.2f}<br>" +
+          "Score: %{customdata[1]:.3f}<br>" +
+          "Frequency: %{customdata[2]:,.0f}<extra></extra>",
+        customdata: sorted.map(r => [term, r.score ?? null, r.frequency ?? null]),
         mode: "lines+markers",
         line: { width: 2 },
         marker: { size: 6 }
@@ -159,9 +174,8 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
     return traces;
   }
 
-  function updateChart(cluster, metricKey) {
-    const traces = buildTraces(cluster, metricKey);
-    const metric = metricConfig[metricKey];
+  function updateChart(cluster) {
+    const traces = buildTraces(cluster);
     const years = cluster.rows
       .map(r => r.year)
       .filter(year => year !== null && year !== undefined && !Number.isNaN(year));
@@ -170,7 +184,7 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
 
     const layout = {
       title: {
-        text: `Cluster ${cluster.id} · ${metric.label}`,
+        text: `Cluster ${cluster.id} · ${metricLabel}`,
         font: { size: 20 }
       },
       xaxis: {
@@ -181,9 +195,9 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
         hoverformat: "d"
       },
       yaxis: {
-        title: metric.label,
+        title: metricLabel,
         rangemode: "tozero",
-        hoverformat: ".3f"
+        hoverformat: ".2f"
       },
       legend: {
         orientation: "h",
@@ -231,6 +245,12 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
       });
 
     clusterSelect.innerHTML = "";
+    if (!clusterOptions.length) {
+      clusterSelect.disabled = true;
+      clusterSelect.innerHTML = "<option>No clusters available</option>";
+      return clusterOptions;
+    }
+
     clusterOptions.forEach(option => {
       const opt = document.createElement("option");
       opt.value = option.value;
@@ -242,16 +262,13 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
   }
 
   function loadData() {
-    Plotly.d3.csv(dataUrl, (err, rows) => {
-      if (err) {
-        console.error("Failed to load keyword time series.", err);
-        metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. CSV 경로를 확인하세요.</p>";
-        return;
-      }
-
+    d3.csv(dataUrl).then(rows => {
       const clusters = new Map();
 
       rows.forEach(rawRow => {
+        if (!rawRow) {
+          return;
+        }
         const row = { ...rawRow };
         row.cluster_id = Number.parseInt(row.cluster_id, 10);
         row.year = row.year ? Number.parseInt(row.year, 10) : null;
@@ -281,12 +298,13 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
 
       function handleUpdate() {
         const selectedId = Number.parseInt(clusterSelect.value, 10);
-        const metricKey = metricSelect.value;
         const cluster = clusters.get(selectedId);
         if (!cluster) {
+          metaEl.innerHTML = "<p>선택한 클러스터에 대한 데이터가 없습니다.</p>";
+          Plotly.purge(chartEl);
           return;
         }
-        updateChart(cluster, metricKey);
+        updateChart(cluster);
         summariseCluster(cluster);
       }
 
@@ -296,7 +314,9 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
       }
 
       clusterSelect.addEventListener("change", handleUpdate);
-      metricSelect.addEventListener("change", handleUpdate);
+    }).catch(err => {
+      console.error("Failed to load keyword time series.", err);
+      metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. CSV 경로 또는 접근 권한을 확인하세요.</p>";
     });
   }
 
