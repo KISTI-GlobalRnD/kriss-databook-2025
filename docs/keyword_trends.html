@@ -247,7 +247,7 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>키워드 지표는 하나의 클러스터 안에서 점수(<code>score</code>), 문헌 비중(<code>ppm_series_val</code>), 출현 빈도(<code>frequency</code>) 중에서 선택할 수 있습니다. 범례를 클릭하면 개별 키워드를 강조하거나 숨길 수 있습니다.</p>
+<p>모든 곡선은 문헌 비중(<code>ppm_series_val</code>, parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면 각 용어의 <code>score</code>(c‑TF‑IDF)와 <code>frequency</code>(문헌 수)를 함께 확인할 수 있습니다.</p>
 </div>
 </div>
 <style>
@@ -293,6 +293,34 @@ Tip
   .keyword-timeseries-defs p:last-child {
     margin-bottom: 0;
   }
+  .keyword-sparklines {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem 1.5rem;
+  }
+  .keyword-sparklines .sparkline-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem 0.65rem;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(33, 37, 41, 0.05);
+  }
+  .keyword-sparklines .sparkline-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #1f2933;
+  }
+  .keyword-sparklines svg {
+    width: 100%;
+    height: 60px;
+  }
+  .keyword-sparklines .sparkline-note {
+    font-size: 0.78rem;
+    color: #495057;
+    margin-top: 0.35rem;
+  }
 </style>
 <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
@@ -321,6 +349,9 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
 </p>
 </div>
 </div>
+<div id="keyword-timeseries-sparklines" class="keyword-sparklines">
+
+</div>
 <script>
 (() => {
   const dataUrl = "assets/keyword_top5_timeseries.csv";
@@ -337,9 +368,11 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
   clusterGroup.appendChild(clusterSelect);
   controlsEl.appendChild(clusterGroup);
   const metaEl = document.getElementById("keyword-timeseries-meta");
+  const sparklinesEl = document.getElementById("keyword-timeseries-sparklines");
 
   const metricKey = "ppm_series_val";
   const metricLabel = "Document Share (PPM)";
+  const maxSparklines = 40;
 
   function cleanText(value) {
     if (value === null || value === undefined) {
@@ -427,6 +460,7 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
       .filter(year => year !== null && year !== undefined && !Number.isNaN(year));
     const minYear = years.length ? Math.min(...years) : null;
     const maxYear = years.length ? Math.max(...years) : null;
+    const yearRange = minYear !== null && maxYear !== null ? [minYear, maxYear] : null;
 
     const layout = {
       title: {
@@ -436,7 +470,7 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
       xaxis: {
         title: "Year",
         dtick: 1,
-        range: minYear !== null && maxYear !== null ? [minYear - 0.5, maxYear + 0.5] : undefined,
+        range: yearRange ? [yearRange[0] - 0.5, yearRange[1] + 0.5] : undefined,
         tickformat: "d",
         hoverformat: "d"
       },
@@ -470,6 +504,170 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
     };
 
     Plotly.react(chartEl, traces, layout, config);
+    return yearRange;
+  }
+
+  function renderSparklines(cluster, yearRange) {
+    sparklinesEl.innerHTML = "";
+
+    const rowsByTerm = new Map();
+    cluster.rows.forEach(row => {
+      const collection = rowsByTerm.get(row.term) || [];
+      collection.push(row);
+      rowsByTerm.set(row.term, collection);
+    });
+
+    const termSeries = [];
+    rowsByTerm.forEach((termRows, term) => {
+      const sorted = termRows
+        .filter(r => r.year !== null && r.year !== undefined && !Number.isNaN(r.year))
+        .sort((a, b) => a.year - b.year);
+      if (!sorted.length) {
+        return;
+      }
+      const base = sorted[0];
+      termSeries.push({
+        term,
+        rows: sorted,
+        score: base.score ?? null,
+        frequency: base.frequency ?? null
+      });
+    });
+
+    if (!termSeries.length) {
+      sparklinesEl.innerHTML = "<p>시각화할 키워드 시계열이 없습니다.</p>";
+      return;
+    }
+
+    termSeries.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+    const termsToRender = termSeries.slice(0, maxSparklines);
+
+    const globalYearRange = yearRange || (() => {
+      const years = cluster.rows
+        .map(r => r.year)
+        .filter(y => y !== null && y !== undefined && !Number.isNaN(y));
+      if (!years.length) {
+        return null;
+      }
+      return [Math.min(...years), Math.max(...years)];
+    })();
+
+    termsToRender.forEach(termData => {
+      const { term, rows, score, frequency } = termData;
+      const container = document.createElement("div");
+      container.className = "sparkline-card";
+
+      const title = document.createElement("div");
+      title.className = "sparkline-title";
+      title.textContent = term;
+      container.appendChild(title);
+
+      const svg = d3.create("svg")
+        .attr("viewBox", "0 0 320 70")
+        .attr("role", "img")
+        .attr("aria-label", `${term} document share trend`);
+
+      const margin = { top: 8, right: 48, bottom: 16, left: 48 };
+      const width = 320 - margin.left - margin.right;
+      const height = 70 - margin.top - margin.bottom;
+
+      const x = d3.scaleLinear()
+        .domain(globalYearRange || [
+          d3.min(rows, d => d.year),
+          d3.max(rows, d => d.year)
+        ])
+        .range([0, width]);
+
+      const ppmValues = rows
+        .map(r => r[metricKey])
+        .filter(value => Number.isFinite(value));
+
+      const minVal = d3.min(ppmValues);
+      const maxVal = d3.max(ppmValues);
+      const padding = (maxVal - minVal) * 0.1 || (maxVal || 1) * 0.1;
+      const y = d3.scaleLinear()
+        .domain([
+          Math.max(0, (minVal ?? 0) - padding),
+          (maxVal ?? 0) + padding
+        ])
+        .range([height, 0]);
+
+      const area = d3.area()
+        .x(d => x(d.year))
+        .y0(y(0))
+        .y1(d => y(d[metricKey] ?? 0))
+        .defined(d => Number.isFinite(d[metricKey]));
+
+      const line = d3.line()
+        .x(d => x(d.year))
+        .y(d => y(d[metricKey] ?? 0))
+        .defined(d => Number.isFinite(d[metricKey]));
+
+      const chart = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+      chart.append("path")
+        .datum(rows)
+        .attr("fill", "rgba(76, 114, 176, 0.25)")
+        .attr("d", area);
+
+      chart.append("path")
+        .datum(rows)
+        .attr("fill", "none")
+        .attr("stroke", "#4C72B0")
+        .attr("stroke-width", 1.3)
+        .attr("d", line);
+
+      const first = rows[0];
+      const last = rows[rows.length - 1];
+
+      chart.selectAll(".endpoint")
+        .data([first, last])
+        .join("circle")
+        .attr("class", "endpoint")
+        .attr("cx", d => x(d.year))
+        .attr("cy", d => y(d[metricKey] ?? 0))
+        .attr("r", 3.5)
+        .attr("fill", "#4C72B0");
+
+      const firstValue = Number.isFinite(first[metricKey]) ? first[metricKey].toFixed(2) : "-";
+      const lastValue = Number.isFinite(last[metricKey]) ? last[metricKey].toFixed(2) : "-";
+
+      chart.append("text")
+        .attr("x", x(first.year) - 6)
+        .attr("y", y(first[metricKey] ?? 0) - 4)
+        .attr("text-anchor", "end")
+        .attr("font-size", "10px")
+        .attr("fill", "#4C72B0")
+        .text(firstValue);
+
+      chart.append("text")
+        .attr("x", x(last.year) + 6)
+        .attr("y", y(last[metricKey] ?? 0) - 4)
+        .attr("text-anchor", "start")
+        .attr("font-size", "10px")
+        .attr("fill", "#4C72B0")
+        .text(lastValue);
+
+      chart.append("text")
+        .attr("x", width / 2)
+        .attr("y", height + 12)
+        .attr("text-anchor", "middle")
+        .attr("font-size", "9px")
+        .attr("fill", "#6c757d")
+        .text("Year");
+
+      container.appendChild(svg.node());
+
+      const note = document.createElement("div");
+      note.className = "sparkline-note";
+      const scoreText = Number.isFinite(score) ? score.toFixed(2) : "-";
+      const freqText = Number.isFinite(frequency) ? frequency.toLocaleString() : "-";
+      note.textContent = `Score ${scoreText} · Freq ${freqText}`;
+      container.appendChild(note);
+
+      sparklinesEl.appendChild(container);
+    });
   }
 
   function initialiseControls(clusters) {
@@ -548,10 +746,12 @@ Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for 
         if (!cluster) {
           metaEl.innerHTML = "<p>선택한 클러스터에 대한 데이터가 없습니다.</p>";
           Plotly.purge(chartEl);
+          sparklinesEl.innerHTML = "";
           return;
         }
-        updateChart(cluster);
+        const yearRange = updateChart(cluster);
         summariseCluster(cluster);
+        renderSparklines(cluster, yearRange);
       }
 
       if (initialClusterId !== undefined) {
