@@ -284,18 +284,12 @@ Tip
 <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
 <div class="keyword-timeseries-wrapper">
 <div class="keyword-timeseries-controls">
-<pre><code>&lt;div&gt;
-  &lt;label for="cluster-select"&gt;Cluster / 클러스터&lt;/label&gt;
-  &lt;select id="cluster-select" aria-label="Select cluster"&gt;&lt;/select&gt;
-&lt;/div&gt;
-&lt;div&gt;
-  &lt;label for="metric-select"&gt;Metric / 지표&lt;/label&gt;
-  &lt;select id="metric-select" aria-label="Select metric"&gt;
-    &lt;option value="score"&gt;TF-IDF Score (score)&lt;/option&gt;
-    &lt;option value="ppm_series_val"&gt;Document Share (ppm_series_val)&lt;/option&gt;
-    &lt;option value="frequency"&gt;Frequency (frequency)&lt;/option&gt;
-  &lt;/select&gt;
-&lt;/div&gt;</code></pre>
+<div class="keyword-timeseries-control">
+<p><label for="cluster-select">Cluster / 클러스터</label> <select id="cluster-select" aria-label="Select cluster"></select></p>
+</div>
+<div class="keyword-timeseries-control">
+<p><label for="metric-select">Metric / 지표</label> <select id="metric-select" aria-label="Select metric"> <option value="score">TF-IDF Score (score)</option> <option value="ppm_series_val">Document Share (ppm_series_val)</option> <option value="frequency">Frequency (frequency)</option> </select></p>
+</div>
 </div>
 <div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;">
 
