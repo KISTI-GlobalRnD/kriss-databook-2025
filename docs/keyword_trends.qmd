@@ -50,22 +50,22 @@ keyword curves on and off. All data are sourced from the latest `_top5` time ser
 <script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
 
 <div class="keyword-timeseries-wrapper">
-  <div class="keyword-timeseries-controls">
-    <div>
-      <label for="cluster-select">Cluster / 클러스터</label>
-      <select id="cluster-select" aria-label="Select cluster"></select>
-    </div>
-    <div>
-      <label for="metric-select">Metric / 지표</label>
-      <select id="metric-select" aria-label="Select metric">
-        <option value="score">TF-IDF Score (score)</option>
-        <option value="ppm_series_val">Document Share (ppm_series_val)</option>
-        <option value="frequency">Frequency (frequency)</option>
-      </select>
-    </div>
-  </div>
-  <div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;"></div>
-  <div class="keyword-timeseries-meta" id="keyword-timeseries-meta"></div>
+<div class="keyword-timeseries-controls">
+<div class="keyword-timeseries-control">
+<label for="cluster-select">Cluster / 클러스터</label>
+<select id="cluster-select" aria-label="Select cluster"></select>
+</div>
+<div class="keyword-timeseries-control">
+<label for="metric-select">Metric / 지표</label>
+<select id="metric-select" aria-label="Select metric">
+<option value="score">TF-IDF Score (score)</option>
+<option value="ppm_series_val">Document Share (ppm_series_val)</option>
+<option value="frequency">Frequency (frequency)</option>
+</select>
+</div>
+</div>
+<div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;"></div>
+<div class="keyword-timeseries-meta" id="keyword-timeseries-meta"></div>
 </div>
 
 <script>
