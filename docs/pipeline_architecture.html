@@ -209,6 +209,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#stage-1-cluster-aggregation-클러스터-집계" id="toc-stage-1-cluster-aggregation-클러스터-집계" class="nav-link" data-scroll-target="#stage-1-cluster-aggregation-클러스터-집계">Stage 1 – Cluster Aggregation / 클러스터 집계</a></li>
   <li><a href="#stage-2-scoring-candidate-selection-스코어링-및-후보-선택" id="toc-stage-2-scoring-candidate-selection-스코어링-및-후보-선택" class="nav-link" data-scroll-target="#stage-2-scoring-candidate-selection-스코어링-및-후보-선택">Stage 2 – Scoring &amp; Candidate Selection / 스코어링 및 후보 선택</a></li>
   <li><a href="#stage-2.5-canonicalisation-optional-정규화선택" id="toc-stage-2.5-canonicalisation-optional-정규화선택" class="nav-link" data-scroll-target="#stage-2.5-canonicalisation-optional-정규화선택">Stage 2.5 – Canonicalisation (Optional) / 정규화(선택)</a></li>
+  <li><a href="#stage-2.6-global-stopword-pruning-전역-불용어-제거" id="toc-stage-2.6-global-stopword-pruning-전역-불용어-제거" class="nav-link" data-scroll-target="#stage-2.6-global-stopword-pruning-전역-불용어-제거">Stage 2.6 – Global Stopword Pruning / 전역 불용어 제거</a></li>
+  <li><a href="#stage-2.7-secondary-llm-canonicalisation-2차-llm-정규화" id="toc-stage-2.7-secondary-llm-canonicalisation-2차-llm-정규화" class="nav-link" data-scroll-target="#stage-2.7-secondary-llm-canonicalisation-2차-llm-정규화">Stage 2.7 – Secondary LLM Canonicalisation / 2차 LLM 정규화</a></li>
+  <li><a href="#stage-2.8-priority-integration-snapshots-우선순위-통합-및-스냅샷" id="toc-stage-2.8-priority-integration-snapshots-우선순위-통합-및-스냅샷" class="nav-link" data-scroll-target="#stage-2.8-priority-integration-snapshots-우선순위-통합-및-스냅샷">Stage 2.8 – Priority Integration &amp; Snapshots / 우선순위 통합 및 스냅샷</a></li>
   <li><a href="#stage-3-year-series-연도별-집계" id="toc-stage-3-year-series-연도별-집계" class="nav-link" data-scroll-target="#stage-3-year-series-연도별-집계">Stage 3 – Year Series / 연도별 집계</a></li>
   </ul></li>
   </ul>
@@ -230,6 +233,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Stage 1 – Cluster Aggregation</li>
 <li>Stage 2 – Scoring &amp; Candidate Selection</li>
 <li>Stage 2.5 – Canonicalisation (Optional)</li>
+<li>Stage 2.6 – Global Stopword Pruning</li>
+<li>Stage 2.7 – Secondary LLM Canonicalisation</li>
+<li>Stage 2.8 – Priority Integration &amp; Snapshots</li>
 <li>Stage 3 – Year Series</li>
 <li>Export &amp; Diagnostics</li>
 </ol>
@@ -295,6 +301,27 @@ ul.task-list li input[type="checkbox"] {
 <li>The prompt enforces <code>drop</code> for pure stopword phrases so low-information terms do not persist. / 프롬프트는 순수 불용어 구절에 대해 <code>drop</code>을 강제하여 저정보 용어가 남지 않도록 합니다.</li>
 </ul>
 </section>
+<section id="stage-2.6-global-stopword-pruning-전역-불용어-제거" class="level2">
+<h2 class="anchored" data-anchor-id="stage-2.6-global-stopword-pruning-전역-불용어-제거">Stage 2.6 – Global Stopword Pruning / 전역 불용어 제거</h2>
+<ul>
+<li>Cross-check canonical terms against global document coverage (from <code>Output/keywords_set.csv</code>) and drop any residual high-frequency stopwords that survived Stage 2.5. / Stage 2.5 이후에도 남은 전역 불용어는 <code>Output/keywords_set.csv</code>의 문서 커버리지 지표를 이용해 제거합니다.</li>
+<li>Persist the drop manifest to <code>artifacts/canonicalise/main-drop/mapping/</code> so QA reviewers can audit which aliases were filtered out. / 제거 내역은 <code>artifacts/canonicalise/main-drop/mapping/</code>에 저장하여 QA 검토가 가능하도록 합니다.</li>
+</ul>
+</section>
+<section id="stage-2.7-secondary-llm-canonicalisation-2차-llm-정규화" class="level2">
+<h2 class="anchored" data-anchor-id="stage-2.7-secondary-llm-canonicalisation-2차-llm-정규화">Stage 2.7 – Secondary LLM Canonicalisation / 2차 LLM 정규화</h2>
+<ul>
+<li>Run a focused GPT-5 pass (<code>artifacts/canonicalise/main-gpt/mapping/</code>) on the surviving vocabulary to merge edge-case variants without disturbing previously approved terms. / 잔여 변이만을 대상으로 GPT-5 정규화를 실행해 기존 승인 용어는 유지합니다.</li>
+<li>Reuse the same alias action schema, ensuring traceability across both canonicalisation rounds. / 동일한 alias 스키마를 사용하여 두 차수의 정규화 결과를 추적할 수 있도록 합니다.</li>
+</ul>
+</section>
+<section id="stage-2.8-priority-integration-snapshots-우선순위-통합-및-스냅샷" class="level2">
+<h2 class="anchored" data-anchor-id="stage-2.8-priority-integration-snapshots-우선순위-통합-및-스냅샷">Stage 2.8 – Priority Integration &amp; Snapshots / 우선순위 통합 및 스냅샷</h2>
+<ul>
+<li>Consolidate tables in the order <code>main → main-drop → main-gpt</code>, producing the canonical export at <code>artifacts/second_canonical.csv</code>. / <code>main → main-drop → main-gpt</code> 순서로 통합하여 <code>artifacts/second_canonical.csv</code>에 저장합니다.</li>
+<li>Emit <code>Output/canonical.csv</code> as the analyst-ready deck delivered before manual cleansing begins. / 수동 정제 전에 분석자에게 제공하는 최종 키워드 세트는 <code>Output/canonical.csv</code>에 저장됩니다.</li>
+</ul>
+</section>
 <section id="stage-3-year-series-연도별-집계" class="level2">
 <h2 class="anchored" data-anchor-id="stage-3-year-series-연도별-집계">Stage 3 – Year Series / 연도별 집계</h2>
 <ul>
@@ -312,6 +339,9 @@ ul.task-list li input[type="checkbox"] {
 <li><label><input type="checkbox">Vectorisers persisted (<code>vec_uni</code>, <code>vec_phrase</code>).</label></li>
 <li><label><input type="checkbox">Cluster matrices stored (<code>C_*</code>, <code>DF_*</code>, <code>cluster_doc_counts</code>).</label></li>
 <li><label><input type="checkbox">Candidate tables saved (<code>top_df</code>) for restart.</label></li>
+<li><label><input type="checkbox">Global stopword drop manifest archived (<code>artifacts/canonicalise/main-drop/mapping/</code>).</label></li>
+<li><label><input type="checkbox">GPT-5 canonical mappings stored (<code>artifacts/canonicalise/main-gpt/mapping/</code>).</label></li>
+<li><label><input type="checkbox">Consolidated canonical exports written (<code>artifacts/second_canonical.csv</code>, <code>Output/canonical.csv</code>).</label></li>
 <li><label><input type="checkbox">Year series cached (<code>term_year</code>) for downstream trend analysis.</label></li>
 </ul>
 
