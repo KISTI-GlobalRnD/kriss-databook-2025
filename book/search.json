@@ -14,7 +14,7 @@
     "href": "index.html#executive-summary-요약",
     "title": "KRISS Keyword Pipeline Report (Book)",
     "section": "1.1 Executive Summary / 요약",
-    "text": "1.1 Executive Summary / 요약\n\nDeliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR reinforcement.\nPersist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs resilient to interruptions.\nProvide bilingual documentation so new collaborators can get productive quickly.",
+    "text": "1.1 Executive Summary / 요약\n\nDeliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR reinforcement.\nPersist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs resilient to interruptions.\nProvide bilingual documentation so new collaborators can get productive quickly.\n\n\n\n\n\n\n\nTip\n\n\n\n버전 전환 / Version Switch\n\n웹 사이트: https://kisti-globalrnd.github.io/kriss-databook-2025/website/\n북 (챕터형): https://kisti-globalrnd.github.io/kriss-databook-2025/book/",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>KRISS Keyword Extraction Final Report / 최종 보고서</span>"
     ]

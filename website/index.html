@@ -104,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -222,10 +222,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+        <div class="sidebar-tools-collapse">
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 보기" class="quarto-navigation-tool px-1" aria-label="북 버전 보기"><i class="bi bi-book"></i></a>
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" title="웹 버전 홈" class="quarto-navigation-tool px-1" aria-label="웹 버전 홈"><i class="bi bi-browser"></i></a>
+</div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -277,6 +302,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Persist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs resilient to interruptions.</li>
 <li>Provide bilingual documentation so new collaborators can get productive quickly.</li>
 </ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>버전 전환 / Version Switch</strong></p>
+<ul>
+<li>웹 사이트: <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" class="uri">https://kisti-globalrnd.github.io/kriss-databook-2025/website/</a></li>
+<li>북 (챕터형): <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" class="uri">https://kisti-globalrnd.github.io/kriss-databook-2025/book/</a></li>
+</ul>
+</div>
+</div>
 </section>
 <section id="how-to-use-this-site-활용-방법" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-use-this-site-활용-방법">How to Use This Site / 활용 방법</h2>
