@@ -3,6 +3,13 @@
 Welcome to the Quarto site for the KRISS keyword extraction pipeline. This report distils the hands-on
 lessons from the clustering and c‑TF‑IDF workflow into an operational handbook.
 
+::: {.callout-note}
+## 빌드/접속 안내
+- 기본 미리보기(`quarto preview`)는 웹사이트 버전입니다.  
+- 북 프로필(`quarto preview --profile book`)은 챕터 넘버링/사이드바가 포함됩니다.  
+- GitHub Pages 배포 시 `…/website/`와 `…/book/` 경로로 나뉘어 게시됩니다(gh-pages 기준).  
+:::
+
 ## Executive Summary / 요약
 
 - Deliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR

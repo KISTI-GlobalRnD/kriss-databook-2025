@@ -1,19 +1,36 @@
-# 1.2 파이프라인 아키텍처 / Pipeline Architecture
+# 파이프라인 아키텍처 / Pipeline Architecture
 
-The keyword extraction pipeline contains four mandatory stages and one optional canonicalisation pass.
-Each stage corresponds to a method on `KeywordExtractionPipeline`.
+이 문서는 KRISS 표준연구 분석 전체 흐름을 먼저 요약한 뒤, 그 중 **키워드/클러스터 처리 파이프라인**
+세부 단계를 정리합니다. 키워드 파이프라인은 전체 분석의 일부(유망영역 탐색·리포팅 단계)일 뿐이며,
+앞단의 데이터셋 구축/지형도 생성과 뒷단의 기관 벤치마킹/포트폴리오 설계가 함께 움직입니다.
 
 ## 세부 목차 / Section Outline
 
-1. Stage 0 – Vectoriser Fit
-2. Stage 1 – Cluster Aggregation
-3. Stage 2 – Scoring & Candidate Selection
-4. Stage 2.5 – Canonicalisation (Optional)
-5. Stage 2.6 – Global Stopword Pruning
-6. Stage 2.7 – Secondary LLM Canonicalisation
-7. Stage 2.8 – Priority Integration & Snapshots
-8. Stage 3 – Year Series
-9. Export & Diagnostics
+1. KRISS 전체 분석 흐름 (요약)
+2. Stage 0 – Vectoriser Fit
+3. Stage 1 – Cluster Aggregation
+4. Stage 2 – Scoring & Candidate Selection
+5. Stage 2.5 – Canonicalisation (Optional)
+6. Stage 2.6 – Global Stopword Pruning
+7. Stage 2.7 – Secondary LLM Canonicalisation
+8. Stage 2.8 – Priority Integration & Snapshots
+9. Stage 3 – Year Series
+10. Export & Diagnostics
+
+## KRISS 전체 분석 흐름 / End-to-End Flow
+
+1. **데이터셋 구축**: WoS XML 전체에서 표준연 구분 키워드, BIPM 기관 리스트, 핵심 저널, 전후방
+   인용 확장으로 표준연 핵심 문헌을 수집·정제.
+2. **글로벌/도메인 맵**: 전체 코퍼스 유사도 기반 글로벌 맵 → 표준연 서브셋 도메인 맵(Leiden),
+   그리고 Overlay로 표준연 분포 확인.
+3. **유망영역 평가**: 클러스터별 성장성·파급성(지식확산)·영향력(엑셀런스)·산업연계성 지표 산출,
+   가중치 기반 유망영역 선별. *(여기서 키워드 파이프라인이 작동해 대표 키워드/시계열을 추출.)*
+4. **LLM 리포팅**: 선정 영역에 대해 정의/필요성/동향/키워드/핵심문헌을 LLM 템플릿으로 요약.
+5. **성과·벤치마킹**: 국가/기관별 엑셀런스 백분위 + 상위분위수 점유율(규모)로 비교, 추이 분석.
+6. **프로파일·협력 네트워크**: 공저 네트워크 지표, Overlay 맵으로 기관별 포트폴리오와 공백 탐색.
+7. **포트폴리오/배포**: 데이터북·대시보드로 종합 제공, 전략 시나리오/모니터링에 연결.
+
+이하 섹션은 3~4단계에서 사용하는 **키워드·클러스터 처리 파이프라인** 세부 내용입니다.
 
 ## Stage 0 – Vectoriser Fit / 벡터라이저 학습
 

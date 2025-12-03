@@ -1,4 +1,4 @@
-# 4.1 수행 체계 및 일정 / Delivery Plan & Timeline
+# 수행 체계 및 일정 / Delivery Plan & Timeline
 
 The kickoff deck closes with governance and schedule expectations. This page captures those elements
 and links them to operational practices.

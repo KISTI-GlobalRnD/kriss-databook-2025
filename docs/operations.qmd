@@ -1,4 +1,4 @@
-# 4.2 Operations & Restart Strategy / 운영 및 재시작 전략
+# Operations & Restart Strategy / 운영 및 재시작 전략
 
 Long-running jobs benefit from planned checkpoints. This section details what to persist and how to
 recover quickly.

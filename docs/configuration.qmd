@@ -1,4 +1,4 @@
-# 1.4 Configuration Playbook / 구성 가이드
+# Configuration Playbook / 구성 가이드
 
 Fine-tuning the pipeline involves balancing coverage, discriminative power, and redundancy. Start with
 the baseline configuration and adjust only when diagnostics reveal an issue.

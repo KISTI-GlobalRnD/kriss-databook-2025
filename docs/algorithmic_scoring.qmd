@@ -1,4 +1,4 @@
-# 1.3 Algorithmic Scoring / 알고리즘 스코어링
+# Algorithmic Scoring / 알고리즘 스코어링
 
 This section details the notation, equations, and statistical checks that power the keyword ranking
 pipeline.
