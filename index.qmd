@@ -18,6 +18,13 @@ lessons from the clustering and c‑TF‑IDF workflow into an operational handbo
   resilient to interruptions.
 - Provide bilingual documentation so new collaborators can get productive quickly.
 
+::: {.callout-tip}
+**버전 전환 / Version Switch**
+
+- 웹 사이트: <https://kisti-globalrnd.github.io/kriss-databook-2025/website/>
+- 북 (챕터형): <https://kisti-globalrnd.github.io/kriss-databook-2025/book/>
+:::
+
 ## How to Use This Site / 활용 방법
 
 1. Review the **문서 안내 / Document Guide** section (`index`, `research_overview`, `strategy_execution`) to

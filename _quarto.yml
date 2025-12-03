@@ -13,6 +13,17 @@ website:
   description: "Final report and operational handbook for the KRISS standard-research analytics program"
   repo-url: https://github.com/kimyoungjin06/final-report-placeholder
   repo-actions: [source, issue]
+  sidebar:
+    style: floating
+    search: true
+    border: true
+    tools:
+      - icon: book
+        text: "북 버전 보기"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
+      - icon: browser
+        text: "웹 버전 홈"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
   navbar:
     left:
       - text: "문서 안내 / Document Guide"

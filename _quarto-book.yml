@@ -12,6 +12,13 @@ book:
     style: floating
     search: true
     collapse-level: 2
+    tools:
+      - icon: browser
+        text: "웹 버전 보기"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
+      - icon: book
+        text: "북 버전 홈"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
   chapters:
     - index.qmd
     - docs/research_overview.qmd
