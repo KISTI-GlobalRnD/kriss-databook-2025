@@ -198,9 +198,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#파이프라인-아키텍처-pipeline-architecture" id="toc-파이프라인-아키텍처-pipeline-architecture" class="nav-link active" data-scroll-target="#파이프라인-아키텍처-pipeline-architecture">1.2 파이프라인 아키텍처 / Pipeline Architecture</a>
+  <li><a href="#파이프라인-아키텍처-pipeline-architecture" id="toc-파이프라인-아키텍처-pipeline-architecture" class="nav-link active" data-scroll-target="#파이프라인-아키텍처-pipeline-architecture">파이프라인 아키텍처 / Pipeline Architecture</a>
   <ul class="collapse">
   <li><a href="#세부-목차-section-outline" id="toc-세부-목차-section-outline" class="nav-link" data-scroll-target="#세부-목차-section-outline">세부 목차 / Section Outline</a></li>
+  <li><a href="#kriss-전체-분석-흐름-end-to-end-flow" id="toc-kriss-전체-분석-흐름-end-to-end-flow" class="nav-link" data-scroll-target="#kriss-전체-분석-흐름-end-to-end-flow">KRISS 전체 분석 흐름 / End-to-End Flow</a></li>
   <li><a href="#stage-0-vectoriser-fit-벡터라이저-학습" id="toc-stage-0-vectoriser-fit-벡터라이저-학습" class="nav-link" data-scroll-target="#stage-0-vectoriser-fit-벡터라이저-학습">Stage 0 – Vectoriser Fit / 벡터라이저 학습</a></li>
   <li><a href="#stage-1-cluster-aggregation-클러스터-집계" id="toc-stage-1-cluster-aggregation-클러스터-집계" class="nav-link" data-scroll-target="#stage-1-cluster-aggregation-클러스터-집계">Stage 1 – Cluster Aggregation / 클러스터 집계</a>
   <ul class="collapse">
@@ -224,11 +225,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="파이프라인-아키텍처-pipeline-architecture" class="level1">
-<h1>1.2 파이프라인 아키텍처 / Pipeline Architecture</h1>
-<p>The keyword extraction pipeline contains four mandatory stages and one optional canonicalisation pass. Each stage corresponds to a method on <code>KeywordExtractionPipeline</code>.</p>
+<h1>파이프라인 아키텍처 / Pipeline Architecture</h1>
+<p>이 문서는 KRISS 표준연구 분석 전체 흐름을 먼저 요약한 뒤, 그 중 <strong>키워드/클러스터 처리 파이프라인</strong> 세부 단계를 정리합니다. 키워드 파이프라인은 전체 분석의 일부(유망영역 탐색·리포팅 단계)일 뿐이며, 앞단의 데이터셋 구축/지형도 생성과 뒷단의 기관 벤치마킹/포트폴리오 설계가 함께 움직입니다.</p>
 <section id="세부-목차-section-outline" class="level2">
 <h2 class="anchored" data-anchor-id="세부-목차-section-outline">세부 목차 / Section Outline</h2>
 <ol type="1">
+<li>KRISS 전체 분석 흐름 (요약)</li>
 <li>Stage 0 – Vectoriser Fit</li>
 <li>Stage 1 – Cluster Aggregation</li>
 <li>Stage 2 – Scoring &amp; Candidate Selection</li>
@@ -239,6 +241,19 @@ ul.task-list li input[type="checkbox"] {
 <li>Stage 3 – Year Series</li>
 <li>Export &amp; Diagnostics</li>
 </ol>
+</section>
+<section id="kriss-전체-분석-흐름-end-to-end-flow" class="level2">
+<h2 class="anchored" data-anchor-id="kriss-전체-분석-흐름-end-to-end-flow">KRISS 전체 분석 흐름 / End-to-End Flow</h2>
+<ol type="1">
+<li><strong>데이터셋 구축</strong>: WoS XML 전체에서 표준연 구분 키워드, BIPM 기관 리스트, 핵심 저널, 전후방 인용 확장으로 표준연 핵심 문헌을 수집·정제.</li>
+<li><strong>글로벌/도메인 맵</strong>: 전체 코퍼스 유사도 기반 글로벌 맵 → 표준연 서브셋 도메인 맵(Leiden), 그리고 Overlay로 표준연 분포 확인.</li>
+<li><strong>유망영역 평가</strong>: 클러스터별 성장성·파급성(지식확산)·영향력(엑셀런스)·산업연계성 지표 산출, 가중치 기반 유망영역 선별. <em>(여기서 키워드 파이프라인이 작동해 대표 키워드/시계열을 추출.)</em></li>
+<li><strong>LLM 리포팅</strong>: 선정 영역에 대해 정의/필요성/동향/키워드/핵심문헌을 LLM 템플릿으로 요약.</li>
+<li><strong>성과·벤치마킹</strong>: 국가/기관별 엑셀런스 백분위 + 상위분위수 점유율(규모)로 비교, 추이 분석.</li>
+<li><strong>프로파일·협력 네트워크</strong>: 공저 네트워크 지표, Overlay 맵으로 기관별 포트폴리오와 공백 탐색.</li>
+<li><strong>포트폴리오/배포</strong>: 데이터북·대시보드로 종합 제공, 전략 시나리오/모니터링에 연결.</li>
+</ol>
+<p>이하 섹션은 3~4단계에서 사용하는 <strong>키워드·클러스터 처리 파이프라인</strong> 세부 내용입니다.</p>
 </section>
 <section id="stage-0-vectoriser-fit-벡터라이저-학습" class="level2">
 <h2 class="anchored" data-anchor-id="stage-0-vectoriser-fit-벡터라이저-학습">Stage 0 – Vectoriser Fit / 벡터라이저 학습</h2>
