@@ -13,14 +13,33 @@ quarto preview
 ```
 
 Open `http://127.0.0.1:4200/` (default) to view the site with live reload. To produce a static bundle,
-run `quarto render` and deploy the `_site/` directory to GitHub Pages or your documentation host.
+run `quarto render` (website) or `quarto render --profile book` and deploy `_site_website/` and
+`_site_book/` as needed.
+
+## Dual Builds (Website + Book)
+
+This repo now renders two versions from the same `.qmd` files using Quarto profiles:
+
+- Website (default): `quarto render` → outputs to `_site_website/`.
+- Book: `quarto render --profile book` → outputs to `_site_book/` with numbered sections and floating sidebar.
+
+To host both on GitHub Pages under sibling paths (e.g., `/website/` and `/book/`), publish a branch with:
+
+```
+gh-pages/
+  website/index.html  # contents of _site_website
+  book/index.html     # contents of _site_book
+```
+
+Preview either locally with `quarto preview` or `quarto preview --profile book`.
 
 ## Structure
 
 - `_quarto.yml` – Project configuration, navigation, and HTML output settings.
+- `_quarto-book.yml` – Book-profile overrides (numbering, sidebar, output dir).
 - `index.qmd` – Landing page with usage instructions and document map.
 - `docs/` – Section content for architecture, scoring logic, configuration, diagnostics, and appendices.
-- `docs/assets/` – Placeholder for images (architecture diagrams, dashboards, etc.).
+- `docs/assets/` – Images and data assets (architecture diagrams, dashboards, legacy 4PN maps).
 
 ## Next Steps
 

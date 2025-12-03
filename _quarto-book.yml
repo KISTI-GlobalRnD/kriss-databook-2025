@@ -1,0 +1,51 @@
+project:
+  type: book
+  output-dir: _site_book
+  render:
+    - index.qmd
+    - docs/*.qmd
+
+book:
+  title: "KRISS Keyword Pipeline Report (Book)"
+  date-format: iso
+  sidebar:
+    style: floating
+    search: true
+    collapse-level: 2
+  chapters:
+    - index.qmd
+    - docs/research_overview.qmd
+    - docs/strategy_execution.qmd
+    - part: "1. 데이터 & 방법론"
+      chapters:
+        - docs/data_architecture.qmd
+        - docs/pipeline_architecture.qmd
+        - docs/algorithmic_scoring.qmd
+        - docs/configuration.qmd
+    - part: "2. 도메인 연구지형도"
+      chapters:
+        - docs/module_domain_map.qmd
+        - docs/keyword_trends.qmd
+    - part: "3. 기관 성과 & 포트폴리오"
+      chapters:
+        - docs/module_institutional.qmd
+    - part: "4. 운영 & 일정"
+      chapters:
+        - docs/delivery_plan.qmd
+        - docs/operations.qmd
+    - part: "Diagnostics & Appendix"
+      chapters:
+        - docs/diagnostics.qmd
+        - docs/appendix.qmd
+        - docs/change_log.qmd
+
+format:
+  html:
+    theme: [pulse, theme/my_theme.scss]
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    number-depth: 3
+    code-copy: true
+    anchor-sections: true
+    fig-responsive: true

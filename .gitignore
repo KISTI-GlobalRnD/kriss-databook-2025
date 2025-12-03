@@ -1,5 +1,7 @@
 # Quarto build artifacts
 _site/
+_site_website/
+_site_book/
 .quarto/
 
 # Python / R caches
@@ -18,3 +20,6 @@ Thumbs.db
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Legacy references not for commit
+ref_previous/

@@ -1,11 +1,12 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: _site_website
   render:
     - index.qmd
     - docs/*.qmd
   resources:
     - docs/assets/**
+    - theme/**
 
 website:
   title: "KRISS Keyword Pipeline Report"
@@ -56,10 +57,22 @@ website:
             href: docs/change_log.qmd
   page-navigation: true
 
+language:
+  section-title-footnotes: "각주"
+  section-title-references: "참고문헌"
+
+crossref:
+  fig-title: "그림"
+  tbl-title: "표"
+  fig-prefix: 그림
+  tbl-prefix: 표
+  ref-hyperlink: true
+
 format:
   html:
-    theme: cosmo
+    theme: [cosmo, theme/my_theme.scss]
     toc: true
-    toc-depth: 2
+    toc-depth: 3
     number-sections: false
     code-copy: true
+    anchor-sections: true
