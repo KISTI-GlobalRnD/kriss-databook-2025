@@ -1,0 +1,29 @@
+# 3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출
+
+이 절에서는 해외 벤치마킹 기관과 한국표준과학연구원의 연구프로파일 분석 결과를 기반으로 한국표준과학연구원(KRISS) 연구 포트폴리오 구성 전략을 위한 3가지 시나리오 제시
+
+[클러스터 수준 지표 기반 유망연구영역 선별(10/22~12/10, 완료)](https://www.notion.so/10-22-12-10-294c6e66ff88803a860ed40dd0bb837d?pvs=21) 
+
+**한국표준과학연구원(KRISS) 연구 포트폴리오 구성 전략을 위한 3가지 시나리오 제시**
+
+1. 한국표준과학연구원(KRISS)의 역량이 뛰어난 분야 (195개 micro cluster 수준에서)
+**= 유형1의 유망 연구영역 후보 총 25개 ”핵심 역량 연구영역”**
+    - KRISS의 RTA(**최근 5년 기준**) ≥ 1  & Ex10(**최근 5년 기준**) ≥ 8
+    → 양적역량보유
+    N_docs(**최근 5년 기준**) ≥ 5
+    → 질적역량보유
+    
+    [promising_area1.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/promising_area1.xlsx)
+    
+2. 한국표준과학연구원(KRISS)의 역량이 뛰어난 분야 (1.의 기준을 만족한 25개 분야) 분야를 기반으로 확장 가능한 분야
+**= 유형2의 유망 연구영역 후보 총 56개 ”확장 가능 연구영역”**
+    - 표준연이 집중하면서 잘 하는 영역 25개와 인지적 유사도(reference(ct_meso) 기준 cognitive similarity)가 0.4 이상인 연구 영역들 중에서 ‘1.에서 “잘한다”의 기준 3가지 기준을 충족하지 못한’ 영역을 ‘확장 가능한 연구 영역’으로 추린다(cf. RTA가 1 이상이어도 상위 논문 부족, 혹은 논문 수 부족이면 포함될 수 있음).
+    
+    [promising_area2.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/promising_area2.xlsx)
+    
+    [for_area2_threshold0.4.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/for_area2_threshold0.4.xlsx)
+    
+3. 한국표준과학연구원(KRISS)의 공백 영역. 즉, 앞의 영역 1과 2에서 고려되지 않은 분야들 중  다른 BIPM 기관 2개 이상에서는 “잘하는” (RTA 1 이상, Ex10 ≥ 8, N_docs ≥ 5)인 연구 영역
+**= 유형3의 유망 연구영역 후보 총 20개 ”역량 공백 연구영역”**
+
+[promising_area3.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/promising_area3.xlsx)

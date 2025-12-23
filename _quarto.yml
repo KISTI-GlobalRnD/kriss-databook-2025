@@ -4,8 +4,10 @@ project:
   render:
     - index.qmd
     - docs/*.qmd
+    - "!docs/final_report_*.qmd"
   resources:
     - docs/assets/**
+    - "Final_Report_MD/최종보고서 내용/**"
     - theme/**
 
 website:
@@ -30,6 +32,8 @@ website:
         menu:
           - text: "홈 / Home"
             href: index.qmd
+          - text: "작성 가이드 / Authoring Notes"
+            href: docs/authoring_notes.qmd
           - text: "프로젝트 개요"
             href: docs/research_overview.qmd
           - text: "추진 전략 & 수행"

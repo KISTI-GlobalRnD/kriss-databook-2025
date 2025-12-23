@@ -29,6 +29,7 @@ lessons from the clustering and c‑TF‑IDF workflow into an operational handbo
 
 1. Review the **문서 안내 / Document Guide** section (`index`, `research_overview`, `strategy_execution`) to
    grasp project intent and stakeholder alignment.
+   - Drafting new chapters? Start with `authoring_notes` for the distribution-ready writing rules.
 2. Walk through **1. 데이터 & 방법론** for corpus architecture, pipeline stages, scoring, and configuration
    defaults.
 3. Explore **2. 도메인 연구지형도** and **3. 기관 성과 & 포트폴리오** to inspect macro/meso findings and

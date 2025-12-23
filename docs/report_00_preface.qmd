@@ -1,0 +1,69 @@
+# 최종보고서 내용
+
+::: {.callout-tip title="메모"}
+💡
+
+**최종산출물: 데이터북**
+
+**중간산출물: hwp 파일 보고서(~12/31 수)**
+
+Task 1. 12/19까지의 내용을 데이터북 양식으로 정리
+
+- 데이터북 양식에 대한 합의 필요(서술식)
+- 구조, 용어(어휘집)의 일관성을 위한 합의 필요
+
+Task 2. 정리된 내용을 hwp 파일로 옮기고 승림에 정리 요청 (~12/23 화)
+
+Task 3. 정리된 내용을 데이터북 형식 파일로 옮기고 마무리 (~1/XX?)
+
+:::
+
+**인용규칙**
+
+“Kim & Lee (2025)에 의하면…”
+
+저자3인 이상~~(Kim, Kim, & Lee, 2027)~~인 경우 et al. 사용
+→ “집에 가고 싶다고 한다(Kim et al. 2027).”
+
+복수 문헌 인용시 연도순-알파벳순 나열
+→ “집에 매우 가고 싶다고 한다(Abraham 2019; Zitt et al. 2019; Lee & Kim, 2026; Kim, 2027).”
+
+한국어 문헌 인용시 한국어 문헌부터
+→ “집에 매우매우 가고 싶다고 한다(이정우 외, 2023; 김영진 외, 2026; Abraham 2019; Zitt et al. 2019; Lee & Kim, 2026; Kim, 2027).”
+
+**참고문헌(순서 상관없이 APA 스타일로 여기에 나열. 마지막에 sorting 후 hwp에 복사-붙여넣기 예정)**
+
+![image.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image.png)
+
+Zitt, M., Lelu, A., Cadot, M., & Cabanac, G. (2019). Bibliometric delineation of scientific fields. In *Springer handbook of science and technology indicators* (pp. 25-68). Cham: Springer International Publishing.
+Singh, A., D’Arcy, M., Cohan, A., Downey, D., & Feldman, S. (2023). Scirepeval: A multi-format benchmark for scientific document representations. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing* (pp. 5548-5566).
+
+**어휘집**
+
+표준과학 연구 영역
+
+표준과학 연구 분야
+
+표준과학 연구 영역 핵심 문헌 집합 (14만건)
+
+표준과학 연구 영역 확장 문헌 집합 (14만건 + 임베딩 + BC CC = 111만 건에서 초록및타이틀 존재해서 클러스터링 가능한 문헌 109만건만 남긴 것)
+
+= 표준과학 연구 영역 문헌 집합
+
+인용 주제(Citation Topics) 마이크로(micro)-레벨 클러스터(2,478개)
+
+인용 주제(Citation Topics) 메소(meso)-레벨 클러스터(326개)
+
+ 
+
+**hwp 파일로 붙여넣기 할 때의 목차 양식**
+
+**1)= 제3장 제1절**
+
+**1-1) = 제3장 제1절 1.**
+
+**1-1-1) = 제3장 제1절 1. 가.**
+
+**1-1-1-1) = 제3장 제1절 1. 가. (1)**
+
+---

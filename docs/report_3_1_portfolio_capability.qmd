@@ -1,0 +1,162 @@
+# 3-1) 벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석
+
+여기서는 KRISS와 벤치마킹 연구기관의 현재 연구 포트폴리오 및 역량을 분석하기 위한 프레임워크를 제시한다. 목적은 주요 기관들이 어떤 연구영역에서 상대적 강점을 보유하고 있는지, 그리고 KRISS가 상대적으로 취약하거나 공백이 존재하는 연구영역이 무엇인지 식별하는 데 있다. 이를 위해 단일 지표에 의존하지 않고 연구영역별 산출 규모와 특화 정도, 그리고 질적 성과 수준을 함께 반영할 수 있는 지표 조합을 구성한다. 
+
+구체적으로 연구영역별로 각 기관의 역량 보유 여부는 양적 역량과 질적 역량을 구분하여 판단한다. 양적 역량은 해당 연구영역에서 연구가 지속적으로 수행되고 있는지와 최소한의 생산 기반이 확보되어 있는지를 확인하기 위한 기준으로 정의하며, 최근 5년 기준으로 RTA가 1 이상이면서 동시에 최근 5년 기준 문헌수가 5편 이상(연평균 1편 이상)인 경우를 양적 역량 보유로 간주한다. 질적 역량은 해당 연구영역에서 생산된 성과가 상위권 성과로 이어지는지를 확인하기 위한 기준으로 정의하며, 최근 5년 기준 엑셀런스 지수(상위 10% 문헌 비중)가 8 이상인 경우를 질적 역량 보유로 간주한다.
+
+이 기준을 적용하여 기관별로 특정 연구영역이 ‘활동이 있는 영역’인지(양적 역량) 또는 ‘상위권 성과까지 확보한 영역’인지(질적 역량)를 구분할 수 있으며, 이를 통해 KRISS의 강점 영역과 개선 필요 영역, 그리고 벤치마킹 기관 대비 공백 영역을 체계적으로 탐색할 수 있다. 예컨대 복수의 벤치마킹 기관들이 공통적으로 역량을 확보하고 있는 영역인데 KRISS가 양적·질적 기준을 동시에 충족하지 못하는 경우, 해당 영역은 전략적 공백 후보로 우선순위를 높게 부여할 수 있다.
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역]
+
+![heatmap_div_물리측정_clusters_2plus_orgs_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역]
+
+![heatmap_div_물리측정_clusters_1org_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+
+위 그림은 물리측정 영역에서의 벤치마킹 기관 역량을 나타내고 있다. KRISS의 강점으로 식별된 연구영역의 예시로는 ‘34-69 - 메타표면 광학소자’가 있다. 이 영역에서는  KRISS 쪽으로 강하게 치우친 형태로 나타나, 물리측정 내부에서도 “특정 세부 주제에서의 차별화된 포지션”이 존재함을 시사한다. 다만 해당 클러스터 라벨은 ‘광학소자’로 표기되어 있으나, 실제 산출물은 테라헤르츠·음향 등 이종 파동계로의 확장 가능성을 포함하는 교차대역 측정·응용과 연결될 수 있어, 라벨 해석 시 “파동/소자 관점의 폭넓은 묶음”으로 이해하는 것이 타당하다.
+
+이와 연결되는 대표 사례로, KRISS는 미세 진동을 좁은 영역에 가두고 축적·증폭하는 메타물질 기반의 진동 에너지 하베스팅 연구 성과를 공개했으며, 해당 성과는 진동을 크게 증폭해 단위면적당 발전량을 높이는 응용을 제시한다. 공개 자료에 따르면 이 연구는 2024년 2월 *Mechanical Systems and Signal Processing*에 게재된 것으로 안내되어, 물리측정 내에서 “메타구조/메타물질 기반의 파동 제어–측정–에너지 변환” 축이 실제 논문화로 이어지고 있음을 확인할 수 있다. ([kriss.re.kr](https://www.kriss.re.kr/gallery.es?act=view&bid=0022&list_no=4638&mid=a11001040300))
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역]
+
+![heatmap_div_화학소재측정_clusters_2plus_orgs_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역]
+
+![heatmap_div_화학소재측정_clusters_1org_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+
+화학소재측정 영역에서는 NIST, BAM과 함께 KRISS가 비교적 넓은 범위에서 역량을 보유하는 형태가 관측되며, 단일 기관만의 독점적 강점이라기보다 “핵심 주제군에서 상위 기관들과 함께 존재감이 나타나는 구조”가 두드러진다. 이는 화학소재측정이 분석·측정 인프라(정밀 분석, 계면/구조 규명, 공정-특성 연계)가 성과의 기반이 되는 경우가 많아, 일정 규모 이상의 기관들이 공통적으로 경쟁하는 장(場)으로 형성되어 있기 때문으로 해석할 수 있다.
+
+KRISS의 강점 주제 사례로 제시된 ‘9-12 - 배터리 양극·계면 측정’은 소재 합성/구조 안정성 이슈를 정밀 분석으로 규명하는 연구들과 맞닿아 있다. 예를 들어, 고니켈 양극의 합성 과정에서 반응의 이질성과 경쟁 동역학 경로를 *in situ* 다중 스케일로 관측·해석한 연구는 *Nature Chemistry* (2022)에 보고되어, “합성-구조-성능”을 연결하는 계측·분석 역량의 중요성을 보여준다. ([Nature](https://www.nature.com/articles/s41557-022-00915-2.pdf?utm_source=chatgpt.com)) 또한 리튬리치 층상 산화물의 구조적 견고성과 장수명 양극 구현을 다룬 연구는 *Nature Communications* (2024)에 보고되어, 고에너지 양극 소재에서 구조 변형/응력/미세균열 등 측정 기반의 기작 규명이 핵심임을 시사한다. ([Nature](https://www.nature.com/articles/s41467-024-45490-x.pdf?utm_source=chatgpt.com))
+
+이 영역은 기관 단독 역량뿐 아니라 외부 협력과 공동연구가 성과의 중요한 경로가 되기 쉬우므로, “기관 귀속(affiliation) 기준 성과”와 “기관 내부 축적 역량”을 분리해 해석하는 관점이 함께 필요하다.
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역]
+
+![heatmap_div_바이오의료측정_clusters_2plus_orgs_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역]
+
+![heatmap_div_바이오의료측정_clusters_1org_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+
+바이오의료측정 영역에서는 NIST의 우위가 전반적으로 강하게 나타나는 가운데, 일부 기관은 특정 세부 주제에서 높은 성과 집중도를 보인다. KRISS의 경우에도 뇌파 기반 상태 추정, 현장진단 바이오센서 등 “측정 신호–알고리즘–진단/판별”로 이어지는 응용형 주제에서 존재감이 확인되며, 이는 표준·측정기관의 전통적 강점(정량성, 재현성, 신뢰도)을 바이오·의료 맥락으로 확장하는 경로로 해석할 수 있다.
+
+뇌파(EEG) 기반 측정·평가 축과 관련해서는, VR 환경에서의 사이버 멀미를 주관 지표(SSQ)와 함께 EEG로 객관 평가하는 연구가 *Applied Ergonomics* (2022)에 보고된 바 있으며, 바이오신호의 계측–품질–판정 프레임을 실제 적용 문제로 연결하는 전형적 사례로 볼 수 있다. ([ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S0003687022000540?utm_source=chatgpt.com)) 또한 현장진단/바이오센서 축에서는 2025년 *Biosensors and Bioelectronics: X*에 게재된 “포인트오브케어(POC) 기반 신속 진단” 성격의 연구가 확인되어, 측정 플랫폼의 소형화·고감도화·실시간화를 지향하는 흐름과 맞닿아 있다. ([ScienceDirect](https://www.sciencedirect.com/science/article/pii/S0956566325000909)) 더 나아가 KRISS의 공개 보도에서는 SERS 기반 초고감도 다중 정량 검출 플랫폼을 통해 체액 내 극미량 바이오마커를 정량화하는 접근도 소개되어, 고신뢰 정량 측정이 요구되는 조기진단 분야에서의 확장 가능성을 뒷받침한다. ([다음](https://v.daum.net/v/20250730102329758?utm_source=chatgpt.com))
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역]
+
+![heatmap_div_양자기술_clusters_2plus_orgs_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0_clusters_2plus_orgs_conditions.png)
+
+[그림 XX KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역]
+
+![heatmap_div_양자기술_clusters_1org_conditions.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0_clusters_1org_conditions.png)
+
+양자기술 영역에서는 NIST의 독보적 위상이 전반적으로 확인되며, 그 다음 층에서 기관 간 경쟁이 형성되는 구조가 나타난다. KRISS는 이 두 번째 층에서 의미 있는 규모와 성과를 함께 보이는 기관으로 관측되며, 특히 결함 중심(다이아몬드 NV 등) 센서, 스핀 기반 현상 제어 등 “정밀 측정이 직접 성능 한계를 규정하는 주제”에서 강점 후보가 도출된다. 이는 양자기술이 장비·소자 성능의 정량적 검증(코히런스, 잡음, 결어긋남, 안정성)이 연구 경쟁력의 핵심이 되는 분야라는 점에서, 표준·측정기관의 비교우위를 발현할 여지가 큰 영역으로 해석할 수 있다.
+
+다이아몬드 결함 기반 양자센서 축과 관련해, 질소 불순물(P1 center) 등 스핀 환경에 의해 NV 스핀 앙상블의 결어긋남이 제한되는 메커니즘을 이론적으로 규명한 연구는 *npj Quantum Information* (2022)에 보고되어, 결함양자센서의 성능 상한을 결정하는 잡음원·환경 모델링이 핵심 연구축임을 보여준다. ([Nature](https://www.nature.com/articles/s41534-022-00605-4.pdf?utm_source=chatgpt.com)) 또한 스핀전류 변환·제어와 같은 스핀트로닉스 기반 주제는 센싱·계측과 직접 연결되며, 예컨대 스핀-궤도 토크 기반 변환 효율을 다룬 연구가 *Nature Communications Physics* 계열에서 보고되는 등(사례) 상위권 저널에서 활발히 전개되고 있다.
+
+이 영역의 해석 포인트는 “상대적 순위” 자체보다, KRISS가 강점을 보이는 세부 축이 NIST의 초대형 투자 축과 어디에서 겹치고 어디에서 차별화되는지, 그리고 그 축이 향후 표준·시험인증 수요와 어떻게 결합되는지까지 연결해 보는 데 있다.
+
+**물리측정 영역**
+
+**Insight 2-1:**
+
+KRISS의 역량이 뛰어난 영역(RTA는 3, Ex10은  19%, 논문수 52개) 중에는 **‘34-69 - 메타표면 광학소자’**가 있는데  이 영역은 BIPM 주요기관 중 KRISS만 잘하는 영역이기도 함.
+
+아래 논문이 **메타표면 광학소자** 영역에 해당. 음향진동초음파측정그룹 + 비파괴측정그룹의 논문
+[https://www.webofscience.com/wos/woscc/full-record/WOS:001136424700001](https://www.webofscience.com/wos/woscc/full-record/WOS:001136424700001)
+https://www.kriss.re.kr/gallery.es?mid=a10204080300&bid=0022&list_no=4638&act=view
+- 표준연, 좁은 영역에 진동을 가두어 고증폭하는 메타물질 개발, 버려지는 진동을 모아 전기로 만드는 ‘에너지 하베스팅’ 상용화 앞당긴다 - 
+(**광학소자 영역이지만 이 논문은 음향진동초음파 관련…?** 
+이 영역의 description 마지막에는 아래와 같은 문구가 있음: 또한 테라헤르츠·음향 등 이종 파동계로의 확장을 위한 교차대역 측정 프레임워크를 제공하여 국내 산업의 상용화와 시험인증 역량을 강화할 수 있습니다.)
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000595660900002](https://www.webofscience.com/wos/woscc/full-record/WOS:000595660900002)
+앞의 논문 저자였던 승홍민, 최재원 박사 + 김미소 교수의 2020년 연구로 역시 69번 영역. 이 논문은 2개의 후속 특허로도 이어졌음
+
+**화학소재측정 영역**
+
+**Insight 2-1:**
+
+영역별로 살펴보면 NIST, BAM과 함께 골고루 잘하는 3개 기관에 들어가는 것으로 보임.
+
+KRISS가 이미 잘하는 영역 중에는 **‘9-12 - 배터리 양극·계면 측정’**가 있는데,  
+
+(24년 7월 KRISS인상 수상한 첨단소재측정그룹 박혁준 선임연구원
+~~~~급증하는 전기차 수요 대응 및 글로벌 시장 선점을 위해 저가형 고성능의 지속가능한 전지 기술에 대한 요구가 증가하고 있는 반면, 현 리튬이온전지의 양극제는 자원이 한정적인 코발트 기반의 전이금속 산화물을 사용하고 있어 가격이 비싸고 변동성이 심하다는 단점을 가지고 있다. 이에, 박혁준 선임연구원은 저가형 고에너지 양극재 개발을 위해 기존 삼원계 니켈-코발트-망간계(NCM) 층상형 양극재에서 코발트 함량을 줄이고 니켈 함량을 높은 고니켈계 양극 소재 또는 망간 함량을 높인 과리튬 망간계 양극 소재에 대한 연구개발을 활발히 하였다.
+[https://www.kriss.re.kr/gallery.es?mid=a10504000000&bid=0008&list_no=4745&act=view](https://www.kriss.re.kr/gallery.es?mid=a10504000000&bid=0008&list_no=4745&act=view)
+~~~~[https://www.webofscience.com/wos/woscc/full-record/WOS:000784692200003](https://www.webofscience.com/wos/woscc/full-record/WOS:000784692200003)
+Nature Chem. 논문입니다. 아래 Nature Comm. 저자에도 들어가계시네요
+(강노원 본부장이 말한 ‘지도교수와 네이처 쓰는 사람’이 이분인지…)
+[https://www.webofscience.com/wos/woscc/full-record/WOS:001161546900008](https://www.webofscience.com/wos/woscc/full-record/WOS:001161546900008)
+
+**→ 그런데 이분은 현재 고려대 교수입니다.**
+
+**⇒ 더 잘해주지 그랬어요… KRISS의 발전을 위해 솔직하게 이야기해봅니다.**
+
+~~→ 찾아볼수록 이 영역 논문들은 KRISS의 역량이라기보단 KRISS에 들어온 신입박사와 친정연구실의 성과같기도 하고… 비슷한 사례로 이 영역 KRISS 피인용 상위논문 저자로 **촉감표준융합연구단? 양자질량측정그룹? 송한욱(동명이인이 두 분 계십니다) 박사**가 있는데, 퍼듀대와 계속 공저를 하네요.~~
+[https://www.webofscience.com/wos/woscc/full-record/WOS:001060913400001](https://www.webofscience.com/wos/woscc/full-record/WOS:001060913400001)
+
+**바이오의료측정 영역**
+
+**Insight 2-1:**
+
+NIST 외에 NPL이 바이오의료측정 영역에서 높은 위상을 보여주는 가운데, KRISS가 이미 잘하는 영역 중에는 **‘41-127 - 뇌파 감정상태 측정’**가 있으며, 놀랍게도 지난 5년간 KRISS가 생산한 14개 논문 중, 8개가 피인용 상위 10% 논문 (57%)
+
+그런데 재밌는 것은 아래 논문들(피인용수 93, 73, 64, 54… )이 모두 박세진 박사의 논문(지금은 은퇴하신것같습니다.)
+더 재밌는 것은 저널이 그리 좋은 저널도 아니고… SENSORS도 있고… 그런데 피인용은 굉장히 많이 되어있음.
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000597204400001](https://www.webofscience.com/wos/woscc/full-record/WOS:000597204400001)
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000676429600001](https://www.webofscience.com/wos/woscc/full-record/WOS:000676429600001)
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000696067900001](https://www.webofscience.com/wos/woscc/full-record/WOS:000696067900001)
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000689904800001](https://www.webofscience.com/wos/woscc/full-record/WOS:000689904800001)
+
+https://www.kriss.re.kr/gallery.es?mid=a10501030000&bid=0018&act=view&list_no=3490
+기술을 이전한 박세진 책임연구원은 인간 공학, 생체신호 측정 분야의 전문가다. 뇌파, 심전도, 심박수, 안구 전도,족압 등의 생체데이터를 측정해 분석하고, 다양한 지능형 알고리즘을 통해 건강검진 데이터 및 의학지식 DB와 비교함으로써 뇌졸중 등의 질병을 조기 예측하는 기술을 개발했다.
+
+지금은 의료융합연구그룹에 있는 임현균 박사의 아래 논문도 참고(피인용 36회, 2022년 논문)
+
+https://www.kriss.re.kr/gallery.es?mid=a10206110300&bid=0022&b_list=10&act=view&list_no=4111&nPage=1&vlist_no_npage=1&keyField=&orderby=
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000860525200010](https://www.webofscience.com/wos/woscc/full-record/WOS:000860525200010)
+
+**(Estimating objective (EEG) and subjective (SSQ) cybersickness in people with susceptibility to motion sickness)**
+
+**’43-178 - 현장진단 바이오센서’(e.g.,**)도 이미 잘하고 있는데, 지난 5년간 KRISS가 생산한 12개 논문 중, 2개가 피인용 상위 10% 논문 (16%)
+
+아래 논문은 2020pub, 107회 논문에 의한 인용, 특허 4개에도 인용.
+바이오물질측정그룹 김세일 그룹장의 논문이며
+
+[https://www.webofscience.com/wos/woscc/full-record/WOS:000571520200019](https://www.webofscience.com/wos/woscc/full-record/WOS:000571520200019)
+
+이 연구와 같은 맥락에서 아래와 같은 연구도 진행한 것으로 보임
+
+https://www.kriss.re.kr/gallery.es?mid=a10205120300&bid=0022&b_list=10&act=view&list_no=4157&nPage=1&vlist_no_npage=1&keyField=&orderby=
+
+그리고 2025년 논문이라 안 잡혔지만 아래 보도자료에 핫해보이는 연구가 있습니다. 이 영역에서 KRISS의 앞날이 기대됩니다. 좋은 저널이라고 하네요.
+
+https://www.kriss.re.kr/gallery.es?mid=a10505000000&bid=0018&list_no=4934&act=view 
+
+[https://www.sciencedirect.com/science/article/pii/S0956566325000909](https://www.sciencedirect.com/science/article/pii/S0956566325000909)
+
+**양자기술 영역**
+
+**Insight 2-1:**
+
+NIST가 양자영역에서 독보적인 위상을 보여주는 가운데, KRISS가 다른 기관들 중에서도 특히 “NIST에 비벼볼만한”여지가 있는 것으로 보임. 다른 기관 중에서도 2~3위 권을 다투는 PTB와 함께 볼 것
+
+예를 들어 KRISS가 이미 잘하는 영역 중에는 **‘20-182 - 다이아몬드결함양자센서’**가 있는데, 
+
+(**오상원 박사(양자자기센싱그룹) 논문**
+Park, H., Lee, J., Han, S., Oh, S., & Seo, H. (2022). Decoherence of nitrogen-vacancy spin ensembles in a nitrogen electron-nuclear spin bath in diamond. *npj Quantum Information*, *8*(1), 95.: 
+질소-빈자리 센터(Nitrogen-Vacancy center)의 결어긋남(decoherence)이 질소
+불순물에 의한 것임을 이론적으로 규명(2022).
+**이를 인용한 특허**: 이러한 문제를 인지하고, 실리콘-빈자리 센터(Silicon-Vacancy center)를 이용해
+결맞음(coherence) 시간을 늘리는 방법을 구현(2023)
+→ 양자 메모리가 정보를 유지하는 시간 증가
+2024에 저자가 직접 특허도 출원했네요 인용여부는 확인불가 ‘다이아몬드 질소-빈자리 센서를 이용한 자기장 및 온도 측정 장치 및 방법’)
+
+’**12-167 - 스핀전류 변환·제어’(e.g.,** WOS:000567766700025; pubyear 2020, cited 119; 양자자기센싱그룹 황찬용 박사)도 이미 잘하고 있는데,

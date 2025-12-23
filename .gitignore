@@ -23,3 +23,9 @@ Thumbs.db
 
 # Legacy references not for commit
 ref_previous/
+
+# Notion import artifacts (keep extracted md/assets; ignore raw export bundles & temp conversions)
+Final_Report_MD/*_ExportBlock-*.zip
+Final_Report_MD/*.html
+Final_Report_MD/*_files/
+Final_Report_MD/.~*

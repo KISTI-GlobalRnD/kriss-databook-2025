@@ -4,6 +4,9 @@ project:
   render:
     - index.qmd
     - docs/*.qmd
+    - "!docs/final_report_*.qmd"
+  resources:
+    - "Final_Report_MD/최종보고서 내용/**"
 
 book:
   title: "KRISS Keyword Pipeline Report (Book)"
@@ -21,6 +24,29 @@ book:
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
   chapters:
     - index.qmd
+    - docs/authoring_notes.qmd
+    - part: "최종보고서 (Notion import)"
+      chapters:
+        - docs/report_00_preface.qmd
+        - docs/report_1_1_data_build.qmd
+        - docs/report_1_2_1_global_landscape.qmd
+        - docs/report_1_2_2_leiden_clustering.qmd
+        - docs/report_1_2_3_kriss_division_mapping.qmd
+        - docs/report_1_2_4_keywords_timeseries.qmd
+        - docs/keyword_trends.qmd
+        - docs/report_1_2_5_landscape_visualization.qmd
+        - docs/report_2_1_org_country_standardization.qmd
+        - docs/report_2_2_benchmark_institutions.qmd
+        - docs/report_2_3_collaboration_network.qmd
+        - docs/report_2_4_1_country_performance.qmd
+        - docs/report_2_4_2_institution_performance.qmd
+        - docs/report_2_4_3_policy_alignment.qmd
+        - docs/report_3_1_portfolio_capability.qmd
+        - docs/report_3_2_emerging_candidates.qmd
+        - docs/report_3_3_1_emergence_indicators.qmd
+        - docs/report_3_3_2_emergence_scoring.qmd
+        - docs/report_3_4_databook_dashboard.qmd
+        - docs/report_3_5_llm_reporting.qmd
     - docs/research_overview.qmd
     - docs/strategy_execution.qmd
     - part: "데이터 & 방법론"
@@ -32,7 +58,6 @@ book:
     - part: "도메인 연구지형도"
       chapters:
         - docs/module_domain_map.qmd
-        - docs/keyword_trends.qmd
     - part: "기관 성과 & 포트폴리오"
       chapters:
         - docs/module_institutional.qmd
