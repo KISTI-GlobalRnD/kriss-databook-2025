@@ -6,7 +6,8 @@ project:
     - docs/*.qmd
     - "!docs/final_report_*.qmd"
   resources:
-    - "Final_Report_MD/최종보고서 내용/**"
+    - "Final_Report_MD/최종보고서 내용/*.png"
+    - "Final_Report_MD/최종보고서 내용/*.xlsx"
 
 book:
   title: "KRISS Keyword Pipeline Report (Book)"
@@ -70,6 +71,17 @@ book:
         - docs/diagnostics.qmd
         - docs/appendix.qmd
         - docs/change_log.qmd
+
+language:
+  section-title-footnotes: "각주"
+  section-title-references: "참고문헌"
+
+crossref:
+  fig-title: "그림"
+  tbl-title: "표"
+  fig-prefix: 그림
+  tbl-prefix: 표
+  ref-hyperlink: true
 
 format:
   html:

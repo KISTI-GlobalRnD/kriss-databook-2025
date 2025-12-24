@@ -71,15 +71,7 @@
 → (bar graph의 첫번째 bar는 기후, 두번째 bar는 건강, … 와 같은 방식으로 기관당 1개, 10개를 한번에 보여주는 **그림을 영역당 1개, 총 5개(전체+물화생양)**
 ⇒ 각 영역 안에서 각 기관의 규모 대비 특정 카테고리에 대한 정책부합 논문 집중도를 보여줌으로써 영역별로 어떤 카테고리에 집중도가 높은지 보여주기 위함
 
-→ 데이터만 먼저 올려드립니다. (논문 x 기관 x 분야를 모두 explode 해놓은 파일 = 논문에 기관이 2개, 분야가 4개일 때, 8개 레코드로 늘어나게 됨.) **(is_metrol_policy가 정책부합성 여부)**
-
-[df_exp2.csv](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/df_exp2.csv)
-
-[정책부합_251218_1756.zip](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9_251218_1756.zip)
-
-[gen_policy_plot.py](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/gen_policy_plot.py)
-
-[df_exp2.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/df_exp2.xlsx)
+→ 정책부합성 산출을 위한 중간 데이터(논문×기관×분야 확장 테이블)와 시각화 생성 스크립트는 내부 검증용으로 별도 관리한다.
 
 ![image.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%204.png)
 

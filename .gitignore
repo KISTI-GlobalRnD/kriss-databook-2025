@@ -29,3 +29,7 @@ Final_Report_MD/*_ExportBlock-*.zip
 Final_Report_MD/*.html
 Final_Report_MD/*_files/
 Final_Report_MD/.~*
+
+# Avoid committing heavyweight binaries from intermediate exports (copied via resources only when needed)
+Final_Report_MD/최종보고서 내용/*.docx
+Final_Report_MD/최종보고서 내용/*.hwp

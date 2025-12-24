@@ -124,7 +124,7 @@ $$
 - 전통적으로 개별 논문(특허)의 퀄리티를 측정하는 방식은 논문(특허)으로부터의 피인용을 카운트하고, 연도-분야별로 보정하는 것으로, 이와 유사하게 본 연구에서는 **개별 논문의 시장연계성을 측정하는 방식은 특허(Simple count? Quality-adjusted-count?)로부터의 피인용을 카운트~~하고, 연도별로 보정~~**
 - 
 
-[Ahmadpoor and Jones (2017, Sci.) - The Dual Frontier Patented Inventions and Prior Scientific Advance.pdf](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/Ahmadpoor_and_Jones_(2017_Sci.)_-_The_Dual_Frontier_Patented_Inventions_and_Prior_Scientific_Advance.pdf)
+Ahmadpoor & Jones (2017)을 참조.
 
 → 3,200만 개 WoS journal articles (published from 1945 to 2013) 중 USPTO 특허와 바로 연결된 논문은 10%, 간접적으로라도 연결된 논문은 80% (Fig 1. 참조)
 

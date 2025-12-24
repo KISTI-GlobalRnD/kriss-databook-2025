@@ -57,11 +57,7 @@
     ****
     
 
-[promising_area101010.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/promising_area101010.xlsx)
-
-유망영역 30개 모아놓고 히트맵 
-
-[유망연구영역히트맵.zip](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EC%9C%A0%EB%A7%9D%EC%97%B0%EA%B5%AC%EC%98%81%EC%97%AD%ED%9E%88%ED%8A%B8%EB%A7%B5.zip)
+※ 상위 후보군 목록 및 히트맵 생성용 작업 파일은 내부 검증용으로 별도 관리한다.
 
 ![image.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%207.png)
 

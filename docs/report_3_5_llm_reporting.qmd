@@ -8,9 +8,7 @@ hwp에는 샘플만 삽입
 4. **10개 기관의 RTA, Ex10, N_docs (최근 5개년)**
 5. **정책부합성(이 클러스터의 논문 중 5개 카테고리 별 비율) + 클러스터와 정책부합성의 관련도 설명(상세 리포팅 수행시 병행 예정)**
     
-    [cluster_micro_class_ratio.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/cluster_micro_class_ratio.xlsx)
-    
-    [cluster_micro_class_stat.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/cluster_micro_class_stat.xlsx)
+    ※ 클러스터별 세부지표 집계표(작업표)는 내부 검증용으로 별도 관리한다.
     
 6. 워드클라우드? 키워드별추이? (YJK)
 7. **클러스터 전체 문헌에서 문헌 수 기준 top5 기관 (전체, BIPM 한정 → 표 2개, 최근5개년)**
