@@ -20,6 +20,7 @@ website:
     style: floating
     search: true
     border: true
+    collapse-level: 2
     tools:
       - icon: book
         text: "북 버전 보기"
@@ -27,8 +28,93 @@ website:
       - icon: browser
         text: "웹 버전 홈"
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
+    contents:
+      - text: "홈 / Home"
+        href: index.qmd
+      - text: "작성 가이드 / Authoring Notes"
+        href: docs/authoring_notes.qmd
+      - section: "최종보고서 / Final Report"
+        contents:
+          - docs/report_00_preface.qmd
+          - docs/report_1_1_data_build.qmd
+          - docs/report_1_2_1_global_landscape.qmd
+          - docs/report_1_2_2_leiden_clustering.qmd
+          - docs/report_1_2_3_kriss_division_mapping.qmd
+          - docs/report_1_2_4_keywords_timeseries.qmd
+          - docs/report_1_2_5_landscape_visualization.qmd
+          - docs/report_2_1_org_country_standardization.qmd
+          - docs/report_2_2_benchmark_institutions.qmd
+          - docs/report_2_3_collaboration_network.qmd
+          - docs/report_2_4_1_country_performance.qmd
+          - docs/report_2_4_2_institution_performance.qmd
+          - docs/report_2_4_3_policy_alignment.qmd
+          - docs/report_3_1_portfolio_capability.qmd
+          - docs/report_3_2_emerging_candidates.qmd
+          - docs/report_3_3_1_emergence_indicators.qmd
+          - docs/report_3_3_2_emergence_scoring.qmd
+          - docs/report_3_4_databook_dashboard.qmd
+          - docs/report_3_5_llm_reporting.qmd
+      - section: "운영 핸드북 / Handbook"
+        contents:
+          - docs/research_overview.qmd
+          - docs/strategy_execution.qmd
+          - docs/data_architecture.qmd
+          - docs/pipeline_architecture.qmd
+          - docs/algorithmic_scoring.qmd
+          - docs/configuration.qmd
+          - docs/module_domain_map.qmd
+          - docs/keyword_trends.qmd
+          - docs/module_institutional.qmd
+          - docs/delivery_plan.qmd
+          - docs/operations.qmd
+          - docs/diagnostics.qmd
+          - docs/appendix.qmd
+          - docs/change_log.qmd
   navbar:
     left:
+      - text: "최종보고서 / Final Report"
+        menu:
+          - text: "서문 / Preface"
+            href: docs/report_00_preface.qmd
+          - text: "---"
+          - text: "1-1) 문헌 데이터 구축"
+            href: docs/report_1_1_data_build.qmd
+          - text: "1-2-1) 글로벌 연구지형도"
+            href: docs/report_1_2_1_global_landscape.qmd
+          - text: "1-2-2) 표준과학 연구지형도(Leiden)"
+            href: docs/report_1_2_2_leiden_clustering.qmd
+          - text: "1-2-3) KRISS 4대 분야 매핑"
+            href: docs/report_1_2_3_kriss_division_mapping.qmd
+          - text: "1-2-4) 클러스터 기반 키워드/시계열"
+            href: docs/report_1_2_4_keywords_timeseries.qmd
+          - text: "1-2-5) 연구지형도 시각화"
+            href: docs/report_1_2_5_landscape_visualization.qmd
+          - text: "---"
+          - text: "2-1) 국가/기관 표준화"
+            href: docs/report_2_1_org_country_standardization.qmd
+          - text: "2-2) 벤치마킹 기관"
+            href: docs/report_2_2_benchmark_institutions.qmd
+          - text: "2-3) 협력 네트워크"
+            href: docs/report_2_3_collaboration_network.qmd
+          - text: "2-4-1) 국가 성과"
+            href: docs/report_2_4_1_country_performance.qmd
+          - text: "2-4-2) 기관 성과"
+            href: docs/report_2_4_2_institution_performance.qmd
+          - text: "2-4-3) 정책 정렬"
+            href: docs/report_2_4_3_policy_alignment.qmd
+          - text: "---"
+          - text: "3-1) 포트폴리오 역량"
+            href: docs/report_3_1_portfolio_capability.qmd
+          - text: "3-2) 유망 후보"
+            href: docs/report_3_2_emerging_candidates.qmd
+          - text: "3-3-1) Emergence 지표"
+            href: docs/report_3_3_1_emergence_indicators.qmd
+          - text: "3-3-2) Emergence scoring"
+            href: docs/report_3_3_2_emergence_scoring.qmd
+          - text: "3-4) Databook dashboard"
+            href: docs/report_3_4_databook_dashboard.qmd
+          - text: "3-5) LLM reporting"
+            href: docs/report_3_5_llm_reporting.qmd
       - text: "문서 안내 / Document Guide"
         menu:
           - text: "홈 / Home"
