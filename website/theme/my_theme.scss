@@ -213,5 +213,10 @@ $callout-color-warning1: lightgrey;
 }
 }
 
+// --- Captions ---
+// Place table captions below tables for HTML output (docx/HWP are handled separately).
+table caption {
+  caption-side: bottom;
+}
 
 

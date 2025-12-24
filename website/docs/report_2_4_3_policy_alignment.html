@@ -414,11 +414,7 @@ ul.task-list li input[type="checkbox"] {
 <li>전체 영역 + 물화생양 각각에 대해 “해당 기관의 해당 영역 <strong>정책부합</strong> 논문수/해당 기관의 해당 영역 논문수 = <strong>기관 논문 중 정책부합 논문비율</strong>” * 10개 기관을 보여주는 <strong>그림 총 1개</strong> → (bar graph의 첫번째 bar는 전체, 두번째 bar는 물리, … 와 같은 방식으로 기관당 1개, 10개를 한번에 보여주는 그림 1개) ⇒ 각 기관의 규모 대비 정책부합 논문 집중도를 보여줌과 동시에 어떤 영역에서 특히 집중도가 높은지 보여주기 위함</li>
 <li>전체 영역 + 물화생양 각각에 대해 “해당 기관의 해당 영역에서 <strong>카테고리 x의 정책부합</strong> 논문수/해당 기관의 해당 영역 논문수 = <strong>기관 논문 중 카테고리별 정책부합 논문비율</strong>” → (bar graph의 첫번째 bar는 기후, 두번째 bar는 건강, … 와 같은 방식으로 기관당 1개, 10개를 한번에 보여주는 <strong>그림을 영역당 1개, 총 5개(전체+물화생양)</strong> ⇒ 각 영역 안에서 각 기관의 규모 대비 특정 카테고리에 대한 정책부합 논문 집중도를 보여줌으로써 영역별로 어떤 카테고리에 집중도가 높은지 보여주기 위함</li>
 </ul>
-<p>→ 데이터만 먼저 올려드립니다. (논문 x 기관 x 분야를 모두 explode 해놓은 파일 = 논문에 기관이 2개, 분야가 4개일 때, 8개 레코드로 늘어나게 됨.) <strong>(is_metrol_policy가 정책부합성 여부)</strong></p>
-<p><a href="../Final_Report_MD/최종보고서 내용/df_exp2.csv">df_exp2.csv</a></p>
-<p><a href="../Final_Report_MD/최종보고서 내용/정책부합_251218_1756.zip">정책부합_251218_1756.zip</a></p>
-<p><a href="../Final_Report_MD/최종보고서 내용/gen_policy_plot.py">gen_policy_plot.py</a></p>
-<p><a href="../Final_Report_MD/최종보고서 내용/df_exp2.xlsx">df_exp2.xlsx</a></p>
+<p>→ 정책부합성 산출을 위한 중간 데이터(논문×기관×분야 확장 테이블)와 시각화 생성 스크립트는 내부 검증용으로 별도 관리한다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../Final_Report_MD/최종보고서 내용/image 4.png" class="img-fluid figure-img"></p>
