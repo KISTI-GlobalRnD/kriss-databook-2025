@@ -33,3 +33,11 @@ Final_Report_MD/.~*
 # Avoid committing heavyweight binaries from intermediate exports (copied via resources only when needed)
 Final_Report_MD/최종보고서 내용/*.docx
 Final_Report_MD/최종보고서 내용/*.hwp
+
+# Local conversion artifacts (docx/hwpx compatibility builds)
+Final_Report_MD/_docx_assets/
+Final_Report_MD/*_processed.md
+Final_Report_MD/최종보고서 내용/*.hwpx
+
+# Final report source DOCX (kept locally; avoid large binary commits)
+붙임__빅데이터_기반_*최종보고서*.docx

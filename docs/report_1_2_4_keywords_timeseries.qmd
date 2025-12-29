@@ -24,52 +24,14 @@ score^{ctfidf}_{c,j} = tf_{c,j}\cdot idf_j
 
 키워드 분석에서 ‘빈도(frequency)’는 “문서 수”가 아니라, 클러스터 내 **총 토큰 등장 횟수**를 의미한다. 즉, 하나의 문서에서 같은 용어가 여러 번 등장하면 그만큼 누적된다. 반면 ‘문서 커버리지(doc coverage)’는 해당 용어가 **1회 이상 등장한 문서의 개수**로 정의되며, “한 문서당 1회”로 카운트되는 대표성 지표로 해석할 수 있다.
 
-키워드 시계열은 출판연도별 관측치를 재구성하여 계산하며, 분모의 정의에 따라 두 가지 정상화를 병행한다.
+키워드 시계열은 출판연도별 관측치를 정규화 하기 위해 해당 년도의 각 클러스터별 문서 수로 나누어 정규화한 값을 사용하였다. 연도 \(t\)에서 클러스터 \(c\)의 문서 수를 분모로 두고, “해당 연도에 용어 \(k\)가 1회 이상 등장한 문서 수(문서 커버리지)”를 분자로 둔다.
 
-첫째, **토큰 기반 PPM(parts‑per‑million)** 은 연도 \(y\)에서 클러스터 \(c\)의 전체 unigram 토큰 수를 분모로 두고, 용어 \(t\)의 토큰 카운트를 분자로 둔다.
 \[
-ppm_{c,y}(t)=10^6\cdot\frac{count^{token}_{c,y}(t)}{\sum_{j\in V}count^{token}_{c,y}(j)}
+series_{c,t}(k)=\frac{doc\_coverage_{c,t}(k)}{docs_{c,t}}
 \]
 
-둘째, **문서 기반 PPM** 은 연도 \(y\)에서 클러스터 \(c\)의 문서 수를 분모로 두고, “해당 연도에 용어 \(t\)가 1회 이상 등장한 문서 수(문서 커버리지)”를 분자로 둔다.
-\[
-doc\_ppm_{c,y}(t)=10^6\cdot\frac{doc\_coverage_{c,y}(t)}{docs_{c,y}}
-\]
-
-실무적으로는 토큰 기반 PPM(텍스트 점유율)과 문서 기반 PPM(문서 점유율)을 병행하여, 반복 서술에 민감한 용어와 문서 확산을 반영하는 용어를 구분해 해석하는 것이 바람직하다. 또한 같은 용어라 하더라도 클러스터별로 분모(토큰 총량, 문서 수)가 다르므로, 절대값 비교보다는 “동일 클러스터 내 연도별 변화”와 “서로 다른 정규화 지표 간의 일관성”을 함께 확인하는 것이 중요하다.
+이렇게 추출된 키워드 시계열은 같은 키워드라 하더라도, 서로 다른 클러스터에서는 분모와 분자가 모두 다름에 유의하여야 한다. 따라서 절대값 비교보다는 “동일 클러스터 내 연도별 변화”를 중심으로 해석하는 것이 바람직하다.
 
 (5) 실행 규모
 
 표준과학 연구 영역 최종 문헌 집합(109만건)과 미시 수준 연구주제 클러스터 195개를 대상으로 키워드 추출과 시계열 산출을 수행한다. 대규모 코퍼스에서 토큰 사전은 수십만~수백만 규모로 확장될 수 있으며, 희소 집계 기준 총 토큰(집계) 규모는 수억 단위로 증가할 수 있다. 다만 최종 산출물은 클러스터별 상위 \(N\)개 키워드를 선택하는 방식으로 요약되므로, 결과 행 수는 대체로 “클러스터 수 × \(N\)”에 비례한다. 우리는 최종 정규화된 c-TF-IDF와 LLR의 각 지표를 정규화 하여 더한 최종 스코어가 양의 값 (>0)으로 나타난 키워드를 최종적으로 선택한 뒤 시계열을 다시 추출하였다.
-
-::: callout-note
-키워드 시계열의 인터랙티브 탐색(클러스터/용어 선택, hover 기반 지표 확인 등)은 [키워드 추세 탐색기](keyword_trends.qmd)에서 제공한다.
-:::
-
----
-
-**참고문헌(APA 양식; 정렬은 최종 편집 단계에서 수행)**
-
-Boyack, K. W., & Klavans, R. (2010). Co-citation analysis, bibliographic coupling, and direct citation: Which citation approach represents the research front most accurately? *Journal of the American Society for Information Science and Technology, 61*(12), 2389–2404.
-
-Boyack, K. W., & Klavans, R. (2020). A comparison of large-scale science models based on textual, direct citation and hybrid relatedness. *Quantitative Science Studies, 1*(4), 1570–1585.
-
-Carbonell, J., & Goldstein, J. (1998). The use of MMR, diversity-based reranking for reordering documents and producing summaries. In *Proceedings of the 21st Annual International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR ’98).* [https://doi.org/10.1145/290941.291025](https://doi.org/10.1145/290941.291025)
-
-Dunning, T. (1993). Accurate methods for the statistics of surprise and coincidence. *Computational Linguistics, 19*(1), 61–74.
-
-Grootendorst, M. (2022). *BERTopic: Neural topic modeling with a class-based TF-IDF procedure.* arXiv. [https://arxiv.org/abs/2203.05794](https://arxiv.org/abs/2203.05794)
-
-Klavans, R., & Boyack, K. W. (2017). Which type of citation analysis generates the most accurate taxonomy of scientific and technical knowledge? *Journal of the Association for Information Science and Technology, 68*(4), 984–998.
-
-Kleminski, R., Kazienko, P., & Kajdanowicz, T. (2022). Analysis of direct citation, co-citation and bibliographic coupling in scientific topic identification. *Journal of Information Science, 48*(3), 349–373.
-
-Singh, A., D’Arcy, M., Cohan, A., Downey, D., & Feldman, S. (2023). Scirepeval: A multi-format benchmark for scientific document representations. In *Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing* (pp. 5548–5566).
-
-Traag, V. A., Waltman, L., & Van Eck, N. J. (2019). From Louvain to Leiden: Guaranteeing well-connected communities. *Scientific Reports, 9*, 5233. [https://doi.org/10.1038/s41598-019-41695-z](https://doi.org/10.1038/s41598-019-41695-z)
-
-Waltman, L., Boyack, K. W., Colavizza, G., & Van Eck, N. J. (2020). A principled methodology for comparing relatedness measures for clustering publications. *Quantitative Science Studies, 1*(2), 691–713.
-
-Waltman, L., & Van Eck, N. J. (2012). A new methodology for constructing a publication-level classification system of science. *Journal of the American Society for Information Science and Technology, 63*(12), 2378–2392. [https://doi.org/10.1002/asi.22748](https://doi.org/10.1002/asi.22748)
-
-Zitt, M., Lelu, A., Cadot, M., & Cabanac, G. (2019). Bibliometric delineation of scientific fields. In *Springer handbook of science and technology indicators* (pp. 25–68). Springer International Publishing.
