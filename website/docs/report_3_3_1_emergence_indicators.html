@@ -69,35 +69,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -362,7 +333,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_00_preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">최종보고서 내용</span></a>
+ <span class="menu-text">서문 / Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -464,13 +435,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-4) ”포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축 (in 2-3)”</span></a>
+ <span class="menu-text">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-5) “LLM 기반 유망 연구 간이 리포팅 (in 1-2)”</span></a>
+ <span class="menu-text">3-5) LLM 기반 유망 연구 간이 리포팅</span></a>
   </div>
 </li>
       </ul>
@@ -580,7 +551,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#연구영역별-유망성-세부지표-정의-및-측정" id="toc-연구영역별-유망성-세부지표-정의-및-측정" class="nav-link active" data-scroll-target="#연구영역별-유망성-세부지표-정의-및-측정">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</a></li>
+  <li><a href="#연구영역별-유망성-세부지표-정의-및-측정" id="toc-연구영역별-유망성-세부지표-정의-및-측정" class="nav-link active" data-scroll-target="#연구영역별-유망성-세부지표-정의-및-측정">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</a>
+  <ul class="collapse">
+  <li><a href="#성장성-세부지표-정의-및-측정" id="toc-성장성-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#성장성-세부지표-정의-및-측정">1. 성장성 세부지표 정의 및 측정</a>
+  <ul class="collapse">
+  <li><a href="#딥러닝-기반-모형-예측-성장가능성" id="toc-딥러닝-기반-모형-예측-성장가능성" class="nav-link" data-scroll-target="#딥러닝-기반-모형-예측-성장가능성">(1) 딥러닝 기반 모형 예측 성장가능성</a></li>
+  <li><a href="#급부상성emergence-score" id="toc-급부상성emergence-score" class="nav-link" data-scroll-target="#급부상성emergence-score">(2) 급부상성(Emergence Score)</a></li>
+  </ul></li>
+  <li><a href="#파급력-세부지표-정의-및-측정" id="toc-파급력-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#파급력-세부지표-정의-및-측정">2. 파급력 세부지표 정의 및 측정</a></li>
+  <li><a href="#기술진보-기여도-세부지표-정의-및-측정" id="toc-기술진보-기여도-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#기술진보-기여도-세부지표-정의-및-측정">3. 기술진보 기여도 세부지표 정의 및 측정</a></li>
+  <li><a href="#유망성-지표-카테고리별-세부지표" id="toc-유망성-지표-카테고리별-세부지표" class="nav-link" data-scroll-target="#유망성-지표-카테고리별-세부지표">4. 유망성 지표 카테고리별 세부지표</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/report_3_3_1_emergence_indicators.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -592,108 +573,94 @@ window.Quarto = {
 
 <section id="연구영역별-유망성-세부지표-정의-및-측정" class="level1">
 <h1>3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</h1>
-<p><del>”<strong>기술 클러스터를 중심으로 다양한 과학계량지표 분석 수행 (in 1-2)”</strong></del></p>
-<p><a href="https://www.notion.so/10-13-10-23-27fc6e66ff8880d1b491ecc2ace60c0c?pvs=21">지표 계산 프로세스(완료, 10/13~10/23)</a></p>
-<p>□ 기술 클러스터를 중심으로 다양한 과학계량지표 분석 수행</p>
-<p>◦기술 클러스터별 성장성, 영향력, 산업 연계성 등의 다양한 측면에서 과학계량 지표를 분석함.</p>
-<p><strong>1&nbsp;성장성(Growth):</strong> 클러스터 규모의 성장 또는 확산 추세와 관련된 시계열 데이터를 활용하여 성장 패턴을 분석함. (예: 급부상성, 신규성, 장기 추세 등)</p>
-<p><strong>1.1 딥러닝 기반 모형 예측 성장가능성</strong> → 최근 2년(2023~2024)의 클러스터 특성, 클러스터 간 관계를 종합적으로 고려하여 해당 클러스터의 중장기(7년 후) 성장 확률 추정. <strong>아래 2개 값 합산.</strong></p>
+<p>표준과학 연구 분야 문헌 클러스터링의 마이크로(micro)-레벨 클러스터 195개를 대상으로 과학계량지표 분석을 수행하고, 클러스터별 유망성을 성장성(Growth), 파급력(Impact), 기술 진보 기여도(Contribution to Technological Advancement) 관점에서 정량화한다. 유망성은 단일 지표로 정의하지 않고, “해당 연구영역이 커지고 있는가(성장성)”, “과학기술 지형 전체에서 영향력이 높은가(파급력)”, “기술진보와 연결되는가(기술진보 기여도)”를 동시에 확인하는 방식으로 구성한다.</p>
+<section id="성장성-세부지표-정의-및-측정" class="level2">
+<h2 class="anchored" data-anchor-id="성장성-세부지표-정의-및-측정">1. 성장성 세부지표 정의 및 측정</h2>
+<p>성장성(Growth)은 클러스터 규모가 시간에 따라 어떻게 증대되는지를 보는 지표군이다. 여기서는 최근 단기간의 급성장 패턴뿐 아니라, 신규성(최신성)과 장기 추세까지 함께 측정해 성장 패턴을 다면적으로 해석하도록 설계한다. 성장성 세부지표는 (1) 딥러닝 기반 예측 성장가능성(중장기 성장 확률), (2) 급부상성(Emergence Score), (3) 최신성(Recency), (4) 장기성장추세(Long-term Trend)로 구성한다.</p>
+<section id="딥러닝-기반-모형-예측-성장가능성" class="level3">
+<h3 class="anchored" data-anchor-id="딥러닝-기반-모형-예측-성장가능성">(1) 딥러닝 기반 모형 예측 성장가능성</h3>
+<p>딥러닝 기반 모형 예측 성장가능성은 최근 2년(2023–2024) 동안의 클러스터 특성과 클러스터 간 관계를 종합적으로 고려해, 해당 클러스터가 중장기(7년 후)에도 성장할 확률을 추정하는 방식이다. 이 지표는 두 구성값을 합산하여 사용한다. 첫 번째는 표준과학 연구 분야 문헌 클러스터링의 마이크로(micro)-레벨 클러스터 195개에 대한 딥러닝 기반 예측값으로, 0.90 이상이면 1점, 그 미만이면 0점으로 이산화하여 반영한다. 두 번째는 WoS 인용주제 마이크로-레벨 클러스터에 대한 딥러닝 기반 예측값을 표준과학 연구 분야 문헌 클러스터링의 마이크로-레벨 클러스터 수준에서 가중평균한 값으로, ([0,1]) 범위에서 연속변수로 사용한다.</p>
+</section>
+<section id="급부상성emergence-score" class="level3">
+<h3 class="anchored" data-anchor-id="급부상성emergence-score">(2) 급부상성(Emergence Score)</h3>
+<p>급부상성의 추정 방식은 Tech Mining 개념(Porter &amp; Cunningham, 2005)을 오랜 기간 발전시켜온 미국 조지아공대 연구그룹에서 최근 제시한 급성장추세의 요약지표인 Emergence Score(Porter et al., 2018)의 계산 식을 채택하였다. Emergence Score는 하위 3개 지표를 결합하여 구성되며, 추세 변동의 신규성(novelty), 지속성(persistence), 성장성(growth)을 비교적 고르게 반영한다. 기존에 연구주제(topic)에 대해 ‘버스트 탐지(burst detection)’ 기법(Mane &amp; Börner, 2004; Guo et al., 2011; Chen, 2012)을 적용하여 유망 영역을 도출하려는 시도가 있었으나, ’폭증(burst)’은 단기간 급증한 이벤트 성격이 강하다. 연구 영역의 급속한 성장은 일정한 시계열 구간에서 ’지속성’도 함께 확인되어야 하며, Emergence Score는 이에 대한 적절한 대안으로 판단된다.</p>
+<p>Emergence Score의 계산 식과 사용된 변수의 정의는 다음과 같다.</p>
+<p>[ EmergenceScore = 2 \times ActivePeriodTrend + (RecentTrend + MidYearToLastYearSlope) ]</p>
+<ul>
+<li><strong>Active Period Trend (활성구간 추세)</strong>: 최근 3개년도 빈도 대비 초기 3개년도 빈도의 차이<br>
+[ (f_{recent3}/N_{recent3})-(f_{early3}/N_{early3}) ]</li>
+<li><strong>Recent Trend (최근 추세)</strong>: 최근 2개년 빈도 대비 직전 2개년 빈도의 차이 × 10<br>
+[ 10 \times \left[(f_{recent2}/N_{recent2})-(f_{prev2}/N_{prev2})\right] ]</li>
+<li><strong>Mid-Year to Last-Year Slope (중반 이후 증가율)</strong>: 활성구간 중간 연도(4년차)와 마지막 연도(7년차) 사이의 기울기 × 10/3<br>
+[ \frac{10}{3} \times \left[(f_{last}/N_{mid})-(f_{mid}/N_{last})\right] ]</li>
+</ul>
+</section>
+</section>
+<section id="파급력-세부지표-정의-및-측정" class="level2">
+<h2 class="anchored" data-anchor-id="파급력-세부지표-정의-및-측정">2. 파급력 세부지표 정의 및 측정</h2>
+<p>파급력(Impact)은 연구영역이 전체 과학기술 지형에서 갖는 영향력 수준을 측정하는 지표군이며, (1) 상위 10% 엑셀런스 지표(Excellence10)와 (2) 정규화된 평균 피인용수(Mean Normalized Citation Score; MNCS)를 활용한다.</p>
+<p>Excellence10 지표는 클러스터 내 문헌 중 피인용 상위 10%에 해당하는 문헌의 비율을 의미한다(이준영 &amp; 박진서, 2019; Hicks et al., 2015; Waltman &amp; Van Eck, 2019). 상위 10% 기준에서 기대 수준은 10이며, 이 지수의 값이 10 이상이라는 것은 해당 클러스터가 속한 분류 기준으로 상위 10% 문헌 비율이 기대 수준(10%)을 초과함을 뜻한다. 본 분석은 클러스터 간 비교를 목적으로 하므로, 분위수 계산의 분류 단위는 문헌이 속한 WoS 인용주제 메소-레벨 연구영역을 적용한다. 정규화를 위해 동일 출판년도, 동일 분류 내에서 분위수를 계산하고, 피인용수 동점 처리에는 분할 처리 방식(Waltman &amp; Schreiber, 2013)을, 복분류 처리에는 평균 적용 방식(Bornmann et al., 2013)을 적용하였다.</p>
+<p>MNCS는 클러스터 내 문헌의 평균적 영향력을 보기 위한 지표로, 각 문헌이 속한 동일 출판년도, 동일 분류 내에서 상대적 피인용 수준을 기반으로 정규화한 뒤 클러스터 레벨로 집계한다. 여기서도 문헌의 분류 단위는 인용주제 메소-레벨 연구영역을 사용한다.</p>
+<p>유망 연구영역 선정을 위한 파급력 세부지표 계산에는 최근 5개년 데이터를 활용해, 현재 유망성과의 연결성을 높이도록 설계한다.</p>
+</section>
+<section id="기술진보-기여도-세부지표-정의-및-측정" class="level2">
+<h2 class="anchored" data-anchor-id="기술진보-기여도-세부지표-정의-및-측정">3. 기술진보 기여도 세부지표 정의 및 측정</h2>
+<p>기술 진보 기여도(Contribution to Technological Advancement)는 논문에 대한 특허의 인용 관계를 활용해 각 연구영역이 기술진보에 기여하는 수준을 정량화하는 지표군으로 정의된다. Science–Technology Linkage 관점에 기반하며(Li et al., 2014; Jefferson et al., 2018; Knaus &amp; Palzenberger, 2018; Bryan et al., 2020; Kuan et al., 2020; Hsiao &amp; Torvik, 2020; Marx &amp; Fuegi, 2020; Ba &amp; Liang, 2021; Hammarfelt, 2021; Marx &amp; Fuegi, 2022), (1) 기술 진보 기여 가능 지식 비율과 (2) 기술 진보 영향력 지수를 활용하여 측정한다. WoS 데이터베이스에 더해 논문과 특허의 인용 관계 정보를 제공하는 Lens 데이터베이스를 활용하였다.</p>
+<p>기술 진보 기여 가능 지식 비율은 클러스터 내 문헌 중 특허에 인용된 문헌의 비율로 계산한다. 이는 “클러스터가 기술 진보로 이어질 수 있는 지식 기반을 어느 정도 제공하는가”를 가장 직접적으로 보여주는 지표다. Nature Index에서 활용하는 Patent influence metric이 “분석 대상이 산출한 문헌 집합에서 특허에 인용되는 문헌의 비율”을 주요 지표로 설정한다는 점에서, 본 지표는 유사한 해석틀을 공유한다.</p>
+<p>기술 진보 영향력 지수는 클러스터 내 문헌이 인용되는 ’전방 인용 특허’의 가치(피인용 기반)를 반영하여, 클러스터가 기술 진보에 미치는 영향력의 크기를 계량화한다. 이를 위해 개별 특허들의 피인용수(cites)와 출원년도 코호트(cohort)별 평균 피인용(cohort mean) 값을 구한 뒤, 각 특허에 대해 피인용 점수(citation score)를 (1 + (cites / cohort\ mean))으로 계산하였다. 이어 논문별로 전방 인용 특허의 피인용 점수 총합을 계산하되 출판년도별로 보정하고, 클러스터 수준에서 최종적으로 집계하는 흐름으로 측정하였다. 기술분야 보정은 적용하지 않으므로 이 지표는 “어떤 분야의 특허이든 영향력이 큰 특허에 연결되는가”에 초점을 둔다.</p>
+<p>논문에서 특허 출원·등록까지의 시차를 고려하면 최근 5개년만으로는 기술 연계의 다양성이 충분히 포착되지 않을 수 있으므로, 유망 연구영역 선정을 위한 기술진보 기여도 세부지표 계산에는 최근 10개년 데이터를 활용한다.</p>
+</section>
+<section id="유망성-지표-카테고리별-세부지표" class="level2">
+<h2 class="anchored" data-anchor-id="유망성-지표-카테고리별-세부지표">4. 유망성 지표 카테고리별 세부지표</h2>
 <table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>DEEP Learning Based</th>
-<th>ct_micro Based</th>
+<th>유망성 지표 카테고리</th>
+<th>세부지표</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>0.90이상이면 1점, 나머지 0점</td>
-<td>가중평균이므로 연속변수로 사용 [0,1]</td>
+<td>성장성</td>
+<td>딥러닝 기반 모형 예측 성장가능성</td>
+</tr>
+<tr class="even">
+<td>성장성</td>
+<td>급부상성(Emergence Score)</td>
+</tr>
+<tr class="odd">
+<td>성장성</td>
+<td>최신성(가중 평균 출판연도)</td>
+</tr>
+<tr class="even">
+<td>성장성</td>
+<td>장기성장추세(CAGR)</td>
+</tr>
+<tr class="odd">
+<td>파급력</td>
+<td>상위 10% 엑셀런스(Excellence, Ex10)</td>
+</tr>
+<tr class="even">
+<td>파급력</td>
+<td>정규화된 평균 피인용수(Mean Normalized Citation Score, MNCS)</td>
+</tr>
+<tr class="odd">
+<td>기술진보 기여도</td>
+<td>기술 진보 기여 가능 지식 비율(특허에 인용된 문헌 비율)</td>
+</tr>
+<tr class="even">
+<td>기술진보 기여도</td>
+<td>기술 진보 영향력 지수(전방 인용 특허 가치 기반 평균)</td>
 </tr>
 </tbody>
 </table>
-<p><strong>1.2 급부상성(Emergence Score)</strong> → 최근 2~3년 동안의 클러스터 성장 추세를 최근 7개년(2018~2024)의 정보를 이용하여 계산</p>
-<p>본 분석은 급부상성에 대한 지표로 Tech Mining 개념(Porter and Cunningham 2005)을 오랜 기간 발전시켜온 미국 조지아공대 연구그룹에서 최근 제시한 급성장추세의 요약지표인 ‘Emergence Score’(Porter et al.&nbsp;2018)를 채택하였다. Emergence Score는 하위 3개 지표를 결합하여 구성되며, 추세 변동의 신규성(novelty), 지속성(persistence), 성장성(growth)을 비교적 고르게 반영한다. 기존에 연구주제(topic)에 대해 ‘버스트 탐지(burst detection)’ 기법(Mane and Börner 2004; Guo, Weingart, and Börner 2011; Chen 2012)을 적용하여 유망 영역을 도출하려는 시도가 있었으나, ’폭증(burst)’은 단기간 급증한 이벤트 성격이 강하다. 연구 영역의 급속한 성장은 일정한 시계열 구간에서 ’지속성’도 함께 확인되어야 하며, Emergence Score는 이에 대한 적절한 대안으로 판단된다.</p>
-<p><img src="https://road2you.github.io/kist_4pn_databook/images/emergence_score_scheme.png" class="img-fluid"></p>
-<p>그림&nbsp;48.6: Emergence Score 산출을 위한 시계열 구간 분해도</p>
-<p><strong>계산 공식</strong></p>
-<p><em>Emergence Score = 2 × Active Period Trend + (Recent Trend + Mid-Year to Last-Year Slope)</em></p>
-<p><strong>하위 지표 정의</strong></p>
-<ul>
-<li><p><strong>Active Period Trend (활성구간 추세)</strong>: 최근 3개년도 빈도 대비 초기 3개년도 빈도의 차이.</p>
-<p>{(클러스터 최근 3개년 빈도 ÷ 최근 3개년 전체 문헌수) − (클러스터 초기 3개년 빈도 ÷ 초기 3개년 전체 문헌수)}</p></li>
-<li><p><strong>Recent Trend (최근 추세)</strong>: 최근 2개년 빈도 대비 직전 2개년 빈도의 차이 × 10.</p>
-<p>{10 × [(클러스터 최근 2개년 빈도 ÷ 최근 2개년 전체 문헌수) − (클러스터 직전 2개년 빈도 ÷ 직전 2개년 전체 문헌수)]}</p></li>
-<li><p><strong>Mid-Year to Last-Year Slope (중반 이후 증가율)</strong>: 활성구간 중간 연도(4년차)와 마지막 연도(7년차) 사이의 기울기 × 10/3.</p>
-<p>{10 × [(클러스터 마지막 연도 빈도 ÷ 중간 연도 전체 문헌수) − (클러스터 중간 연도 빈도 ÷ 마지막 연도 전체 문헌수)] ÷ 3}</p></li>
-</ul>
-<p><strong>분석 기간</strong></p>
-<ul>
-<li><strong>출판 문헌 기준</strong>: 2018년–2024년 7개년 활성 구간을 대상으로 산출.</li>
-</ul>
-<p><strong>지표값 등급화</strong></p>
-<p>Emergence Score는 전체 클러스터의 값 분포를 5분위로 나누어 상위 20%는 5점, 상위 40%는 3점, 상위 60%는 1점, 나머지는 0점으로 처리한다. 따라서 출판 문헌 기준 점수와 확산 기준 점수를 합산하면, 클러스터별 최종 점수는 최대 10점, 최소 0점이 된다.</p>
-<p><strong>1.3 최신성(Recency)</strong> → 25개년(2000~2024) 간의 클러스터 문헌의 평균적인 출판년도</p>
-<p>클러스터의 신규성은 해당 클러스터에 속한 문헌들의 출판연도를 각 연도의 문헌 수 비율을 반영한 <strong>가중 평균 출판연도</strong>로 산출한다. 이 결과는 해당 클러스터에 대해 일종의 ’나이’로 해석할 수 있다.</p>
-<p>Leiden Cluster 속성 테이블에서 제공하는 <em>Avg. pub. year</em>는 클러스터에 속한 문헌들의 가중 평균 출판연도로, 원래는 2000–2022 기간을 기준으로 산출되었다. 그러나 본 분석에서는 데이터셋의 범위(2000–2024)를 반영하여 2000–2024 기간을 대상으로 신규성 지표를 산출하였다.</p>
-<p><span class="math display">\[
-\text{Novelty}
-= \frac{\sum \left(\text{연도} \times \text{해당 연도 클러스터 문헌수}\right)}
-       {\sum \text{클러스터 전체 문헌수}}
-\]</span></p>
-<p><strong>지표값의 등급화</strong></p>
-<p>신규성(=가중 평균 출판연도) 역시 전체 클러스터 분포를 5분위로 나누어 상위 20%는 5점, 상위 40%는 3점, 상위 60%는 1점, 나머지는 0점으로 처리하였다. 따라서 클러스터별 신규성 점수는 최대 5점, 최소 0점이 된다.</p>
-<p><strong>1.4 장기성장추세(Long-term Trend)</strong> → 25개년(2000~2024) 간의 클러스터 문헌의 평균적인 성장추세를 CAGR로 계산</p>
-<p>클러스터의 장기추세는 시계열 분석에서 널리 사용되는 <strong>연평균복합성장률(CAGR)</strong> 로 측정하였다. 즉, <strong>문헌 규모의 CAGR</strong>: 2000–2024년 전체 기간의 연도별 문헌 수를 3개년 이동평균 처리한 값을 바탕으로 계산하였다. 이 때, 최초로 문헌 수가 0이 아닌 첫 해를 최초 유효 연도로 간주하였으며, 모든 클러스터는 샘플 구간의 마지막 연도인 2024년에도 문헌들이 출판되었다.</p>
-<p>$$ = ()^{} - 1 \~\ V_{} := \~\</p>
-<p>V_{} := \~\</p>
-<p>T := $$</p>
-<p><strong>지표값의 등급화</strong></p>
-<p>장기추세 CAGR 값 역시 전체 분포를 5분위로 나누어 상위 20%는 5점, 상위 40%는 3점, 상위 60%는 1점, 나머지는 0점으로 처리하였다. 따라서 문헌 규모와 확산 규모를 합산한 장기추세 점수는 클러스터별 최대 10점, 최소 0점이 된다.</p>
-<p><strong>2&nbsp;파급력(Impact):</strong> 개별 클러스터가 전체 과학기술 지형에서 갖는 파급력 수준을 측정하는 지표를 분석함. (예: 엑셀런스 등)</p>
-<p>⇒ 전체 과학기술 지형 전반에 대한 클러스터 내 문헌들의 파급력, 영향력의 지표.</p>
-<p><strong>2.1 상위 10% 엑셀런스</strong> 파급력이 상대적으로 높은 문헌에 초점을 맞추어, 클러스터 내 문헌들 중 각각 속한 영역(citation_topic meso-level)에서 피인용수가 상위 x% 이상인 비율. 이 때 기대수준은 x.</p>
-<p>본 분석에서는 개별 클러스터별로 전체 과학기술 지형에서 갖고 있는 파급력의 수준을 측정하기 위해 연구수준 분석에서 사실상의 표준으로 정립되어 널리 활용되고 있는 <strong>엑셀런스(Excellence) 지수</strong>(Hicks et al.&nbsp;2015; Waltman and Van Eck 2019; 이준영·박진서 2019)를 활용하였다.</p>
-<p>엑셀런스 지수는 <strong>측정 대상 문헌집합에서 각 문헌이 속한 분야(분류)에서 피인용수가 상위 10%, 상위 1% 등 일정 수준 이상인 문헌이 차지하는 비율</strong>을 의미한다. 이 지수는 (1) 측정 대상의 규모에 영향을 받지 않고(연구수준 분석에서 측정 대상은 보통 연구 주체(연구자, 그룹, 기관, 국가 등)가 산출한 문헌집합으로 설정되지만, 본 분석에서처럼 잘 정의된 연구영역의 문헌집합에 대해 적용할 수 있음.), (2) 피인용수 분포의 비대칭성으로 인한 비교의 어려움도 해소할 수 있는 장점이 있다.(문헌의 피인용수를 동일 분야의 ‘평균 값’과 비교하는 방식도 자주 활용되는 방식이나, 피인용수의 분포가 멱함수 분포와 같은 비대칭성을 가지므로 ‘평균’ 값 자체가 대표적 특성을 갖기 어려운 상황이 발생함.)</p>
-<p>상위 10% 기준에서 기대 수준은 10으로, 엑셀런스 지수가 10 이상이라는 것은 상위 10% 이상인 문헌의 비율이 10%를 초과함을 의미한다.</p>
-<p>본 분석은 <strong>클러스터 간 비교</strong>를 목적으로 하므로, 피인용수 분위수가 계산되는 영역은 해당 문헌이 속한 <strong>Web of Science Citation Topics Meso-level</strong>을 적용하였다. 또한 정규화를 위해 동일한 출판년도, 동일한 문헌유형(Article), 동일한 분류 내에서 분위수를 계산하였다. 피인용수 동점 처리에는 <strong>분할 처리 방식(Waltman and Schreiber 2013)</strong> 을, 복분류 처리에는 <strong>평균 적용 방식(Bornmann, Leydesdorff, and Wang 2013)</strong> 을 적용하였다.</p>
-<p>연도별 피인용수 분위수 값은 <strong>2016–2018년, 2019–2021년, 2022–2024년</strong>의 세 구간(각 3년)으로 묶어 클러스터 단위 엑셀런스 값을 산출하였다.</p>
-<p><strong>2.2 Mean Normalized Citation Score</strong> 클러스터 내 문헌들의 전체 과학기술 지형 전반에 대한 평균적인 영향력을 살펴보기 위해 uid의 ct_meso - pubyear cohort 내 상대적인 피인용수 → cluster level aggregation</p>
-<p>⇒ 계산 시 문헌 영역은 citation_topic meso-level 활용. <strong>유망 연구 영역 선정을 위한 지표값 계산에는 최근 5개년 활용</strong></p>
-<p><strong>3&nbsp;기술 진보 기여도:</strong> 논문과 특허 간의 인용(양방향) 관계를 활용하여 클러스터의 산업 연계성을 정량화함. (예: 논문에서 특허로 인용된 비율(산업 활용성), 피인용 비율(산업 기반성) 등) <strong>(Contribution to Technological Advancement ↔︎ Reliance on Science)</strong></p>
-<ul>
-<li>산업 연계성은 논문에 대한 특허의 인용 관계를 이용하여 해당 클러스터가 산업 영역과 맺는 연결의 정도를 정량화하고자 한 것임. 논문과 특허 간의 인용은 ’Science-Technology Linkage’라는 개념 하게 여러 관련 연구(<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-li_patent_2014">Li et al.&nbsp;2014</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-jefferson_mapping_2018">Jefferson et al.&nbsp;2018</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-knaus_parma_2018">Knaus and Palzenberger 2018</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-kuan_overlooked_2020">Kuan, Chen, and Huang 2020</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-hsiao_technology_2020">Hsiao and Torvik 2020</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-bryan_-text_2020">Bryan, Ozcan, and Sampat 2020</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-marx_reliance_2020">Marx and Fuegi 2020</a>,&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-marx_reliance_2022">2022</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-hammarfelt_linking_2021">Hammarfelt 2021</a>;&nbsp;<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-ba_novel_2021">Ba and Liang 2021</a>)들이 수행되었고, 최근에는 자연어처리와 머신러닝 기법을 결합하여 논문-특허 간 인용관계 데이터의 품질을 높이려는 시도도 활발히 진행</li>
-<li>전통적으로 개별 논문(특허)의 퀄리티를 측정하는 방식은 논문(특허)으로부터의 피인용을 카운트하고, 연도-분야별로 보정하는 것으로, 이와 유사하게 본 연구에서는 <strong>개별 논문의 시장연계성을 측정하는 방식은 특허(Simple count? Quality-adjusted-count?)로부터의 피인용을 카운트<del>하고, 연도별로 보정</del></strong></li>
-<li></li>
-</ul>
-<p>Ahmadpoor &amp; Jones (2017)을 참조.</p>
-<p>→ 3,200만 개 WoS journal articles (published from 1945 to 2013) 중 USPTO 특허와 바로 연결된 논문은 10%, 간접적으로라도 연결된 논문은 80% (Fig 1. 참조)</p>
-<p>⇒ 이정우박사님 Lens 데이터 전처리 결과와 일치?! 109만 개 논문 중 113,048개가 특허로 이어짐(단, Science 논문은 등록 특허만 활용)</p>
-<p><strong>3.1 기술 진보 기여 가능 지식 비율</strong> → 클러스터 내 문헌 중 산업 내 기술 진보로 이어질 수 있는 문헌의 비중. <strong>특허에 인용된 문헌의 비율</strong>로 계산</p>
-<p>→ <strong>Nature Index</strong>(<a href="https://road2you.github.io/kist_4pn_databook/references.html#ref-noauthor_guide_2022">“A Guide to the&nbsp;Nature&nbsp;Index”&nbsp;2022</a>)&nbsp;에서 주요 지표로 설정한 ‘Patent influence metric’은 <strong>분석대상 연구주체가 산출한 문헌 집합에서 특허에 인용되는 문헌의 비율을 계산하는 것인데, 본 분석의 지표와 매우 유사하다</strong>고 할 수 있음. ‘Patent influence’ 지표는 본 분석의 ’산업 기반성’이 담고있는 측면, 즉 논문 문헌집합에서 특허를 인용하는 경우는 고려하지 않음.</p>
-<p><strong>3.2 기술 진보 영향력 지수</strong> → 클러스터 내 문헌들의 기술 진보에 대한 영향력. <strong>클러스터 문헌 별 전방 인용 특허의 가치(피인용 기반)의 평균</strong>으로 계산</p>
-<p>→ 전통적으로 TIM 동네에서 개별 특허의 가치를 측정하는 방식은 이후 특허로부터의 피인용을 카운트하고, 연도(+분야별)로 보정하는 것.</p>
-<ol type="1">
-<li><p>Lens 특허들의 application year 별 cites 평균 구하기 (기술분야는 고려하지 않기로 한다. 등록이 되지 않아도 최소 1로 카운트 한다. 2번 지표는 특허가 어떤 분야에서 나왔건 영향력이 큰 특허에 영향을 줬는지를 보는 것에 초점을 맞춘다. <del>국가 코드는 고려해야하지 않을까…?</del>)</p></li>
-<li><p>특허들에 대해 citation score를 1+(cites/cohort mean) 부여</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Final_Report_MD/최종보고서 내용/image 5.png" class="img-fluid figure-img"></p>
-<figcaption>165,681,206개의 특허 출원…</figcaption>
-</figure>
-</div>
-<p>165,681,206개의 특허 출원…</p></li>
-<li><p>109만 개 논문별로 citation score 총합을 구하고, pub year별로 평균 구하기 → Cluster간 랭킹만이 중요하다면 연도 보정 필요(why? paper→patent citation lag) → trend는 1번 지표에서 보았다고 가정?</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Final_Report_MD/최종보고서 내용/image 6.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
-</figure>
-</div></li>
-</ol>
-<p>⇒ 유망 연구 영역 선정을 위한 지표값 계산에는 최근 <strong>10개년</strong> 활용(논문→특허 출원→등록 시차를 고려, 5개년 활용 시 <strong>기술 연계의 다양성</strong> 측정이 제대로 안되는 문제가 있는 것으로 보임)</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

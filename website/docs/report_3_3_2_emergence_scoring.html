@@ -333,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_00_preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">최종보고서 내용</span></a>
+ <span class="menu-text">서문 / Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -435,13 +435,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-4) ”포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축 (in 2-3)”</span></a>
+ <span class="menu-text">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-5) “LLM 기반 유망 연구 간이 리포팅 (in 1-2)”</span></a>
+ <span class="menu-text">3-5) LLM 기반 유망 연구 간이 리포팅</span></a>
   </div>
 </li>
       </ul>
@@ -551,7 +551,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정" id="toc-연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정" class="nav-link active" data-scroll-target="#연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</a></li>
+  <li><a href="#연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정" id="toc-연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정" class="nav-link active" data-scroll-target="#연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</a>
+  <ul class="collapse">
+  <li><a href="#카테고리별-유망성-점수-산출주성분분석" id="toc-카테고리별-유망성-점수-산출주성분분석" class="nav-link" data-scroll-target="#카테고리별-유망성-점수-산출주성분분석">1. 카테고리별 유망성 점수 산출(주성분분석)</a></li>
+  <li><a href="#유망성-종합-점수-산출통합-주성분분석" id="toc-유망성-종합-점수-산출통합-주성분분석" class="nav-link" data-scroll-target="#유망성-종합-점수-산출통합-주성분분석">2. 유망성 종합 점수 산출(통합 주성분분석)</a></li>
+  <li><a href="#후보군별-유망-연구영역-선별" id="toc-후보군별-유망-연구영역-선별" class="nav-link" data-scroll-target="#후보군별-유망-연구영역-선별">3. 후보군별 유망 연구영역 선별</a>
+  <ul class="collapse">
+  <li><a href="#핵심-역량-연구영역후보군-유형1" id="toc-핵심-역량-연구영역후보군-유형1" class="nav-link" data-scroll-target="#핵심-역량-연구영역후보군-유형1">(1) 핵심 역량 연구영역(후보군 유형1)</a></li>
+  <li><a href="#확장-가능-연구영역후보군-유형2" id="toc-확장-가능-연구영역후보군-유형2" class="nav-link" data-scroll-target="#확장-가능-연구영역후보군-유형2">(2) 확장 가능 연구영역(후보군 유형2)</a></li>
+  <li><a href="#역량-공백-연구영역후보군-유형3" id="toc-역량-공백-연구영역후보군-유형3" class="nav-link" data-scroll-target="#역량-공백-연구영역후보군-유형3">(3) 역량 공백 연구영역(후보군 유형3)</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/report_3_3_2_emergence_scoring.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -563,219 +573,338 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="연구영역별-유망성-종합-점수-측정-및-후보군별-유망연구영역-선정" class="level1">
 <h1>3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</h1>
-<p><strong>1. 목표</strong></p>
-<p>각 <code>cluster_micro</code>(세부 연구영역)에 대해 다음 세 가지 점수를 만듦.</p>
-<ol type="1">
-<li><strong>성장성 (growth)</strong></li>
-<li><strong>파급력 (impact)</strong></li>
-<li><strong>기술진보기여도 (contribution_to_tech)</strong></li>
-</ol>
-<p>여러 세부지표를 단순 합산하지 않고, <strong>PCA(주성분분석) 1차 성분</strong>으로 요약해 단일 지표로 만듦.</p>
-<hr>
-<p><strong>2. 카테고리 지표: 세부지표 → PCA 1성분</strong></p>
-<p>카테고리별 세부지표 구성:</p>
-<ul>
-<li><strong>성장성</strong>
-<ul>
-<li><code>deep_learning_growth</code>, <code>emergence_score</code>, <code>recency_year</code>, <code>cagr</code></li>
-</ul></li>
-<li><strong>파급력</strong>
-<ul>
-<li><code>excellence_index10</code>, <code>mncs</code></li>
-</ul></li>
-<li><strong>기술진보기여도</strong>
-<ul>
-<li><code>ros_influence_ratio</code>, <code>ros_avg_impact</code></li>
-</ul></li>
-</ul>
-<p>카테고리별로 다음 절차를 적용</p>
-<ol type="1">
-<li><strong>세부지표 표준화</strong>
-<ul>
-<li>각 지표를 평균 0, 표준편차 1로 변환 (StandardScaler)</li>
-</ul></li>
-<li><strong>PCA 1성분 추출</strong>
-<ul>
-<li>표준화된 값으로 PCA를 돌려 <strong>1개의 주성분(PC1)</strong> 점수를 얻음</li>
-<li>이 점수가 해당 카테고리의 <strong>기본 점수</strong> 역할</li>
-</ul></li>
-<li><strong>방향(부호) 정렬</strong>
-<ul>
-<li><p>세부지표들이 전반적으로 커질수록 점수가 커지도록,</p>
-<p>PC1 점수와 지표 평균의 상관을 보고 필요하면 부호를 뒤집음</p></li>
-</ul></li>
-</ol>
-<hr>
-<p><strong>3. 통합 지표: 카테고리 점수 → PCA 1성분</strong></p>
-<p>통합 점수는 <strong>카테고리별 PCA 원 점수</strong>를 입력으로 다시 PCA를 돌려 만듦.</p>
-<ol type="1">
-<li>입력 변수
-<ul>
-<li><code>growth_pca_score</code></li>
-<li><code>impact_pca_score</code></li>
-<li><code>contrbution_to_tech_pca_score</code></li>
-</ul></li>
-<li><strong>카테고리 점수 표준화</strong>
-<ul>
-<li>세 카테고리의 스케일을 맞추기 위해 다시 z-score 표준화</li>
-</ul></li>
-<li><strong>PCA 1성분 추출</strong>
-<ul>
-<li>표준화된 3개 점수로 PCA 1성분 계산 → <code>total_pca_score</code></li>
-<li>세 카테고리가 모두 “높을수록 총점도 높아지는 방향”이 되도록 부호 정렬</li>
-</ul></li>
-<li><strong>퍼센타일 변환 (0~100)</strong>
-<ul>
-<li>최종 통합 점수는 <code>총점_percentile</code>로 저장</li>
-</ul>
-<hr></li>
-</ol>
-<p>※ 상위 후보군 목록 및 히트맵 생성용 작업 파일은 내부 검증용으로 별도 관리한다.</p>
+<p>이제 성장성, 파급력, 기술진보 기여도 세부지표를 바탕으로, 표준과학 연구 분야 마이크로-레벨 클러스터 단위의 유망성을 비교 가능한 단일 점수로 평가하고, 앞서 도출한 후보군(유형1~유형3)별로 유망 연구영역을 선별한다. 세부지표를 단순 합산해 종합 점수를 만드는 방식이 아니라, 지표들 간 상관관계를 고려해 대표 성분으로 요약하는 방식으로 종합 점수를 구성한다. 이를 위해 성장성, 파급력, 기술진보 기여도의 각 범주별 점수와 최종 통합 점수 모두를 PCA(주성분분석)의 1차 성분으로 산출한다.</p>
+<section id="카테고리별-유망성-점수-산출주성분분석" class="level2">
+<h2 class="anchored" data-anchor-id="카테고리별-유망성-점수-산출주성분분석">1. 카테고리별 유망성 점수 산출(주성분분석)</h2>
+<p>우선 각 클러스터에 대해 성장성, 파급력, 기술진보 기여도 세 가지 카테고리 점수를 산출한다. 각 카테고리 점수는 해당 카테고리를 구성하는 세부지표들을 입력값으로 하여 PCA 1차 성분(PC1) 점수를 계산하고, 이를 단일 지표로 사용한다. 성장성 점수는 딥러닝 기반 모형 예측 성장가능성, 급부상성(Emergence Score), 최신성(가중 평균 출판연도), 장기성장추세(CAGR) 네 지표를 사용한다. 파급력 점수는 상위 10% 엑셀런스와 정규화된 평균 피인용수(MNCS) 두 지표를 사용한다. 기술진보 기여도 점수는 기술 진보 기여 가능 지식 비율과 기술 진보 영향력 지수 두 지표를 사용한다.</p>
+<p>카테고리별 PCA 점수 산출은 동일한 절차로 수행한다. 먼저 각 세부지표의 단위와 분포 차이를 제거하기 위해 평균 0, 표준편차 1이 되도록 표준화(z-score 표준화)를 적용한다. 이후 표준화된 세부지표들을 이용해 PCA를 수행하고, 첫 번째 주성분(PC1)의 점수를 해당 카테고리의 기본 점수로 정의한다. 유망성 지표 3개 카테고리의 각 세부지표 간에는 양의 상관관계가 있음을 확인하였으므로 성장성·파급력·기술진보 기여도의 세 카테고리 점수는 모두 각각의 세부지표 값이 클수록 점수가 높아진다.</p>
+</section>
+<section id="유망성-종합-점수-산출통합-주성분분석" class="level2">
+<h2 class="anchored" data-anchor-id="유망성-종합-점수-산출통합-주성분분석">2. 유망성 종합 점수 산출(통합 주성분분석)</h2>
+<p>다음으로 유망성 종합점수는 위에서 얻은 세 카테고리 점수를 입력값으로 다시 PCA를 수행해 산출한다. 즉, 성장성 PCA 점수, 파급력 PCA 점수, 기술진보 기여도 PCA 점수의 세 변수를 사용해 통합 PCA를 수행하고, 그 1차 성분 점수를 최종 통합 점수로 정의한다. 마찬가지로 성장성·파급력·기술진보 기여도 PCA 점수는 모두 양의 상관관계가 있음을 확인하였으므로 유망성 종합 점수 역시 세 카테고리 점수가 높을수록 유망성도 높아진다고 해석이 가능하다.</p>
+<p>마지막으로 각 카테고리별 PCA 점수와 통합 PCA 점수는 해석과 비교의 직관성을 높이기 위해 퍼센타일(0~100)로 변환하였다. 따라서 퍼센타일 값은 전체 195개 클러스터 내에서의 상대적 위치를 의미하며, 후보군 간 또는 세부 영역 간 비교에서도 동일한 척도로 활용할 수 있다.</p>
+</section>
+<section id="후보군별-유망-연구영역-선별" class="level2">
+<h2 class="anchored" data-anchor-id="후보군별-유망-연구영역-선별">3. 후보군별 유망 연구영역 선별</h2>
+<p>이렇게 산출된 총점 퍼센타일을 기반으로, 앞서 도출한 유망 연구영역 후보군 유형1(핵심 역량 연구영역), 유형2(확장 가능 연구영역), 유형3(역량 공백 연구영역) 각각의 후보군 내부에서 유망성 순위를 산정하고 상위 연구영역을 선별한다.</p>
+<section id="핵심-역량-연구영역후보군-유형1" class="level3">
+<h3 class="anchored" data-anchor-id="핵심-역량-연구영역후보군-유형1">(1) 핵심 역량 연구영역(후보군 유형1)</h3>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>연구영역(Meso-Micro)</th>
+<th>성장성 퍼센타일</th>
+<th>파급력 퍼센타일</th>
+<th>기술진보기여도 퍼센타일</th>
+<th>유망성 종합점수 퍼센타일</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>20-182 - 다이아몬드결함양자센서</td>
+<td>76.92</td>
+<td>89.23</td>
+<td>100.00</td>
+<td>98.97</td>
+</tr>
+<tr class="even">
+<td>41-127 - 뇌파 감정상태 측정</td>
+<td>86.67</td>
+<td>100.00</td>
+<td>76.41</td>
+<td>98.46</td>
+</tr>
+<tr class="odd">
+<td>34-69 - 메타표면 광학소자</td>
+<td>86.15</td>
+<td>78.46</td>
+<td>95.90</td>
+<td>93.33</td>
+</tr>
+<tr class="even">
+<td>36-77 - 2차원 광전소자 측정</td>
+<td>93.85</td>
+<td>83.08</td>
+<td>66.15</td>
+<td>86.67</td>
+</tr>
+<tr class="odd">
+<td>43-178 - 현장진단 바이오센서</td>
+<td>83.59</td>
+<td>83.59</td>
+<td>83.59</td>
+<td>86.15</td>
+</tr>
+<tr class="even">
+<td>9-12 - 배터리 양극·계면 측정</td>
+<td>73.33</td>
+<td>76.92</td>
+<td>90.77</td>
+<td>85.64</td>
+</tr>
+<tr class="odd">
+<td>12-167 - 스핀전류 변환·제어</td>
+<td>83.08</td>
+<td>92.82</td>
+<td>53.85</td>
+<td>84.62</td>
+</tr>
+<tr class="even">
+<td>37-145 - 광음향·초음파 나노진단치료</td>
+<td>65.13</td>
+<td>91.79</td>
+<td>72.31</td>
+<td>83.59</td>
+</tr>
+<tr class="odd">
+<td>11-24 - 폴리머 난연성 측정</td>
+<td>64.62</td>
+<td>87.69</td>
+<td>60.00</td>
+<td>80.00</td>
+</tr>
+<tr class="even">
+<td>10-173 - 2차원·산화물 가스센서</td>
+<td>65.64</td>
+<td>74.36</td>
+<td>60.51</td>
+<td>70.77</td>
+</tr>
+</tbody>
+</table>
+<p>위 표는 핵심 역량 연구영역(후보군 유형1) 가운데 유망성 종합점수 상위 10개 연구영역을 정리한 결과다. 이 연구영역들은 KRISS가 이미 양적·질적으로 역량을 확보하고 있는 동시에 성장성, 파급력, 기술진보 기여도 측면에서도 상대적으로 우수하게 나타나 “향후에도 집중도를 유지하거나 더 강화할 필요가 있는 분야”로 해석된다.</p>
+<p>물리측정 영역에서는 KRISS의 역량이 두드러진 연구영역 가운데 ’34-69 메타표면 광학소자’가 유망연구영역으로 선정되었다. 이 영역은 RTA 3, 상위 10% 엑셀런스 19%, 최근 5년 문헌수 52개로 활동성과 성과가 동시에 확인되며, 특히 특허 연계가 활발해 기술진보 기여도 측면에서 강점이 나타난다. 또한 향후 영역 규모가 성장할 것으로 예측되는 점이 반영되어 종합 유망성이 높게 평가되었다. 벤치마킹 대상인 BIPM 주요기관들과 비교해도 이 영역은 KRISS의 상대적 우위가 뚜렷하게 관측되는 특징을 가진다.</p>
+<p>화학소재측정 영역에서는 ’9-12 배터리 양극·계면 측정’이 이 후보군에서 유망연구영역으로 선정되었다. 이 영역은 KRISS가 이미 역량을 확보한 분야 중에서도 특허로의 연계가 특히 많이 나타나는 영역으로, 산업적 활용 가능성과 기술진보 기여도 측면의 강점이 종합 유망성 평가에 반영되었다. 즉, 연구의 축적이 실제 기술 응용과 연결되는 구조가 확인되는 분야로 해석된다.</p>
+<p>바이오의료측정 영역에서는 NIST 외에 NPL이 높은 위상을 보이는 상황에서도 KRISS가 강점을 보이는 ‘41-127 뇌파 감정상태 측정’이 핵심 유망 영역으로 도출되었다. 이 영역은 195개 클러스터 중 유망성 종합점수 4위에 해당하며, 후속 연구에 대한 파급력 지표가 최상위 수준으로 나타나 유망연구영역으로 선정되었다. 또한 지난 5년 동안 KRISS가 생산한 14개 논문 중 8개가 피인용 상위 10%에 해당해(57%) 해당 분야에서 질적 성과가 집중적으로 나타나는 특징이 확인된다. 아울러 ‘43-178 현장진단 바이오센서’ 역시 KRISS가 이미 역량을 보유한 분야로, 종합 유망성이 높아 유망연구영역에 포함되었다. 이 영역에서는 최근 5년 KRISS 문헌 12개 중 2개가 피인용 상위 10%에 해당해(16%) 상위 성과가 일정 수준 확보된 것으로 나타난다.</p>
+<p>양자기술 영역에서는 ‘20-182 다이아몬드결함양자센서’가 195개 중 유망성 종합점수 3위로 평가되며 유망연구영역에 선정되었다. 특히 이 영역은 특허 연계가 가장 활발한 영역으로 나타나 기술진보 기여도 측면에서 강점이 두드러지며, 이를 바탕으로 종합 유망성이 높게 평가되었다. 또한 ‘12-167 스핀전류 변환·제어’ 역시 KRISS가 이미 강점을 보이는 분야로, 과학기술 전분야의 후속 연구들에 대한 파급력이 상위권에 위치하고 향후 영역 규모가 성장할 것으로 예측되는 점이 반영되어 유망연구영역에 포함되었다.</p>
+<p>한편 핵심 역량 연구영역(후보군 유형1)에 속하더라도 유망성 종합점수 상위 10위에 포함되지 않아 최종 “유망 연구영역 30개”에 들어가지 못한 연구영역이 존재한다. 그러나 이러한 영역이 반드시 전략적 중요도가 낮다고 해석할 수는 없다. 예를 들어 ’20-124 광자 양자정보기술’과 같이, 현재의 종합 유망성 점수는 상대적으로 높지 않더라도 향후 유망 연구영역으로의 확장을 위해 기반 역할을 할 수 있는 영역은 전략적으로 지원할 필요가 있다. 따라서 후보군 유형1에 대한 유망성 분석 결과는 “유망성 점수 상위 영역의 집중”뿐 아니라, “핵심 역량을 활용한 확장 경로를 유지하기 위한 포트폴리오 구성”까지 함께 고려하는 방식으로 해석하는 것이 권장된다.</p>
+</section>
+<section id="확장-가능-연구영역후보군-유형2" class="level3">
+<h3 class="anchored" data-anchor-id="확장-가능-연구영역후보군-유형2">(2) 확장 가능 연구영역(후보군 유형2)</h3>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>연구영역(Meso-Micro)</th>
+<th>성장성 퍼센타일</th>
+<th>파급력 퍼센타일</th>
+<th>기술진보기여도 퍼센타일</th>
+<th>유망성 종합점수 퍼센타일</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>38-84 - 양자알고리즘·오류정정</td>
+<td>60.51</td>
+<td>99.49</td>
+<td>98.97</td>
+<td>100.00</td>
+</tr>
+<tr class="even">
+<td>41-141 - 신축성 전자피부 센서</td>
+<td>94.36</td>
+<td>92.31</td>
+<td>74.87</td>
+<td>91.28</td>
+</tr>
+<tr class="odd">
+<td>9-191 - 물분해 전기촉매 측정</td>
+<td>93.33</td>
+<td>87.18</td>
+<td>73.33</td>
+<td>89.74</td>
+</tr>
+<tr class="even">
+<td>7-154 - 리튬이온전지 예지진단</td>
+<td>96.41</td>
+<td>58.46</td>
+<td>86.67</td>
+<td>89.23</td>
+</tr>
+<tr class="odd">
+<td>11-15 - 전자파 차폐·흡수 복합재</td>
+<td>77.95</td>
+<td>98.97</td>
+<td>47.18</td>
+<td>87.69</td>
+</tr>
+<tr class="even">
+<td>37-79 - 미세·나노입자 계측표준</td>
+<td>70.77</td>
+<td>93.85</td>
+<td>65.13</td>
+<td>84.10</td>
+</tr>
+<tr class="odd">
+<td>25-123 - 위상광자·비에르미트상</td>
+<td>76.41</td>
+<td>96.92</td>
+<td>29.23</td>
+<td>82.05</td>
+</tr>
+<tr class="even">
+<td>25-176 - 양자다체 비평형 동역학</td>
+<td>71.79</td>
+<td>96.41</td>
+<td>19.49</td>
+<td>78.97</td>
+</tr>
+<tr class="odd">
+<td>2-117 - 레이저 미량가스 분광측정</td>
+<td>51.28</td>
+<td>81.54</td>
+<td>70.77</td>
+<td>71.79</td>
+</tr>
+<tr class="even">
+<td>38-107 - 초전도 회로 양자전기역학</td>
+<td>33.33</td>
+<td>74.87</td>
+<td>86.15</td>
+<td>69.74</td>
+</tr>
+</tbody>
+</table>
+<p>위 표는 확장 가능 연구영역(후보군 유형2)가운데 유망성 종합점수 상위 10개 연구영역을 정리한 결과다. 이 연구영역들은 핵심 역량 연구영역(유형1)과 인지적으로 인접한 영역들 중에서 종합 유망성이 높은 분야를 추려낸 것으로, “확장 투자 시 성과로 연결될 가능성이 큰 영역”을 의미한다. 즉, KRISS가 이미 축적한 지식 기반과 연구 역량, 인프라 등을 활용해 비교적 낮은 비용으로 진입할 수 있으면서도 성장성·파급력·기술진보 기여도가 높아 유망한 영역들로 해석할 수 있다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../Final_Report_MD/최종보고서 내용/image 7.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
+<p><img src="../Final_Report_MD/최종보고서 내용/image 12.png" class="img-fluid figure-img"></p>
+<figcaption>물리측정 영역의 핵심 역량 확장 가능 영역 예시</figcaption>
 </figure>
 </div>
-<p><strong>”핵심 역량 연구영역” 중 유망성 통합 지표 상위 10개 영역</strong></p>
-<ul>
-<li>성장성-파급력-기술진보기여도를 살펴보고 (위의 ‘<strong>유망성 통합 지표 계산 방법</strong>’ <strong>참고)</strong> <strong>“앞으로도 더 집중하면(집중도를 유지하면) 좋을” 분야를 선정한다.</strong></li>
-<li>e.g., 182-다이아몬드결함양자센서, 127-뇌파 감정상태 측정, 167-스핀전류 변환/제어</li>
-</ul>
-<p>** 이 유형에 속한 영역들 중에는 유망성 상위 10위 안에 들지 못해 “유망 연구영역 30개”에 포함되지 않았더라도 (즉, 연구 영역 자체의 유망성 점수는 높지 않을지라도) ’<strong>20-124 - 광자 양자정보기술’</strong>과 같이 유망 연구영역으로의 확장을 위해 전략적으로 지원해야하는 연구영역들이 존재한다는 것을 반드시 고려해야 한다.</p>
-<p><strong>물리측정영역</strong></p>
-<p>KRISS의 역량이 뛰어난 영역(RTA는 3, Ex10은 19%, 논문수 52개) 중에는 <strong>‘34-69 - 메타표면 광학소자’</strong>가 있는데, 특허로 연계가 많이 되면서, 앞으로 영역의 크기가 성장할 것으로 예측되어 유망연구영역(시나리오1)에 선정됨. 이 영역은 BIPM 주요기관 중 KRISS만 잘하는 영역이기도 함.</p>
-<p>아래 논문이 <strong>메타표면 광학소자</strong> 영역에 해당. 음향진동초음파측정그룹 + 비파괴측정그룹의 논문 <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001136424700001">https://www.webofscience.com/wos/woscc/full-record/WOS:001136424700001</a> https://www.kriss.re.kr/gallery.es?mid=a10204080300&amp;bid=0022&amp;list_no=4638&amp;act=view - 표준연, 좁은 영역에 진동을 가두어 고증폭하는 메타물질 개발, 버려지는 진동을 모아 전기로 만드는 ‘에너지 하베스팅’ 상용화 앞당긴다 - (<strong>광학소자 영역이지만 이 논문은 음향진동초음파 관련…?</strong> 이 영역의 description 마지막에는 아래와 같은 문구가 있음: 또한 테라헤르츠·음향 등 이종 파동계로의 확장을 위한 교차대역 측정 프레임워크를 제공하여 국내 산업의 상용화와 시험인증 역량을 강화할 수 있습니다.)</p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000595660900002">https://www.webofscience.com/wos/woscc/full-record/WOS:000595660900002</a> 앞의 논문 저자였던 승홍민, 최재원 박사 + 김미소 교수의 2020년 연구로 역시 69번 영역. 이 논문은 2개의 후속 특허로도 이어졌음</p>
-<p><strong>화학소재측정영역</strong></p>
-<p>KRISS가 이미 잘하는 영역 중에는 <strong>‘9-12 - 배터리 양극·계면 측정’</strong>가 있는데, 특히 특허로 연계가 많이되는 영역으로 유망연구영역(시나리오1)에 선정됨.</p>
-<p>(24년 7월 KRISS인상 수상한 첨단소재측정그룹 박혁준 선임연구원 ~~<del>급증하는 전기차 수요 대응 및 글로벌 시장 선점을 위해 저가형 고성능의 지속가능한 전지 기술에 대한 요구가 증가하고 있는 반면, 현 리튬이온전지의 양극제는 자원이 한정적인 코발트 기반의 전이금속 산화물을 사용하고 있어 가격이 비싸고 변동성이 심하다는 단점을 가지고 있다. 이에, 박혁준 선임연구원은 저가형 고에너지 양극재 개발을 위해 기존 삼원계 니켈-코발트-망간계(NCM) 층상형 양극재에서 코발트 함량을 줄이고 니켈 함량을 높은 고니켈계 양극 소재 또는 망간 함량을 높인 과리튬 망간계 양극 소재에 대한 연구개발을 활발히 하였다. <a href="https://www.kriss.re.kr/gallery.es?mid=a10504000000&amp;bid=0008&amp;list_no=4745&amp;act=view">https://www.kriss.re.kr/gallery.es?mid=a10504000000&amp;bid=0008&amp;list_no=4745&amp;act=view</a></del>~~<a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000784692200003">https://www.webofscience.com/wos/woscc/full-record/WOS:000784692200003</a> Nature Chem. 논문입니다. 아래 Nature Comm. 저자에도 들어가계시네요 (강노원 본부장이 말한 ’지도교수와 네이처 쓰는 사람’이 이분인지…) <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001161546900008">https://www.webofscience.com/wos/woscc/full-record/WOS:001161546900008</a></p>
-<p><strong>→ 그런데 이분은 현재 고려대 교수입니다.</strong></p>
-<p><strong>⇒ 더 잘해주지 그랬어요… KRISS의 발전을 위해 솔직하게 이야기해봅니다.</strong></p>
-<p><del>→ 찾아볼수록 이 영역 논문들은 KRISS의 역량이라기보단 KRISS에 들어온 신입박사와 친정연구실의 성과같기도 하고… 비슷한 사례로 이 영역 KRISS 피인용 상위논문 저자로 <strong>촉감표준융합연구단? 양자질량측정그룹? 송한욱(동명이인이 두 분 계십니다) 박사</strong>가 있는데, 퍼듀대와 계속 공저를 하네요.</del> <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001060913400001">https://www.webofscience.com/wos/woscc/full-record/WOS:001060913400001</a></p>
-<p><strong>바이오의료측정영역</strong></p>
-<p>NIST 외에 NPL이 바이오의료측정 영역에서 높은 위상을 보여주는 가운데, KRISS가 이미 잘하는 영역 중에는 <strong>‘41-127 - 뇌파 감정상태 측정’</strong>가 있으며, 195개 중 유망성 점수가 4위였음. 특히 후속 연구에 대한 파급력이 195개 중 1위인 영역으로 유망연구영역(시나리오1)에 선정됨. 놀랍게도 지난 5년간 KRISS가 생산한 14개 논문 중, 8개가 피인용 상위 10% 논문 (57%)</p>
-<p>그런데 재밌는 것은 아래 논문들(피인용수 93, 73, 64, 54… )이 모두 박세진 박사의 논문(지금은 은퇴하신것같습니다.) 더 재밌는 것은 저널이 그리 좋은 저널도 아니고… SENSORS도 있고… 그런데 피인용은 굉장히 많이 되어있음.</p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000597204400001">https://www.webofscience.com/wos/woscc/full-record/WOS:000597204400001</a></p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000676429600001">https://www.webofscience.com/wos/woscc/full-record/WOS:000676429600001</a></p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000696067900001">https://www.webofscience.com/wos/woscc/full-record/WOS:000696067900001</a></p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000689904800001">https://www.webofscience.com/wos/woscc/full-record/WOS:000689904800001</a></p>
-<p>https://www.kriss.re.kr/gallery.es?mid=a10501030000&amp;bid=0018&amp;act=view&amp;list_no=3490 기술을 이전한 박세진 책임연구원은 인간 공학, 생체신호 측정 분야의 전문가다. 뇌파, 심전도, 심박수, 안구 전도,족압 등의 생체데이터를 측정해 분석하고, 다양한 지능형 알고리즘을 통해 건강검진 데이터 및 의학지식 DB와 비교함으로써 뇌졸중 등의 질병을 조기 예측하는 기술을 개발했다.</p>
-<p>지금은 의료융합연구그룹에 있는 임현균 박사의 아래 논문도 참고(피인용 36회, 2022년 논문)</p>
-<p>https://www.kriss.re.kr/gallery.es?mid=a10206110300&amp;bid=0022&amp;b_list=10&amp;act=view&amp;list_no=4111&amp;nPage=1&amp;vlist_no_npage=1&amp;keyField=&amp;orderby=</p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000860525200010">https://www.webofscience.com/wos/woscc/full-record/WOS:000860525200010</a></p>
-<p><strong>(Estimating objective (EEG) and subjective (SSQ) cybersickness in people with susceptibility to motion sickness)</strong></p>
-<p><strong>’43-178 - 현장진단 바이오센서’(e.g.,</strong>)도 이미 잘하고 있는데, 이 분야도 전체적인 유망성이 높아 유망연구영역에 선정되었으며, 지난 5년간 KRISS가 생산한 12개 논문 중, 2개가 피인용 상위 10% 논문 (16%)</p>
-<p>아래 논문은 2020pub, 107회 논문에 의한 인용, 특허 4개에도 인용. 바이오물질측정그룹 김세일 그룹장의 논문이며</p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000571520200019">https://www.webofscience.com/wos/woscc/full-record/WOS:000571520200019</a></p>
-<p>이 연구와 같은 맥락에서 아래와 같은 연구도 진행한 것으로 보임</p>
-<p>https://www.kriss.re.kr/gallery.es?mid=a10205120300&amp;bid=0022&amp;b_list=10&amp;act=view&amp;list_no=4157&amp;nPage=1&amp;vlist_no_npage=1&amp;keyField=&amp;orderby=</p>
-<p>그리고 2025년 논문이라 안 잡혔지만 아래 보도자료에 핫해보이는 연구가 있습니다. 이 영역에서 KRISS의 앞날이 기대됩니다. 좋은 저널이라고 하네요.</p>
-<p>https://www.kriss.re.kr/gallery.es?mid=a10505000000&amp;bid=0018&amp;list_no=4934&amp;act=view</p>
-<p><a href="https://www.sciencedirect.com/science/article/pii/S0956566325000909">https://www.sciencedirect.com/science/article/pii/S0956566325000909</a></p>
-<p><strong>양자기술영역</strong></p>
-<p>KRISS가 이미 잘하는 영역 중에는 <strong>‘20-182 - 다이아몬드결함양자센서’</strong>가 있는데, 195개 중 유망성 점수가 3위였음. 특히 특허로 연계가 가장 많이되는 영역으로 유망연구영역(시나리오1)에 선정됨.</p>
-<p>(<strong>오상원 박사(양자자기센싱그룹) 논문</strong> Park, H., Lee, J., Han, S., Oh, S., &amp; Seo, H. (2022). Decoherence of nitrogen-vacancy spin ensembles in a nitrogen electron-nuclear spin bath in diamond.&nbsp;<em>npj Quantum Information</em>,&nbsp;<em>8</em>(1), 95.: 질소-빈자리 센터(Nitrogen-Vacancy center)의 결어긋남(decoherence)이 질소 불순물에 의한 것임을 이론적으로 규명(2022). <strong>이를 인용한 특허</strong>: 이러한 문제를 인지하고, 실리콘-빈자리 센터(Silicon-Vacancy center)를 이용해 결맞음(coherence) 시간을 늘리는 방법을 구현(2023) → 양자 메모리가 정보를 유지하는 시간 증가 2024에 저자가 직접 특허도 출원했네요 인용여부는 확인불가 ‘다이아몬드 질소-빈자리 센서를 이용한 자기장 및 온도 측정 장치 및 방법’)</p>
-<p>’<strong>12-167 - 스핀전류 변환·제어’(e.g.,</strong> WOS:000567766700025; pubyear 2020, cited 119; 양자자기센싱그룹 황찬용 박사)도 이미 잘하고 있는데, 이 분야는 과학기술 전분야의 후속 연구들에 대한 파급력이 상위권이며, 앞으로 영역의 크기가 성장할 것으로 예측되어 유망연구영역(시나리오1)에 선정됨.</p>
-<p><strong>”확장 가능 연구영역” 중 유망성 통합 지표 상위 10개 영역</strong></p>
-<ul>
-<li>추려진 ‘확장 가능한 연구 영역’ 중 성장성-파급력-기술진보기여도를 살펴보고 <strong>“현재 (잘하고 있는) 지식 기반을 바탕으로 확장해보면 좋을” 분야를 선정한다.</strong></li>
-<li>e.g., KRISS가 잘하는 ‘124-광자 양자정보기술’은 그 유망성이 높지 않지만, 이 분야의 역량을 바탕으로 유망성이 높은 ‘84-양자알고리즘/오류정정’과 ‘123-위상광자/비에르미트상’(상위10%논문이 있으나 논문수 부족)을 해볼 수 있다. KRISS가 잘하고 유망성도 높은 ’12-배터리 양극/계면 측정’을 바탕으로 유망성이 높은 ’154-리튬이온전지 예지진단’을 해볼 수 있다. KRISS가 잘하고 유망성도 높은 ’69-메타표면 광학소자’를 바탕으로 유망성이 높은 ’15-전자파 차폐/흡수 복합재’를 해볼 수 있다.</li>
-</ul>
-<p><strong>물리측정영역</strong></p>
-<p>KRISS가 이미 잘하는 <strong>‘34-69 - 메타표면 광학소자’</strong>을 바탕으로 확장할 수 있는 연구 영역 중에는 <strong>‘11-15 - 전자파 차폐·흡수 복합재’</strong>가 있으며, 이 영역은 195개 클러스터 중 후속 연구에 대한 파급력이 3위로 유망연구 영역(유형 2)에 선정되었음.</p>
+<p>물리측정 영역에서는 ’34-69 메타표면 광학소자’를 기반으로 확장 가능한 영역 중 ’11-15 전자파 차폐·흡수 복합재’가 유망연구영역으로 선정되었다. 이 영역은 195개 클러스터 중 후속 연구에 대한 파급력이 3위로 나타나 영향력 측면에서 특히 높은 점수를 받았다. 또한 KRISS도 해당 영역에 논문이 존재해 최소한의 연구 기반과 잠재력이 확인되며, 핵심 역량 영역에서의 축적을 응용·확장해 성과로 연결될 가능성이 높은 후보로 해석된다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../Final_Report_MD/최종보고서 내용/image 8.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
+<p><img src="../Final_Report_MD/최종보고서 내용/image 13.png" class="img-fluid figure-img"></p>
+<figcaption>화학소재측정 영역의 핵심 역량 확장 가능 영역 예시</figcaption>
 </figure>
 </div>
-<p><strong>‘11-15 - 전자파 차폐·흡수 복합재’</strong> 영역에서 KRISS도 논문이 1편(?)있으며, 전자파측정그룹 홍영표 그룹장이 교신저자인 아래 논문임. 투명 EM 차폐 필름 연구 <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001123055000001">https://www.webofscience.com/wos/woscc/full-record/WOS:001123055000001</a></p>
-<p>(2025년 7월논문이긴한데, 아래 보도자료에 실린 홍영표 그룹장의 다른 논문이 있습니다(전기장 EO 프로브 논문). 두 논문은 아주 일치하진 않지만 전자파 차폐 관련 역량이 그룹장을 중심으로 존재함을 시사합니다.</p>
-<p>“이번 연구 결과는 전자파 분야 세계 최고 권위의 국제학술지인 IEEE Transactions on Microwave Theory and Techniques에 7월 게재됐으며, 설계 소프트웨어 및 측정 장비 기술은 각각 특허 출원됐다.”</p>
-<p>https://www.kriss.re.kr/gallery.es?mid=a10505000000&amp;bid=0018&amp;b_list=10&amp;act=view&amp;list_no=4938)</p>
-<p><strong>화학소재측정영역</strong></p>
-<p>KRISS가 이미 잘하는 <strong>‘9-12 - 배터리 양극·계면 측정’</strong>을 기반으로 확장해볼 수 있는 영역 중에는 “<strong>9-191 - 물분해 전기촉매 측정</strong>”, <strong>“7-154 - 리튬이온전지 예지진단”</strong>이 있음. 두 영역 다 앞으로 더 많은 논문이 나오는 분야(성장성)로 예측되는 동시에 ’9-191 - 물분해 전기촉매 측정’은 다른 연구들에 대한 파급력이 크고, ’7-154 - 리튬이온전지 예지진단’은 특허로 연계될 가능성이 높아 유망연구영역(시나리오2)에 선정.</p>
+<p>화학소재측정 영역에서는 ’9-12 배터리 양극·계면 측정’을 기반으로 확장 가능한 유망 영역으로 ’9-191 물분해 전기촉매 측정’과 ’7-154 리튬이온전지 예지진단’이 도출되었다. 두 영역 모두 향후 문헌 규모가 확대될 것으로 예측되어 성장성 측면에서 높은 점수를 받았으며, 세부적으로는 ’9-191 물분해 전기촉매 측정’이 다른 연구들에 대한 파급력이 큰 영역으로 평가되었고, ’7-154 리튬이온전지 예지진단’은 특허 연계 가능성이 높아 기술진보 기여도 관점에서 유망성이 높게 나타났다. 다만 KRISS는 최근 5년간 ’9-191 물분해 전기촉매 측정’에 7편 이상의 논문을 게재했음에도 상위 10% 문헌이 아직 확보되지 않아 질적 성과 축적이 과제로 남아 있다. 반면 ’7-154 리튬이온전지 예지진단’은 KRISS의 직접 산출 논문이 없는 상태이지만, 지식 기반이 핵심 역량 영역과 상당히 유사한 것으로 평가되는 만큼 기술진보 기여도(특허 연계)를 전략적으로 강화하려면 화학소재측정 분야에서 도전적 확장 대상으로 검토할 수 있다.</p>
+<p>바이오의료측정 영역에서 유형2 상위 유망 영역으로는 ‘41-141 신축성 전자피부 센서’가 도출되었다. 이 영역은 바이오의료측정 범주에 속하지만, 인지적 기반이 물리측정 영역의 특정 핵심 역량(예: ‘11 비플러렌 유기태양전지’)과 연결되어 있는 형태로 나타나, 영역 간 지식 확장 경로를 보여주는 사례로 해석된다. 이는 바이오의료측정 내에서의 단순 연장선 확장뿐 아니라, 물리 기반 소재·소자 역량을 바이오 응용 측정으로 전환하는 확장 가능성이 있을 수 있음을 시사한다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../Final_Report_MD/최종보고서 내용/image 9.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
+<p><img src="../Final_Report_MD/최종보고서 내용/image 14.png" class="img-fluid figure-img"></p>
+<figcaption>양자기술 영역의 핵심 역량 확장 가능 영역 예시</figcaption>
 </figure>
 </div>
-<p>KRISS는 지난 5년간 ’9-191 - 물분해 전기촉매 측정’에 7편 이상의 논문을 게재했으나, 상위10% 논문은 없는 상태. 첨단소재측정그룹 박선화 박사가 교신저자이며 24년에 나온 아래 논문을 주목해봅시다. <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001369124900001">https://www.webofscience.com/wos/woscc/full-record/WOS:001369124900001</a> 이 연구에서는 <strong>anion exchange membrane</strong> water electrolysis을 다룹니다. 같은 연구진이 작년 보도자료에 나왔습니다. 논문은 아니고 ’<strong>음이온교환막(AEM)</strong> 수전해용 고성능 촉매 개발’입니다. <a href="https://www.kriss.re.kr/gallery.es?mid=a11005050300&amp;bid=0022&amp;list_no=4731&amp;act=view">https://www.kriss.re.kr/gallery.es?mid=a11005050300&amp;bid=0022&amp;list_no=4731&amp;act=view</a></p>
-<p><strong>한편, ’7-154 - 리튬이온전지 예지진단’에는 논문이 전혀 없음. 그러나 위에서 언급한 두 영역과 지식기반이 상당히 유사하므로, 기술진보 기여도에 관심이 있다면 화학소재측정본부에서 도전해볼만하다.</strong></p>
-<p><strong>바이오의료측정영역</strong></p>
-<p>바이오의료측정에서 유망연구영역 후보군 유형2에서 뽑힌 유망영역은 41-141번 신축성 전자피부 센서인데, 핵심역량기반이 11번 비플러렌유기태양전지(물리)입니다. cosine sim.은 0.4보다 살짝 높은데, GPT에게 물어보면 기반 지식이 같은 것은 맞다고 하네요 (flexible sensor 어쩌고저쩌고…) 다만 설명하기가 어려울 것 같아 생략했습니다.</p>
-<hr>
-<p><strong>양자기술영역</strong></p>
-<p>KRISS가 이미 잘하는 영역 중에는 다른 양자 영역으로의 진출에 필요한 인프라적 성격이 강한 <strong>‘20-124 - 광자 양자정보기술’</strong>이 있음. (광자 기반 양자정보 처리/전송(네트워크·인터커넥트 포함)) 이 영역은 유망성 점수가 높은 것은 아니나, ’지식기반’으로서의 중요성 높음. 그래서인지 다른 기관들 중에서도 역량이 뛰어난 기관이 많음</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../Final_Report_MD/최종보고서 내용/image 10.png" class="img-fluid figure-img"></p>
-<figcaption>image.png</figcaption>
-</figure>
-</div>
-<p>이 영역을 바탕으로 확장해볼 수 있는 영역 중에는 “<strong>38-107 - 초전도 회로 양자전기역학</strong>” (초전도 큐비트(트랜스몬 등)·공진기·읽기/결합 구조), “<strong>38-84 - 양자알고리즘·오류정정</strong>” (초전도 플랫폼에 가장 많이 적용되는 소프트웨어/시스템 레벨 핵심(오류정정, 논리큐비트, 컴파일/알고리즘 포함))와 같이 초전도 양자컴퓨팅에 관련되는 분야가 있음.</p>
-<p><strong>‘38-84 - 양자알고리즘·오류정정’</strong>은 아직 KRISS가 잘하지 못하지만 유망성이 상당히 높은 분야로, ’20-124 - 광자 양자정보기술’의 역량을 바탕으로 확장 할 수 있는 유망연구영역(시나리오2)에 선정됨. ((또한 이미 NIST, NPL이 역량이 뛰어나고 PTB도 잠재력이 있음))</p>
-<p>마찬가지로 ’<strong>38-107 - 초전도 회로 양자전기역학</strong>’도 ****아직 KRISS가 잘하지 못하지만 유망성이 상당히 높은 분야로 이번 유망연구영역(시나리오2)에 선정됨. ((이 분야도 그 중요도에 따라 이미 NIST, NMIJ, NPL, PTB의 역량이 뛰어나며 NIM, NRC, INRIM도 잠재력이 있음))</p>
-<p><strong>Insight 2-2-2:</strong></p>
-<p>KRISS도 ’<strong>38-107 - 초전도 회로 양자전기역학’</strong> 분야에 잠재력(양적 역량)이 있는 것으로 나타나는데, 아래 사례를 보면 KRISS가 노력하고 있음을 알 수 있으며, 앞으로 역량이 더 좋아질 수 있을 것으로 기대됨.</p>
-<p><a href="https://www.hellodd.com/news/articleView.html?idxno=109901">https://www.hellodd.com/news/articleView.html?idxno=109901</a></p>
-<p><em>한국 과학기술계에서 두뇌 유출 우려가 계속되는 가운데, 오히려 국가 발전에 보탬이 되겠다며 다시 한국행을 선택한 연구자들도 있다. 지난 11일, 이들을 직접 만나 돌아온 이유를 들었다. (왼쪽부터)양자기술연구소 양자소자그룹 구자승 박사, <strong>차진웅</strong> 박사. [사진=한국표준과학연구원]</em></p>
-<p>WOS:001155550000001 → 38-107 - 초전도 회로 양자전기역학, 2024년 pub, cited 5회, <strong>차진웅</strong> 박사(교신저자) <a href="https://pubs.acs.org/doi/10.1021/acs.nanolett.3c04080">https://pubs.acs.org/doi/10.1021/acs.nanolett.3c04080</a></p>
-<p>이와 같은 노력을 <strong>‘38-84 - 양자알고리즘·오류정정’</strong>(WOS:000652837500004; pubyear 2021; 이상민 양자정보팀 책임연구원)에도 기울여 보시라 (195개 클러스터 중 가장 유망성이 높은 ’’’1위’’’ 분야)</p>
-<p><strong>”역량 공백 연구영역” 중 유망성 통합 지표 상위 10개 영역</strong></p>
-<ul>
-<li>남들은 하는 데 표준연은 안하는 영역들의 성장성-파급력-기술진보기여도를 살펴보고 <strong>“전략적으로 도전해볼 가치가 있는” 분야를 선정한다.</strong></li>
-<li>e.g., BAM; NIM; NIST가 잘하는 ’125-유전체 변이 측정표준’은 유망한 영역이나, KRISS excellence는 조금 낮은 수준이다. BAM; NIST; NRC가 잘하는 ’179-프로테오믹스 질량분석’은 유망한 영역이나, KRISS excellence는 조금 낮은 수준이다. NIST; NMIJ/AIST가 잘하는 ’169 - 위상 양자물질 전자구조 측정’은 유망한 영역이나, KRISS excellence는 조금 낮은 수준이다. <del>나머지 area3의 유망 영역은 맨 땅에 헤딩을 해야…</del></li>
-</ul>
-<p><strong>물리측정영역</strong></p>
-<p>KRISS가 아직 역량을 보유하지 못했거나 잘하는 영역에서 연계하기도 어렵지만, 물리측정분야에서 다른 기관들이 잘하고 있는 영역(KRISS의 공백영역) 중 ‘<strong>26-131 - 중력파 검출·분석</strong>’ 분야는 다른 후속 연구들로 파급력이 아주 높은 분야이고 NMIJ, INRIM이 뛰어남.</p>
-<p>KRISS가 그렇다고 손놓고 있는 분야는 아님. 2024년 2개 논문 존재. <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001218757300002">https://www.webofscience.com/wos/woscc/full-record/WOS:001218757300002</a> <a href="https://www.webofscience.com/wos/woscc/full-record/WOS:001292901700021">https://www.webofscience.com/wos/woscc/full-record/WOS:001292901700021</a></p>
-<p><strong>그리고 논문에는 안잡히지만… BIPM 중력파 지원 태스크 그룹 참여</strong></p>
-<ul>
-<li>BIPM(국제도량형국) 산하 <strong>CCPR-WG-SP TG14 “Radiometry to Support Gravitational Wave Detection”</strong>의 멤버로 <strong>KRISS의 임선도(Seon-Do Lim) 광도그룹측정 그룹장 참여</strong></li>
-<li><a href="https://www.bipm.org/en/committees/cc/ccpr/wg/ccpr-wg-sp-tg14/members?utm_source=chatgpt.com">https://www.bipm.org/en/committees/cc/ccpr/wg/ccpr-wg-sp-tg14/members?utm_source=chatgpt.com</a></li>
-</ul>
-<p><strong>화학소재측정영역</strong></p>
-<p>KRISS가 아직 역량을 보유하지 못했거나 잘하는 영역에서 연계하기도 어렵지만, 화학소재분야에서 다른 기관들이 잘하고 있는 영역(KRISS의 공백영역) 중 ‘<strong>11-159 - 나노셀룰로오스 소재측정</strong>’ 분야는 성장성, 파급력 모두 아주 높으면서 특허로도 연계가 많이되는 분야로 유망성 종합 5위의 분야. 그래서인지 NIST, BAM, NPLI 등 화학을 잘하는 기관들의 역량이 이미 뛰어남</p>
-<p>KRISS는 이 분야 논문이 지난 2020~2024에 딱 2편 나옴. 그런데 두 논문 모두 박병천 박사의 논문. 공저자 중 KRISS의 다른 박사는 없고 모두 북미 중심의 연구자들입니다.</p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000580426800085">https://www.webofscience.com/wos/woscc/full-record/WOS:000580426800085</a></p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000852933700003">https://www.webofscience.com/wos/woscc/full-record/WOS:000852933700003</a></p>
-<p>→ 수십년간 나노 분야에 매진해오신 박사님을 보니까 정말 멋지네요.</p>
-<ul>
-<li>가장 최근 논문(2022) 내용입니다.(GPT요약이니 팩트체크 필요)</li>
-<li>셀룰로오스 나노크리스탈(CNC)의 길이·직경 분포는 소재 성능(점도, 기계적 특성 등)에 직접적인 영향을 주지만, TEM 이미지에서 사람 손으로 일일이 측정하는 기존 방식은 분석자마다 기준이 달라 재현성이 떨어지고 시간이 너무 오래 걸리는 문제가 있음.</li>
-<li><strong>국제 공동연구 구조</strong>
-<ul>
-<li>미국(USDA Forest Service), 캐나다(NRC), 미국 대학, 그리고 <strong>KRISS</strong>가 함께,
-<ul>
-<li>여러 연구실에서 획득한 TEM 이미지를 대상으로 반자동 이미지 분석 프로그램(SMART)의 성능을 평가. KRISS는 <strong>고품질 TEM 이미지 제공 및 분석 참여 기관</strong>으로 이름이 올라 있음. <a href="https://link.springer.com/article/10.1007/s10570-022-04818-w">SpringerLink</a></li>
-</ul></li>
-</ul></li>
-<li><strong>측정·표준 측면 의미</strong>
-<ul>
-<li>CNC 크기 측정 방법의 <strong>실험실 간(Interlaboratory) 비교</strong>와 자동화 이미지 분석 도입을 통해, 나노셀룰로오스의 <strong>국제 표준(ISO/TS 23151 등)과 연계 가능한 측정 방법론</strong> 확립에 기여.</li>
-</ul></li>
-</ul>
-<p>아래는 2010년 보도자료입니다.</p>
-<p>https://www.hellodd.com/news/articleView.html?idxno=31708</p>
-<p><strong>⇒ 그런데 지금은 조직도에서 보이지 않으십니다. 은퇴하신게 아닐지… <del>아니면 중국 천인계획에 포함되신건지…</del></strong></p>
-<p><strong>⇒ 계실 때 역량을 흡수했으면 참 좋았을텐데요… KRISS의 발전을 위해 솔직하게 이야기해봅니다.</strong></p>
-<p><strong>Insight 3:</strong></p>
-<p>화학소재 측정 분야를 살펴보니, “<strong>9-191 - 물분해 전기촉매 측정</strong>” 분야와 같이 KRISS가 기존 역량(연구진)을 바탕으로 앞으로 잘해볼 수 있는 가능성이 보이는 분야도 있지만, <strong>‘9-12 - 배터리 양극·계면 측정’, ’11-159 - 나노셀룰로오스 소재측정</strong>’과 같이 역량(연구진)을 잃은 것 같은 분야도 있습니다.</p>
-<p><strong>⇒ 개인적으로 한 기관의 성과는 결국 연구진의 개인역량+그 역량을 꽃피우게 해주는 환경(기관 제공)에 달려있다고 생각합니다. (cf.&nbsp;Management 분야의 seminal한 논문에 따르면, 기업의 연구개발성과에서 기업 고유의 효과와 연구개발인력 개개인의 고유 효과를 비교해볼 때, 후자가 5~10배 더 중요하다고 합니다. Bhaskarabhatla, A., Cabral, L., Hegde, D., &amp; Peeters, T. (2021). Are inventors or firms the engines of innovation?.&nbsp;<em>Management Science</em>,&nbsp;<em>67</em>(6), 3899-3920.)</strong></p>
-<p><strong>바이오의료측정영역</strong></p>
-<p>KRISS가 아직 역량을 보유하지 못했거나 잘하는 영역에서 연계하기도 어렵지만, 버이오의료측정분야에서 다른 기관들이 잘하고 있는 영역(KRISS의 공백영역) 중 ‘<strong>43-125 - 유전체 변이 측정표준</strong>’ 분야는 특허로 연계가 아주 많이되는 분야(기술진보기여도 2위)이고 NIST, NIM, NPL이 뛰어남. KRISS도 이 분야 논문은 많으나 질적으로 우수한 논문이 아직 부족. 그런데 피인용 285회, 특허에 의한 피인용 5회에 빛나는 아래 논문이 있을 정도로 포텐이 있으니 열심히 해보시라…</p>
-<p><a href="https://www.webofscience.com/wos/woscc/full-record/WOS:000555400700006">https://www.webofscience.com/wos/woscc/full-record/WOS:000555400700006</a> (2020년 pub, cites 285, patent cites 5, 바이오의료측정본부 본부장 배영경)</p>
-<p>’<strong>29-179 - 프로테오믹스 질량분석</strong>’도 특허로 연계가 많이되어 유망하며 NIST, BAM, NRC가 뛰어남. 그래서 유망연구영역(시나리오3)에 선정되었음. KRISS도 이 분야 논문은 많으나, 상위 10% 논문은 없음…</p>
-<p><strong>양자기술영역</strong></p>
-<p>KRISS가 아직 역량을 보유하지 못했거나 잘하는 영역에서 연계하기도 어렵지만, 양자분야에서 다른 기관들이 잘하고 있는 영역(KRISS의 공백영역) 중 ‘<strong>32-62 - 집적 광주파수콤</strong>’ 분야는 특허로 연계가 아주 많이되는 분야이고 NIST, NPL, NRC이 뛰어남, ’<strong>34-162 - 궤도각운동량 광계측</strong>’은 다른 후속연구들에 대한 파급력이 높아 유망하며 NIST, NIM, PTB가 뛰어남. 그래서 유망연구영역(시나리오3)에 선정되었음. 이러한 분야는 양자컴퓨팅과 같은 분야에 직접적인 관련은 없으나, 간접적으로 연계될 수 있는 양자영역(광학기반).</p>
-<p>이와 같은 이야기들은 KRISS가 <strong>‘20-124 - 광자 양자정보기술’,</strong> ’<strong>38-107 - 초전도 회로 양자전기역학’</strong>를 비롯한 양자기술 영역에 꾸준히 노력해왔음을 시사하지만, 다른 기관들도 그 중요도에 따라 상당히 노력을 기울여왔음을 시사함.</p>
-<p><strong>⇒ KRISS도 노력하고 있지만 세계적인 수준에서의 경쟁은 치열하다<del>(너만 노력하는거 아니야)</del>. 그 기관들과 ‘비벼보는 것’ 자체로 충분히 인정받을만하다<del>(이 말하려고 길게 써봤습니다)</del>.</strong></p>
-<p>⇒ 추가로, 이번에 제시하는 “유망 연구영역 30개”에 포함되지 않았더라도 (즉, 연구 영역 자체의 유망성 점수는 높지 않을지라도) ’<strong>20-124 - 광자 양자정보기술’</strong>과 같이 유망 연구영역으로의 확장을 위해 전략적으로 지원해야하는 연구영역들이 존재한다는 것을 반드시 고려해야 한다.</p>
+<p>양자기술 영역에서는 ’20-124 광자 양자정보기술’이 확장 전략에서 중요한 기반 영역으로 다루어진다. 이 영역은 유망성 점수 자체가 최상위권은 아니지만, 광자 기반 양자정보 처리·전송(네트워크·인터커넥트 포함)이라는 성격상 다른 양자 영역으로 진출하기 위한 인프라적 기반(지식·장비·측정 프레임워크)을 제공한다는 점에서 ’지식기반으로서의 중요성’이 높게 평가된다. 실제로 이 영역은 다른 기관들에서도 역량이 뛰어난 곳이 다수 존재해 국제 경쟁과 협력의 접점이 넓은 분야로 해석된다.</p>
+<p>이 기반을 바탕으로 확장 가능한 유망 영역으로는 초전도 양자컴퓨팅과 직접 연결되는 ‘38-107 초전도 회로 양자전기역학’과 ‘38-84 양자알고리즘·오류정정’이 도출되었다. 두 영역 모두 KRISS가 아직 뚜렷한 성과를 확보하지 못한 편이지만 유망성이 상당히 높아 유망연구영역으로 선정되었다. 특히 ‘38-84 양자알고리즘·오류정정’은 유망성이 전체 연구영역 중 가장 높은 영역으로, 광자 양자정보기술에서 축적되는 기반 역량을 활용해 확장할 수 있는 대표적 후보로 해석되며, 주요 기관들 가운데서도 이미 역량이 두드러진 곳이 존재하고 일부 기관은 잠재력을 보이는 것으로 나타난다. ‘38-107 초전도 회로 양자전기역학’ 역시 중요도 대비 여러 기관에서 역량을 확보하고 있는 분야로, KRISS가 선택적으로 투자할 경우 후발 진입이더라도 성과로 연결될 여지가 있는 확장 후보로 해석된다.</p>
+</section>
+<section id="역량-공백-연구영역후보군-유형3" class="level3">
+<h3 class="anchored" data-anchor-id="역량-공백-연구영역후보군-유형3">(3) 역량 공백 연구영역(후보군 유형3)</h3>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>연구영역(Meso-Micro)</th>
+<th>성장성 퍼센타일</th>
+<th>파급력 퍼센타일</th>
+<th>기술진보기여도 퍼센타일</th>
+<th>유망성 종합점수 퍼센타일</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>11-159 - 나노셀룰로오스 소재측정</td>
+<td>94.87</td>
+<td>98.46</td>
+<td>81.03</td>
+<td>97.95</td>
+</tr>
+<tr class="even">
+<td>43-125 - 유전체 변이 측정표준</td>
+<td>44.10</td>
+<td>77.95</td>
+<td>99.49</td>
+<td>93.85</td>
+</tr>
+<tr class="odd">
+<td>32-62 - 집적 광주파수콤</td>
+<td>61.03</td>
+<td>91.28</td>
+<td>97.95</td>
+<td>92.31</td>
+</tr>
+<tr class="even">
+<td>9-189 - 다공성골격 가스분리</td>
+<td>82.05</td>
+<td>97.44</td>
+<td>77.95</td>
+<td>91.79</td>
+</tr>
+<tr class="odd">
+<td>18-133 - 적층 바이오제조 측정</td>
+<td>62.05</td>
+<td>93.33</td>
+<td>70.26</td>
+<td>81.54</td>
+</tr>
+<tr class="even">
+<td>29-179 - 프로테오믹스 질량분석</td>
+<td>44.62</td>
+<td>65.64</td>
+<td>96.41</td>
+<td>81.03</td>
+</tr>
+<tr class="odd">
+<td>30-169 - 위상 양자물질 전자구조 측정</td>
+<td>81.03</td>
+<td>94.87</td>
+<td>22.56</td>
+<td>80.51</td>
+</tr>
+<tr class="even">
+<td>26-131 - 중력파 검출·분석</td>
+<td>53.85</td>
+<td>97.95</td>
+<td>11.28</td>
+<td>75.38</td>
+</tr>
+<tr class="odd">
+<td>34-162 - 궤도각운동량 광계측</td>
+<td>60.00</td>
+<td>88.72</td>
+<td>51.28</td>
+<td>73.33</td>
+</tr>
+<tr class="even">
+<td>15-112 - 업컨버전 나노입자</td>
+<td>57.44</td>
+<td>76.41</td>
+<td>58.97</td>
+<td>66.67</td>
+</tr>
+</tbody>
+</table>
+<p>위 표는 역량 공백 연구영역(후보군 유형3) 가운데 유망성 종합점수 상위 10개 연구영역을 정리한 결과다. 다른 벤치마킹 기관들이 이미 역량을 확보하고 있으나 KRISS는 아직 핵심 역량을 보유하지 못했거나 확장 가능 영역으로 편입시키지 못한 분야를 대상으로 성장성·파급력·기술진보 기여도를 종합적으로 점검해, 전략적으로 도전할 가치가 있는 영역을 선별하였다. 즉, “진입 난이도는 높더라도 중장기적으로 확보할 가치가 큰가”를 판단하기 위한 후보군이다.</p>
+<p>물리측정 영역에서 KRISS의 공백 영역 중 ’26-131 중력파 검출·분석’은 후속 연구로의 파급력이 매우 큰 분야로 나타나 유망 후보로 해석된다. 다만 이 영역은 KRISS가 현재 강점을 가진 영역과 직접적으로 연결하기가 상대적으로 어렵다. 그럼에도 불구하고 다른 기관들, 특히 NMIJ와 INRIM이 해당 분야에서 두드러진 역량을 보이는 것으로 나타났다.</p>
+<p>화학소재측정 영역에서는 ’11-159 나노셀룰로오스 소재측정’이 성장성, 파급력, 기술진보 기여도 모두에서 강한 신호를 보이며 유망성 종합점수 상위권(5위)으로 나타난 영역이다. 특허 연계도 활발해 산업적 활용과 기술진보 기여 가능성이 동시에 큰 것으로 해석된다. 이러한 특성 때문에 NIST, BAM, NPLI 등 화학·소재 측정 역량이 강한 기관들이 이미 해당 분야에서 역량을 확보하고 있는 것으로 관측된다. 반면 KRISS는 2020–2024년 최근 5개년 동안 이 분야 논문이 2편에 그쳐 연구 기반이 충분히 형성되지 않은 상태로 해석되며, 유형3의 “공백” 성격을 직접적으로 보여주는 사례로 볼 수 있다.</p>
+<p>바이오의료측정 영역에서 ‘43-125 유전체 변이 측정표준’은 특허 연계가 매우 활발한 분야로, 기술진보 기여도 측면에서 최상위권(2위)인 영역이다. 이 분야에서는 NIST, NIM, NPL이 두드러진 역량을 보이는 것으로 나타나, 표준·측정 관점에서 산업 및 임상 적용과의 연결이 강한 영역으로 해석된다. KRISS도 해당 분야 논문 산출은 존재하지만 질적으로 우수한 상위권 성과가 충분히 축적되지 못한 상태로 보인다. 또한 ‘29-179 프로테오믹스 질량분석’ 역시 특허 연계가 높아 기술진보 기여도 관점에서 유망하며, NIST, BAM, NRC가 강점을 보이는 영역으로 나타나 유망연구영역으로 선정되었다. KRISS는 이 영역에서 논문 산출은 있으나 상위 10% 문헌이 아직 확보되지 않아, “양적 기반은 있으나 질적 성과가 약한 공백”에 해당하는 형태로 해석된다.</p>
+<p>양자기술 영역에서는 ’32-62 집적 광주파수콤’이 특허 연계가 매우 큰 분야로 나타나 기술진보 기여도가 강한 공백 영역으로 해석되며, NIST, NPL, NRC가 강점을 보이는 것으로 보인다. ’34-162 궤도각운동량 광계측’은 후속 연구로의 파급력이 높은 영역으로 유망 후보로 평가되며, NIST, NIM, PTB가 두드러진 역량을 보이는 것으로 나타나 유망연구영역으로 선정되었다.</p>
+<p>이상의 결과를 종합하면 KRISS가 지속적으로 다양한 연구영역에서 연구 기반을 축적해 왔으며 특히 유망성이 높은 연구영역들도 다수 역량을 보유하고 있음을 보여주는 동시에, 주요 해외 기관들도 유망한 연구영역에 대해 투자를 통해 역량을 강화해 왔음을 시사한다. 세계적 수준의 벤치마킹 기관들과 같은 범주에서 경쟁을 논의할 수 있다는 사실은 “세계적 수준의 경쟁은 치열하다”는 의미이면서 동시에 “KRISS가 세계적 수준에서 경쟁력이 있다”는 의미이기도 하다.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1173,8 +1302,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/report_3_4_databook_dashboard.html" class="pagination-link" aria-label="3-4) ”포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축 (in 2-3)”">
-        <span class="nav-page-text">3-4) ”포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축 (in 2-3)”</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/report_3_4_databook_dashboard.html" class="pagination-link" aria-label="3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축">
+        <span class="nav-page-text">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
