@@ -1,0 +1,43 @@
+---
+title: "Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)"
+description: "Interactive maps of the standard-science research landscape."
+page-title: false
+---
+
+# Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)
+
+본 페이지는 표준과학 연구지형도 결과를 VOSviewer 기반의 인터랙티브 맵 형태로 제공한다. 지도에서는
+연구주제(클러스터) 간의 상대적 근접성, 연결 강도, 그리고 주요 지표(규모·분포·특화 등)의 색상 겹치기
+시각화를 함께 확인할 수 있다.
+
+::: {.callout-tip}
+## 보기 안내
+- 페이지 내 임베드가 보이지 않거나 느리게 동작하는 경우, 아래 링크를 눌러 새 탭에서 열어볼 수 있다.
+:::
+
+::: {.panel-tabset}
+## 표준과학 연구지형도
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1Lcm9LnGJYKEK0jgJB1WcwDol5gcdbd9r" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1Lcm9LnGJYKEK0jgJB1WcwDol5gcdbd9r"
+  title="표준과학 연구지형도 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+## 글로벌 연구지형도
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D14b6CQcJ0OS6wdA1qolCdLLLKi1tHYIR3" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D14b6CQcJ0OS6wdA1qolCdLLLKi1tHYIR3"
+  title="글로벌 연구지형도 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+:::
+

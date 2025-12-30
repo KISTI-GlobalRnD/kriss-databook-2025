@@ -1,35 +1,28 @@
 # Appendix / 부록
 
-## Complete Pipeline Pseudocode (EN)
+## 용어 및 약어 / Glossary
 
-```
-def run_keyword_pipeline(cfg):
-    pipe = KeywordExtractionPipeline(cfg)
-    pipe._fit_vectorizers()
-    pipe._aggregate_counts()
-    top_df = pipe._stage_scores_and_topk()
-    if cfg.apply_alias_map:
-        top_df = canonicalise(top_df, pipe)
-    term_year = pipe._compute_year_series(top_df)
-    return attach_year_series(top_df, term_year)
-```
+- **c‑TF‑IDF (Class‑based TF‑IDF)**: 문서 단위가 아닌 “클러스터(=class) 단위”로 문서‑용어 행렬을 집계한 뒤 TF‑IDF를 계산하는 가중화 방식. 클러스터를 대표하면서도 다른 클러스터와 구분되는 용어를 상위로 선별하는 데 적합하다.
+- **LLR (Log‑Likelihood Ratio)**: 특정 용어가 “특정 클러스터에서 유의하게 더 많이 나타나는가”를 평가하기 위한 변별력 지표. 클러스터 내부 vs. 나머지 코퍼스의 2×2 분할표로 계산할 수 있다.
+- **MMR (Maximal Marginal Relevance)**: 랭킹에서의 관련성(relevance)과 다양성(diversity)을 함께 고려해 중복을 줄이는 선택 기법.
+- **PPM (Parts per million)**: 시계열 정규화에서 사용되는 비중 표현. 본 데이터북에서는 “연도·클러스터 단위의 전체 unigram 토큰 수”를 분모로 하는 토큰 기반 PPM을 기본으로 사용한다.
+- **Frequency (token frequency)**: 클러스터 내 총 토큰 등장 횟수(동일 문서 내 반복 등장까지 누적).
+- **Document coverage**: 해당 용어가 1회 이상 등장한 문서의 개수(한 문서당 최대 1회로 카운트).
 
-## Glossary / 용어 사전
+## 시계열 지표 해석 / Interpreting Time Series
 
-- **c‑TF‑IDF**: Class-based TF-IDF weighting scheme that treats each cluster as a pseudo-document.
-- **LLR**: Log-Likelihood Ratio, measures discriminative power of a term for a cluster.
-- **MMR**: Maximal Marginal Relevance, balances relevance and diversity in ranked lists.
-- **Coverage**: Number of documents within a cluster that mention a term at least once.
+키워드 시계열은 연도 \(y\), 클러스터 \(c\)에서 용어 \(t\)의 토큰 등장 수 \(n_{c,y}(t)\)를 집계한 뒤,
+동일 연도·클러스터의 전체 unigram 토큰 수 \(N_{c,y}\)로 정규화하여 PPM으로 표현한다.
+\[
+\mathrm{PPM}_{c,y}(t)=10^{6}\cdot\frac{n_{c,y}(t)}{N_{c,y}}
+\]
 
-## References / 참고 문헌
+PPM은 “문서 수 비중”이 아니라 “토큰 비중”이므로, 특정 문서에서 동일 용어의 반복 사용이 잦은 경우
+상대적으로 큰 값이 관측될 수 있다. 따라서 (i) 동일 클러스터 내 연도별 변화(추세)에 대한 해석을 우선하고,
+(ii) 필요 시 문서 기반 지표(문서 커버리지 기반 비중)를 병행하여 해석하는 것이 바람직하다.
 
-- Angelov, D. (2020). *Top2Vec*. c‑TF‑IDF inspiration.
-- Rayson, P., & Garside, R. (2000). *Comparing corpora using frequency profiling*. LLR usage.
-- Carbonell, J., & Goldstein, J. (1998). *The use of MMR for summarisation and retrieval*.
+## 참고문헌 / References
 
-## Release Checklist / 배포 체크리스트
-
-- [ ] `mkdocs.yml` validated and navigation tested.
-- [ ] Docs spellchecked; bilingual headers reviewed.
-- [ ] Diagnostics notebook updated with the latest run.
-- [ ] Final artefacts mirrored to long-term storage.
+- Carbonell, J., & Goldstein, J. (1998). The use of MMR, diversity-based reranking for reordering documents and producing summaries. *SIGIR ’98*.
+- Dunning, T. (1993). Accurate methods for the statistics of surprise and coincidence. *Computational Linguistics*, 19(1), 61–74.
+- Grootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF procedure. *arXiv:2203.05794*.

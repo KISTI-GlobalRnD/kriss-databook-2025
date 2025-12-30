@@ -3,14 +3,17 @@ project:
   output-dir: _site_book
   render:
     - index.qmd
-    - docs/*.qmd
-    - "!docs/final_report_*.qmd"
+    - docs/report_*.qmd
+    - docs/keyword_trends.qmd
+    - docs/vosviewer_explorer.qmd
+    - docs/appendix_detailed_reporting.qmd
+    - docs/appendix.qmd
   resources:
     - "Final_Report_MD/최종보고서 내용/*.png"
     - "Final_Report_MD/최종보고서 내용/*.xlsx"
 
 book:
-  title: "KRISS Keyword Pipeline Report (Book)"
+  title: "KRISS 표준과학 연구 데이터북 (Book)"
   date-format: iso
   sidebar:
     style: floating
@@ -25,8 +28,7 @@ book:
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
   chapters:
     - index.qmd
-    - docs/authoring_notes.qmd
-    - part: "최종보고서 (Notion import)"
+    - part: "데이터북 / Databook"
       chapters:
         - docs/report_00_preface.qmd
         - docs/report_1_1_data_build.qmd
@@ -36,6 +38,7 @@ book:
         - docs/report_1_2_4_keywords_timeseries.qmd
         - docs/keyword_trends.qmd
         - docs/report_1_2_5_landscape_visualization.qmd
+        - docs/vosviewer_explorer.qmd
         - docs/report_2_1_org_country_standardization.qmd
         - docs/report_2_2_benchmark_institutions.qmd
         - docs/report_2_3_collaboration_network.qmd
@@ -48,29 +51,10 @@ book:
         - docs/report_3_3_2_emergence_scoring.qmd
         - docs/report_3_4_databook_dashboard.qmd
         - docs/report_3_5_llm_reporting.qmd
-    - docs/research_overview.qmd
-    - docs/strategy_execution.qmd
-    - part: "데이터 & 방법론"
+    - part: "부록 / Appendix"
       chapters:
-        - docs/data_architecture.qmd
-        - docs/pipeline_architecture.qmd
-        - docs/algorithmic_scoring.qmd
-        - docs/configuration.qmd
-    - part: "도메인 연구지형도"
-      chapters:
-        - docs/module_domain_map.qmd
-    - part: "기관 성과 & 포트폴리오"
-      chapters:
-        - docs/module_institutional.qmd
-    - part: "운영 & 일정"
-      chapters:
-        - docs/delivery_plan.qmd
-        - docs/operations.qmd
-    - part: "Diagnostics & Appendix"
-      chapters:
-        - docs/diagnostics.qmd
+        - docs/appendix_detailed_reporting.qmd
         - docs/appendix.qmd
-        - docs/change_log.qmd
 
 language:
   section-title-footnotes: "각주"

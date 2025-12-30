@@ -1,55 +1,37 @@
-# KRISS Keyword Extraction Final Report / 최종 보고서
+# KRISS 표준과학 연구 데이터북 / Databook
 
-Welcome to the Quarto site for the KRISS keyword extraction pipeline. This report distils the hands-on
-lessons from the clustering and c‑TF‑IDF workflow into an operational handbook.
-
-::: {.callout-note}
-## 빌드/접속 안내
-- 기본 미리보기(`quarto preview`)는 웹사이트 버전입니다.  
-- 북 프로필(`quarto preview --profile book`)은 챕터 넘버링/사이드바가 포함됩니다.  
-- GitHub Pages 배포 시 `…/website/`와 `…/book/` 경로로 나뉘어 게시됩니다(gh-pages 기준).  
-:::
-
-## Executive Summary / 요약
-
-- Deliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR
-  reinforcement.
-- Persist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs
-  resilient to interruptions.
-- Provide bilingual documentation so new collaborators can get productive quickly.
+본 데이터북은 표준과학 연구 영역의 글로벌 연구지형도, 연구주제(클러스터) 구조, 키워드·시계열 추세,
+그리고 주요 기관 벤치마킹 결과를 **보고서 형식**으로 정리한 자료이다. 또한 핵심 결과를 보다 쉽게
+탐색할 수 있도록, 일부 페이지에는 경량 인터랙티브(Interactive) 기능을 함께 제공한다.
 
 ::: {.callout-tip}
-**버전 전환 / Version Switch**
-
-- 웹 사이트: <https://kisti-globalrnd.github.io/kriss-databook-2025/website/>
-- 북 (챕터형): <https://kisti-globalrnd.github.io/kriss-databook-2025/book/>
+## 버전 전환 / Version Switch
+- 웹 버전: <https://kisti-globalrnd.github.io/kriss-databook-2025/website/>
+- 북(챕터형) 버전: <https://kisti-globalrnd.github.io/kriss-databook-2025/book/>
 :::
 
-## How to Use This Site / 활용 방법
+## 데이터북과 대시보드의 역할
 
-1. Review the **문서 안내 / Document Guide** section (`index`, `research_overview`, `strategy_execution`) to
-   grasp project intent and stakeholder alignment.
-   - Drafting new chapters? Start with `authoring_notes` for the distribution-ready writing rules.
-2. Walk through **1. 데이터 & 방법론** for corpus architecture, pipeline stages, scoring, and configuration
-   defaults.
-3. Explore **2. 도메인 연구지형도** and **3. 기관 성과 & 포트폴리오** to inspect macro/meso findings and
-   benchmarking insights.
-4. Visit **4. 운영 & 일정** when preparing production runs, governance updates, or resourcing plans.
-5. Keep **Diagnostics & Appendix** handy for quality checks, pseudocode, and reference materials.
+본 과제에서는 데이터북과 별도로, 분석 결과를 다양한 관점에서 **탐색형**으로 살펴볼 수 있는 대시보드를
+운영한다.
 
-## Getting Started Locally / 로컬 사용 안내
+- 데이터북: 해석의 흐름이 있는 “보고서 + 최소한의 인터랙티브”
+- 대시보드: 필터링·탐색 중심의 “분석 탐색 도구”
 
-1. Install the Quarto CLI from <https://quarto.org/docs/get-started/>.
-2. From the repository root run:
+대시보드는 아래 링크에서 확인할 수 있다.
 
-```bash
-cd final_report_site
-quarto preview
-```
+<https://road2you.shinyapps.io/kriss_cluster_dashboard/>
 
-Quarto serves the site at `http://127.0.0.1:4200/` (default). Edit any `.qmd` file to trigger live
-reloads.
+## 이 데이터북에서 바로 사용할 수 있는 인터랙티브 도구
+
+- **키워드 추세 탐색기**: 상위 키워드의 연도별 추세를 클러스터 단위로 탐색(`docs/keyword_trends.qmd`)
+- **연구지형도(인터랙티브 맵)**: 연구주제 간 관계를 지도 형태로 탐색(`docs/vosviewer_explorer.qmd`)
+
+## 부록(예정): 상세 리포팅
+
+향후 클러스터별 상세 설명, 대표 문헌, 세부 지표 해석 등을 **부록(상세 리포팅)** 형태로 추가하여,
+데이터북 본문에서 생략된 기술적·해석적 디테일을 보강할 예정이다.
 
 ---
 
-즐거운 분석 되세요! Happy analysing!
+즐거운 분석 되세요! Happy analysing.

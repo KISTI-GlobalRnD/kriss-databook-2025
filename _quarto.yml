@@ -3,8 +3,11 @@ project:
   output-dir: _site_website
   render:
     - index.qmd
-    - docs/*.qmd
-    - "!docs/final_report_*.qmd"
+    - docs/report_*.qmd
+    - docs/keyword_trends.qmd
+    - docs/vosviewer_explorer.qmd
+    - docs/appendix_detailed_reporting.qmd
+    - docs/appendix.qmd
   resources:
     - docs/assets/**
     - "Final_Report_MD/최종보고서 내용/*.png"
@@ -12,8 +15,8 @@ project:
     - theme/**
 
 website:
-  title: "KRISS Keyword Pipeline Report"
-  description: "Final report and operational handbook for the KRISS standard-research analytics program"
+  title: "KRISS 표준과학 연구 데이터북 (Databook)"
+  description: "Curated report with lightweight interactive tools for monitoring the standard-science research landscape"
   repo-url: https://github.com/kimyoungjin06/final-report-placeholder
   repo-actions: [source, issue]
   sidebar:
@@ -31,9 +34,7 @@ website:
     contents:
       - text: "홈 / Home"
         href: index.qmd
-      - text: "작성 가이드 / Authoring Notes"
-        href: docs/authoring_notes.qmd
-      - section: "최종보고서 / Final Report"
+      - section: "데이터북 / Databook"
         contents:
           - docs/report_00_preface.qmd
           - docs/report_1_1_data_build.qmd
@@ -54,25 +55,19 @@ website:
           - docs/report_3_3_2_emergence_scoring.qmd
           - docs/report_3_4_databook_dashboard.qmd
           - docs/report_3_5_llm_reporting.qmd
-      - section: "운영 핸드북 / Handbook"
+      - section: "인터랙티브 도구 / Tools"
         contents:
-          - docs/research_overview.qmd
-          - docs/strategy_execution.qmd
-          - docs/data_architecture.qmd
-          - docs/pipeline_architecture.qmd
-          - docs/algorithmic_scoring.qmd
-          - docs/configuration.qmd
-          - docs/module_domain_map.qmd
           - docs/keyword_trends.qmd
-          - docs/module_institutional.qmd
-          - docs/delivery_plan.qmd
-          - docs/operations.qmd
-          - docs/diagnostics.qmd
+          - docs/vosviewer_explorer.qmd
+          - text: "클러스터 대시보드 (Shiny)"
+            href: "https://road2you.shinyapps.io/kriss_cluster_dashboard/"
+      - section: "부록 / Appendix"
+        contents:
+          - docs/appendix_detailed_reporting.qmd
           - docs/appendix.qmd
-          - docs/change_log.qmd
   navbar:
     left:
-      - text: "최종보고서 / Final Report"
+      - text: "데이터북 / Databook"
         menu:
           - text: "서문 / Preface"
             href: docs/report_00_preface.qmd
@@ -115,48 +110,20 @@ website:
             href: docs/report_3_4_databook_dashboard.qmd
           - text: "3-5) LLM reporting"
             href: docs/report_3_5_llm_reporting.qmd
-      - text: "문서 안내 / Document Guide"
+      - text: "인터랙티브 도구 / Tools"
         menu:
-          - text: "홈 / Home"
-            href: index.qmd
-          - text: "작성 가이드 / Authoring Notes"
-            href: docs/authoring_notes.qmd
-          - text: "프로젝트 개요"
-            href: docs/research_overview.qmd
-          - text: "추진 전략 & 수행"
-            href: docs/strategy_execution.qmd
-      - text: "1. 데이터 & 방법론"
-        menu:
-          - text: "1.1 데이터 구조 & 아이템 체계"
-            href: docs/data_architecture.qmd
-          - text: "1.2 파이프라인 아키텍처"
-            href: docs/pipeline_architecture.qmd
-          - text: "1.3 Algorithmic Scoring"
-            href: docs/algorithmic_scoring.qmd
-          - text: "1.4 Configuration Playbook"
-            href: docs/configuration.qmd
-      - text: "2. 도메인 연구지형도"
-        menu:
-          - text: "연구지형 개요 / Landscape Overview"
-            href: docs/module_domain_map.qmd
           - text: "키워드 추세 탐색기 / Keyword Trends"
             href: docs/keyword_trends.qmd
-      - text: "3. 기관 성과 & 포트폴리오"
-        href: docs/module_institutional.qmd
-      - text: "4. 운영 & 일정"
+          - text: "연구지형도(인터랙티브 맵) / VOSviewer"
+            href: docs/vosviewer_explorer.qmd
+          - text: "클러스터 대시보드 (Shiny)"
+            href: "https://road2you.shinyapps.io/kriss_cluster_dashboard/"
+      - text: "부록 / Appendix"
         menu:
-          - text: "4.1 수행 체계 & 일정"
-            href: docs/delivery_plan.qmd
-          - text: "4.2 Operations & Restart"
-            href: docs/operations.qmd
-      - text: "Diagnostics & Appendix"
-        menu:
-          - text: "Diagnostics"
-            href: docs/diagnostics.qmd
+          - text: "상세 리포팅(예정) / Detailed Reporting"
+            href: docs/appendix_detailed_reporting.qmd
           - text: "Appendix"
             href: docs/appendix.qmd
-          - text: "Change Log"
-            href: docs/change_log.qmd
   page-navigation: true
 
 language:

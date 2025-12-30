@@ -8,12 +8,13 @@ page-title: false
 
 Interactively inspect how the highest-ranked keywords evolve across years for each research cluster.
 Use the selectors to switch between clusters and metrics while the legend lets you toggle individual
-keyword curves on and off. All data are sourced from the comprehensive `keyword_all_timeseries`
-export generated after canonical integration.
+keyword curves on and off. All data are sourced from the comprehensive keyword time-series dataset
+generated after term canonicalisation.
 
 ::: callout-tip
-모든 곡선은 문헌 비중(`ppm_series_val`, parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면
-각 용어의 `score`(c‑TF‑IDF)와 `frequency`(문헌 수)를 함께 확인할 수 있습니다.
+모든 곡선은 토큰 기반 비중(PPM; parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면 각 용어의
+점수(c‑TF‑IDF), 총 등장 빈도(토큰 수), 문서 커버리지(해당 용어가 1회 이상 등장한 문서 수)를 함께 확인할
+수 있습니다.
 :::
 
 <style>
@@ -98,10 +99,11 @@ export generated after canonical integration.
 <div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;"></div>
 <div class="keyword-timeseries-meta" id="keyword-timeseries-meta"></div>
 <div class="keyword-timeseries-defs">
-  <p><strong>Document Share (PPM)</strong> · Parts per million of the cluster’s total unigram tokens for each term-year pair. \( \mathrm{PPM}_{c,y}(t) = 10^{6} \cdot \frac{n_{c,y}(t)}{N_{c,y}} \)</p>
+  <p><strong>Token Share (PPM)</strong> · Parts per million of the cluster’s total unigram tokens for each term-year pair. \( \mathrm{PPM}_{c,y}(t) = 10^{6} \cdot \frac{n_{c,y}(t)}{N_{c,y}} \)</p>
   <p><strong>Score</strong> · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).</p>
-  <p><strong>Frequency</strong> · Count of documents within the cluster that contain the keyword (constant across years).</p>
-  <p>Both <em>Score</em> and <em>Frequency</em> appear inside the hover tooltips for each point.</p>
+  <p><strong>Frequency</strong> · Total token occurrences of the keyword within the cluster (aggregated across the full period).</p>
+  <p><strong>Document Coverage</strong> · Number of documents within the cluster that mention the keyword at least once (aggregated across the full period).</p>
+  <p><em>Score</em>, <em>Frequency</em>, and <em>Document Coverage</em> appear inside the hover tooltips for each point.</p>
 </div>
 </div>
 
@@ -126,7 +128,7 @@ export generated after canonical integration.
   const sparklinesEl = document.getElementById("keyword-timeseries-sparklines");
 
   const metricKey = "ppm_series_val";
-  const metricLabel = "Document Share (PPM)";
+  const metricLabel = "Token Share (PPM)";
   const maxSparklines = 40;
 
   function cleanText(value) {
@@ -196,10 +198,11 @@ export generated after canonical integration.
         hovertemplate:
           "<b>%{customdata[0]}</b><br>" +
           "Year: %{x}<br>" +
-          "Document Share (PPM): %{y:.2f}<br>" +
+          "Token Share (PPM): %{y:.2f}<br>" +
           "Score: %{customdata[1]:.3f}<br>" +
-          "Frequency: %{customdata[2]:,.0f}<extra></extra>",
-        customdata: sorted.map(r => [term, r.score ?? null, r.frequency ?? null]),
+          "Frequency (tokens): %{customdata[2]:,.0f}<br>" +
+          "Document coverage: %{customdata[3]:,.0f}<extra></extra>",
+        customdata: sorted.map(r => [term, r.score ?? null, r.frequency ?? null, r.doc_coverage ?? null]),
         mode: "lines+markers",
         line: { width: 2 },
         marker: { size: 6 }
