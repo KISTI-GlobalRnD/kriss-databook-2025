@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KRISS Keyword Pipeline Report</title>
+<title>KRISS 표준과학 연구 데이터북 (Databook)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./docs/authoring_notes.html" rel="next">
+<link href="./docs/report_00_preface.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -113,7 +79,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">KRISS Keyword Pipeline Report</span>
+    <span class="navbar-title">KRISS 표준과학 연구 데이터북 (Databook)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -123,10 +89,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-final-report" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">최종보고서 / Final Report</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">데이터북 / Databook</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-final-report">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
         <li>
     <a class="dropdown-item" href="./docs/report_00_preface.html">
  <span class="dropdown-text">서문 / Preface</span></a>
@@ -209,101 +175,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-document-guide" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">문서 안내 / Document Guide</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">인터랙티브 도구 / Tools</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-document-guide">    
-        <li>
-    <a class="dropdown-item" href="./index.html">
- <span class="dropdown-text">홈 / Home</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/authoring_notes.html">
- <span class="dropdown-text">작성 가이드 / Authoring Notes</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/research_overview.html">
- <span class="dropdown-text">프로젝트 개요</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/strategy_execution.html">
- <span class="dropdown-text">추진 전략 &amp; 수행</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">1. 데이터 &amp; 방법론</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
-        <li>
-    <a class="dropdown-item" href="./docs/data_architecture.html">
- <span class="dropdown-text">1.1 데이터 구조 &amp; 아이템 체계</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/pipeline_architecture.html">
- <span class="dropdown-text">1.2 파이프라인 아키텍처</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/algorithmic_scoring.html">
- <span class="dropdown-text">1.3 Algorithmic Scoring</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/configuration.html">
- <span class="dropdown-text">1.4 Configuration Playbook</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">2. 도메인 연구지형도</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu--1">    
-        <li>
-    <a class="dropdown-item" href="./docs/module_domain_map.html">
- <span class="dropdown-text">연구지형 개요 / Landscape Overview</span></a>
-  </li>  
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
     <a class="dropdown-item" href="./docs/keyword_trends.html">
  <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
   </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" href="./docs/module_institutional.html" aria-current="page"> 
-<span class="menu-text">3. 기관 성과 &amp; 포트폴리오</span></a>
-  </li>  
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu--2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">4. 운영 &amp; 일정</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu--2">    
         <li>
-    <a class="dropdown-item" href="./docs/delivery_plan.html">
- <span class="dropdown-text">4.1 수행 체계 &amp; 일정</span></a>
+    <a class="dropdown-item" href="./docs/vosviewer_explorer.html">
+ <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./docs/operations.html">
- <span class="dropdown-text">4.2 Operations &amp; Restart</span></a>
+    <a class="dropdown-item" href="https://road2you.shinyapps.io/kriss_cluster_dashboard/">
+ <span class="dropdown-text">클러스터 대시보드 (Shiny)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-diagnostics--appendix" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Diagnostics &amp; Appendix</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">부록 / Appendix</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-diagnostics--appendix">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
         <li>
-    <a class="dropdown-item" href="./docs/diagnostics.html">
- <span class="dropdown-text">Diagnostics</span></a>
+    <a class="dropdown-item" href="./docs/appendix_detailed_reporting.html">
+ <span class="dropdown-text">상세 리포팅(예정) / Detailed Reporting</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./docs/appendix.html">
  <span class="dropdown-text">Appendix</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./docs/change_log.html">
- <span class="dropdown-text">Change Log</span></a>
   </li>  
     </ul>
   </li>
@@ -348,16 +249,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">홈 / Home</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/authoring_notes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">작성 가이드 / Authoring Notes</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">최종보고서 / Final Report</span></a>
+ <span class="menu-text">데이터북 / Databook</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -482,54 +377,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">운영 핸드북 / Handbook</span></a>
+ <span class="menu-text">인터랙티브 도구 / Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/research_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">프로젝트 개요 / Research Overview</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/strategy_execution.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">추진 전략 &amp; 수행 개요 / Strategy &amp; Execution</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/data_architecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">데이터 구조 &amp; 아이템 체계 / Data Architecture &amp; Item Taxonomy</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/pipeline_architecture.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">파이프라인 아키텍처 / Pipeline Architecture</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/algorithmic_scoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Algorithmic Scoring / 알고리즘 스코어링</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/configuration.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Configuration Playbook / 구성 가이드</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/module_domain_map.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Macro &amp; Emerging Areas / 표준연구 지형도</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
@@ -538,38 +391,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/module_institutional.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">기관 성과·프로파일 / Institutional Performance &amp; Portfolio</span></a>
+  <a href="./docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/delivery_plan.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">수행 체계 및 일정 / Delivery Plan &amp; Timeline</span></a>
+  <a href="https://road2you.shinyapps.io/kriss_cluster_dashboard/" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터 대시보드 (Shiny)</span></a>
   </div>
 </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">부록 / Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/operations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Operations &amp; Restart Strategy / 운영 및 재시작 전략</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/diagnostics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Diagnostics &amp; Quality Checks / 진단과 품질 점검</span></a>
+  <a href="./docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/appendix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Appendix / 부록</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/change_log.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Change Log</span></a>
   </div>
 </li>
       </ul>
@@ -584,11 +436,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#kriss-keyword-extraction-final-report-최종-보고서" id="toc-kriss-keyword-extraction-final-report-최종-보고서" class="nav-link active" data-scroll-target="#kriss-keyword-extraction-final-report-최종-보고서">KRISS Keyword Extraction Final Report / 최종 보고서</a>
+  <li><a href="#kriss-표준과학-연구-데이터북-databook" id="toc-kriss-표준과학-연구-데이터북-databook" class="nav-link active" data-scroll-target="#kriss-표준과학-연구-데이터북-databook">KRISS 표준과학 연구 데이터북 / Databook</a>
   <ul class="collapse">
-  <li><a href="#executive-summary-요약" id="toc-executive-summary-요약" class="nav-link" data-scroll-target="#executive-summary-요약">Executive Summary / 요약</a></li>
-  <li><a href="#how-to-use-this-site-활용-방법" id="toc-how-to-use-this-site-활용-방법" class="nav-link" data-scroll-target="#how-to-use-this-site-활용-방법">How to Use This Site / 활용 방법</a></li>
-  <li><a href="#getting-started-locally-로컬-사용-안내" id="toc-getting-started-locally-로컬-사용-안내" class="nav-link" data-scroll-target="#getting-started-locally-로컬-사용-안내">Getting Started Locally / 로컬 사용 안내</a></li>
+  <li><a href="#데이터북과-대시보드의-역할" id="toc-데이터북과-대시보드의-역할" class="nav-link" data-scroll-target="#데이터북과-대시보드의-역할">데이터북과 대시보드의 역할</a></li>
+  <li><a href="#이-데이터북에서-바로-사용할-수-있는-인터랙티브-도구" id="toc-이-데이터북에서-바로-사용할-수-있는-인터랙티브-도구" class="nav-link" data-scroll-target="#이-데이터북에서-바로-사용할-수-있는-인터랙티브-도구">이 데이터북에서 바로 사용할 수 있는 인터랙티브 도구</a></li>
+  <li><a href="#부록예정-상세-리포팅" id="toc-부록예정-상세-리포팅" class="nav-link" data-scroll-target="#부록예정-상세-리포팅">부록(예정): 상세 리포팅</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -599,78 +451,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="kriss-keyword-extraction-final-report-최종-보고서" class="level1">
-<h1>KRISS Keyword Extraction Final Report / 최종 보고서</h1>
-<p>Welcome to the Quarto site for the KRISS keyword extraction pipeline. This report distils the hands-on lessons from the clustering and c‑TF‑IDF workflow into an operational handbook.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-빌드/접속 안내
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>기본 미리보기(<code>quarto preview</code>)는 웹사이트 버전입니다.<br>
-</li>
-<li>북 프로필(<code>quarto preview --profile book</code>)은 챕터 넘버링/사이드바가 포함됩니다.<br>
-</li>
-<li>GitHub Pages 배포 시 <code>…/website/</code>와 <code>…/book/</code> 경로로 나뉘어 게시됩니다(gh-pages 기준).<br>
-</li>
-</ul>
-</div>
-</div>
-<section id="executive-summary-요약" class="level2">
-<h2 class="anchored" data-anchor-id="executive-summary-요약">Executive Summary / 요약</h2>
-<ul>
-<li>Deliver interpretable cluster descriptors at scale using class-based TF-IDF with optional LLR reinforcement.</li>
-<li>Persist intermediate artefacts (vectorisers, sparse matrices, candidate tables) to keep long runs resilient to interruptions.</li>
-<li>Provide bilingual documentation so new collaborators can get productive quickly.</li>
-</ul>
+<section id="kriss-표준과학-연구-데이터북-databook" class="level1">
+<h1>KRISS 표준과학 연구 데이터북 / Databook</h1>
+<p>본 데이터북은 표준과학 연구 영역의 글로벌 연구지형도, 연구주제(클러스터) 구조, 키워드·시계열 추세, 그리고 주요 기관 벤치마킹 결과를 <strong>보고서 형식</strong>으로 정리한 자료이다. 또한 핵심 결과를 보다 쉽게 탐색할 수 있도록, 일부 페이지에는 경량 인터랙티브(Interactive) 기능을 함께 제공한다.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+버전 전환 / Version Switch
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>버전 전환 / Version Switch</strong></p>
 <ul>
-<li>웹 사이트: <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" class="uri">https://kisti-globalrnd.github.io/kriss-databook-2025/website/</a></li>
-<li>북 (챕터형): <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" class="uri">https://kisti-globalrnd.github.io/kriss-databook-2025/book/</a></li>
+<li>웹 버전: <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" class="uri">https://kisti-globalrnd.github.io/kriss-databook-2025/website/</a></li>
+<li>북(챕터형) 버전: <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" class="uri">https://kisti-globalrnd.github.io/kriss-databook-2025/book/</a></li>
 </ul>
 </div>
 </div>
-</section>
-<section id="how-to-use-this-site-활용-방법" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-use-this-site-활용-방법">How to Use This Site / 활용 방법</h2>
-<ol type="1">
-<li>Review the <strong>문서 안내 / Document Guide</strong> section (<code>index</code>, <code>research_overview</code>, <code>strategy_execution</code>) to grasp project intent and stakeholder alignment.
+<section id="데이터북과-대시보드의-역할" class="level2">
+<h2 class="anchored" data-anchor-id="데이터북과-대시보드의-역할">데이터북과 대시보드의 역할</h2>
+<p>본 과제에서는 데이터북과 별도로, 분석 결과를 다양한 관점에서 <strong>탐색형</strong>으로 살펴볼 수 있는 대시보드를 운영한다.</p>
 <ul>
-<li>Drafting new chapters? Start with <code>authoring_notes</code> for the distribution-ready writing rules.</li>
-</ul></li>
-<li>Walk through <strong>1. 데이터 &amp; 방법론</strong> for corpus architecture, pipeline stages, scoring, and configuration defaults.</li>
-<li>Explore <strong>2. 도메인 연구지형도</strong> and <strong>3. 기관 성과 &amp; 포트폴리오</strong> to inspect macro/meso findings and benchmarking insights.</li>
-<li>Visit <strong>4. 운영 &amp; 일정</strong> when preparing production runs, governance updates, or resourcing plans.</li>
-<li>Keep <strong>Diagnostics &amp; Appendix</strong> handy for quality checks, pseudocode, and reference materials.</li>
-</ol>
+<li>데이터북: 해석의 흐름이 있는 “보고서 + 최소한의 인터랙티브”</li>
+<li>대시보드: 필터링·탐색 중심의 “분석 탐색 도구”</li>
+</ul>
+<p>대시보드는 아래 링크에서 확인할 수 있다.</p>
+<p><a href="https://road2you.shinyapps.io/kriss_cluster_dashboard/" class="uri">https://road2you.shinyapps.io/kriss_cluster_dashboard/</a></p>
 </section>
-<section id="getting-started-locally-로컬-사용-안내" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started-locally-로컬-사용-안내">Getting Started Locally / 로컬 사용 안내</h2>
-<ol type="1">
-<li>Install the Quarto CLI from <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a>.</li>
-<li>From the repository root run:</li>
-</ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> final_report_site</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Quarto serves the site at <code>http://127.0.0.1:4200/</code> (default). Edit any <code>.qmd</code> file to trigger live reloads.</p>
+<section id="이-데이터북에서-바로-사용할-수-있는-인터랙티브-도구" class="level2">
+<h2 class="anchored" data-anchor-id="이-데이터북에서-바로-사용할-수-있는-인터랙티브-도구">이 데이터북에서 바로 사용할 수 있는 인터랙티브 도구</h2>
+<ul>
+<li><strong>키워드 추세 탐색기</strong>: 상위 키워드의 연도별 추세를 클러스터 단위로 탐색(<code>docs/keyword_trends.qmd</code>)</li>
+<li><strong>연구지형도(인터랙티브 맵)</strong>: 연구주제 간 관계를 지도 형태로 탐색(<code>docs/vosviewer_explorer.qmd</code>)</li>
+</ul>
+</section>
+<section id="부록예정-상세-리포팅" class="level2">
+<h2 class="anchored" data-anchor-id="부록예정-상세-리포팅">부록(예정): 상세 리포팅</h2>
+<p>향후 클러스터별 상세 설명, 대표 문헌, 세부 지표 해석 등을 <strong>부록(상세 리포팅)</strong> 형태로 추가하여, 데이터북 본문에서 생략된 기술적·해석적 디테일을 보강할 예정이다.</p>
 <hr>
-<p>즐거운 분석 되세요! Happy analysing!</p>
+<p>즐거운 분석 되세요! Happy analysing.</p>
 
 
 </section>
@@ -1068,8 +889,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./docs/authoring_notes.html" class="pagination-link" aria-label="작성 가이드 / Authoring Notes">
-        <span class="nav-page-text">작성 가이드 / Authoring Notes</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./docs/report_00_preface.html" class="pagination-link" aria-label="서문 / Preface">
+        <span class="nav-page-text">서문 / Preface</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
