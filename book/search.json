@@ -405,78 +405,386 @@
   {
     "objectID": "docs/appendix_detailed_reporting.html",
     "href": "docs/appendix_detailed_reporting.html",
-    "title": "23  Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)",
+    "title": "23  Detailed Reporting Appendix / 상세 리포팅 부록",
     "section": "",
-    "text": "24 상세 리포팅 부록(예정) / Detailed Reporting Appendix (Planned)\n본 부록은 데이터북 본문에서 다루지 못한 “클러스터(연구주제) 단위의 상세 해석”을 체계적으로 제공하기 위해 향후 추가될 예정이다. 데이터북은 전체 흐름과 핵심 결론을 전달하는 데 초점을 두는 반면, 본 부록은 각 연구주제에 대해 보다 세밀한 근거·데이터·해석을 함께 제공하는 것을 목표로 한다.",
+    "text": "24 상세 리포팅 부록 / Detailed Reporting Appendix\n본 부록은 데이터북 본문에서 다루지 못한 “클러스터(연구주제) 단위의 상세 해석”을 체계적으로 제공하기 위해 향후 추가될 예정이다. 데이터북은 전체 흐름과 핵심 결론을 전달하는 데 초점을 두는 반면, 본 부록은 각 연구주제에 대해 보다 세밀한 근거·데이터·해석을 함께 제공하는 것을 목표로 한다.",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix / 상세 리포팅 부록</span>"
+    ]
+  },
+  {
+    "objectID": "docs/appendix_detailed_reporting.html#대표-리포트샘플-representative-samples",
+    "href": "docs/appendix_detailed_reporting.html#대표-리포트샘플-representative-samples",
+    "title": "23  Detailed Reporting Appendix / 상세 리포팅 부록",
+    "section": "24.1 대표 리포트(샘플) / Representative Samples",
+    "text": "24.1 대표 리포트(샘플) / Representative Samples\n현재는 검토를 위해 선별한 3개 리포트를 “유망영역 후보군 유형(핵심 역량/확장 가능/역량 공백)”별로 1개씩 대표로 제공한다. 향후에는 각 유형별로 10개 내외의 리포트를 추가하여 확장할 예정이다.\n\n핵심 역량 연구영역(대표 1건)\n\n\n\n20-182 - 다이아몬드결함양자센서 (핵심 역량)\n\n\n확장 가능 연구영역(대표 1건)\n\n\n\n38-84 - 양자알고리즘·오류정정 (확장 가능)\n\n\n역량 공백 연구영역(대표 1건)\n\n\n\n11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix / 상세 리포팅 부록</span>"
     ]
   },
   {
     "objectID": "docs/appendix_detailed_reporting.html#포함-예정-항목초안",
     "href": "docs/appendix_detailed_reporting.html#포함-예정-항목초안",
-    "title": "23  Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)",
-    "section": "24.1 포함 예정 항목(초안)",
-    "text": "24.1 포함 예정 항목(초안)\n\n클러스터 프로파일 카드\n각 클러스터별로 다음 정보를 1~2쪽 분량으로 정리한다.\n\n\n연구주제 개요(정의, 범위, 대표 문제의식)\n대표 키워드 및 시계열 추세(상승·하락·정체 패턴)\n성장성·파급력·산업연계 등 주요 지표의 상대적 위치(요약)\n주요 국가·기관 분포 및 특화(기관별 강점/공백 후보)\n대표 문헌(핵심/최근/영향력) 목록과 간단 코멘트\n\n\n해석 가이드\n지표 간 해석의 유의점(규모 효과, 분모/정규화, 비교 가능 범위)을 정리하고, 주요 패턴(신규 부상형·성숙형·전환형 등)에 대한 해석 프레임을 제시한다.\n추가 시각화(선택)\n연구지형도에서의 위치, 인접 연구주제, 겹치기(overlay) 결과 등을 부록용 그래픽으로 정리한다.",
+    "title": "23  Detailed Reporting Appendix / 상세 리포팅 부록",
+    "section": "24.2 포함 예정 항목(초안)",
+    "text": "24.2 포함 예정 항목(초안)\n\n클러스터 프로파일 카드\n각 클러스터별로 다음 정보를 1~2쪽 분량으로 정리한다.\n\n\n연구주제 개요(정의, 범위, 대표 문제의식)\n대표 키워드 및 시계열 추세(상승·하락·정체 패턴)\n성장성·파급력·산업연계 등 주요 지표의 상대적 위치(요약)\n주요 국가·기관 분포 및 특화(기관별 강점/공백 후보)\n대표 문헌(핵심/최근/영향력) 목록과 간단 코멘트\n\n\n해석 가이드\n지표 간 해석의 유의점(규모 효과, 분모/정규화, 비교 가능 범위)을 정리하고, 주요 패턴(신규 부상형·성숙형·전환형 등)에 대한 해석 프레임을 제시한다.\n추가 시각화(선택)\n연구지형도에서의 위치, 인접 연구주제, 겹치기(overlay) 결과 등을 부록용 그래픽으로 정리한다.",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix / 상세 리포팅 부록</span>"
     ]
   },
   {
     "objectID": "docs/appendix_detailed_reporting.html#작성-원칙배포판",
     "href": "docs/appendix_detailed_reporting.html#작성-원칙배포판",
-    "title": "23  Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)",
-    "section": "24.2 작성 원칙(배포판)",
-    "text": "24.2 작성 원칙(배포판)\n\n불필요한 내부 구현 표기(로컬 파일 구조, 변수명 등)는 최소화하고, 독자가 이해 가능한 자연어 설명을 우선한다.\n약어는 최초 1회 풀어쓰고, 이후에는 일관된 표기로 유지한다.\n표·그림은 캡션과 본문 인용을 함께 제공하여, 단독으로 보아도 의미가 유지되도록 한다.",
+    "title": "23  Detailed Reporting Appendix / 상세 리포팅 부록",
+    "section": "24.3 작성 원칙(배포판)",
+    "text": "24.3 작성 원칙(배포판)\n\n불필요한 내부 구현 표기(로컬 파일 구조, 변수명 등)는 최소화하고, 독자가 이해 가능한 자연어 설명을 우선한다.\n약어는 최초 1회 풀어쓰고, 이후에는 일관된 표기로 유지한다.\n표·그림은 캡션과 본문 인용을 함께 제공하여, 단독으로 보아도 의미가 유지되도록 한다.",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)</span>"
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Detailed Reporting Appendix / 상세 리포팅 부록</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html",
+    "href": "docs/detailed_reports/cluster_182/report.html",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "",
+    "text": "1. 개요",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#개요",
+    "href": "docs/detailed_reports/cluster_182/report.html#개요",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "",
+    "text": "유형: 핵심 역량 — 내부 지표 기준을 충족하는 유형.\n연관 그룹: 양자자기센싱그룹, 양자정보네트워킹그룹\n\n\n1-1. 클러스터 설명\n이 클러스터의 핵심은 nitrogen-vacancy(NV; nitrogen-vacancy) 같은 다이아몬드 점결함을 이용해 나노미터 규모에서 field(자기장·온도·전기장 등)의 분포를 읽고, 더 나아가 광자를 매개로 원격 노드 사이에 양자정보를 주고받는 것입니다. 기존 벌크 센서는 센서가 시료에서 멀어질수록 공간적으로 “어디에서 나온 신호인지”를 구분하기 어렵고, 어떤 방식은 극저온이 필요해 생체 시료나 실사용 환경에 제약이 큽니다. 여기서 color centers는 다이아몬드 격자에 생긴 결함이 빛을 내는 “원자 크기의 발광점”처럼 동작하는 상태를 뜻하며, 이 결함 안의 스핀(자석처럼 방향을 갖는 양자상태)이 주변 물리량에 민감하게 반응합니다.\n동작을 “입력 → 센서 반응 → 출력”으로 보면, 먼저 입력은 시료에서 새어 나오는 자기장·전기장 또는 시료의 국소 온도 변화입니다. 결함 스핀은 이 입력에 의해 에너지 준위(특히 공명 주파수)가 달라지고, 그 결과 마이크로파로 스핀을 구동했을 때 빛(형광) 세기가 스핀 상태에 따라 달라집니다. 출력은 이 형광 신호를 광검출기로 측정해 공명 조건을 찾거나, 공명 주파수의 변화를 추적해 물리량을 계산한 값입니다. 이때 핵심 판독 방식으로 ODMR(ODMR; optically detected magnetic resonance)를 사용하며, 레이저로 결함을 여기해 형광을 내게 한 뒤 마이크로파 주파수를 바꿔가며 형광이 달라지는 지점을 공명으로 읽습니다.\n같은 “다이아몬드 결함 센서”라도 단일 소자와 앙상블(여러 결함의 집단) 접근은 역할이 다릅니다. 단일 결함은 센서를 시료 표면 수십 나노미터 수준까지 가깝게 두고 스캔할 수 있어, 매우 작은 영역의 분포를 지도처럼 그리는 데 유리합니다. 반대로 앙상블은 많은 결함이 동시에 빛을 내므로 신호가 커져 약한 자기장을 더 잘 다루기 쉬워, 넓은 시야에서 자성체·전류 분포를 영상화하거나 생체 시료 주변 자기 신호를 읽는 데에 적합합니다.\n이 클러스터는 센싱뿐 아니라, 단일광자 방출과 스핀-광자 인터페이스를 이용해 양자통신 노드를 구현하는 축도 포함합니다. 결함은 한 번에 한 개의 광자를 내는 광원으로 동작할 수 있고, 이 광자를 다른 노드의 광자와 간섭시키는 방식으로 원격 스핀 사이에 얽힘을 만들 수 있습니다. 다만 이런 기능은 결함이 “얼마나 오래 스핀 상태를 유지하는지(결맞음)”와 “광자를 얼마나 효율적으로 밖으로 꺼내는지(추출)”에 좌우되므로, 동위원소 정제, 표면 처리, 이온주입, 나노공진기 집적 같은 소재·소자 공학이 함께 중요해집니다.\n\n\n1-2. 측정 과학 관점 해석\n측정 원리는 (1) 측정 대상인 자기장·전기장·온도 같은 외부 field가 (2) 다이아몬드 결함 스핀의 공명 조건을 바꾸고, (3) 그 변화를 빛으로 읽어 수치화하는 흐름으로 잡을 수 있습니다. 구체적으로는 레이저로 결함을 여기해 형광을 내게 하고, 마이크로파로 스핀 공명을 유도했을 때 형광 세기가 공명에서 달라지는 특성을 이용해 공명 주파수를 추정합니다. 이렇게 얻은 공명 주파수(또는 그 이동량)를 물리량으로 환산하면, 공간적으로 매우 가까운 위치에서의 값을 센서가 직접 제공하는 형태가 됩니다.\n성능지표는 “얼마나 약한 신호까지 구분할 수 있는가”와 “어디에서 나온 신호인지 얼마나 잘 나눌 수 있는가”를 중심으로 이해하면 됩니다. 감도는 작은 자기장이나 미세한 온도 변화처럼 약한 입력을 짧은 시간 안에 검출하려면 중요하고, 공간 분해능은 센서와 시료 사이 거리가 가까울수록 좋아지므로 ’얕은 결함’이나 스캔 방식이 특히 의미를 갖습니다. 또한 스핀 결맞음 시간은 스핀이 외부장에 의해 누적하는 위상 정보를 오래 유지할수록 더 정밀한 판독이 가능해지므로, nitrogen vacancy 기반 센서에서 핵심 성능 축으로 다뤄집니다. 센서가 낼 수 있는 광자 수(밝기)와 광학 결합 효율도 판독 잡음에 직접 연결되기 때문에, diamond 나노구조 집적이나 광 수집 설계가 단순한 “편의”가 아니라 측정 성능의 일부가 됩니다.\n비교 가능성과 재현성은 “같은 결함 센서”라는 이름 아래에서도 결과가 달라질 수 있는 조건을 얼마나 통제하느냐에 달려 있습니다. 예를 들어 표면 근처에 결함을 두면 시료와의 결합은 강해지지만, 표면에서 기인하는 잡음이나 전하 상태 변화가 결맞음과 신호 안정성을 흐릴 수 있습니다. 또한 결함의 생성 방식(이온주입, 성장 중 도핑 등), 표면 처리 상태, 동위원소 정제 여부는 스핀 환경을 바꿔 공명선폭이나 결맞음 시간에 영향을 줄 수 있어, 센서 간 성능 비교를 어렵게 만듭니다.\n따라서 실용화를 목표로 하면, 단일광자 방출 특성, 광학 결합 손실, 나노광자 구조의 분광 파라미터처럼 “광학 쪽 입력-출력”을 정량화하는 절차와, 감도·공간 분해능·결맞음 시간 같은 “스핀 센싱 쪽 성능지표”를 같은 기준으로 교정하는 틀이 함께 필요합니다. 이런 기준이 갖춰져야 서로 다른 소자, 서로 다른 광학 결합 방식, 서로 다른 측정 조건에서도 결과를 같은 언어로 비교할 수 있고, 양자 네트워크 노드의 상호운용성 시험 프로토콜 같은 시스템 수준 검증으로도 연결할 수 있습니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#클러스터-세부지표",
+    "href": "docs/detailed_reports/cluster_182/report.html#클러스터-세부지표",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "2. 클러스터 세부지표",
+    "text": "2. 클러스터 세부지표\n\n2-1. 전체 문헌 수 추이(연도별)\n\n\n좌측 축은 해당 클러스터, 우측 축은 195개 micro 전체 합계의 연도별 문헌 수(N_docs)입니다(절대값 비교가 아니라 추세 비교 목적).\n\n2000–2024 전체 기간의 연도별 문헌 수(UID 기준) 추이를 표시했습니다. 최근 5개년(2020–2024) 합계는 1,101편이며, 같은 기간 micro 전체 합계는 450,518편입니다. 참고로 2000–2024 기간 micro 전체 누적 합계는 1,099,738편이며, 2024년 micro 연도별 합계는 113,736편입니다.\n\n\n2-2. 퍼센타일(요약)\n아래 지표는 입력 데이터의 퍼센타일(0~100) 기준이며, 숫자가 클수록 상대적 위치가 높습니다. ’스코프 다양성(폭)’은 유망성 판단이 아니라 주제 범위/세분화 정도를 나타내는 보조 지표로 해석합니다.\n\n\n\n지표\n퍼센타일\n수준\n\n\n\n\n성장성\n76.92\n상위 30% (우수)\n\n\n파급력\n89.23\n상위 30% (우수)\n\n\n기술진보기여도\n100.00\n상위 10% (매우 우수)\n\n\n스코프 다양성(폭)\n34.36\n하위 60% (보통 이하)\n\n\n종합(총점)\n98.97\n상위 10% (매우 우수)\n\n\n\n\n\n2-3. KRISS 기여\nRTA·논문수(N_docs)는 양적 활동도, Excellence10은 상위 10% 인용 논문 비중(%)으로 질적 성과를 나타냅니다. 단, Excellence10은 표본 수(N_docs)가 적을 때 변동성이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n\n항목\n값\n\n\n\n\nKRISS RTA(최근 5개년)\n1.79\n\n\nKRISS Excellence10(최근 5개년, %)\n28.57\n\n\nKRISS 논문수(최근 5개년)\n7\n\n\n\n\n\n2-4. 간단 해석\n기술진보기여도 퍼센타일이 상위 10% 수준으로 집계됩니다. 파급력 퍼센타일이 상위 30% 수준으로 집계됩니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#지식기반-인접-클러스터키워드",
+    "href": "docs/detailed_reports/cluster_182/report.html#지식기반-인접-클러스터키워드",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "3. 지식기반 인접 클러스터·키워드",
+    "text": "3. 지식기반 인접 클러스터·키워드\n\n3-1. 지식기반 인접 클러스터(EA/AA)\n용어: ego는 현재 클러스터, alter는 유사도 기준으로 연결된 이웃 클러스터를 뜻합니다. 표의 구분은 EA(ego–alter) / AA(alter–alter)로 표기합니다.\n\n\n\n\n\n\n\n\n\n\n\n\n구분\n\n\n클러스터\n\n\n유형\n\n\n유사도\n\n\n대표 키워드\n\n\n\n\n\n\nEA\n\n\n3-65 - DLC·질화물 경질코팅\n\n\n확장 가능\n\n\n0.98\n\n\ndiamond-like carbon, diamond-like carbon films, carbon films, thin film, deposition\n\n\n\n\n\n\n3-2. 워드클라우드\n\n생성 방식: 클러스터 전체 초록에서 stopword를 제거하고, 단어·bi-gram 빈도를 계산했습니다(상위 3200개). 여기에 입력 키워드 빈도 정보를 alpha=0.5로 가중 결합해(스케일 정규화 후) 표현했습니다.\n\n\n3-3. 키워드 시계열(비율, 2015–2024)\n\n비율(%) = (해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수) × 100 위 heatmap은 상위 키워드의 비율(%)을 키워드별 0~1 정규화(최대값=1)해 상대 변화를 보여줍니다.\n\n\n3-4. 주요 키워드(기간별 비율·문서수)\n기간은 2015–2024를 기준으로 하며, 초기(2015–2017), 중기(2018–2021), 후기(2022–2024)로 3구간 요약합니다.\n표의 각 셀은 비율% (문서수) 형식이며, 괄호 안 숫자는 해당 기간에 키워드가 포함된 문서 수(중복 제거)입니다(동일 문서 내 다중 등장은 1회로 계산).\nscore는 클러스터 내 용어의 대표성을 나타내는 점수로, c‑TF‑IDF와 LLR을 z‑score 후 가중합해 계산합니다. 자세한 산출 방식은 분야별 상세 리포팅(본 보고서)을 참고해 주십시오.\n\n\n\n\n\n\n\n\n\n\n\nterm\nscore\n10년 합계(2015–2024)\n초기(2015–2017)\n중기(2018–2021)\n후기(2022–2024)\n\n\n\n\nnitrogen vacancy\n0.08\n72.81% (1,283)\n70.62% (238)\n74.93% (520)\n71.82% (525)\n\n\ndiamond\n0.04\n76.62% (1,350)\n82.49% (278)\n74.21% (515)\n76.20% (557)\n\n\nfield\n0.01\n39.56% (697)\n34.12% (115)\n37.75% (262)\n43.78% (320)\n\n\ncolor centers\n0.01\n36.89% (650)\n33.23% (112)\n37.90% (263)\n37.62% (275)\n\n\ndefect\n0.01\n27.07% (477)\n26.41% (89)\n28.24% (196)\n26.27% (192)\n\n\nnanodiamond\n0.01\n14.13% (249)\n15.43% (52)\n16.57% (115)\n11.22% (82)\n\n\nqubit\n0.01\n14.47% (255)\n12.76% (43)\n14.84% (103)\n14.91% (109)\n\n\nphoton\n0.01\n23.16% (408)\n24.63% (83)\n23.05% (160)\n22.57% (165)\n\n\nmicrowave\n0.00\n16.80% (296)\n13.65% (46)\n16.14% (112)\n18.88% (138)\n\n\nodmr\n0.00\n6.47% (114)\n2.97% (10)\n6.05% (42)\n8.48% (62)\n\n\nmagnetometry\n0.00\n11.52% (203)\n7.72% (26)\n11.96% (83)\n12.86% (94)\n\n\nensemble\n0.00\n18.62% (328)\n14.84% (50)\n20.89% (145)\n18.19% (133)\n\n\nentanglement\n0.00\n5.39% (95)\n5.93% (20)\n5.62% (39)\n4.92% (36)\n\n\nzero phonon\n0.00\n7.43% (131)\n6.53% (22)\n8.50% (59)\n6.84% (50)\n\n\nnoise\n0.00\n14.02% (247)\n11.28% (38)\n13.40% (93)\n15.87% (116)",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#기관-분석20202024",
+    "href": "docs/detailed_reports/cluster_182/report.html#기관-분석20202024",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "4. 기관 분석(2020–2024)",
+    "text": "4. 기관 분석(2020–2024)\n\n4-1. 10개 기관 성과 지표\n최근 5개년(2020–2024) 기준으로 10개 기관의 논문 수(N_docs), RTA, Excellence10(상위 10% 인용 논문 비중×100)을 정리했습니다. N_docs·RTA는 양적 활동도, Excellence10은 질적 성과를 나타내며, 표본 수(N_docs)가 적을 때 Excellence10은 변동성이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n\n기관\nN_docs\nRTA\nExcellence10(%)\n\n\n\n\nNIST\n14\n0.98\n19.20\n\n\nINRIM\n11\n6.20\n27.27\n\n\nKRISS\n7\n1.79\n28.57\n\n\nNIM\n7\n2.34\n17.08\n\n\nPTB\n5\n1.25\n0.00\n\n\nNPL\n2\n0.62\n0.00*\n\n\nNPLI\n2\n0.52\n0.00*\n\n\nNRC\n2\n1.02\n50.00*\n\n\nBAM\n0\n0.00\n\n\n\nNMIJ/AIST\n0\n0.00\n\n\n\n\n* N_docs &lt; 5인 경우 Excellence10은 표본 수 영향이 커 참고용으로 해석하는 것이 안전합니다.\n요약: KRISS의 최근 5개년 논문 수는 7편이며, 비교기관 중 최대치는 14편입니다. KRISS RTA는 1.79이며, 비교기관 중 최대치는 6.20입니다. KRISS Excellence10은 28.57%이며, 비교기관 중 최대치는 50.00%입니다.\n\n\n4-2. 상위 기관(문헌 수 기준, 2020–2024)\n전체(Top500 + BIPM) Top5\n\n\n\n\n\n\n\n\n\n순위\n\n\n기관\n\n\nN_docs\n\n\n\n\n\n\n1\n\n\nChinese Academy of Sciences\n\n\n96\n\n\n\n\n2\n\n\nUniversity of Science & Technology of China, CAS\n\n\n75\n\n\n\n\n3\n\n\nMassachusetts Institute of Technology (MIT)\n\n\n67\n\n\n\n\n4\n\n\nNorth University of China\n\n\n67\n\n\n\n\n5\n\n\nUniversity of Stuttgart\n\n\n43\n\n\n\n\nBIPM 한정 Top5\n\n\n\n\n\n\n\n\n\n순위\n\n\n기관\n\n\nN_docs\n\n\n\n\n\n\n1\n\n\nNational Institute of Standards and Technology [NIST]\n\n\n14\n\n\n\n\n2\n\n\nIstituto Nazionale di Ricerca Metrologica [INRIM]\n\n\n11\n\n\n\n\n3\n\n\nState Research Institute, Center for Physical Sciences and Technology [FTMC]\n\n\n10\n\n\n\n\n4\n\n\nKorea Research Institute of Standards and Science [KRISS]\n\n\n7\n\n\n\n\n5\n\n\nNational Institute of Metrology [NIM]\n\n\n7\n\n\n\n\n\n\n4-3. 기관별 초록 기반 요약(2020–2024)\n대상 기관 선정 기준: 최근 5개년(2020–2024) 기준으로 RTA &gt; 0.8 및 문헌 수 &gt; 5인 기관을 포함하고, KRISS는 항상 포함했습니다.\n\nINRIM: 나노다이아몬드 기반 양자 센서로 세포·신경계의 국소 온도 변화를 정밀 측정하는 기술에 집중하고 있습니다 (RTA 6.20, 문헌 11건).질소-공석(NV; nitrogen-vacancy)중심의 광검출 자기 공명(ODMR; optically detected magnetic resonance)을 이용해 해마 뉴런 발화와 연계된 약 1 °C 수준의 온도 변화를 검출했으며, 향후 0.1 °C 미만 변화를 겨냥한 고감도화를 제시했습니다. 연속파 잠금증폭 기반 구동으로 온도 감도 4.8 mK/Hz(1/2)(μm³)을 달성하면서 환경 자기 잡음에 둔감한 온도 계측을 가능하게 했습니다. 또한 30–100 keV 마그네슘 이온 주입으로 형성한 마그네슘-공석(MgV) 중심의 발광을 5–300 K에서 정밀 특성화하고, 형광 기반 결함 중심의 최적 여기 조건을 도출하고 있습니다 (총 인용수: 110).\nNIM: NV 기반 다이아몬드 온도 계측에서 마이크로파·레이저 구동이 유발하는 가열 오차를 정량화하고, 이를 줄이는 측정·구동 조건 최적화에 집중하고 있습니다 (RTA 2.34, 문헌 7건). NV 집단의 영자기장 분열(zero-field splitting)과 온도 관계를 298–383 K에서 측정하기 위해 연속파 ODMR 시스템을 구축하고, 마이크로파 전력이 -5 dBm보다 커질 때 가열 영향이 커지는 조건을 함께 제시했습니다. 레이저 가열에 대해서는 선형 보정 계수(-3.69×10-5 GHz mW-1)를 적용해 분열 드리프트를 교정하는 방법을 개발했습니다. 또한 생체 적용을 염두에 두고 36–42.5 °C 범위에서 이중 개방 루프 공진 안테나와 광대역 대면적 안테나 구조를 시뮬레이션해 공진 주파수, 품질계수, 자계 세기·균일도와 신호대잡음비를 함께 개선하고 있습니다 (총 인용수: 42).\nKRISS: 다이아몬드 NV 집단을 이용해 자기장과 온도를 동시에 실시간으로 읽어내는 다중화 양자 센싱에 집중하고 있습니다 (RTA 1.79, 문헌 7건). 주파수 분할 다중화 기반 이중 주파수 구동으로 자기장과 온도를 병렬 계측하며, 공진 주파수 선택을 통해 코히런트 집단 포획을 회피하는 구동 조건을 설계했습니다. 광 수집 효율 50% 초과 조건과 타입 1b 다이아몬드를 활용해 약 70 pT/A/Hz(자기장)와 25 μK/A/Hz(온도) 감도를 동시에 달성했고, 온도 신호가 자기장에 대해 34 dB로 분리되는 절연 특성을 구현했습니다. 또한 순차 판독과 XY4-(4) 동적 디커플링을 이용해 1 MHz 부근에서 229 pT/Hz 감도로 교류 자기장을 측정하며, 저주파 한계가 광학 재분극 시간에 의해 좌우됨을 정리했습니다 (총 인용수: 82).\nNIST: 다이아몬드 결함 기반 양자 센싱의 측정 효율과 소재 균일성을 높이기 위한 실험 설계·정밀 계측 기법 개발에 집중하고 있습니다 (RTA 0.98, 문헌 14건). 순차 베이즈 실험 설계를 ODMR 측정에 적용해 기존 주파수 스윕 대비 10배 이상 빠른 자력계 측정을 구현했으며, 램지(Ramsey) 측정에서도 베이즈 설계로 설정 선택을 최적화해 수렴 속도를 높였습니다. NV 집단의 스핀-상태 간섭계를 이용해 미크론 공간 해상도와 밀리미터 시야를 동시에 갖는 다이아몬드 결정 변형률 지도를 작성하고, 부피 정규화 감도 5(2)×10-8/√Hz μm-3 수준의 정밀도를 제시했습니다.또한 실리콘-공석(SiV; silicon-vacancy) 중심을 다차원 코히런트 분광으로 특성화해, 광발광에서 잘 보이지 않는 집단의 존재와 늘어난 전자 코히런스 시간을 확인하며 변형률 기반 제어 가능성을 제시했습니다 (총 인용수: 110).",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#정책부합성분포",
+    "href": "docs/detailed_reports/cluster_182/report.html#정책부합성분포",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "5. 정책부합성(분포)",
+    "text": "5. 정책부합성(분포)\n정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포를 요약한 것으로, 본 간이 리포트에서는 ’비율/건수’만을 제시합니다(인과·정당화 단정 금지).\n\n5-1. 분포(비율%/건수)\n\n\n\n정책 카테고리\n비율(%)\n건수(편)\n\n\n\n\n기후·환경 정책 지원 측정 과학\n0.00\n0\n\n\n보건·보건안보 정책 지원 측정 과학\n75.00\n12\n\n\n식품·물·소비자 안전 정책 지원 측정 과학\n0.00\n0\n\n\n에너지 전환·에너지안보 정책 지원 측정 과학\n0.00\n0\n\n\n산업혁신·첨단제조 정책 지원 측정 과학\n25.00\n4\n\n\n미분류\n\n34\n\n\n합계\n\n16\n\n\n기준 문헌 수\n\n50\n\n\n\n\n\n5-2. 정책부합성 해석\n이 클러스터는 다이아몬드 점결함의 스핀을 이용해 나노미터 규모에서 자기장·전기장·온도 같은 물리량을 정밀 판독하고, 단일광자 방출을 포함한 소자 구현까지 다룹니다. 문헌 분류 결과 보건·보건안보 정책 지원 측정 과학 영역이 75.00%(12편)로 가장 높은 비중을 차지합니다. 이는 생체 시료 주변의 자기 신호를 읽거나 세포 수준에서 온도 등 생체 관련 물리량을 측정하는 응용이 포함되어, 측정기술이 보건 맥락의 데이터 획득과 직접 연결되기 때문입니다.\n구체적으로 문헌에는 living cell temperature measurement와 같이 살아있는 세포 환경에서의 온도 측정을 명시한 표현이 포함되어, 나노스케일 열측정(온도계측) 연구가 보건·보건안보 정책 지원 측정 과학 범주와 맞닿습니다.\n다만 이 결과는 문헌(제목+초록) 기반 분류 기준에 따라 달라질 수 있으므로, 복수 라벨 적용 여부와 분류되지 않은 34편을 포함한 표본 범위 검토가 필요합니다.\n\n\n5-3. 분류 근거 예시\n형식: 연도 · 정책 분야 · 측정 축 · 제목 — 초록 발췌 (제목은 굵게, 발췌문은 이탤릭).\n\n2024 · 보건·보건안보 정책 지원 측정 과학 · Thermometry (T) · The Optimization of Microwave Field Characteristics for ODMR Measurement of Nitrogen-Vacancy Centers in Diamond — …ve a crucial impact on the sensitivity of ODMR measurement. This article mainly focuses on the temperature situation in cellular applications and simulates the influence of structural parameters of double open loop resonant (DOLR) microwave antennas and broadband large-area (BLA) microwave antennas on the microwave field's resonance frequency, quality…\n2023 · 보건·보건안보 정책 지원 측정 과학 · Photometry and Radiometry (PR) · Mesoporous Polydopamine-Encapsulated Fluorescent Nanodiamonds: A Versatile Platform for Biomedical Applications — …anodiamonds (FNDs) are versatile nanomaterialswithpromising properties. However, efficient functionalization of FNDsfor biomedical applications remains challenging. In this study, wedemonstrate mesoporous polydopamine (mPDA) encapsulation of FNDs.The mPDA shell is generated by sequential formation of micelles viaself-assembly of Pluronic F127 (F127) with…\n\n관련도 해석 메모: 특정 카테고리의 비율/건수가 높다는 것은 해당 축으로 분류된 문헌이 상대적으로 많음을 의미합니다. 다만 분류 기준·모호성·복수 라벨 여부에 따라 분포가 달라질 수 있어, 상세 리포팅에서는 클러스터 스코프(기술/응용)와 함께 교차 검토하는 것이 안전합니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#요약",
+    "href": "docs/detailed_reports/cluster_182/report.html#요약",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "6. 요약",
+    "text": "6. 요약\n다이아몬드의 점결함(예:NV, color centers)을 ’원자 크기의 발광점’처럼 활용해, 시료 근처 나노미터 영역에서 자기장·온도·전기장 같은 field의 분포를 읽어내는 양자센서와, 광자를 매개로 원격 노드 간 양자정보를 주고받는 기능까지 포괄하는 연구군입니다. 레이저로 형광을 내게 한 뒤 마이크로파로 스핀 공명을 유도하고,ODMR로 공명 조건 변화(주파수 이동)를 빛으로 판독해 물리량을 수치화하는 흐름으로 정리됩니다. 지표로는 성장성 76.92, 파급력 89.23, 기술진보기여도 100.00, 스코프 다양성(폭) 34.36, 종합 98.97로 나타나며, 문헌은 최근 5개년 합계 1,101건이고 2024년 272건으로 2020년 172건 대비 증가한 것으로 집계됩니다.\n2020–2024년 10개 기관 비교에서 KRISS는 문헌 수 7건, RTA 1.79, Excellence10 28.57로 집계되어, 같은 기간 문헌 수 상위 3개 기관에 포함됩니다(상위 3개: NIST 14건, INRIM 11건, KRISS 7건). 또한 NIST는 RTA 0.98인 반면 KRISS는 RTA 1.79로 1.00을 상회하며, NIM과는 문헌 수가 7건으로 동일하지만 KRISS의 Excellence10 28.57이 NIM의 17.08보다 높게 나타납니다(단, KRISS 문헌 수가 7건으로 적어 Excellence10은 참고 수준에서 해석할 필요가 있습니다). 협력 네트워크에서는 KRISS의 연결 수 25, 가중 연결 강도 165.00으로 집계되며(전체 51개 기관), BIPM 한정(2020–2024)에서는 연결 수 22, 가중 연결 강도 합 108.00으로 확인됩니다(전체 40개 기관).\n정책부합성 분포는 분류된 문헌 16건(기준 문헌 50건) 중 보건·보건안보 정책 지원 측정 과학이 75.00%(12건), 산업혁신·첨단제조 정책 지원 측정 과학이 25.00%(4건)로 나타납니다. 최상위 범주가 보건·보건안보로 집계된 근거로는, 예시에서 세포 응용을 염두에 둔 나노스케일 온도 측정 및 ODMR 조건 최적화가 언급되는 등(living cell temperature measurement) 생체 시료 맥락의 측정 주제가 포함되는 점을 확인할 수 있습니다. 검토 포인트로는, 분류된 문헌 16건이 기준 문헌 50건의 일부이므로 분포 해석 시 표본 범위와 대표성을 함께 점검할 수 있습니다. 또한 KRISS의 2020–2024 성과는 문헌 수 7건에 기반하므로, RTA 1.79 및 Excellence10 28.57의 변동 가능성을 염두에 두고 후속 기간 누적 관측을 병행할 수 있습니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#부록.-데이터-커버리지주의",
+    "href": "docs/detailed_reports/cluster_182/report.html#부록.-데이터-커버리지주의",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "부록. 데이터 커버리지·주의",
+    "text": "부록. 데이터 커버리지·주의\n\n최근 5개년 KRISS 논문 수가 7편으로 작아, 비율/퍼센타일 해석은 보수적으로 보는 것이 안전합니다.\n키워드 추이는 ‘문서 포함 비율(%)’ 지표이며, 논문 수 증가/감소로 단정하지 않습니다.\n정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포이며, 인과/정당화로 해석하지 않습니다.\n10개 기관 성과 지표(4-1, 2020–2024)는 선택된 10개 기관에 한정된 비교입니다(모든 기관 전체 비교 아님).",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_182/report.html#부록.-약어",
+    "href": "docs/detailed_reports/cluster_182/report.html#부록.-약어",
+    "title": "20-182 - 다이아몬드결함양자센서 (핵심 역량)",
+    "section": "부록. 약어",
+    "text": "부록. 약어\n보고서 본문에 등장한 약어와 영문 전체 명칭을 정리했습니다(첫 등장에만 영문 전체 명칭을 포함하고, 이후는 약어만 사용).\n\n\n\n약어\n영문 전체 명칭\n\n\n\n\nDLC\ndiamond-like carbon\n\n\nNV\nnitrogen-vacancy\n\n\nODMR\noptically detected magnetic resonance\n\n\nRTA\nrevealed technological advantage\n\n\nSiV\nsilicon-vacancy",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>20-182 - 다이아몬드결함양자센서 (핵심 역량)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html",
+    "href": "docs/detailed_reports/cluster_84/report.html",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "",
+    "text": "1. 개요",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#개요",
+    "href": "docs/detailed_reports/cluster_84/report.html#개요",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "",
+    "text": "유형: 확장 가능 — 핵심 역량과 인접하며 내부 지표 기준에서 일부 부족 축이 표시된 유형.\n연관 그룹: 초전도양자컴퓨팅시스템연구단, 양자소자그룹\n\n\n1-1. 클러스터 설명\n이 클러스터의 핵심은 quantum algorithm을 이용해 현재의 quantum computer가 가진 제한된 성능 안에서도 계산 과제를 실행하고, 동시에 장치가 제대로 동작하는지 검증하는 것입니다. 지금의 양자 장치는 큐비트와 게이트가 충분히 많아도 잡음 때문에 긴 회로를 안정적으로 돌리기 어렵고, 결과가 맞는지 확인하는 것 자체도 고전 계산으로는 빠르게 커집니다.여기서 noisy intermediate-scale quantum(NISQ; noisy intermediate-scale quantum)의 약자이며, 오류정정이 충분하지 않은 상태에서 수십~수백 큐비트를 다루는 “근접기” 양자 장치를 뜻합니다.\n이 기술은 먼저 입력으로 “실행하고 싶은 계산”을 정합니다. 예를 들어 무작위 회로에서 나온 출력 분포를 샘플링하거나, 어떤 해밀토니안을 따르는 시간 진화를 근사해 특정 물리량의 기댓값을 구하는 식입니다. 그다음 센서 역할을 하는 것은 장치 자체의 qubit과 gate입니다. qubit은 0과 1을 동시에 표현할 수 있는 정보 단위이고, gate는 qubit의 상태를 회전시키거나 두 qubit을 얽히게 만들어 회로를 구성하는 기본 연산입니다. 장치가 이 연산들을 수행하면 최종적으로 측정에서 고전적인 비트열이나 기댓값 같은 출력이 나오는데, 이 출력이 “의도한 계산”을 제대로 반영하는지를 평가하는 단계가 함께 따라붙습니다.\n이때 중요한 아이디어가 두 갈래로 나뉩니다.하나는 변분 기반 알고리즘(예: VQE; variational quantum eigensolver, QAOA; quantum approximate optimization algorithm)처럼 짧은 회로를 반복 실행하면서 고전 최적화로 파라미터를 조정해 원하는 값을 찾는 방식입니다. 다른 하나는 오류정정으로 가는 경로를 명확히 하기 위해 code 기반의 논리 큐비트를 구성하고, 그 논리 큐비트의 오류율을 주기적으로 읽어가며 안정적인 논리 연산이 가능한지를 확인하는 방식입니다. 여기서 code는 여러 개의 물리 qubit에 정보를 분산 저장해 오류를 검출·정정하려는 규칙 체계이며, 표면코드 같은 2차원 배열 구조가 대표적으로 다뤄집니다.\n또 하나의 축은 “장치 성능을 숫자로 비교할 수 있게 만드는 특성화 도구”입니다. 무작위 벤치마킹, 양자 볼륨, 게이트셋 토모그래피 같은 절차는 입력으로 특정한 회로 묶음이나 게이트 집합을 정해 반복 실행하고, 장치 반응으로 나타나는 성공 확률·오차·일관성의 패턴을 이용해, 최종적으로 게이트 오류율이나 시스템 수준의 실행 가능 규모 같은 지표를 계산합니다. 이런 지표가 있어야 같은 문제를 서로 다른 장치에서 돌렸을 때 결과를 공정하게 비교하고, 알고리즘이 실패했을 때 원인이 회로 설계인지 하드웨어 잡음인지 분리해볼 수 있습니다.\n\n\n1-2. 측정 과학 관점 해석\n이 클러스터를 측정 원리로 보면, 측정 대상은 “양자 게이트의 오류율, 잡음 특성, 그리고 오류정정이 적용된 논리 큐비트의 오류율”처럼 장치가 계산을 수행하는 능력 그 자체입니다. 장치의 qubit과 gate가 잡음의 영향을 받으면, 반복 실행에서 기대한 출력 분포가 달라지거나(예: 무작위 회로 샘플링에서 분포의 일치도가 낮아짐), 변분 알고리즘에서 추정하는 기댓값이 편향되거나, 오류정정 사이클에서는 신드롬 패턴이 더 자주 나타납니다. 이 변화는 반복 실험에서 얻는 출력 비트열 통계, 특정 회로의 성공 확률, 또는 토모그래피/벤치마킹 절차가 만들어내는 적합 파라미터로 읽어내며, 결국 “오류율”이나 “성능 지표”라는 수치 출력으로 정리됩니다.\n성능지표는 왜 중요한지가 비교적 직관적입니다. 감도가 좋아야 약한 신호를 잡는 센서처럼, 여기서는 게이트 오류율을 작게 추정할 수 있어야 작은 개선도 구분할 수 있습니다. 또한 시스템 규모가 커질수록 회로 폭(사용 qubit 수)과 깊이(연산 단계)가 동시에 커지기 때문에, 단일 게이트의 평균 성능만이 아니라 장치 전체가 특정 구조의 회로를 끝까지 실행할 수 있는지를 나타내는 지표(예: 양자 볼륨)가 필요합니다. 오류정정 관점에서는 논리 오류율이 핵심인데, 이는 code로 묶인 물리 qubit 수를 늘렸을 때 논리 연산이 실제로 안정적인지 판단하는 직접적인 척도이기 때문입니다.\n재현성과 비교 가능성은 특히 까다롭습니다. 같은 quantum computer라도 캘리브레이션 상태, 시간에 따른 드리프트, qubit 간 상호작용(크로스토크), 측정(readout) 오류, 그리고 회로가 하드웨어 연결 구조에 맞게 재배치되면서 추가되는 게이트 수 등이 달라지면 결과가 달라질 수 있습니다. 예를 들어 무작위 벤치마킹은 준비·측정 오류에 둔감하게 설계하는 대신, “평균적인” 오류를 요약하는 성격이 강해서 특정한 코히런트 오류나 상관 잡음이 지배적이면 알고리즘 성능과의 연결이 복잡해질 수 있습니다. 반대로 게이트셋 토모그래피는 게이트 집합을 더 자세히 복원하려 하지만, 분석 모델(가정한 잡음 형태)과 실험 조건이 맞지 않으면 해석이 어려워집니다. 따라서 측정 조건(타이밍·주파수·마이크로파 제어의 교정 수준, 극저온 환경에서의 계측 안정성, readout 특성)이 달라지면 같은 절차를 적용해도 “성능 지표”가 완전히 같은 의미를 갖기 어렵고, 이 간극을 줄이기 위해 절차서 표준화, 불확도 평가, 기준 데이터세트 같은 측정 인프라가 필요해집니다.\n마지막으로, 근접기 알고리즘의 검증에서는 “고전 계산으로 완전 검증이 안 되는 영역”을 다루는 경우가 많아 시험 설계가 중요합니다. 일부 회로는 고전적으로 정확히 검증 가능한 형태를 섞어 두고, 그 구간에서 장치가 올바르게 동작하는지를 확인한 뒤 더 어려운 구간으로 확장하는 식으로 신뢰도를 쌓습니다. 이런 접근이 성립하려면, 어떤 회로가 검증 가능한지와 그 검증이 어떤 불확도를 갖는지까지 포함해 측정 프로토콜로 관리되어야 합니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#클러스터-세부지표",
+    "href": "docs/detailed_reports/cluster_84/report.html#클러스터-세부지표",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "2. 클러스터 세부지표",
+    "text": "2. 클러스터 세부지표\n\n2-1. 전체 문헌 수 추이(연도별)\n\n\n좌측 축은 해당 클러스터, 우측 축은 195개 micro 전체 합계의 연도별 문헌 수(N_docs)입니다(절대값 비교가 아니라 추세 비교 목적).\n\n2000–2024 전체 기간의 연도별 문헌 수(UID 기준) 추이를 표시했습니다. 최근 5개년(2020–2024) 합계는 2,009편이며, 같은 기간 micro 전체 합계는 450,518편입니다. 참고로 2000–2024 기간 micro 전체 누적 합계는 1,099,738편이며, 2024년 micro 연도별 합계는 113,736편입니다.\n\n\n2-2. 퍼센타일(요약)\n아래 지표는 입력 데이터의 퍼센타일(0~100) 기준이며, 숫자가 클수록 상대적 위치가 높습니다. ’스코프 다양성(폭)’은 유망성 판단이 아니라 주제 범위/세분화 정도를 나타내는 보조 지표로 해석합니다.\n\n\n\n지표\n퍼센타일\n수준\n\n\n\n\n성장성\n60.51\n중간 수준\n\n\n파급력\n99.49\n상위 10% (매우 우수)\n\n\n기술진보기여도\n98.97\n상위 10% (매우 우수)\n\n\n스코프 다양성(폭)\n13.85\n하위 60% (보통 이하)\n\n\n종합(총점)\n100.00\n상위 10% (매우 우수)\n\n\n\n\n\n2-3. KRISS 기여\nRTA·논문수(N_docs)는 양적 활동도, Excellence10은 상위 10% 인용 논문 비중(%)으로 질적 성과를 나타냅니다. 단, Excellence10은 표본 수(N_docs)가 적을 때 변동성이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n\n항목\n값\n\n\n\n\nKRISS RTA(최근 5개년)\n0.14\n\n\nKRISS Excellence10(최근 5개년, %)\n0.00*\n\n\nKRISS 논문수(최근 5개년)\n1\n\n\n\n* 최근 5개년 KRISS 논문 수(N_docs)가 5편 미만인 경우 Excellence10은 표본 수 영향이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n2-4. 간단 해석\n기술진보기여도 퍼센타일이 상위 10% 수준으로 집계됩니다. 파급력 퍼센타일이 상위 10% 수준으로 집계됩니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#지식기반-인접-클러스터키워드",
+    "href": "docs/detailed_reports/cluster_84/report.html#지식기반-인접-클러스터키워드",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "3. 지식기반 인접 클러스터·키워드",
+    "text": "3. 지식기반 인접 클러스터·키워드\n\n3-1. 지식기반 인접 클러스터(EA/AA)\n용어: ego는 현재 클러스터, alter는 유사도 기준으로 연결된 이웃 클러스터를 뜻합니다. 표의 구분은 EA(ego–alter) / AA(alter–alter)로 표기합니다.\n확장 가능 유형 클러스터로, 핵심 역량 앵커는 20-124 - 광자 양자정보기술(1.00)로 확인됩니다. KRISS 최근 5개년 기준에서 핵심 역량 기준 3조건 중 부족한 축은 RTA·N_docs·Excellence10입니다.\n\n\n\n\n\n\n\n\n\n\n\n\n구분\n\n\n클러스터\n\n\n유형\n\n\n유사도\n\n\n대표 키워드\n\n\n\n\n\n\nEA\n\n\n20-124 - 광자 양자정보기술\n\n\n핵심 역량\n\n\n1.00\n\n\nphoton, entanglement, states, detector, qubit\n\n\n\n\nEA\n\n\n25-109 - 페시바흐 페르미 초유체\n\n\n확장 가능\n\n\n0.99\n\n\nbcs-bec crossover, three-body, fermions, feshbach resonance, atom\n\n\n\n\nEA\n\n\n20-103 - 양자광 메모리\n\n\n확장 가능\n\n\n0.99\n\n\natom, electromagnetically induced transparency, photon, atomic, light\n\n\n\n\nEA\n\n\n25-43 - 초저온 극성분자\n\n\n확장 가능\n\n\n0.98\n\n\npolar molecule, dipolar bose-einstein condensate, ultracold molecule, molecule, state\n\n\n\n\nEA\n\n\n25-176 - 양자다체 비평형 동역학\n\n\n확장 가능\n\n\n0.98\n\n\nmany-body localization, quantum many-body, many-body systems, out-of-time, matrix product state\n\n\n\n\nEA\n\n\n25-48 - 보스응축체 비선형 여기\n\n\n확장 가능\n\n\n0.98\n\n\nbose-einstein condensate, soliton, state, solitons in, superfluid\n\n\n\n\nEA\n\n\n20-71 - 양자 비국소성 검증\n\n\n확장 가능\n\n\n0.98\n\n\ninequality, device-independent, einstein-podolsky, bell inequality, entanglement\n\n\n\n\nEA\n\n\n40-119 - 원자·이온 양자측정\n\n\n확장 가능\n\n\n0.98\n\n\nrydberg atom, atom, state, ion, rydberg\n\n\n\n\nEA\n\n\n25-83 - 광격자 초저온 원자\n\n\n확장 가능\n\n\n0.96\n\n\nbose-hubbard model, one-dimensional, boson, fermion, hubbard model\n\n\n\n\nEA\n\n\n20-156 - 광기계 양자측정\n\n\n확장 가능\n\n\n0.88\n\n\noptomechanical, resonator, mode, gyroscope, coupling\n\n\n\n\nEA\n\n\n38-107 - 초전도 회로 양자전기역학\n\n\n확장 가능\n\n\n0.86\n\n\nsuperconductor, qubit, state, coupling, superconducting\n\n\n\n\nEA\n\n\n20-76 - 광펌핑 자력계\n\n\n확장 가능\n\n\n0.85\n\n\nhertz, field, squid, magnetometer, measurement\n\n\n\n\nEA\n\n\n25-123 - 위상광자·비에르미트상\n\n\n확장 가능\n\n\n0.83\n\n\nspin orbit coupling, boson, topological, photonics, fermions\n\n\n\n\nAA\n\n\n20-32 - 양자점 단일광자원\n\n\n확장 가능\n\n\n0.56\n\n\nquantum dots, inas, photon, emission, state\n\n\n\n\nAA\n\n\n30-169 - 위상 양자물질 전자구조 측정\n\n\n역량 공백\n\n\n0.46\n\n\nweyl semimetal, topological insulator, superconductor, fermions, bi2se3\n\n\n\n\nAA\n\n\n3-73 - 나노힘·마찰 정량측정\n\n\n역량 공백\n\n\n0.46\n\n\natomic force microscopy, contact, mode, cantilever, piezoelectric\n\n\n\n\nAA\n\n\n39-85 - 철계 초전도체 물성\n\n\nunknown\n\n\n0.45\n\n\nsuperconductor, superconducting, iron, superconductivity, doping\n\n\n\n\nAA\n\n\n39-132 - MgB2 초전도 특성\n\n\nunknown\n\n\n0.44\n\n\nmgb2, superconductor, superconducting, critical current, doping\n\n\n\n\nAA\n\n\n39-150 - REBCO 나노핀닝\n\n\nunknown\n\n\n0.44\n\n\nhigh temperature superconductor, bi sr, superconductor, copper, maglev\n\n\n\n\nAA\n\n\n14-126 - 키타예프 스핀액체 계측\n\n\nunknown\n\n\n0.42\n\n\ntemperature, field, phase, interaction, antiferromagnetic\n\n\n\n\n\n\n3-2. 워드클라우드\n\n생성 방식: 클러스터 전체 초록에서 stopword를 제거하고, 단어·bi-gram 빈도를 계산했습니다(상위 3200개). 여기에 입력 키워드 빈도 정보를 alpha=0.5로 가중 결합해(스케일 정규화 후) 표현했습니다.\n\n\n3-3. 키워드 시계열(비율, 2015–2024)\n\n비율(%) = (해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수) × 100 위 heatmap은 상위 키워드의 비율(%)을 키워드별 0~1 정규화(최대값=1)해 상대 변화를 보여줍니다.\n\n\n3-4. 주요 키워드(기간별 비율·문서수)\n기간은 2015–2024를 기준으로 하며, 초기(2015–2017), 중기(2018–2021), 후기(2022–2024)로 3구간 요약합니다.\n표의 각 셀은 비율% (문서수) 형식이며, 괄호 안 숫자는 해당 기간에 키워드가 포함된 문서 수(중복 제거)입니다(동일 문서 내 다중 등장은 1회로 계산).\nscore는 클러스터 내 용어의 대표성을 나타내는 점수로, c‑TF‑IDF와 LLR을 z‑score 후 가중합해 계산합니다. 자세한 산출 방식은 분야별 상세 리포팅(본 보고서)을 참고해 주십시오.\n\n\n\n\n\n\n\n\n\n\n\nterm\nscore\n10년 합계(2015–2024)\n초기(2015–2017)\n중기(2018–2021)\n후기(2022–2024)\n\n\n\n\nquantum computer\n1.66\n17.94% (503)\n4.76% (20)\n18.15% (180)\n21.77% (303)\n\n\nquantum algorithm\n1.60\n13.66% (383)\n5.00% (21)\n12.00% (119)\n17.46% (243)\n\n\nqubit\n0.03\n43.30% (1,214)\n35.95% (151)\n44.46% (441)\n44.68% (622)\n\n\ngate\n0.01\n28.21% (791)\n25.24% (106)\n28.53% (283)\n28.88% (402)\n\n\nstates\n0.01\n28.42% (797)\n21.67% (91)\n26.31% (261)\n31.97% (445)\n\n\nhamiltonian\n0.01\n18.01% (505)\n16.90% (71)\n16.33% (162)\n19.54% (272)\n\n\ncode\n0.01\n15.66% (439)\n15.71% (66)\n14.82% (147)\n16.24% (226)\n\n\nclassical\n0.01\n30.49% (855)\n21.19% (89)\n31.65% (314)\n32.47% (452)\n\n\nclifford\n0.01\n6.63% (186)\n8.57% (36)\n6.65% (66)\n6.03% (84)\n\n\nnisq\n0.01\n18.76% (526)\n0.24% (1)\n20.46% (203)\n23.13% (322)\n\n\nentanglement\n0.01\n8.38% (235)\n4.52% (19)\n7.76% (77)\n9.99% (139)\n\n\nnoise\n0.00\n19.37% (543)\n11.67% (49)\n19.05% (189)\n21.91% (305)\n\n\nfault tolerant\n0.00\n10.52% (295)\n10.00% (42)\n10.79% (107)\n10.49% (146)\n\n\nunitary\n0.00\n10.73% (301)\n12.38% (52)\n8.37% (83)\n11.93% (166)\n\n\nlattice gauge\n0.00\n3.82% (107)\n3.81% (16)\n2.62% (26)\n4.67% (65)",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#기관-분석20202024",
+    "href": "docs/detailed_reports/cluster_84/report.html#기관-분석20202024",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "4. 기관 분석(2020–2024)",
+    "text": "4. 기관 분석(2020–2024)\n\n4-1. 10개 기관 성과 지표\n최근 5개년(2020–2024) 기준으로 10개 기관의 논문 수(N_docs), RTA, Excellence10(상위 10% 인용 논문 비중×100)을 정리했습니다. N_docs·RTA는 양적 활동도, Excellence10은 질적 성과를 나타내며, 표본 수(N_docs)가 적을 때 Excellence10은 변동성이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n\n기관\nN_docs\nRTA\nExcellence10(%)\n\n\n\n\nNIST\n69\n2.63\n35.46\n\n\nNPL\n9\n1.54\n33.33\n\n\nKRISS\n1\n0.14\n0.00*\n\n\nNRC\n1\n0.28\n0.00*\n\n\nPTB\n1\n0.14\n100.00*\n\n\nBAM\n0\n0.00\n\n\n\nINRIM\n0\n0.00\n\n\n\nNIM\n0\n0.00\n\n\n\nNMIJ/AIST\n0\n0.00\n\n\n\nNPLI\n0\n0.00\n\n\n\n\n* N_docs &lt; 5인 경우 Excellence10은 표본 수 영향이 커 참고용으로 해석하는 것이 안전합니다.\n요약: KRISS의 최근 5개년 논문 수는 1편이며, 비교기관 중 최대치는 69편입니다. KRISS RTA는 0.14이며, 비교기관 중 최대치는 2.63입니다. KRISS Excellence10은 0.00%이며, 비교기관 중 최대치는 100.00%입니다. KRISS 표본 수(N_docs)가 적어 Excellence10 해석은 참고용입니다.\n\n\n4-2. 상위 기관(문헌 수 기준, 2020–2024)\n전체(Top500 + BIPM) Top5\n\n\n\n\n\n\n\n\n\n순위\n\n\n기관\n\n\nN_docs\n\n\n\n\n\n\n1\n\n\nCalifornia Institute of Technology\n\n\n111\n\n\n\n\n2\n\n\nUniversity of Maryland College Park\n\n\n108\n\n\n\n\n3\n\n\nInternational Business Machines (IBM)\n\n\n86\n\n\n\n\n4\n\n\nMassachusetts Institute of Technology (MIT)\n\n\n80\n\n\n\n\n5\n\n\nChinese Academy of Sciences\n\n\n78\n\n\n\n\nBIPM 한정 Top5\n\n\n\n\n\n\n\n\n\n순위\n\n\n기관\n\n\nN_docs\n\n\n\n\n\n\n1\n\n\nNational Institute of Standards and Technology [NIST]\n\n\n69\n\n\n\n\n2\n\n\nNational Physical Laboratory [NPL]\n\n\n9\n\n\n\n\n3\n\n\nInstituto Nacional de Metrologia, Qualidade e Tecnologia [INMETRO]\n\n\n1\n\n\n\n\n4\n\n\nKorea Research Institute of Standards and Science [KRISS]\n\n\n1\n\n\n\n\n5\n\n\nNational Research Council Canada [NRC]\n\n\n1\n\n\n\n\n\n\n4-3. 기관별 초록 기반 요약(2020–2024)\n대상 기관 선정 기준: 최근 5개년(2020–2024) 기준으로 RTA &gt; 0.8 및 문헌 수 &gt; 5인 기관을 포함하고, KRISS는 항상 포함했습니다.\n\nNIST: 재구성 가능한 중성원자 배열을 기반으로 한 논리 큐비트 수준의 오류정정 양자처리기에 집중하고 있습니다 (RTA 2.63, 문헌 69건). 최대 280개 물리 큐비트를 사용해 인코딩된 논리 큐비트로 동작하는 프로그래머블 양자 프로세서를 구현했으며, 구역화 구조와 논리-레벨 제어로 임의 연결성, 단일 큐비트 회전, 중간-회로 판독을 함께 운용합니다. 표면 코드 거리를 d=3에서 d=7로 확장해 2-큐비트 논리 게이트 성능을 개선하고, 손익분기 수준의 컬러-코드 큐비트 준비와 오류허용 논리 GHZ 상태 생성 및 피드포워드 얽힘 텔레포테이션을 시연했습니다 (총 인용수: 1248).\nNPL: 변분 양자 알고리즘의 잡음 한계와 최적화 가능성을 이론·시뮬레이션·구현 관점에서 정교화하는 연구에 집중하고 있습니다 (RTA 1.54, 문헌 9건). 로컬 파울리 잡음이 존재할 때 회로 깊이가 큐비트 수에 선형으로 증가하면 그래디언트가 지수적으로 소실되어 학습이 어려워지는 잡음 유발 배런 플래토를 엄밀히 제시했습니다. 변분 양자 고유값 해법에서 잡음 환경의 에너지뿐 아니라 충실도와 컨커런스를 함께 평가하고, 중복 파라미터화 게이트가 잡음에 대한 회복력을 높이는 조건과 잡음이 파라미터 퇴화를 해제하는 양상을 분석했습니다. 또한 4-준위 초전도 트랜스몬 큐디트로 2-큐비트를 에뮬레이션해 판독 오분류와 진폭 감쇠를 주요 오류로 모델링하고, 오류 완화로 예측 에너지를 화학적 정확도 범위로 맞췄습니다 (총 인용수: 384).\nKRISS: 단일-샷 측정을 활용한 양자상태 학습 알고리즘 개발에 집중하고 있습니다 (RTA 0.14, 문헌 1건). 입력된 초록 수가 제한적이어서 일반화에는 주의가 필요하지만, 단일-샷 측정 기반 학습 규칙에 가중 무작위성을 도입해 다양한 학습 경로를 탐색하면서 이론적 최적 정확도를 달성하는 방법을 제시했습니다. 선형 광학 실험으로 큐비트 상태 학습·재현을 검증했고, 미지 상태 복사본 수 N에 대해 (거의) 최적 불충실도 스케일링 O(N^-0.983)을 보이며 10^-5 미만까지 정확도를 낮췄습니다 (총 인용수: 3).",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#정책부합성분포",
+    "href": "docs/detailed_reports/cluster_84/report.html#정책부합성분포",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "5. 정책부합성(분포)",
+    "text": "5. 정책부합성(분포)\n정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포를 요약한 것으로, 본 간이 리포트에서는 ’비율/건수’만을 제시합니다(인과·정당화 단정 금지).\n\n5-1. 분포(비율%/건수)\n\n\n\n정책 카테고리\n비율(%)\n건수(편)\n\n\n\n\n기후·환경 정책 지원 측정 과학\n\n0\n\n\n보건·보건안보 정책 지원 측정 과학\n\n0\n\n\n식품·물·소비자 안전 정책 지원 측정 과학\n\n0\n\n\n에너지 전환·에너지안보 정책 지원 측정 과학\n\n0\n\n\n산업혁신·첨단제조 정책 지원 측정 과학\n\n0\n\n\n미분류\n\n81\n\n\n합계\n\n0\n\n\n기준 문헌 수\n\n81\n\n\n\n\n\n5-2. 정책부합성 해석\n본문: 이번 클러스터는 정책 카테고리(5개)로 분류된 문헌이 0건이고, 미분류가 81건(기준 문헌 수 81편)으로 집계되어 정책 축 분포 해석은 보류합니다. 상세 리포팅 단계에서는 분류 기준(라벨 세트·임계값·복수 라벨 처리)과 표본 범위를 먼저 점검하는 것이 안전합니다.\n\n\n5-3. 분류 근거 예시\n형식: 연도 · 정책 분야 · 측정 축 · 제목 — 초록 발췌 (제목은 굵게, 발췌문은 이탤릭).\n분류 근거 예시가 제공되지 않아, 본 절은 생략합니다.\n관련도 해석 메모: 특정 카테고리의 비율/건수가 높다는 것은 해당 축으로 분류된 문헌이 상대적으로 많음을 의미합니다. 다만 분류 기준·모호성·복수 라벨 여부에 따라 분포가 달라질 수 있어, 상세 리포팅에서는 클러스터 스코프(기술/응용)와 함께 교차 검토하는 것이 안전합니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#요약",
+    "href": "docs/detailed_reports/cluster_84/report.html#요약",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "6. 요약",
+    "text": "6. 요약\n본 클러스터(“양자알고리즘·오류정정”)는 quantum algorithm을 통해 오류정정이 충분하지 않은 nisq 단계의 quantum computer에서도 계산 과제를 실행하고, 장치가 의도한 계산을 제대로 반영하는지까지 함께 검증하려는 연구를 묶습니다. 장치의 qubit과 gate가 만들어내는 출력 비트열 통계, 성공 확률, 토모그래피·벤치마킹 절차의 적합 결과를 바탕으로 게이트 오류율과 시스템 수준 성능 지표를 산출하며, code 기반 논리 큐비트의 오류율을 추적해 결함허용으로의 이행 경로도 다룹니다. 지표로는 성장성 60.51, 파급력 99.49, 기술진보기여도 98.97, 스코프 다양성(폭) 13.85, 종합 100.00으로 집계되며, 문헌 수는 최근 5개년 합계 2,009건이고 2024년 590건으로 증가한 흐름이 확인됩니다.\n2020–2024년 10개 기관 비교에서 KRISS는 문헌 수 1건, RTA 0.14, Excellence10 0.00으로 집계되며, 같은 기간 NIST는 69건·RTA 2.63·Excellence10 35.46, NPL은 9건·RTA 1.54·Excellence10 33.33으로 나타나 KRISS의 상대적 산출 규모와 RTA 수준이 함께 낮게 관측됩니다. 또한 KRISS는 NRC(1건, RTA 0.28) 및 PTB(1건, RTA 0.14)와 비교하면 문헌 수는 동일하나 RTA가 NRC보다 낮고 PTB와는 동일하며, Excellence10은 KRISS 0.00과 PTB 100.00처럼 값 차이가 큰 사례가 있어 문헌 수(1건)에 민감한 참고 지표로 해석될 여지가 있습니다. 협력 네트워크에서는 KRISS의 연결 수 25, 가중 연결 강도 165.00(전체 51개 기관 중 34위)로 집계되고, BIPM 한정(2020–2024)에서는 연결 수 22, 가중 연결 강도 합 108.00으로 정리됩니다.\n정책부합성 분류에서는 분류된 문헌 수가 0건이며, 기준 문헌 수는 81건으로 집계되어 최상위 카테고리가 도출되지 않은 상태로 관측됩니다. 따라서 현 단계에서는 특정 정책 범주와의 연결을 분포 근거로 설명하기 어렵고, 분류 기준과 적용 범위에 대한 추가 확인이 필요합니다. 또한 본 클러스터는 KRISS의 핵심 역량과 유사도 0.996인 “20-124 - 광자 양자정보기술”에 인접한 확장 가능 유형으로 제시되지만, 최근 5개년 기준에서 RTA 0.14(기준 1.00), 문헌 수 1건(기준 5건), Excellence10 0.00(기준 8.00)으로 부족 축이 함께 표시됩니다. 검토 포인트로는 2020–2024년 문헌 수 1건에 따른 지표 변동 가능성을 감안해 비교 해석의 범위를 정리할 수 있습니다. 분류된 문헌 수 0건(기준 81건)의 원인을 데이터 적용 조건 관점에서 점검하고, 이후 정책부합성 해석의 전제를 재구성할 수 있습니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#부록.-데이터-커버리지주의",
+    "href": "docs/detailed_reports/cluster_84/report.html#부록.-데이터-커버리지주의",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "부록. 데이터 커버리지·주의",
+    "text": "부록. 데이터 커버리지·주의\n\n최근 5개년 KRISS 논문 수가 1편으로 작아, 비율/퍼센타일 해석은 보수적으로 보는 것이 안전합니다.\n키워드 추이는 ‘문서 포함 비율(%)’ 지표이며, 논문 수 증가/감소로 단정하지 않습니다.\n정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포이며, 인과/정당화로 해석하지 않습니다.\n10개 기관 성과 지표(4-1, 2020–2024)는 선택된 10개 기관에 한정된 비교입니다(모든 기관 전체 비교 아님).",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_84/report.html#부록.-약어",
+    "href": "docs/detailed_reports/cluster_84/report.html#부록.-약어",
+    "title": "38-84 - 양자알고리즘·오류정정 (확장 가능)",
+    "section": "부록. 약어",
+    "text": "부록. 약어\n보고서 본문에 등장한 약어와 영문 전체 명칭을 정리했습니다(첫 등장에만 영문 전체 명칭을 포함하고, 이후는 약어만 사용).\n\n\n\n약어\n영문 전체 명칭\n\n\n\n\nNISQ\nnoisy intermediate-scale quantum\n\n\nQAOA\nquantum approximate optimization algorithm\n\n\nRTA\nrevealed technological advantage\n\n\nVQE\nvariational quantum eigensolver",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>25</span>  <span class='chapter-title'>38-84 - 양자알고리즘·오류정정 (확장 가능)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html",
+    "href": "docs/detailed_reports/cluster_159/report.html",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "",
+    "text": "1. 개요",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#개요",
+    "href": "docs/detailed_reports/cluster_159/report.html#개요",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "",
+    "text": "유형: 역량 공백 — 내부 지표 기준에서 상대적으로 부족 축이 표시된 유형.\n연관 그룹: 첨단소재측정그룹, 소재물성측정그룹\n\n\n1-1. 클러스터 설명\n이 클러스터의 핵심은 nanocellulose 기반 바이오 나노소재를 정밀하게 측정·평가해, 포장재·필름·종이·에어로겔 같은 제품에서 필요한 성능을 설계대로 구현하는 것입니다. 바이오 기반 소재는 추출 공정, 표면 처리, 분산 상태가 조금만 달라도 최종 물성이 크게 달라지기 때문에, “같은 재료”라고 불러도 실제로는 다른 재료처럼 거동할 수 있습니다. 여기서 nanocellulose는 셀룰로오스를 나노미터 크기의 결정 또는 섬유 형태로 만든 재료를 말하며, 표면이 넓고 물과 상호작용이 커서 공정·환경 조건에 민감합니다.\n이 분야의 대표적인 입력은 셀룰로오스 나노결정과 나노섬유 같은 분산액, 그리고 리그닌 나노입자 같은 보조 성분입니다. 공정에서는 (1) 원료로부터 추출·가공하고, (2) 표면 전하나 기능기를 조절해 분산 안정성과 자기조립 거동을 바꾸고, (3) 이를 필름·코팅·나노페이퍼·에어로겔·복합재로 성형합니다. 이때 “무엇이 얼마나 정렬되는지”, “입자/섬유가 얼마나 얽히는지”, “층이 얼마나 치밀하게 쌓이는지”가 산소·수분 차단, 광학 투과/헤이즈, 기계적 강도 같은 거시적 성능으로 연결됩니다.\n작동 흐름을 “입력 → 소재 반응 → 출력”으로 보면 다음과 같습니다. 입력은 공정 변수(산 처리·기계적 분해 조건, 건조 방식, 혼합 비율, 상대습도 같은 환경)와 조성(셀룰로오스 성분, 리그닌 포함 여부 등)입니다. 이 입력에 대해 소재는 분산액에서 점탄성이나 네트워크 형성으로 반응하고, 건조·가압·층상화 과정에서 미세구조(섬유 직경·정렬·공극·층 치밀도)가 형성됩니다. 출력은 nanocomposite 또는 composite 필름/코팅의 성능 수치로 나타나며, 대표적으로 산소·수분 투과도, 자외선 차단, 투명도/헤이즈, 전기전도도, 기계적 물성 등이 목표 값에 맞는지로 평가합니다. 여기서 nanocomposite는 나노 크기 보강재(나노셀룰로오스, 나노입자 등)가 매트릭스에 들어가 구조와 성능을 바꾸는 복합재를 뜻하고, composite는 더 넓게 서로 다른 성분을 결합한 재료를 말합니다.\n응용은 특히 packaging에 집중됩니다. 포장재에서는 산소와 수분이 통과하면 식품 품질이 쉽게 변하므로, 나노셀룰로오스 기반 층을 이용해 기체 차단성을 확보하고, 필요하면 리그닌 성분으로 자외선 차단이나 항산화 같은 기능을 더합니다. 또한 투명 목재나 투명 종이처럼 광학 기능이 중요한 제품에서는, 섬유 직경과 충전 정도를 조절해 빛 산란을 제어하고, 동시에 기계적 견고함과 내습성을 함께 맞추는 측정·평가가 중요합니다.\n\n\n1-2. 측정 과학 관점 해석\n이 클러스터에서 측정 대상은 바이오 기반 나노소재의 “구조 특성”과 그것이 만들어내는 “기능 특성”입니다. 예를 들어 입자 크기·형상·전하, 표면 치환도, 결정화도, 유변학적 거동 같은 구조 특성을 먼저 규정하고, 그 결과로 나타나는 기계강도, 가스차단성, 광학투과율, 열안정성 같은 기능 특성을 정량화합니다. 구조 특성이 바뀌면 분산액의 흐름 거동과 성형 과정의 미세구조가 달라지고, 미세구조가 달라지면 필름/코팅의 산소·수분 투과도나 광학 성능 같은 최종 출력이 달라집니다.\n성능지표는 “왜 필요한가”가 분명합니다. 감도에 해당하는 개념으로는 작은 조성·공정 차이가 성능에 크게 반영되기 때문에, 투과도나 강도 같은 지표를 반복 측정해도 흔들림이 작게 나오도록 측정 방법 자체가 안정적이어야 합니다. 공간 분해능에 해당하는 관점에서는 필름 단면의 치밀도나 공극처럼 위치에 따라 다른 구조가 생기기 쉬우므로, 시료의 어느 위치를 어떤 조건으로 측정했는지가 결과를 좌우합니다. 특히 nanocellulose 기반 nanocomposite/composite에서는 “나노 수준의 분산과 결합”이 성능을 결정하므로, 유변물성(분산액의 네트워크 형성), 산소·수분 투과도(차단 성능), 광학특성(투명도/산란), 전기적 성능(전도성 종이 등)이 서로 연결된 지표로 다뤄집니다.\n비교 가능성과 재현성은 공정·환경 조건의 영향을 정면으로 다뤄야 확보됩니다. 같은 방식으로 시료를 만들고 측정해도, 상대습도 같은 수분 환경이 달라지면 필름이 물을 흡수하면서 구조가 느슨해질 수 있고, 그러면 수분 투과도나 기계적 특성이 달라질 수 있습니다. 표면 처리나 표면 전하 수준이 다르면 분산액의 응집 정도가 달라져 성형 후 층의 치밀도가 바뀌고, 그 결과 산소 차단 성능이 달라질 수 있습니다. 건조 방식(동결건조, 상온 건조 등)이나 압착 조건이 다르면 공극 구조가 달라져 에어로겔·나노페이퍼의 밀도와 강도가 달라질 수 있습니다.\n또한 규제 연계 시험(식품 접촉 안전성, 생분해·퇴비화 적합성, 휘발성 유기물 방출 등)은 “재료 성능”과 별개로 “사용 조건에서의 안전·환경 성능”을 같은 언어로 비교하게 해줍니다. 특히 packaging처럼 실제 제품 적용이 분명한 분야에서는, 가스차단·광학·기계 성능뿐 아니라 시험 프로토콜의 조건(시료 두께, 전처리, 측정 환경)이 함께 고정되어야 기업 간·제품 간 비교가 가능합니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#클러스터-세부지표",
+    "href": "docs/detailed_reports/cluster_159/report.html#클러스터-세부지표",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "2. 클러스터 세부지표",
+    "text": "2. 클러스터 세부지표\n\n2-1. 전체 문헌 수 추이(연도별)\n\n\n좌측 축은 해당 클러스터, 우측 축은 195개 micro 전체 합계의 연도별 문헌 수(N_docs)입니다(절대값 비교가 아니라 추세 비교 목적).\n\n2000–2024 전체 기간의 연도별 문헌 수(UID 기준) 추이를 표시했습니다. 최근 5개년(2020–2024) 합계는 1,605편이며, 같은 기간 micro 전체 합계는 450,518편입니다. 참고로 2000–2024 기간 micro 전체 누적 합계는 1,099,738편이며, 2024년 micro 연도별 합계는 113,736편입니다.\n\n\n2-2. 퍼센타일(요약)\n아래 지표는 입력 데이터의 퍼센타일(0~100) 기준이며, 숫자가 클수록 상대적 위치가 높습니다. ’스코프 다양성(폭)’은 유망성 판단이 아니라 주제 범위/세분화 정도를 나타내는 보조 지표로 해석합니다.\n\n\n\n지표\n퍼센타일\n수준\n\n\n\n\n성장성\n94.87\n상위 10% (매우 우수)\n\n\n파급력\n98.46\n상위 10% (매우 우수)\n\n\n기술진보기여도\n81.03\n상위 30% (우수)\n\n\n스코프 다양성(폭)\n68.72\n중간 수준\n\n\n종합(총점)\n97.95\n상위 10% (매우 우수)\n\n\n\n\n\n2-3. KRISS 기여\nRTA·논문수(N_docs)는 양적 활동도, Excellence10은 상위 10% 인용 논문 비중(%)으로 질적 성과를 나타냅니다. 단, Excellence10은 표본 수(N_docs)가 적을 때 변동성이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n\n항목\n값\n\n\n\n\nKRISS RTA(최근 5개년)\n0.35\n\n\nKRISS Excellence10(최근 5개년, %)\n0.00*\n\n\nKRISS 논문수(최근 5개년)\n2\n\n\n\n* 최근 5개년 KRISS 논문 수(N_docs)가 5편 미만인 경우 Excellence10은 표본 수 영향이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n2-4. 간단 해석\n기술진보기여도 퍼센타일이 상위 30% 수준으로 집계됩니다. 파급력 퍼센타일이 상위 10% 수준으로 집계됩니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#지식기반-인접-클러스터키워드",
+    "href": "docs/detailed_reports/cluster_159/report.html#지식기반-인접-클러스터키워드",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "3. 지식기반 인접 클러스터·키워드",
+    "text": "3. 지식기반 인접 클러스터·키워드\n\n3-1. 지식기반 인접 클러스터(EA/AA)\n용어: ego는 현재 클러스터, alter는 유사도 기준으로 연결된 이웃 클러스터를 뜻합니다. 표의 구분은 EA(ego–alter) / AA(alter–alter)로 표기합니다.\n역량 공백 유형 클러스터로, RTA ≥ 1 기관은 BAM, NIST, NPLI로 제시됩니다. KRISS 최근 5개년 기준에서 핵심 역량 기준 3조건 중 부족한 축은 RTA·N_docs·Excellence10입니다.\n\n현재 유사도 기준을 만족하는 인접 클러스터가 없어, 표는 생략했습니다.\n\n\n3-2. 워드클라우드\n\n생성 방식: 클러스터 전체 초록에서 stopword를 제거하고, 단어·bi-gram 빈도를 계산했습니다(상위 3200개). 여기에 입력 키워드 빈도 정보를 alpha=0.5로 가중 결합해(스케일 정규화 후) 표현했습니다.\n\n\n3-3. 키워드 시계열(비율, 2015–2024)\n\n비율(%) = (해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수) × 100 위 heatmap은 상위 키워드의 비율(%)을 키워드별 0~1 정규화(최대값=1)해 상대 변화를 보여줍니다.\n\n\n3-4. 주요 키워드(기간별 비율·문서수)\n기간은 2015–2024를 기준으로 하며, 초기(2015–2017), 중기(2018–2021), 후기(2022–2024)로 3구간 요약합니다.\n표의 각 셀은 비율% (문서수) 형식이며, 괄호 안 숫자는 해당 기간에 키워드가 포함된 문서 수(중복 제거)입니다(동일 문서 내 다중 등장은 1회로 계산).\nscore는 클러스터 내 용어의 대표성을 나타내는 점수로, c‑TF‑IDF와 LLR을 z‑score 후 가중합해 계산합니다. 자세한 산출 방식은 분야별 상세 리포팅(본 보고서)을 참고해 주십시오.\n\n\n\n\n\n\n\n\n\n\n\nterm\nscore\n10년 합계(2015–2024)\n초기(2015–2017)\n중기(2018–2021)\n후기(2022–2024)\n\n\n\n\nsustainability\n0.56\n22.32% (499)\n9.09% (25)\n18.00% (153)\n28.89% (321)\n\n\ncellulose\n0.02\n56.08% (1,254)\n55.27% (152)\n62.24% (529)\n51.58% (573)\n\n\nnanocomposite\n0.02\n8.86% (198)\n8.00% (22)\n9.29% (79)\n8.73% (97)\n\n\ncomposite\n0.02\n26.70% (597)\n23.64% (65)\n24.12% (205)\n29.43% (327)\n\n\nlignin\n0.02\n17.75% (397)\n12.73% (35)\n18.24% (155)\n18.63% (207)\n\n\nnanocellulose\n0.01\n19.45% (435)\n18.55% (51)\n21.76% (185)\n17.91% (199)\n\n\nwater\n0.01\n36.27% (811)\n28.36% (78)\n34.24% (291)\n39.78% (442)\n\n\nnanoparticles\n0.01\n14.80% (331)\n10.91% (30)\n13.18% (112)\n17.01% (189)\n\n\npolymer\n0.01\n15.92% (356)\n19.27% (53)\n16.00% (136)\n15.03% (167)\n\n\nultraviolet\n0.01\n12.12% (271)\n8.36% (23)\n9.29% (79)\n15.21% (169)\n\n\npackaging\n0.01\n25.63% (573)\n12.36% (34)\n20.00% (170)\n33.21% (369)\n\n\nstrength\n0.01\n35.15% (786)\n30.91% (85)\n29.65% (252)\n40.41% (449)\n\n\nwood\n0.01\n15.30% (342)\n22.91% (63)\n15.65% (133)\n13.14% (146)\n\n\ncoating\n0.00\n9.39% (210)\n8.00% (22)\n8.35% (71)\n10.53% (117)\n\n\nadhesive\n0.00\n7.25% (162)\n8.73% (24)\n6.94% (59)\n7.11% (79)",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#기관-분석20202024",
+    "href": "docs/detailed_reports/cluster_159/report.html#기관-분석20202024",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "4. 기관 분석(2020–2024)",
+    "text": "4. 기관 분석(2020–2024)\n\n4-1. 10개 기관 성과 지표\n최근 5개년(2020–2024) 기준으로 10개 기관의 논문 수(N_docs), RTA, Excellence10(상위 10% 인용 논문 비중×100)을 정리했습니다. N_docs·RTA는 양적 활동도, Excellence10은 질적 성과를 나타내며, 표본 수(N_docs)가 적을 때 Excellence10은 변동성이 커 참고용으로 해석하는 것이 안전합니다.\n\n\n\n기관\nN_docs\nRTA\nExcellence10(%)\n\n\n\n\nNIST\n23\n1.10\n13.04\n\n\nNPLI\n9\n1.61\n11.11\n\n\nBAM\n8\n1.14\n12.50\n\n\nNRC\n8\n2.81\n0.00\n\n\nNIM\n3\n0.69\n0.00*\n\n\nKRISS\n2\n0.35\n0.00*\n\n\nNPL\n2\n0.43\n0.00*\n\n\nINRIM\n1\n0.39\n0.00*\n\n\nNMIJ/AIST\n0\n0.00\n\n\n\nPTB\n0\n0.00\n\n\n\n\n* N_docs &lt; 5인 경우 Excellence10은 표본 수 영향이 커 참고용으로 해석하는 것이 안전합니다.\n요약: KRISS의 최근 5개년 논문 수는 2편이며, 비교기관 중 최대치는 23편입니다. KRISS RTA는 0.35이며, 비교기관 중 최대치는 2.81입니다. KRISS Excellence10은 0.00%이며, 비교기관 중 최대치는 13.04%입니다. KRISS 표본 수(N_docs)가 적어 Excellence10 해석은 참고용입니다.\n\n\n4-2. 상위 기관(문헌 수 기준, 2020–2024)\n전체(Top500 + BIPM) Top5\n\n\n\n\n\n\n\n\n\n순위\n\n\n기관\n\n\nN_docs\n\n\n\n\n\n\n1\n\n\nRISE Research Institutes of Sweden AB [RISE]\n\n\n132\n\n\n\n\n2\n\n\nRoyal Institute of Technology\n\n\n94\n\n\n\n\n3\n\n\nUniversity of British Columbia\n\n\n47\n\n\n\n\n4\n\n\nSouth China University of Technology\n\n\n42\n\n\n\n\n5\n\n\nChinese Academy of Sciences\n\n\n37\n\n\n\n\nBIPM 한정 Top5\n\n\n\n\n\n\n\n\n\n순위\n\n\n기관\n\n\nN_docs\n\n\n\n\n\n\n1\n\n\nRISE Research Institutes of Sweden AB [RISE]\n\n\n132\n\n\n\n\n2\n\n\nNational Institute of Standards and Technology [NIST]\n\n\n23\n\n\n\n\n3\n\n\nNational Institute of Standards [NIS]\n\n\n17\n\n\n\n\n4\n\n\nCSIR National Physical Laboratory of India [NPLI]\n\n\n9\n\n\n\n\n5\n\n\nFederal Institute for Materials Research and Testing/Bundesanstalt für Materialforschung und -prüfung [BAM]\n\n\n8\n\n\n\n\n\n\n4-3. 기관별 초록 기반 요약(2020–2024)\n대상 기관 선정 기준: 최근 5개년(2020–2024) 기준으로 RTA &gt; 0.8 및 문헌 수 &gt; 5인 기관을 포함하고, KRISS는 항상 포함했습니다.\n\nNRC:셀룰로오스 나노결정 입자 크기·형상 측정의 표준화와 재현성 향상에 집중하고 있습니다 (RTA 2.81, 문헌 8건).원자힘현미경과 투과전자현미경 기반의 기관 간 비교를 수행하며, 길이·높이 분포의 비대칭성과 실험실 간 차이를 반영하기 위해 왜도 정규분포 3-모수(평균, 표준편차, 형상)로 합의 분포를 산출합니다. 또한 금 나노입자(AuNPs)를 공침착해 탐침 반경을 현장 보정하는 내부 보정 표준을 적용하고,낮은 가압력과 작은 탐침 반경 조건에서 CNC의 높이와 폭을 한 기법(AFM)으로 함께 측정합니다. 이미지 기반 형상 측정의 일관성을 높이기 위해 TEM/AFM 영상에서 CNC를 검출·분류하고 치수를 산출하는 반자동 분석 프레임워크 SMART를 개발했습니다 (총 인용수: 138).\nNPLI: 탄소계 섬유·다공성 탄소 소재 제조와 공정-구조-성능의 상관 규명에 집중하고 있습니다 (RTA 1.61, 문헌 9건). 등방성/메조페이즈 피치를 410 °C 열처리(11–15 h)로 조절해 연속 피치 섬유를 용융방사한 뒤 1000 °C에서 탄화하여, 이방성(메조페이즈) 함량 19–74% 변화에 따른 미세구조 변화를 분석합니다. 또한 피치 섬유를 5–50% (v/v) 질산 수용액으로 화학적 안정화한 뒤 1000 °C에서 직접 탄화해 공정 단계를 단순화하는 접근을 제시합니다. 별도로 하이드라진 하이드레이트와 에탄올을 이용한 직접 발포로 탄소나노튜브 스펀지를 제조하고, 비정질 탄소 기반 나노 용접으로 압축 강도와 탄성률을 각각 109%, 113% 개선하면서 오일 흡수량 200배(용매 130배) 수준을 달성했습니다 (총 인용수: 72).\nBAM: 바이오매스 기반 고분자·나노입자의 구조 제어와 물성 평가, 그리고 바이오기반 접착·가공 공정을 개발하는 데 집중하고 있습니다 (RTA 1.14, 문헌 8건). 셀룰로오스와 글리신을 알칼리 용액에 용해한 뒤 산성 용액에서 중화해 글리신을 물리적 가교제로 활용하는 하이드로젤을 제조하며, CL5Gly30 겔은 건조 중량 대비 최대 7배의 흡수 능력을, CL5Gly10 겔은 21 N 하중에서 80% 변형을 보이도록 설계합니다. 나노침전법으로 만든 구형 리그닌 나노입자에서 수용성 아세톤/수용성 테트라하이드로퓨란 용매계를 비교하고,전자 토모그래피·소각 산란·AFM·간섭변조 AFM(ImAFM; intermodulation AFM)과 분자동역학(MD; molecular dynamics) 시뮬레이션을 결합해 내부 형태·다공성·기계적 특성에 대한 용매 효과를 규명합니다. 리그닌을 탈메틸화 및 과요오드산 산화로 퀴논 형태로 활성화한 뒤 다중-티올 스타 고분자와 반응시켜 2성분(2K) 접착제를 구현하고, 건식 조건에서 최대 15 MPa 전단 강도를 제시합니다 (총 인용수: 123).\nNIST: 목재·셀룰로오스 기반 다공성 구조와 이온전도·접착 메커니즘을 이용해 기능성 소재를 스케일업하는 연구에 집중하고 있습니다 (RTA 1.10, 문헌 23건). 리그닌과 헤미셀룰로오스를 약 1 h의 고온 공정으로 제거한 뒤 상온 건조로 고기공률 목재(기공률 약 0.93)를 제조해, 10 mm 두께에서 250–3,000 Hz 구간 소음저감계수 0.37과 반경 방향 열전도도 0.038 W m⁻¹ K⁻¹을 구현하면서 60% 변형에서 약 1.5 MPa의 압축 강도를 확보합니다. 또한 셀룰로오스 유래 초분자 구조를 통해 1차원 옹스트롬 크기 개방 채널이 정렬된 3차원 결정성 경로를 형성하고, 25 °C에서 20 wt% 수산화나트륨 용액 조건으로 0.23 S/cm 이온전도도를 달성합니다. 대나무에서는 리그닌이 셀룰로오스 피브릴을 수소결합과 나노스케일 얽힘으로 접착하도록 하는 현장 리그닌 접착을 적용해 전단 강도 약 4.4 MPa, 인장 강도 약 300 MPa의 복합재를 구현합니다 (총 인용수: 210).\nKRISS:셀룰로오스 나노결정 입자 크기 측정의 실험실 간 일치도 향상과 영상 분석 표준화에 관심을 두고 있습니다 (RTA 0.35, 문헌 2건). 입력된 초록 수가 제한적이어서 연구 범위를 과도하게 일반화하기는 어렵지만, TEM 기반 기관 간 비교에서 CNC 크기 분포를 왜도 정규분포로 모델링해 실험실 간 변동을 반영한 합의 값을 도출합니다. 또한 반자동 분석 프로그램 SMART를 이용해 TEM 영상의 CNC 식별 성능(정확 식별 58–78%)과 수동 분석(70–87%)을 비교하고, 잡음·대비·CNC 밀도 등 영상 품질을 정량화해 분석 변동을 줄이는 방향을 제시합니다 (총 인용수: 37).",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#정책부합성분포",
+    "href": "docs/detailed_reports/cluster_159/report.html#정책부합성분포",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "5. 정책부합성(분포)",
+    "text": "5. 정책부합성(분포)\n정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포를 요약한 것으로, 본 간이 리포트에서는 ’비율/건수’만을 제시합니다(인과·정당화 단정 금지).\n\n5-1. 분포(비율%/건수)\n\n\n\n정책 카테고리\n비율(%)\n건수(편)\n\n\n\n\n기후·환경 정책 지원 측정 과학\n14.71\n7\n\n\n보건·보건안보 정책 지원 측정 과학\n6.86\n3\n\n\n식품·물·소비자 안전 정책 지원 측정 과학\n10.78\n5\n\n\n에너지 전환·에너지안보 정책 지원 측정 과학\n4.90\n2\n\n\n산업혁신·첨단제조 정책 지원 측정 과학\n62.75\n32\n\n\n미분류\n\n5\n\n\n합계\n\n51\n\n\n기준 문헌 수\n\n56\n\n\n\n\n\n5-2. 정책부합성 해석\n이 클러스터는 나노셀룰로오스 기반 바이오 나노소재의 구조·기능 특성을 정밀 측정해 필름·코팅·복합재 성능(가스차단, 광학, 기계물성 등)을 구현하는 연구를 다루며, 문헌 분류 결과 산업혁신·첨단제조 정책 지원 측정 과학 영역이 62.75%(32편)로 가장 높은 비중을 차지합니다. 공정 변수와 조성 변화가 미세구조(정렬·공극·층 치밀도)와 최종 제품 성능으로 이어지는 제조 관점의 계측·평가가 핵심이기 때문입니다. 다음으로 기후·환경 정책 지원 측정 과학이 14.71%(7편)로, 바이오 기반 소재 및 포장재 응용에서 환경 조건(상대습도 등)에 따른 성능 변동과 사용 조건의 평가가 함께 다뤄지는 점과 연결됩니다.\n구체적으로 scalable production poses a notable challenge처럼 제조 공정의 확장성과 생산 관점의 과제가 문헌에 포함되어 있어, 소재 성능을 수치로 검증하면서 공정·구조·물성의 상관을 다루는 산업 제조 기반 측정 과학과 직접 연결됩니다.\n다만 이 결과는 문헌(제목+초록) 기반의 분류와 복수 라벨 적용 여부에 따라 달라질 수 있으므로, 전문 텍스트와 분류 기준을 함께 검토가 필요합니다.\n\n\n5-3. 분류 근거 예시\n형식: 연도 · 정책 분야 · 측정 축 · 제목 — 초록 발췌 (제목은 굵게, 발췌문은 이탤릭).\n\n2024 · 산업혁신·첨단제조 정책 지원 측정 과학 · Mass and related quantities (M) · Nano-welded carbon nanotube sponges for efficient oil spill remediation — Carbon nanotube (CNT) sponges are valuable for oil spill cleanup, yet their scalable production poses a notable challenge. This research presents an innovative and an energy efficient method to create CNT sponges from CNT sheets, enhancing their oil absorption capacity and mechanical durability. The method involves a direct foaming approach employing…\n2024 · 산업혁신·첨단제조 정책 지원 측정 과학 · Mass and related quantities (M) · Enhancing spinnability and properties of carbon fibers through modification of isotropic coal tar pitch precursor — …he spinnability of precursor material plays an important role. However, the CTP impedes flowability during the spinning process due to possessing high molecular weight complex aromatic structures. To address this limitation, CTP was blended with varying proportions of petroleum pitch (5, 10 and 20 %) and spinnability and flow behavior were analyzed using…\n\n관련도 해석 메모: 특정 카테고리의 비율/건수가 높다는 것은 해당 축으로 분류된 문헌이 상대적으로 많음을 의미합니다. 다만 분류 기준·모호성·복수 라벨 여부에 따라 분포가 달라질 수 있어, 상세 리포팅에서는 클러스터 스코프(기술/응용)와 함께 교차 검토하는 것이 안전합니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#요약",
+    "href": "docs/detailed_reports/cluster_159/report.html#요약",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "6. 요약",
+    "text": "6. 요약\n이 클러스터는 nanocellulose 기반 바이오 나노소재를 정밀하게 측정·평가하여, 포장재·필름·종이·에어로겔 등 제품에서 목표 성능이 설계대로 구현되는지 확인하는 연구로 요약됩니다. 공정 조건, 표면 처리, 분산 상태의 작은 차이가 미세구조(정렬·얽힘·공극·층 치밀도)를 바꾸고, 그 결과 산소·수분 투과도, 광학 특성, 기계적 물성 같은 최종 성능이 달라질 수 있어 구조 특성과 기능 특성을 함께 정량화하는 흐름이 중심입니다. 성장성 94.87, 파급력 98.46, 기술진보기여도 81.03, 스코프 다양성(폭) 68.72, 종합 97.95로 집계되며, 최근 5개년 문헌 수는 1,605건이고 2024년은 458건으로 확인됩니다.\n2020–2024년 비교에서 KRISS는 문헌 수 2건,상대적 활동도 0.35, Excellence10 0.00으로 집계되어, 같은 기간 문헌 수 23건·RTA 1.10·Excellence10 13.04의 NIST와 대비해 표본(문헌 수)과 상대적 활동도(RTA)에서 차이가 나타납니다. 또한 RTA가 1.00 이상인 기관이 BAM(1.14), NIST(1.10), NPLI(1.61)로 확인되는 반면 KRISS는 0.35로 집계되며, Excellence10 11.11은 문헌 수 2건의 작은 표본에 민감할 수 있어 참고 수준으로만 해석할 수 있습니다. 협력 네트워크에서 KRISS의 연결 수는 34, 가중 연결 강도는 204.00으로 집계되며(전체 54개 기관 중 39위), BIPM 한정(2020–2024)에서는 연결 수 22, 가중 연결 강도 합 108.00으로 집계됩니다.\n정책부합성 분포는 산업혁신·첨단제조 정책 지원 측정 과학 62.75%(32건)로 가장 높고, 다음으로 기후·환경 정책 지원 측정 과학 14.71%(7건)로 나타나며, 분류된 문헌 수는 51건(기준 문헌 수 56건)입니다. 최상위 범주가 높게 나온 배경으로는 해당 범주 내에서 길이 15건, 화학·생물 9건, 질량 4건 등 여러 측정 영역이 함께 집계된 점과, 예시에서 공정·구조 제어와 성능 개선을 다루는 표현인 scalable production 같은 단서가 함께 확인되는 점이 관측됩니다. 본 클러스터는 KRISS 최근 5개년 기준에서 RTA 0.35, 문헌 수 2건, Excellence10 0.00으로 ‘역량 공백’ 유형에 해당하므로, RTA가 1.00 이상인 기관(BAM, NIST, NPLI)과의 차이가 어디에서 비롯되는지 자료 범위와 분류 기준을 함께 점검할 수 있습니다. 또한 분류되지 않은 5건(56건 중 51건 분류)이 정책부합성 비율에 미칠 수 있는 영향을 확인하는 검토가 가능하겠습니다.",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#부록.-데이터-커버리지주의",
+    "href": "docs/detailed_reports/cluster_159/report.html#부록.-데이터-커버리지주의",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "부록. 데이터 커버리지·주의",
+    "text": "부록. 데이터 커버리지·주의\n\n최근 5개년 KRISS 논문 수가 2편으로 작아, 비율/퍼센타일 해석은 보수적으로 보는 것이 안전합니다.\n키워드 추이는 ‘문서 포함 비율(%)’ 지표이며, 논문 수 증가/감소로 단정하지 않습니다.\n정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포이며, 인과/정당화로 해석하지 않습니다.\n10개 기관 성과 지표(4-1, 2020–2024)는 선택된 10개 기관에 한정된 비교입니다(모든 기관 전체 비교 아님).",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
+    ]
+  },
+  {
+    "objectID": "docs/detailed_reports/cluster_159/report.html#부록.-약어",
+    "href": "docs/detailed_reports/cluster_159/report.html#부록.-약어",
+    "title": "11-159 - 나노셀룰로오스 소재측정 (역량 공백)",
+    "section": "부록. 약어",
+    "text": "부록. 약어\n보고서 본문에 등장한 약어와 영문 전체 명칭을 정리했습니다(첫 등장에만 영문 전체 명칭을 포함하고, 이후는 약어만 사용).\n\n\n\n약어\n영문 전체 명칭\n\n\n\n\nAFM\natomic force microscopy\n\n\nMD\nmolecular dynamics\n\n\nRTA\nrevealed technological advantage",
+    "crumbs": [
+      "부록 / Appendix",
+      "<span class='chapter-number'>26</span>  <span class='chapter-title'>11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span>"
     ]
   },
   {
     "objectID": "docs/appendix.html",
     "href": "docs/appendix.html",
-    "title": "24  Appendix / 부록",
+    "title": "27  Appendix / 부록",
     "section": "",
-    "text": "24.1 용어 및 약어 / Glossary",
+    "text": "27.1 용어 및 약어 / Glossary",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendix / 부록</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Appendix / 부록</span>"
     ]
   },
   {
     "objectID": "docs/appendix.html#용어-및-약어-glossary",
     "href": "docs/appendix.html#용어-및-약어-glossary",
-    "title": "24  Appendix / 부록",
+    "title": "27  Appendix / 부록",
     "section": "",
     "text": "c‑TF‑IDF (Class‑based TF‑IDF): 문서 단위가 아닌 “클러스터(=class) 단위”로 문서‑용어 행렬을 집계한 뒤 TF‑IDF를 계산하는 가중화 방식. 클러스터를 대표하면서도 다른 클러스터와 구분되는 용어를 상위로 선별하는 데 적합하다.\nLLR (Log‑Likelihood Ratio): 특정 용어가 “특정 클러스터에서 유의하게 더 많이 나타나는가”를 평가하기 위한 변별력 지표. 클러스터 내부 vs. 나머지 코퍼스의 2×2 분할표로 계산할 수 있다.\nMMR (Maximal Marginal Relevance): 랭킹에서의 관련성(relevance)과 다양성(diversity)을 함께 고려해 중복을 줄이는 선택 기법.\nPPM (Parts per million): 시계열 정규화에서 사용되는 비중 표현. 본 데이터북에서는 “연도·클러스터 단위의 전체 unigram 토큰 수”를 분모로 하는 토큰 기반 PPM을 기본으로 사용한다.\nFrequency (token frequency): 클러스터 내 총 토큰 등장 횟수(동일 문서 내 반복 등장까지 누적).\nDocument coverage: 해당 용어가 1회 이상 등장한 문서의 개수(한 문서당 최대 1회로 카운트).",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendix / 부록</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Appendix / 부록</span>"
     ]
   },
   {
     "objectID": "docs/appendix.html#시계열-지표-해석-interpreting-time-series",
     "href": "docs/appendix.html#시계열-지표-해석-interpreting-time-series",
-    "title": "24  Appendix / 부록",
-    "section": "24.2 시계열 지표 해석 / Interpreting Time Series",
-    "text": "24.2 시계열 지표 해석 / Interpreting Time Series\n키워드 시계열은 연도 (y), 클러스터 (c)에서 용어 (t)의 토큰 등장 수 (n_{c,y}(t))를 집계한 뒤, 동일 연도·클러스터의 전체 unigram 토큰 수 (N_{c,y})로 정규화하여 PPM으로 표현한다. [ _{c,y}(t)=10^{6} ]\nPPM은 “문서 수 비중”이 아니라 “토큰 비중”이므로, 특정 문서에서 동일 용어의 반복 사용이 잦은 경우 상대적으로 큰 값이 관측될 수 있다. 따라서 (i) 동일 클러스터 내 연도별 변화(추세)에 대한 해석을 우선하고, (ii) 필요 시 문서 기반 지표(문서 커버리지 기반 비중)를 병행하여 해석하는 것이 바람직하다.",
+    "title": "27  Appendix / 부록",
+    "section": "27.2 시계열 지표 해석 / Interpreting Time Series",
+    "text": "27.2 시계열 지표 해석 / Interpreting Time Series\n키워드 시계열은 연도 (y), 클러스터 (c)에서 용어 (t)의 토큰 등장 수 (n_{c,y}(t))를 집계한 뒤, 동일 연도·클러스터의 전체 unigram 토큰 수 (N_{c,y})로 정규화하여 PPM으로 표현한다. [ _{c,y}(t)=10^{6} ]\nPPM은 “문서 수 비중”이 아니라 “토큰 비중”이므로, 특정 문서에서 동일 용어의 반복 사용이 잦은 경우 상대적으로 큰 값이 관측될 수 있다. 따라서 (i) 동일 클러스터 내 연도별 변화(추세)에 대한 해석을 우선하고, (ii) 필요 시 문서 기반 지표(문서 커버리지 기반 비중)를 병행하여 해석하는 것이 바람직하다.",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendix / 부록</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Appendix / 부록</span>"
     ]
   },
   {
     "objectID": "docs/appendix.html#참고문헌-references",
     "href": "docs/appendix.html#참고문헌-references",
-    "title": "24  Appendix / 부록",
-    "section": "24.3 참고문헌 / References",
-    "text": "24.3 참고문헌 / References\n\nCarbonell, J., & Goldstein, J. (1998). The use of MMR, diversity-based reranking for reordering documents and producing summaries. SIGIR ’98.\nDunning, T. (1993). Accurate methods for the statistics of surprise and coincidence. Computational Linguistics, 19(1), 61–74.\nGrootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF procedure. arXiv:2203.05794.",
+    "title": "27  Appendix / 부록",
+    "section": "27.3 참고문헌 / References",
+    "text": "27.3 참고문헌 / References\n\nCarbonell, J., & Goldstein, J. (1998). The use of MMR, diversity-based reranking for reordering documents and producing summaries. SIGIR ’98.\nDunning, T. (1993). Accurate methods for the statistics of surprise and coincidence. Computational Linguistics, 19(1), 61–74.\nGrootendorst, M. (2022). BERTopic: Neural topic modeling with a class-based TF-IDF procedure. arXiv:2203.05794.",
     "crumbs": [
       "부록 / Appendix",
-      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Appendix / 부록</span>"
+      "<span class='chapter-number'>27</span>  <span class='chapter-title'>Appendix / 부록</span>"
     ]
   }
 ]
