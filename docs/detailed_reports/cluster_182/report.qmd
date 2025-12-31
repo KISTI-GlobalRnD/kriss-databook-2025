@@ -1,0 +1,32 @@
+---
+title: "20-182 - 다이아몬드결함양자센서 (핵심 역량)"
+description: "Detailed focused report (representative sample: core capability)."
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+---
+
+<style>
+@page {
+  size: A4;
+  margin: 30mm 18mm 30mm 18mm;
+}
+</style>
+
+{{< include parts/01_overview.md >}}
+
+{{< include parts/02_indicators.md >}}
+
+{{< include parts/03_knowledge_keywords.md >}}
+
+{{< include parts/04_org_metrics.md >}}
+
+{{< include parts/05_policy_compatibility.md >}}
+
+{{< include parts/09_kriss_rationale.md >}}
+
+{{< include parts/10_notes.md >}}
+
+{{< include parts/11_abbreviations.md >}}

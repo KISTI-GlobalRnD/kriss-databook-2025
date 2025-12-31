@@ -1,0 +1,32 @@
+---
+title: "11-159 - 나노셀룰로오스 소재측정 (역량 공백)"
+description: "Detailed focused report (representative sample: capability gap)."
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    number-sections: false
+---
+
+<style>
+@page {
+  size: A4;
+  margin: 30mm 18mm 30mm 18mm;
+}
+</style>
+
+{{< include parts/01_overview.md >}}
+
+{{< include parts/02_indicators.md >}}
+
+{{< include parts/03_knowledge_keywords.md >}}
+
+{{< include parts/04_org_metrics.md >}}
+
+{{< include parts/05_policy_compatibility.md >}}
+
+{{< include parts/09_kriss_rationale.md >}}
+
+{{< include parts/10_notes.md >}}
+
+{{< include parts/11_abbreviations.md >}}

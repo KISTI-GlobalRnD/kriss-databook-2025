@@ -7,6 +7,7 @@ project:
     - docs/keyword_trends.qmd
     - docs/vosviewer_explorer.qmd
     - docs/appendix_detailed_reporting.qmd
+    - docs/detailed_reports/*/report.qmd
     - docs/appendix.qmd
   resources:
     - "Final_Report_MD/최종보고서 내용/*.png"
@@ -54,6 +55,9 @@ book:
     - part: "부록 / Appendix"
       chapters:
         - docs/appendix_detailed_reporting.qmd
+        - docs/detailed_reports/cluster_182/report.qmd
+        - docs/detailed_reports/cluster_84/report.qmd
+        - docs/detailed_reports/cluster_159/report.qmd
         - docs/appendix.qmd
 
 language:

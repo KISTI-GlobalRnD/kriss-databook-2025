@@ -7,6 +7,7 @@ project:
     - docs/keyword_trends.qmd
     - docs/vosviewer_explorer.qmd
     - docs/appendix_detailed_reporting.qmd
+    - docs/detailed_reports/*/report.qmd
     - docs/appendix.qmd
   resources:
     - docs/assets/**
@@ -64,6 +65,12 @@ website:
       - section: "부록 / Appendix"
         contents:
           - docs/appendix_detailed_reporting.qmd
+          - text: "상세 리포트(핵심 역량) — 20-182"
+            href: docs/detailed_reports/cluster_182/report.qmd
+          - text: "상세 리포트(확장 가능) — 38-84"
+            href: docs/detailed_reports/cluster_84/report.qmd
+          - text: "상세 리포트(역량 공백) — 11-159"
+            href: docs/detailed_reports/cluster_159/report.qmd
           - docs/appendix.qmd
   navbar:
     left:

@@ -1,14 +1,28 @@
 ---
-title: "Detailed Reporting Appendix (Planned) / 상세 리포팅 부록(예정)"
-description: "Placeholder for future cluster-by-cluster detailed reporting."
+title: "Detailed Reporting Appendix / 상세 리포팅 부록"
+description: "Focused cluster-by-cluster reporting (sample pages + expansion plan)."
 page-title: false
 ---
 
-# 상세 리포팅 부록(예정) / Detailed Reporting Appendix (Planned)
+# 상세 리포팅 부록 / Detailed Reporting Appendix
 
 본 부록은 데이터북 본문에서 다루지 못한 “클러스터(연구주제) 단위의 상세 해석”을 체계적으로 제공하기
 위해 향후 추가될 예정이다. 데이터북은 전체 흐름과 핵심 결론을 전달하는 데 초점을 두는 반면, 본 부록은
 각 연구주제에 대해 보다 세밀한 근거·데이터·해석을 함께 제공하는 것을 목표로 한다.
+
+## 대표 리포트(샘플) / Representative Samples
+
+현재는 검토를 위해 선별한 3개 리포트를 “유망영역 후보군 유형(핵심 역량/확장 가능/역량 공백)”별로 1개씩
+대표로 제공한다. 향후에는 각 유형별로 10개 내외의 리포트를 추가하여 확장할 예정이다.
+
+(1) **핵심 역량 연구영역(대표 1건)**  
+- [20-182 - 다이아몬드결함양자센서 (핵심 역량)](detailed_reports/cluster_182/report.qmd)
+
+(2) **확장 가능 연구영역(대표 1건)**  
+- [38-84 - 양자알고리즘·오류정정 (확장 가능)](detailed_reports/cluster_84/report.qmd)
+
+(3) **역량 공백 연구영역(대표 1건)**  
+- [11-159 - 나노셀룰로오스 소재측정 (역량 공백)](detailed_reports/cluster_159/report.qmd)
 
 ## 포함 예정 항목(초안)
 
@@ -33,4 +47,3 @@ page-title: false
 - 불필요한 내부 구현 표기(로컬 파일 구조, 변수명 등)는 최소화하고, 독자가 이해 가능한 자연어 설명을 우선한다.
 - 약어는 최초 1회 풀어쓰고, 이후에는 일관된 표기로 유지한다.
 - 표·그림은 캡션과 본문 인용을 함께 제공하여, 단독으로 보아도 의미가 유지되도록 한다.
-
