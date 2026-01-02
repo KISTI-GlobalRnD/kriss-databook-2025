@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KRISS 표준과학 연구 데이터북 (Book) - 19&nbsp; 3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</title>
+<title>KRISS 표준과학 연구 데이터북 (Book) - 20&nbsp; 연구영역별 유망성 세부지표 정의 및 측정</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
+<script src="docs/assets/js/datatable-init.js" defer=""></script>
 
 
 </head>
@@ -81,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_3_1_emergence_indicators.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_3_1_emergence_indicators.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">연구영역별 유망성 세부지표 정의 및 측정</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -133,122 +136,128 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../docs/report_1_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../docs/report_1_1_data_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">1-1) 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_1_global_landscape.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">1-2-1) 글로벌 연구지형도에서의 표준과학 연구 분야</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">글로벌 연구지형도에서의 표준과학 연구 분야</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_2_leiden_clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1-2-2) 표준과학 연구 분야 문헌 집합 클러스터링</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">표준과학 연구 분야 문헌 집합 클러스터링</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_3_kriss_division_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">1-2-3) 표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_4_keywords_timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">1-2-4) 클러스터 기반 키워드 추출 및 시계열 분석</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">클러스터 기반 키워드 추출 및 시계열 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_5_landscape_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">1-2-5) 표준과학 연구지형도 시각화</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">표준과학 연구지형도 시각화</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></span></a>
+  <a href="../docs/report_2_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_1_org_country_standardization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_2_benchmark_institutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">표준연구 분야의 벤치마킹 국가 및 기관 선정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_3_collaboration_network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">2-3) 주요 기관 간 협력 네트워크 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">주요 기관 간 협력 네트워크 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_1_country_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">2-4-1) 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_2_institution_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">2-4-2) 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_3_policy_alignment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">2-4-3) 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/report_3_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">미래 연구영역 전략수립 지원을 위한 유망연구영역 도출</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_1_portfolio_capability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">3-1) 벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_2_emerging_candidates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_1_emergence_indicators.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">연구영역별 유망성 세부지표 정의 및 측정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_2_emergence_scoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">3-5) LLM 기반 유망 연구 간이 리포팅</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">LLM 기반 유망 연구 간이 리포팅</span></span></a>
   </div>
 </li>
       </ul>
@@ -256,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">부록 / Appendix</span></a>
+ <span class="menu-text">인터랙티브 도구 / Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -264,32 +273,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">부록 / Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Detailed Reporting Appendix / 상세 리포팅 부록</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Detailed Reporting Appendix / 상세 리포팅 부록</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">20-182 - 다이아몬드결함양자센서 (핵심 역량)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">20-182 - 다이아몬드결함양자센서 (핵심 역량)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">38-84 - 양자알고리즘·오류정정 (확장 가능)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">38-84 - 양자알고리즘·오류정정 (확장 가능)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix / 부록</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix / 부록</span></span></a>
   </div>
 </li>
       </ul>
@@ -304,23 +336,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#성장성-세부지표-정의-및-측정" id="toc-성장성-세부지표-정의-및-측정" class="nav-link active" data-scroll-target="#성장성-세부지표-정의-및-측정"><span class="header-section-number">19.1</span> 1. 성장성 세부지표 정의 및 측정</a>
+  <li><a href="#성장성-세부지표-정의-및-측정" id="toc-성장성-세부지표-정의-및-측정" class="nav-link active" data-scroll-target="#성장성-세부지표-정의-및-측정"><span class="header-section-number">20.1</span> 성장성 세부지표 정의 및 측정</a>
   <ul class="collapse">
-  <li><a href="#딥러닝-기반-모형-예측-성장가능성" id="toc-딥러닝-기반-모형-예측-성장가능성" class="nav-link" data-scroll-target="#딥러닝-기반-모형-예측-성장가능성">(1) 딥러닝 기반 모형 예측 성장가능성</a></li>
-  <li><a href="#급부상성emergence-score" id="toc-급부상성emergence-score" class="nav-link" data-scroll-target="#급부상성emergence-score">(2) 급부상성(Emergence Score)</a></li>
+  <li><a href="#딥러닝-기반-모형-예측-성장가능성" id="toc-딥러닝-기반-모형-예측-성장가능성" class="nav-link" data-scroll-target="#딥러닝-기반-모형-예측-성장가능성"><span class="header-section-number">20.1.1</span> (1) 딥러닝 기반 모형 예측 성장가능성</a></li>
+  <li><a href="#급부상성emergence-score" id="toc-급부상성emergence-score" class="nav-link" data-scroll-target="#급부상성emergence-score"><span class="header-section-number">20.1.2</span> (2) 급부상성(Emergence Score)</a></li>
   </ul></li>
-  <li><a href="#파급력-세부지표-정의-및-측정" id="toc-파급력-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#파급력-세부지표-정의-및-측정"><span class="header-section-number">19.2</span> 2. 파급력 세부지표 정의 및 측정</a></li>
-  <li><a href="#기술진보-기여도-세부지표-정의-및-측정" id="toc-기술진보-기여도-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#기술진보-기여도-세부지표-정의-및-측정"><span class="header-section-number">19.3</span> 3. 기술진보 기여도 세부지표 정의 및 측정</a></li>
-  <li><a href="#유망성-지표-카테고리별-세부지표" id="toc-유망성-지표-카테고리별-세부지표" class="nav-link" data-scroll-target="#유망성-지표-카테고리별-세부지표"><span class="header-section-number">19.4</span> 4. 유망성 지표 카테고리별 세부지표</a></li>
+  <li><a href="#파급력-세부지표-정의-및-측정" id="toc-파급력-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#파급력-세부지표-정의-및-측정"><span class="header-section-number">20.2</span> 파급력 세부지표 정의 및 측정</a></li>
+  <li><a href="#기술진보-기여도-세부지표-정의-및-측정" id="toc-기술진보-기여도-세부지표-정의-및-측정" class="nav-link" data-scroll-target="#기술진보-기여도-세부지표-정의-및-측정"><span class="header-section-number">20.3</span> 기술진보 기여도 세부지표 정의 및 측정</a></li>
+  <li><a href="#유망성-지표-카테고리별-세부지표" id="toc-유망성-지표-카테고리별-세부지표" class="nav-link" data-scroll-target="#유망성-지표-카테고리별-세부지표"><span class="header-section-number">20.4</span> 유망성 지표 카테고리별 세부지표</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_3_1_emergence_indicators.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_3_1_emergence_indicators.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">연구영역별 유망성 세부지표 정의 및 측정</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></h1>
+<h1 class="title"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">연구영역별 유망성 세부지표 정의 및 측정</span></h1>
 </div>
 
 
@@ -338,15 +370,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>표준과학 연구 분야 문헌 클러스터링의 마이크로(micro)-레벨 클러스터 195개를 대상으로 과학계량지표 분석을 수행하고, 클러스터별 유망성을 성장성(Growth), 파급력(Impact), 기술 진보 기여도(Contribution to Technological Advancement) 관점에서 정량화한다. 유망성은 단일 지표로 정의하지 않고, “해당 연구영역이 커지고 있는가(성장성)”, “과학기술 지형 전체에서 영향력이 높은가(파급력)”, “기술진보와 연결되는가(기술진보 기여도)”를 동시에 확인하는 방식으로 구성한다.</p>
-<section id="성장성-세부지표-정의-및-측정" class="level2" data-number="19.1">
-<h2 data-number="19.1" class="anchored" data-anchor-id="성장성-세부지표-정의-및-측정"><span class="header-section-number">19.1</span> 1. 성장성 세부지표 정의 및 측정</h2>
+<section id="성장성-세부지표-정의-및-측정" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="성장성-세부지표-정의-및-측정"><span class="header-section-number">20.1</span> 성장성 세부지표 정의 및 측정</h2>
 <p>성장성(Growth)은 클러스터 규모가 시간에 따라 어떻게 증대되는지를 보는 지표군이다. 여기서는 최근 단기간의 급성장 패턴뿐 아니라, 신규성(최신성)과 장기 추세까지 함께 측정해 성장 패턴을 다면적으로 해석하도록 설계한다. 성장성 세부지표는 (1) 딥러닝 기반 예측 성장가능성(중장기 성장 확률), (2) 급부상성(Emergence Score), (3) 최신성(Recency), (4) 장기성장추세(Long-term Trend)로 구성한다.</p>
-<section id="딥러닝-기반-모형-예측-성장가능성" class="level3">
-<h3 class="anchored" data-anchor-id="딥러닝-기반-모형-예측-성장가능성">(1) 딥러닝 기반 모형 예측 성장가능성</h3>
+<section id="딥러닝-기반-모형-예측-성장가능성" class="level3" data-number="20.1.1">
+<h3 data-number="20.1.1" class="anchored" data-anchor-id="딥러닝-기반-모형-예측-성장가능성"><span class="header-section-number">20.1.1</span> (1) 딥러닝 기반 모형 예측 성장가능성</h3>
 <p>딥러닝 기반 모형 예측 성장가능성은 최근 2년(2023–2024) 동안의 클러스터 특성과 클러스터 간 관계를 종합적으로 고려해, 해당 클러스터가 중장기(7년 후)에도 성장할 확률을 추정하는 방식이다. 이 지표는 두 구성값을 합산하여 사용한다. 첫 번째는 표준과학 연구 분야 문헌 클러스터링의 마이크로(micro)-레벨 클러스터 195개에 대한 딥러닝 기반 예측값으로, 0.90 이상이면 1점, 그 미만이면 0점으로 이산화하여 반영한다. 두 번째는 WoS 인용주제 마이크로-레벨 클러스터에 대한 딥러닝 기반 예측값을 표준과학 연구 분야 문헌 클러스터링의 마이크로-레벨 클러스터 수준에서 가중평균한 값으로, ([0,1]) 범위에서 연속변수로 사용한다.</p>
 </section>
-<section id="급부상성emergence-score" class="level3">
-<h3 class="anchored" data-anchor-id="급부상성emergence-score">(2) 급부상성(Emergence Score)</h3>
+<section id="급부상성emergence-score" class="level3" data-number="20.1.2">
+<h3 data-number="20.1.2" class="anchored" data-anchor-id="급부상성emergence-score"><span class="header-section-number">20.1.2</span> (2) 급부상성(Emergence Score)</h3>
 <p>급부상성의 추정 방식은 Tech Mining 개념(Porter &amp; Cunningham, 2005)을 오랜 기간 발전시켜온 미국 조지아공대 연구그룹에서 최근 제시한 급성장추세의 요약지표인 Emergence Score(Porter et al., 2018)의 계산 식을 채택하였다. Emergence Score는 하위 3개 지표를 결합하여 구성되며, 추세 변동의 신규성(novelty), 지속성(persistence), 성장성(growth)을 비교적 고르게 반영한다. 기존에 연구주제(topic)에 대해 ‘버스트 탐지(burst detection)’ 기법(Mane &amp; Börner, 2004; Guo et al., 2011; Chen, 2012)을 적용하여 유망 영역을 도출하려는 시도가 있었으나, ’폭증(burst)’은 단기간 급증한 이벤트 성격이 강하다. 연구 영역의 급속한 성장은 일정한 시계열 구간에서 ’지속성’도 함께 확인되어야 하며, Emergence Score는 이에 대한 적절한 대안으로 판단된다.</p>
 <p>Emergence Score의 계산 식과 사용된 변수의 정의는 다음과 같다.</p>
 <p>[ EmergenceScore = 2 \times ActivePeriodTrend + (RecentTrend + MidYearToLastYearSlope) ]</p>
@@ -360,22 +392,22 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="파급력-세부지표-정의-및-측정" class="level2" data-number="19.2">
-<h2 data-number="19.2" class="anchored" data-anchor-id="파급력-세부지표-정의-및-측정"><span class="header-section-number">19.2</span> 2. 파급력 세부지표 정의 및 측정</h2>
+<section id="파급력-세부지표-정의-및-측정" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="파급력-세부지표-정의-및-측정"><span class="header-section-number">20.2</span> 파급력 세부지표 정의 및 측정</h2>
 <p>파급력(Impact)은 연구영역이 전체 과학기술 지형에서 갖는 영향력 수준을 측정하는 지표군이며, (1) 상위 10% 엑셀런스 지표(Excellence10)와 (2) 정규화된 평균 피인용수(Mean Normalized Citation Score; MNCS)를 활용한다.</p>
 <p>Excellence10 지표는 클러스터 내 문헌 중 피인용 상위 10%에 해당하는 문헌의 비율을 의미한다(이준영 &amp; 박진서, 2019; Hicks et al., 2015; Waltman &amp; Van Eck, 2019). 상위 10% 기준에서 기대 수준은 10이며, 이 지수의 값이 10 이상이라는 것은 해당 클러스터가 속한 분류 기준으로 상위 10% 문헌 비율이 기대 수준(10%)을 초과함을 뜻한다. 본 분석은 클러스터 간 비교를 목적으로 하므로, 분위수 계산의 분류 단위는 문헌이 속한 WoS 인용주제 메소-레벨 연구영역을 적용한다. 정규화를 위해 동일 출판년도, 동일 분류 내에서 분위수를 계산하고, 피인용수 동점 처리에는 분할 처리 방식(Waltman &amp; Schreiber, 2013)을, 복분류 처리에는 평균 적용 방식(Bornmann et al., 2013)을 적용하였다.</p>
 <p>MNCS는 클러스터 내 문헌의 평균적 영향력을 보기 위한 지표로, 각 문헌이 속한 동일 출판년도, 동일 분류 내에서 상대적 피인용 수준을 기반으로 정규화한 뒤 클러스터 레벨로 집계한다. 여기서도 문헌의 분류 단위는 인용주제 메소-레벨 연구영역을 사용한다.</p>
 <p>유망 연구영역 선정을 위한 파급력 세부지표 계산에는 최근 5개년 데이터를 활용해, 현재 유망성과의 연결성을 높이도록 설계한다.</p>
 </section>
-<section id="기술진보-기여도-세부지표-정의-및-측정" class="level2" data-number="19.3">
-<h2 data-number="19.3" class="anchored" data-anchor-id="기술진보-기여도-세부지표-정의-및-측정"><span class="header-section-number">19.3</span> 3. 기술진보 기여도 세부지표 정의 및 측정</h2>
+<section id="기술진보-기여도-세부지표-정의-및-측정" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="기술진보-기여도-세부지표-정의-및-측정"><span class="header-section-number">20.3</span> 기술진보 기여도 세부지표 정의 및 측정</h2>
 <p>기술 진보 기여도(Contribution to Technological Advancement)는 논문에 대한 특허의 인용 관계를 활용해 각 연구영역이 기술진보에 기여하는 수준을 정량화하는 지표군으로 정의된다. Science–Technology Linkage 관점에 기반하며(Li et al., 2014; Jefferson et al., 2018; Knaus &amp; Palzenberger, 2018; Bryan et al., 2020; Kuan et al., 2020; Hsiao &amp; Torvik, 2020; Marx &amp; Fuegi, 2020; Ba &amp; Liang, 2021; Hammarfelt, 2021; Marx &amp; Fuegi, 2022), (1) 기술 진보 기여 가능 지식 비율과 (2) 기술 진보 영향력 지수를 활용하여 측정한다. WoS 데이터베이스에 더해 논문과 특허의 인용 관계 정보를 제공하는 Lens 데이터베이스를 활용하였다.</p>
 <p>기술 진보 기여 가능 지식 비율은 클러스터 내 문헌 중 특허에 인용된 문헌의 비율로 계산한다. 이는 “클러스터가 기술 진보로 이어질 수 있는 지식 기반을 어느 정도 제공하는가”를 가장 직접적으로 보여주는 지표다. Nature Index에서 활용하는 Patent influence metric이 “분석 대상이 산출한 문헌 집합에서 특허에 인용되는 문헌의 비율”을 주요 지표로 설정한다는 점에서, 본 지표는 유사한 해석틀을 공유한다.</p>
 <p>기술 진보 영향력 지수는 클러스터 내 문헌이 인용되는 ’전방 인용 특허’의 가치(피인용 기반)를 반영하여, 클러스터가 기술 진보에 미치는 영향력의 크기를 계량화한다. 이를 위해 개별 특허들의 피인용수(cites)와 출원년도 코호트(cohort)별 평균 피인용(cohort mean) 값을 구한 뒤, 각 특허에 대해 피인용 점수(citation score)를 (1 + (cites / cohort\ mean))으로 계산하였다. 이어 논문별로 전방 인용 특허의 피인용 점수 총합을 계산하되 출판년도별로 보정하고, 클러스터 수준에서 최종적으로 집계하는 흐름으로 측정하였다. 기술분야 보정은 적용하지 않으므로 이 지표는 “어떤 분야의 특허이든 영향력이 큰 특허에 연결되는가”에 초점을 둔다.</p>
 <p>논문에서 특허 출원·등록까지의 시차를 고려하면 최근 5개년만으로는 기술 연계의 다양성이 충분히 포착되지 않을 수 있으므로, 유망 연구영역 선정을 위한 기술진보 기여도 세부지표 계산에는 최근 10개년 데이터를 활용한다.</p>
 </section>
-<section id="유망성-지표-카테고리별-세부지표" class="level2" data-number="19.4">
-<h2 data-number="19.4" class="anchored" data-anchor-id="유망성-지표-카테고리별-세부지표"><span class="header-section-number">19.4</span> 4. 유망성 지표 카테고리별 세부지표</h2>
+<section id="유망성-지표-카테고리별-세부지표" class="level2" data-number="20.4">
+<h2 data-number="20.4" class="anchored" data-anchor-id="유망성-지표-카테고리별-세부지표"><span class="header-section-number">20.4</span> 유망성 지표 카테고리별 세부지표</h2>
 <table class="table">
 <colgroup>
 <col style="width: 50%">
@@ -816,13 +848,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/report_3_2_emerging_candidates.html" class="pagination-link" aria-label="3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span>
+      <a href="../docs/report_3_2_emerging_candidates.html" class="pagination-link" aria-label="KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/report_3_3_2_emergence_scoring.html" class="pagination-link" aria-label="3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정">
-        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/report_3_3_2_emergence_scoring.html" class="pagination-link" aria-label="연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

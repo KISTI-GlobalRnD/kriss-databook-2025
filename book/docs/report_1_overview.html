@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KRISS 표준과학 연구 데이터북 (Databook)</title>
+<title>KRISS 표준과학 연구 데이터북 (Book) - 3&nbsp; 표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/report_1_2_4_keywords_timeseries.html" rel="next">
-<link href="../docs/report_1_2_2_leiden_clustering.html" rel="prev">
+<link href="../docs/report_1_1_data_build.html" rel="next">
+<link href="../docs/report_00_preface.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -42,11 +42,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -75,155 +75,16 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">KRISS 표준과학 연구 데이터북 (Databook)</span>
-    </a>
-  </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">데이터북 / Databook</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
-        <li>
-    <a class="dropdown-item" href="../docs/report_00_preface.html">
- <span class="dropdown-text">서문 / Preface</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li>
-    <a class="dropdown-item" href="../docs/report_1_1_data_build.html">
- <span class="dropdown-text">1-1) 문헌 데이터 구축</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_1_2_1_global_landscape.html">
- <span class="dropdown-text">1-2-1) 글로벌 연구지형도</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_1_2_2_leiden_clustering.html">
- <span class="dropdown-text">1-2-2) 표준과학 연구지형도(Leiden)</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_1_2_3_kriss_division_mapping.html">
- <span class="dropdown-text">1-2-3) KRISS 4대 분야 매핑</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_1_2_4_keywords_timeseries.html">
- <span class="dropdown-text">1-2-4) 클러스터 기반 키워드/시계열</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_1_2_5_landscape_visualization.html">
- <span class="dropdown-text">1-2-5) 연구지형도 시각화</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li>
-    <a class="dropdown-item" href="../docs/report_2_1_org_country_standardization.html">
- <span class="dropdown-text">2-1) 국가/기관 표준화</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_2_2_benchmark_institutions.html">
- <span class="dropdown-text">2-2) 벤치마킹 기관</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_2_3_collaboration_network.html">
- <span class="dropdown-text">2-3) 협력 네트워크</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_2_4_1_country_performance.html">
- <span class="dropdown-text">2-4-1) 국가 성과</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_2_4_2_institution_performance.html">
- <span class="dropdown-text">2-4-2) 기관 성과</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_2_4_3_policy_alignment.html">
- <span class="dropdown-text">2-4-3) 정책 정렬</span></a>
-  </li>  
-        <li><hr class="dropdown-divider"></li>
-        <li>
-    <a class="dropdown-item" href="../docs/report_3_1_portfolio_capability.html">
- <span class="dropdown-text">3-1) 포트폴리오 역량</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_3_2_emerging_candidates.html">
- <span class="dropdown-text">3-2) 유망 후보</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_3_3_1_emergence_indicators.html">
- <span class="dropdown-text">3-3-1) Emergence 지표</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_3_3_2_emergence_scoring.html">
- <span class="dropdown-text">3-3-2) Emergence scoring</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_3_4_databook_dashboard.html">
- <span class="dropdown-text">3-4) Databook dashboard</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/report_3_5_llm_reporting.html">
- <span class="dropdown-text">3-5) LLM reporting</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">인터랙티브 도구 / Tools</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
-        <li>
-    <a class="dropdown-item" href="../docs/keyword_trends.html">
- <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/vosviewer_explorer.html">
- <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://road2you.shinyapps.io/kriss_cluster_dashboard/">
- <span class="dropdown-text">클러스터 대시보드 (Shiny)</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="button" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">부록 / Appendix</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
-        <li>
-    <a class="dropdown-item" href="../docs/appendix_detailed_reporting.html">
- <span class="dropdown-text">상세 리포팅(예정) / Detailed Reporting</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../docs/appendix.html">
- <span class="dropdown-text">Appendix</span></a>
-  </li>  
-    </ul>
-  </li>
-</ul>
-          </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
-</div>
-      </div> <!-- /container-fluid -->
-    </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_1_2_3_kriss_division_mapping.html">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_1_overview.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -233,24 +94,29 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">KRISS 표준과학 연구 데이터북 (Book)</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" title="웹 버전 보기" class="quarto-navigation-tool px-1" aria-label="웹 버전 보기"><i class="bi bi-browser"></i></a>
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 홈" class="quarto-navigation-tool px-1" aria-label="북 버전 홈"><i class="bi bi-book"></i></a>
+</div>
+    </div>
+      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
-        <div class="sidebar-tools-collapse">
-    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 보기" class="quarto-navigation-tool px-1" aria-label="북 버전 보기"><i class="bi bi-book"></i></a>
-    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" title="웹 버전 홈" class="quarto-navigation-tool px-1" aria-label="웹 버전 홈"><i class="bi bi-browser"></i></a>
-</div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">홈 / Home</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">KRISS 표준과학 연구 데이터북 / Databook</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -265,115 +131,133 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_00_preface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">서문 / Preface</span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">서문 / Preface</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/report_1_overview.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_1_data_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_1_global_landscape.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">글로벌 연구지형도에서의 표준과학 연구 분야</span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">글로벌 연구지형도에서의 표준과학 연구 분야</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_2_leiden_clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준과학 연구 분야 문헌 집합 클러스터링</span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">표준과학 연구 분야 문헌 집합 클러스터링</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/report_1_2_3_kriss_division_mapping.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></a>
+  <a href="../docs/report_1_2_3_kriss_division_mapping.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_4_keywords_timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">클러스터 기반 키워드 추출 및 시계열 분석</span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">클러스터 기반 키워드 추출 및 시계열 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_5_landscape_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준과학 연구지형도 시각화</span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">표준과학 연구지형도 시각화</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/report_2_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_1_org_country_standardization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_2_benchmark_institutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준연구 분야의 벤치마킹 국가 및 기관 선정</span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">표준연구 분야의 벤치마킹 국가 및 기관 선정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_3_collaboration_network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">주요 기관 간 협력 네트워크 분석</span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">주요 기관 간 협력 네트워크 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_1_country_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_2_institution_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_3_policy_alignment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/report_3_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">미래 연구영역 전략수립 지원을 위한 유망연구영역 도출</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_1_portfolio_capability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_2_emerging_candidates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_1_emergence_indicators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">연구영역별 유망성 세부지표 정의 및 측정</span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">연구영역별 유망성 세부지표 정의 및 측정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_2_emergence_scoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">LLM 기반 유망 연구 간이 리포팅</span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">LLM 기반 유망 연구 간이 리포팅</span></span></a>
   </div>
 </li>
       </ul>
@@ -390,19 +274,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Keyword Trend Explorer / 키워드 추세 탐색기</span></a>
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://road2you.shinyapps.io/kriss_cluster_dashboard/" class="sidebar-item-text sidebar-link">
- <span class="menu-text">클러스터 대시보드 (Shiny)</span></a>
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></span></a>
   </div>
 </li>
       </ul>
@@ -419,31 +297,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Detailed Reporting Appendix / 상세 리포팅 부록</span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Detailed Reporting Appendix / 상세 리포팅 부록</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">상세 리포트(핵심 역량) — 20-182</span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">20-182 - 다이아몬드결함양자센서 (핵심 역량)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">상세 리포트(확장 가능) — 38-84</span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">38-84 - 양자알고리즘·오류정정 (확장 가능)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">상세 리포트(역량 공백) — 11-159</span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix / 부록</span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix / 부록</span></span></a>
   </div>
 </li>
       </ul>
@@ -454,52 +332,33 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#표준과학-연구-분야에-대한-kriss-측정-그룹-4대-영역-매핑" id="toc-표준과학-연구-분야에-대한-kriss-측정-그룹-4대-영역-매핑" class="nav-link active" data-scroll-target="#표준과학-연구-분야에-대한-kriss-측정-그룹-4대-영역-매핑">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/report_1_2_3_kriss_division_mapping.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
-
-
-<section id="표준과학-연구-분야에-대한-kriss-측정-그룹-4대-영역-매핑" class="level1">
-<h1>표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</h1>
-<p>표준과학 연구지형도는 연구주제의 구조를 보여주지만, 정책·기관 관점의 해석을 위해서는 이를 조직 축으로 재표현하는 단계가 필요하다. 본 절에서는 도출된 연구주제 클러스터를 KRISS 조직 축(물리측정·화학소재측정·바이오의료측정·양자)으로 요약하는 후처리 절차를 정리한다.</p>
-<div id="fig-kriss-org-groups" class="quarto-figure quarto-figure-center quarto-float anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-kriss-org-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../Final_Report_MD/최종보고서 내용/kriss_org_group.png" class="img-fluid figure-img">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_1_overview.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</span></h1>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kriss-org-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-그림&nbsp;1: KRISS 조직도(측정본부 및 측정 그룹)
-</figcaption>
-</figure>
-</div>
-<ol type="1">
-<li>목적과 적용 범위</li>
-</ol>
-<p>본 단계는 클러스터링/키워드 추출 자체가 아니라, 연구주제 클러스터를 KRISS 조직 축으로 요약하기 위한 후처리이다. 핵심 목적은 연구주제 클러스터에 복수의 측정 그룹이 연계될 수 있는 상황에서, 보고·벤치마킹·포트폴리오 분석에 필요한 해석 단위를 4대 본부 축으로 정규화하는 데 있다. 이때 클러스터 라벨과 클러스터 요약 정보, 대표 키워드를 함께 활용하면 주제 해석의 일관성을 높일 수 있다.</p>
-<ol start="2" type="1">
-<li>그룹 단위 정칙 매핑(룰 기반)</li>
-</ol>
-<p>v1에서는 측정 그룹을 “물리측정본부(물) / 화학소재측정본부(화) / 바이오의료측정본부(생) / 양자기술연구소(양)” 4개 축으로 재분류하는 정칙(rule‑based) 매핑을 적용한다. 규칙은 조직의 기능과 연구대상(측정량, 소재, 생체, 양자 소자 등)을 대응시키는 방향으로 구성되며, 이를 통해 연구주제별로 연계된 측정 그룹을 4대 축으로 집계할 수 있다.</p>
-<ol start="3" type="1">
-<li>클러스터 단위 보정(혼합 클러스터 처리)</li>
-</ol>
-<p>연구주제 클러스터는 다수의 그룹이 섞인 경우가 있어, v1만 적용하면 한 클러스터가 복수 본부로 분산될 수 있다. 이를 보정하기 위해 v2에서는 복수 축이 혼재한 클러스터를 대상으로 주제 특성(클러스터 라벨·대표 키워드·연계 그룹 조합)을 종합적으로 검토해 “대표 본부”를 1개로 재지정한다. 대표 본부 재지정은 일관된 해석 단위를 제공한다는 점에서 유용하나, 복합 주제의 성격을 단일 축으로 축약한다는 한계도 갖기 때문에 해석 시 주의가 필요하다.</p>
-<ol start="4" type="1">
-<li>산출물과 활용</li>
-</ol>
-<p>최종 산출물은 (i) 연구주제 클러스터×측정 그룹 관계를 행 단위로 확장한 표와 (ii) 대표 본부가 조정된 클러스터 요약표로 구성한다. 이를 통해 복수 그룹이 부여된 클러스터의 해석을 지원하고, 혼합 클러스터 처리로 인해 대표 본부가 변경된 사례를 별도로 추적 가능하도록 한다.</p>
 
 
-</section>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>본 장에서는 표준과학 연구 영역을 대상으로 분석용 문헌 집합을 구축하고, 인용 기반 클러스터링을 통해 연구지형도를 구성한 뒤, 해석을 위한 보조 분석(조직 매핑, 키워드·시계열, 시각화)을 수행한 절차와 결과를 정리한다.</p>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -891,13 +750,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/report_1_2_2_leiden_clustering.html" class="pagination-link" aria-label="표준과학 연구 분야 문헌 집합 클러스터링">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">표준과학 연구 분야 문헌 집합 클러스터링</span>
+      <a href="../docs/report_00_preface.html" class="pagination-link" aria-label="서문 / Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">서문 / Preface</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/report_1_2_4_keywords_timeseries.html" class="pagination-link" aria-label="클러스터 기반 키워드 추출 및 시계열 분석">
-        <span class="nav-page-text">클러스터 기반 키워드 추출 및 시계열 분석</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/report_1_1_data_build.html" class="pagination-link" aria-label="글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -906,4 +765,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/report_1_2_3_kriss_division_mapping.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+</body></html>

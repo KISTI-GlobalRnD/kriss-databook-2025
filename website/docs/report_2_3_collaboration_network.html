@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
+<script src="docs/assets/js/datatable-init.js" defer=""></script>
 
 
 </head>
@@ -220,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_2_3_collaboration_network.html">2-3) 주요 기관 간 협력 네트워크 분석</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_2_3_collaboration_network.html">주요 기관 간 협력 네트워크 분석</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -268,109 +271,109 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_1_data_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-1) 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></a>
+ <span class="menu-text">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_1_global_landscape.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-1) 글로벌 연구지형도에서의 표준과학 연구 분야</span></a>
+ <span class="menu-text">글로벌 연구지형도에서의 표준과학 연구 분야</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_2_leiden_clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-2) 표준과학 연구 분야 문헌 집합 클러스터링</span></a>
+ <span class="menu-text">표준과학 연구 분야 문헌 집합 클러스터링</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_3_kriss_division_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-3) 표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></a>
+ <span class="menu-text">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_4_keywords_timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-4) 클러스터 기반 키워드 추출 및 시계열 분석</span></a>
+ <span class="menu-text">클러스터 기반 키워드 추출 및 시계열 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_5_landscape_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-5) 표준과학 연구지형도 시각화</span></a>
+ <span class="menu-text">표준과학 연구지형도 시각화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_1_org_country_standardization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></a>
+ <span class="menu-text">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_2_benchmark_institutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정</span></a>
+ <span class="menu-text">표준연구 분야의 벤치마킹 국가 및 기관 선정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_3_collaboration_network.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2-3) 주요 기관 간 협력 네트워크 분석</span></a>
+ <span class="menu-text">주요 기관 간 협력 네트워크 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_1_country_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-4-1) 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></a>
+ <span class="menu-text">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_2_institution_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-4-2) 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></a>
+ <span class="menu-text">표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_3_policy_alignment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-4-3) 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></a>
+ <span class="menu-text">표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_1_portfolio_capability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-1) 벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></a>
+ <span class="menu-text">벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_2_emerging_candidates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></a>
+ <span class="menu-text">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_1_emergence_indicators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></a>
+ <span class="menu-text">연구영역별 유망성 세부지표 정의 및 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_2_emergence_scoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></a>
+ <span class="menu-text">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
+ <span class="menu-text">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-5) LLM 기반 유망 연구 간이 리포팅</span></a>
+ <span class="menu-text">LLM 기반 유망 연구 간이 리포팅</span></a>
   </div>
 </li>
       </ul>
@@ -455,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#주요-기관-간-협력-네트워크-분석" id="toc-주요-기관-간-협력-네트워크-분석" class="nav-link active" data-scroll-target="#주요-기관-간-협력-네트워크-분석">2-3) 주요 기관 간 협력 네트워크 분석</a></li>
+  <li><a href="#주요-기관-간-협력-네트워크-분석" id="toc-주요-기관-간-협력-네트워크-분석" class="nav-link active" data-scroll-target="#주요-기관-간-협력-네트워크-분석">주요 기관 간 협력 네트워크 분석</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/report_2_3_collaboration_network.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -466,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="주요-기관-간-협력-네트워크-분석" class="level1">
-<h1>2-3) 주요 기관 간 협력 네트워크 분석</h1>
+<h1>주요 기관 간 협력 네트워크 분석</h1>
 <p>여기서는 표준연구 분야에서 주요 기관 간 협력 관계의 구조를 파악하기 위해, 기관 간 공저자 관계를 기반으로 협력 네트워크 지형도를 구축하고 그 특징을 분석한 내용을 다룬다. 협력 네트워크는 표준과학 전 영역에서 기관들이 어떤 상대와 얼마나 빈번하게 공동 연구를 수행하는지, 그리고 특정 핵심 기관을 중심으로 협력 관계가 어떻게 확장되는지를 시각적으로 확인할 수 있는 도구가 된다.</p>
 <p>분석에는 2020년부터 2024년까지 최근 5개년의 논문 데이터를 활용하였다. 각 문헌에서 식별되는 기관 간 공동연구(공저 관계) 정보를 이용해 기관 간 연결을 정의하고, 이를 바탕으로 협력관계를 나타내는 네트워크를 구성하였다. 즉, 동일 논문에 두 기관이 함께 등장하면 해당 기관 간 협력 링크가 형성되는 것으로 간주하고, 이러한 링크의 누적을 통해 최근 5개년 협력의 구조적 지형을 도출하였다.</p>
 <p>또한 본 연구의 핵심 관심은 2-2)에서 선정한 표준과학 영역 벤치마킹 기관의 협력 패턴을 비교 가능한 형태로 제시하는 데 있으므로, KRISS를 포함한 벤치마킹 10개 기관을 중심으로 네트워크를 재구성하였다. 구체적으로는 각 기관별로 상위 10개 협력 기관을 먼저 도출하고, 이렇게 도출된 협력 기관들에 대해 다시 상위 5개 협력 기관을 추가로 도출하는 2단계 확장 방식을 적용하여 네트워크를 구축하였다. 이 절차는 벤치마킹 10개 기관의 협력관계를 중심축으로 두면서도, 해당 관계가 어떤 주요 파트너를 통해 추가적으로 연결되는지를 함께 보여주기 위한 설계이며, 전 영역의 모든 협력관계를 제약 없이 포함할 때 발생할 수 있는 시각적 과밀과 해석 난점을 완화하기 위한 목적도 함께 갖는다.</p>
@@ -513,7 +516,12 @@ ul.task-list li input[type="checkbox"] {
 <p>위 그림에 나타나는 양자기술 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다(<a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1zKWEwz3MisYMVzhz10WMRBryvaF_w6Ao">https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw</a>).</p>
 <p>추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력비율과 국제협력논문수를 살펴보았다. 이를 통해 KRISS의 국제협력이 <strong>벤치마킹 기관 대비 어느 정도 수준인지</strong>, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴 볼 수 있다.</p>
 <p>아래 표는 각 기관이 2020–2024년 5개년 동안 생산한 논문 중에서 국제공저(해외 기관과 공동저자)로 수행된 논문의 비중을 계산해, 기관별·연구영역별 국제협력 수준을 비교한 결과를 나타내고 있다. 표 안의 각 %는 해당 기관의 전체(또는 해당 영역) 논문 중 국제공저 논문이 차지하는 비율이고, 괄호 안의 분자와 분모는 각각 국제공저 논문 수와 전체 논문 수를 의미한다.</p>
-<p>[표 XX] 표준과학 영역별 KRISS와 주요벤치마킹 기관의 국제협력비율(국제협력논문수/전체논문수)</p>
+<div id="tbl-international-collaboration-rate" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-international-collaboration-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1: 표준과학 영역별 KRISS와 주요 벤치마킹 기관의 국제협력 비율(국제협력논문수/전체논문수)
+</figcaption>
+<div aria-describedby="tbl-international-collaboration-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table">
 <colgroup>
 <col style="width: 16%">
@@ -616,6 +624,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>2020–2024년 기준으로 KRISS의 국제공저 비중은 28.84%(473/1,640)로, 비교 대상 10대 BIPM 기관 중 7위에 위치한다. 상위 기관인 NPL(71.87%), PTB(61.45%), NRC(57.86%)와 비교하면 국제협력 기반의 논문 생산 비중이 낮고, NIST(43.76%)와 비교해도 격차가 크다. 반면 하위권 기관인 NPLI(22.98%), NMIJ/AIST(22.61%), NIM(15.14%)보다는 높은 수준으로, 국제협력이 일정 수준에서는 작동하고 있으나 선도기관 대비 확장 여지가 큰 상태로 해석된다.</p>
 <p>세부 영역별로 보면 KRISS의 국제공저 비중은 물리측정 23.00%, 화학소재측정 31.03%, 바이오의료측정 26.48%, 양자기술 42.21%로 나타난다. 특히 양자기술 영역은 KRISS 내부에서 가장 높은 국제공저 비중을 보이며, NIST(47.72%)와 유사한 수준에 근접해 상대적으로 국제협력 네트워크가 활발한 편이다. 반대로 물리측정 영역은 23.00%로 가장 낮아, 전통 핵심 분야에서 국제공저 기반의 연구 확장이 제한적으로 이루어지고 있음을 시사한다. 화학소재측정과 바이오의료측정은 중간 수준이지만, 상위 기관들이 대체로 50~70%대의 국제공저 비중을 유지하는 것과 대비하면 추가적인 협력 확대가 필요하다.</p>
 <p>종합하면 KRISS의 국제협력은 양자기술을 중심으로 비교적 강하게 나타나지만, 기관 전체의 국제공저 비중은 선도 BIPM 기관 대비 낮은 편이다. NPL, PTB, BAM, INRIM 등 유럽권 국가의 국제협력에 비해 KRISS, NPLI, NMIJ/AIST, NIM의 국제협력 활동이 저조한 특성도 나타나며, 자국에 연구 역량이 뛰어난 대학이 많은 미국의 NIST는 국내협력이 상대적으로 높은 것으로 해석할 수 있다. 이렇듯 자국의 연구 역량이 뛰어난 대학과 협력하는 양상은 중국의 NIM에도 유사하게 나타나는 것으로 해석할 수 있다.</p>
@@ -1013,13 +1024,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/report_2_2_benchmark_institutions.html" class="pagination-link" aria-label="2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정</span>
+      <a href="../docs/report_2_2_benchmark_institutions.html" class="pagination-link" aria-label="표준연구 분야의 벤치마킹 국가 및 기관 선정">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">표준연구 분야의 벤치마킹 국가 및 기관 선정</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/report_2_4_1_country_performance.html" class="pagination-link" aria-label="2-4-1) 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석">
-        <span class="nav-page-text">2-4-1) 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/report_2_4_1_country_performance.html" class="pagination-link" aria-label="표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석">
+        <span class="nav-page-text">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

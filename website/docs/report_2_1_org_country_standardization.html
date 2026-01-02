@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
+<script src="docs/assets/js/datatable-init.js" defer=""></script>
 
 
 </head>
@@ -220,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_2_1_org_country_standardization.html">2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_2_1_org_country_standardization.html">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -268,109 +271,109 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_1_data_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-1) 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></a>
+ <span class="menu-text">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_1_global_landscape.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-1) 글로벌 연구지형도에서의 표준과학 연구 분야</span></a>
+ <span class="menu-text">글로벌 연구지형도에서의 표준과학 연구 분야</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_2_leiden_clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-2) 표준과학 연구 분야 문헌 집합 클러스터링</span></a>
+ <span class="menu-text">표준과학 연구 분야 문헌 집합 클러스터링</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_3_kriss_division_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-3) 표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></a>
+ <span class="menu-text">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_4_keywords_timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-4) 클러스터 기반 키워드 추출 및 시계열 분석</span></a>
+ <span class="menu-text">클러스터 기반 키워드 추출 및 시계열 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_5_landscape_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1-2-5) 표준과학 연구지형도 시각화</span></a>
+ <span class="menu-text">표준과학 연구지형도 시각화</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_1_org_country_standardization.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></a>
+ <span class="menu-text">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_2_benchmark_institutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정</span></a>
+ <span class="menu-text">표준연구 분야의 벤치마킹 국가 및 기관 선정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_3_collaboration_network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-3) 주요 기관 간 협력 네트워크 분석</span></a>
+ <span class="menu-text">주요 기관 간 협력 네트워크 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_1_country_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-4-1) 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></a>
+ <span class="menu-text">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_2_institution_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-4-2) 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></a>
+ <span class="menu-text">표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_3_policy_alignment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-4-3) 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></a>
+ <span class="menu-text">표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_1_portfolio_capability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-1) 벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></a>
+ <span class="menu-text">벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_2_emerging_candidates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></a>
+ <span class="menu-text">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_1_emergence_indicators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></a>
+ <span class="menu-text">연구영역별 유망성 세부지표 정의 및 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_2_emergence_scoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></a>
+ <span class="menu-text">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
+ <span class="menu-text">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3-5) LLM 기반 유망 연구 간이 리포팅</span></a>
+ <span class="menu-text">LLM 기반 유망 연구 간이 리포팅</span></a>
   </div>
 </li>
       </ul>
@@ -455,7 +458,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" id="toc-표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" class="nav-link active" data-scroll-target="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계">2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</a></li>
+  <li><a href="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" id="toc-표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" class="nav-link active" data-scroll-target="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/report_2_1_org_country_standardization.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -466,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" class="level1">
-<h1>2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</h1>
+<h1>표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</h1>
 <p>여기서는 1-1-2)에서 최종 구축한 ’표준과학연구 문헌 집합’을 기관 단위로 해석·분석할 수 있도록, Web of Science(WoS) 데이터의 정규화된 기관명(pref_name)과 기관국가명(org_country) 정보를 문헌 단위로 결합하고, 표준과학 영역의 주요 국가 및 기관을 중심으로 기관명 표준화 및 문헌 연계를 수행하고자 한다.</p>
 <p>주요 기관 후보를 추리기 위해 WoS/Incites 기관 데이터의 기관 유형(Organization Type) 정보를 사용했고, 기관 유형이 ‘Academic System’ 또는 ’Healthcare System’인 행을 제거했다. 이후 잔여 기관을 대상으로 논문 수 기준 상위 500개 기관을 우선 추출했다. 이때 정규화된 기관명(pref_name)이 부여되지 못한 기관은 WoS/Incites 상에서 기관 식별이 충분히 이루어지지 않았거나 성과가 제한적이라고 간주하여 주요 기관 후보에서 제외했다. 기관별 논문 수는 full count 방식으로 산정했다. 즉, 1편의 논문에 복수 저자와 복수 기관이 존재하더라도, 해당 논문에 등장하는 각 기관의 기여를 저자 수와 무관하게 1로 계산했다. 예를 들어 논문 A의 저자가 KRISS 소속 2명, NIST 소속 1명으로 구성되어도 KRISS 1편, NIST 1편으로 집계했다.</p>
 <p>기관 유형이 ‘government’로 분류된 기관 가운데에서도 실제로는 연구를 직접 수행하기보다는 연구 지원·관리·조정 또는 정책·재정 기능을 수행하는 기관이 포함될 수 있다. 따라서 UK Research &amp; Innovation(UKRI), Department of Science &amp; Technology(India), Japan Science &amp; Technology Agency(JST), United States Navy, United States Department of Defense(DoD), Department of Space(DoS) Government of India, National Aeronautics &amp; Space Administration(NASA), Ministry of Education &amp; Science of Ukraine, United States Department of Energy(DOE), Egyptian Knowledge Bank(EKB), Academy of Scientific &amp; Innovative Research(AcSIR)은 ‘직접 연구를 수행하지 않는 기관’으로 간주하고 표준과학 영역 연구기관 목록에서 제외했다. 또한 기관 유형이 ‘Nonprofit’ 또는 ’Partnership’인 기관 중 Helmholtz Association은 다수 Helmholtz 센터(DESY, HZB, GSI 등)를 포괄하는 연합체(umbrella) 성격이 강하므로 단일 연구 수행기관으로 보기 어렵다고 판단해 제외했다. 추가로 University of Chinese Academy of Sciences와 University of Science &amp; Technology of China는 Chinese Academy of Sciences(CAS)의 하위 기관으로 간주하여 주요 연구기관 목록에서 제외했다.</p>
@@ -867,13 +870,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/report_1_2_5_landscape_visualization.html" class="pagination-link" aria-label="1-2-5) 표준과학 연구지형도 시각화">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1-2-5) 표준과학 연구지형도 시각화</span>
+      <a href="../docs/report_1_2_5_landscape_visualization.html" class="pagination-link" aria-label="표준과학 연구지형도 시각화">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">표준과학 연구지형도 시각화</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/report_2_2_benchmark_institutions.html" class="pagination-link" aria-label="2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정">
-        <span class="nav-page-text">2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/report_2_2_benchmark_institutions.html" class="pagination-link" aria-label="표준연구 분야의 벤치마킹 국가 및 기관 선정">
+        <span class="nav-page-text">표준연구 분야의 벤치마킹 국가 및 기관 선정</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

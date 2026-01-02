@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KRISS 표준과학 연구 데이터북 (Book) - 22&nbsp; 3-5) LLM 기반 유망 연구 간이 리포팅</title>
+<title>KRISS 표준과학 연구 데이터북 (Book) - 23&nbsp; LLM 기반 유망 연구 간이 리포팅</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/appendix_detailed_reporting.html" rel="next">
+<link href="../docs/keyword_trends.html" rel="next">
 <link href="../docs/report_3_4_databook_dashboard.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
+<script src="docs/assets/js/datatable-init.js" defer=""></script>
 
 
 </head>
@@ -81,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_5_llm_reporting.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">3-5) LLM 기반 유망 연구 간이 리포팅</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_5_llm_reporting.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">LLM 기반 유망 연구 간이 리포팅</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -133,122 +136,128 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../docs/report_1_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../docs/report_1_1_data_build.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">1-1) 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_1_global_landscape.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">1-2-1) 글로벌 연구지형도에서의 표준과학 연구 분야</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">글로벌 연구지형도에서의 표준과학 연구 분야</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_2_leiden_clustering.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">1-2-2) 표준과학 연구 분야 문헌 집합 클러스터링</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">표준과학 연구 분야 문헌 집합 클러스터링</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_3_kriss_division_mapping.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">1-2-3) 표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_4_keywords_timeseries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">1-2-4) 클러스터 기반 키워드 추출 및 시계열 분석</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">클러스터 기반 키워드 추출 및 시계열 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_1_2_5_landscape_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">1-2-5) 표준과학 연구지형도 시각화</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">표준과학 연구지형도 시각화</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></span></a>
+  <a href="../docs/report_2_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_1_org_country_standardization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">2-1) 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_2_benchmark_institutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">2-2) 표준연구 분야의 벤치마킹 국가 및 기관 선정</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">표준연구 분야의 벤치마킹 국가 및 기관 선정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_3_collaboration_network.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">2-3) 주요 기관 간 협력 네트워크 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">주요 기관 간 협력 네트워크 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_1_country_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">2-4-1) 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_2_institution_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">2-4-2) 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_2_4_3_policy_alignment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">2-4-3) 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/report_3_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">미래 연구영역 전략수립 지원을 위한 유망연구영역 도출</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_1_portfolio_capability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">3-1) 벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></span></a>
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_2_emerging_candidates.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">3-2) KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span></a>
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">KRISS와 BIPM 주요 연구기관의 연구 포트폴리오 및 역량을 고려한 유망 연구영역 후보군 도출</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_1_emergence_indicators.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">3-3-1) 연구영역별 유망성 세부지표 정의 및 측정</span></span></a>
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">연구영역별 유망성 세부지표 정의 및 측정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_3_2_emergence_scoring.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">3-3-2) 연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span></a>
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">연구영역별 유망성 종합 점수 측정 및 후보군별 유망연구영역 선정</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_4_databook_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span></a>
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/report_3_5_llm_reporting.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">3-5) LLM 기반 유망 연구 간이 리포팅</span></span></a>
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">LLM 기반 유망 연구 간이 리포팅</span></span></a>
   </div>
 </li>
       </ul>
@@ -256,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">부록 / Appendix</span></a>
+ <span class="menu-text">인터랙티브 도구 / Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -264,32 +273,55 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">부록 / Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Detailed Reporting Appendix / 상세 리포팅 부록</span></span></a>
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">Detailed Reporting Appendix / 상세 리포팅 부록</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">20-182 - 다이아몬드결함양자센서 (핵심 역량)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">20-182 - 다이아몬드결함양자센서 (핵심 역량)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title">38-84 - 양자알고리즘·오류정정 (확장 가능)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title">38-84 - 양자알고리즘·오류정정 (확장 가능)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title">Appendix / 부록</span></span></a>
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title">Appendix / 부록</span></span></a>
   </div>
 </li>
       </ul>
@@ -304,30 +336,30 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#작성-방법론" id="toc-작성-방법론" class="nav-link active" data-scroll-target="#작성-방법론"><span class="header-section-number">22.1</span> 1. 작성 방법론</a>
+  <li><a href="#작성-방법론" id="toc-작성-방법론" class="nav-link active" data-scroll-target="#작성-방법론"><span class="header-section-number">23.1</span> 작성 방법론</a>
   <ul class="collapse">
-  <li><a href="#입력-구성" id="toc-입력-구성" class="nav-link" data-scroll-target="#입력-구성">1.1 입력 구성</a></li>
-  <li><a href="#출력-형식" id="toc-출력-형식" class="nav-link" data-scroll-target="#출력-형식">1.2 출력 형식</a></li>
-  <li><a href="#유형분류-프레임-고정" id="toc-유형분류-프레임-고정" class="nav-link" data-scroll-target="#유형분류-프레임-고정">1.3 유형(분류 프레임) 고정</a></li>
-  <li><a href="#지식기반-인접-클러스터eaaa-정의-및-표기" id="toc-지식기반-인접-클러스터eaaa-정의-및-표기" class="nav-link" data-scroll-target="#지식기반-인접-클러스터eaaa-정의-및-표기">1.4 지식기반 인접 클러스터(EA/AA) 정의 및 표기</a></li>
-  <li><a href="#키워드-통계의-기본-단위문서-커버리지" id="toc-키워드-통계의-기본-단위문서-커버리지" class="nav-link" data-scroll-target="#키워드-통계의-기본-단위문서-커버리지">1.5 키워드 통계의 기본 단위(문서 커버리지)</a></li>
-  <li><a href="#대표-키워드-score간략-정의" id="toc-대표-키워드-score간략-정의" class="nav-link" data-scroll-target="#대표-키워드-score간략-정의">1.6 대표 키워드 score(간략 정의)</a></li>
-  <li><a href="#기관-분석두-단계-및-대상-기관-선정-규칙" id="toc-기관-분석두-단계-및-대상-기관-선정-규칙" class="nav-link" data-scroll-target="#기관-분석두-단계-및-대상-기관-선정-규칙">1.7 기관 분석(두 단계) 및 대상 기관 선정 규칙</a></li>
-  <li><a href="#정책부합성-표현-원칙분포-요약-중심" id="toc-정책부합성-표현-원칙분포-요약-중심" class="nav-link" data-scroll-target="#정책부합성-표현-원칙분포-요약-중심">1.8 정책부합성 표현 원칙(분포 요약 중심)</a></li>
-  <li><a href="#llm-기반-서술의-범위-제한" id="toc-llm-기반-서술의-범위-제한" class="nav-link" data-scroll-target="#llm-기반-서술의-범위-제한">1.9 LLM 기반 서술의 범위 제한</a></li>
-  <li><a href="#llm-서술-품질안전장치" id="toc-llm-서술-품질안전장치" class="nav-link" data-scroll-target="#llm-서술-품질안전장치">1.10 LLM 서술 품질·안전장치</a></li>
+  <li><a href="#입력-구성" id="toc-입력-구성" class="nav-link" data-scroll-target="#입력-구성"><span class="header-section-number">23.1.1</span> 1.1 입력 구성</a></li>
+  <li><a href="#출력-형식" id="toc-출력-형식" class="nav-link" data-scroll-target="#출력-형식"><span class="header-section-number">23.1.2</span> 1.2 출력 형식</a></li>
+  <li><a href="#유형분류-프레임-고정" id="toc-유형분류-프레임-고정" class="nav-link" data-scroll-target="#유형분류-프레임-고정"><span class="header-section-number">23.1.3</span> 1.3 유형(분류 프레임) 고정</a></li>
+  <li><a href="#지식기반-인접-클러스터eaaa-정의-및-표기" id="toc-지식기반-인접-클러스터eaaa-정의-및-표기" class="nav-link" data-scroll-target="#지식기반-인접-클러스터eaaa-정의-및-표기"><span class="header-section-number">23.1.4</span> 1.4 지식기반 인접 클러스터(EA/AA) 정의 및 표기</a></li>
+  <li><a href="#키워드-통계의-기본-단위문서-커버리지" id="toc-키워드-통계의-기본-단위문서-커버리지" class="nav-link" data-scroll-target="#키워드-통계의-기본-단위문서-커버리지"><span class="header-section-number">23.1.5</span> 1.5 키워드 통계의 기본 단위(문서 커버리지)</a></li>
+  <li><a href="#대표-키워드-score간략-정의" id="toc-대표-키워드-score간략-정의" class="nav-link" data-scroll-target="#대표-키워드-score간략-정의"><span class="header-section-number">23.1.6</span> 1.6 대표 키워드 score(간략 정의)</a></li>
+  <li><a href="#기관-분석두-단계-및-대상-기관-선정-규칙" id="toc-기관-분석두-단계-및-대상-기관-선정-규칙" class="nav-link" data-scroll-target="#기관-분석두-단계-및-대상-기관-선정-규칙"><span class="header-section-number">23.1.7</span> 1.7 기관 분석(두 단계) 및 대상 기관 선정 규칙</a></li>
+  <li><a href="#정책부합성-표현-원칙분포-요약-중심" id="toc-정책부합성-표현-원칙분포-요약-중심" class="nav-link" data-scroll-target="#정책부합성-표현-원칙분포-요약-중심"><span class="header-section-number">23.1.8</span> 1.8 정책부합성 표현 원칙(분포 요약 중심)</a></li>
+  <li><a href="#llm-기반-서술의-범위-제한" id="toc-llm-기반-서술의-범위-제한" class="nav-link" data-scroll-target="#llm-기반-서술의-범위-제한"><span class="header-section-number">23.1.9</span> 1.9 LLM 기반 서술의 범위 제한</a></li>
+  <li><a href="#llm-서술-품질안전장치" id="toc-llm-서술-품질안전장치" class="nav-link" data-scroll-target="#llm-서술-품질안전장치"><span class="header-section-number">23.1.10</span> 1.10 LLM 서술 품질·안전장치</a></li>
   </ul></li>
-  <li><a href="#llm-기반-자동화-절차와-한계" id="toc-llm-기반-자동화-절차와-한계" class="nav-link" data-scroll-target="#llm-기반-자동화-절차와-한계"><span class="header-section-number">22.2</span> 2. LLM 기반 자동화 절차와 한계</a></li>
-  <li><a href="#유형별-독해-가이드" id="toc-유형별-독해-가이드" class="nav-link" data-scroll-target="#유형별-독해-가이드"><span class="header-section-number">22.3</span> 3. 유형별 독해 가이드</a></li>
+  <li><a href="#llm-기반-자동화-절차와-한계" id="toc-llm-기반-자동화-절차와-한계" class="nav-link" data-scroll-target="#llm-기반-자동화-절차와-한계"><span class="header-section-number">23.2</span> LLM 기반 자동화 절차와 한계</a></li>
+  <li><a href="#유형별-독해-가이드" id="toc-유형별-독해-가이드" class="nav-link" data-scroll-target="#유형별-독해-가이드"><span class="header-section-number">23.3</span> 유형별 독해 가이드</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_5_llm_reporting.html"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">3-5) LLM 기반 유망 연구 간이 리포팅</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/report_00_preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="../docs/report_3_5_llm_reporting.html"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">LLM 기반 유망 연구 간이 리포팅</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">3-5) LLM 기반 유망 연구 간이 리포팅</span></h1>
+<h1 class="title"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">LLM 기반 유망 연구 간이 리포팅</span></h1>
 </div>
 
 
@@ -347,14 +379,14 @@ ul.task-list li input[type="checkbox"] {
 <p>과학기술 영역의 범위를 설정하고(또는 세분화하여) 관측하는 일은 계량서지학 분석의 핵심 선행 과제이며, 특히 다학제성과 확산성이 높은 영역에서는 범위 설정이 일관되기 어렵다. 이러한 전제에서 동일한 템플릿을 반복 적용해 클러스터 단위의 기술 정체성과 지표를 요약하는 접근은, 후보 간 비교 과정에서 범위·표현의 변동을 줄이는 실무적 절차로 해석할 수 있다.</p>
 <p>본 절은 전체 연구지형도 분석을 수행한 뒤, 유망영역으로 선정된 각 10영역 총 30개 클러스터를 더 자세히 살펴볼 수 있도록 “간이 리포팅”을 자동화하는 절차를 기술한다. 간이 리포트는 클러스터별로 그림을 포함해 약 10쪽 내외의 분량으로 구성되며, 핵심 지표·연결 구조·키워드·기관·정책부합성 정보를 동일한 양식으로 정리한다.</p>
 <p>간이 리포팅의 기반이 되는 수치·분포·시각화는 대부분 대시보드에서 확인할 수 있는 내용이며, 본 절은 이를 독자가 빠르게 읽을 수 있도록 서술형 텍스트와 표 중심으로 재구성한다. 대규모언어모델(LLM; large language model)은 이 과정에서 프롬프트(작성 지침)와 API 호출을 통해 문장 구성과 용어 설명을 보조하는 수준으로 활용되며, 기존 데이터에 “약간의 살을 덧대는” 역할에 머문다.</p>
-<section id="작성-방법론" class="level2" data-number="22.1">
-<h2 data-number="22.1" class="anchored" data-anchor-id="작성-방법론"><span class="header-section-number">22.1</span> 1. 작성 방법론</h2>
-<section id="입력-구성" class="level3">
-<h3 class="anchored" data-anchor-id="입력-구성">1.1 입력 구성</h3>
+<section id="작성-방법론" class="level2" data-number="23.1">
+<h2 data-number="23.1" class="anchored" data-anchor-id="작성-방법론"><span class="header-section-number">23.1</span> 작성 방법론</h2>
+<section id="입력-구성" class="level3" data-number="23.1.1">
+<h3 data-number="23.1.1" class="anchored" data-anchor-id="입력-구성"><span class="header-section-number">23.1.1</span> 1.1 입력 구성</h3>
 <p>간이 리포트는 클러스터별 문헌(제목+초록)과 메타데이터, 지표/키워드 통계, 지식기반 유사도·연결, 기관 분포 및 정책부합성(분류) 결과를 입력으로 한다. 자연어 서술(개요/기관 요약/정책부합성 해석/요약)은 구조화 입력 데이터에 포함된 텍스트·수치만 사용하도록 제한한다.</p>
 </section>
-<section id="출력-형식" class="level3">
-<h3 class="anchored" data-anchor-id="출력-형식">1.2 출력 형식</h3>
+<section id="출력-형식" class="level3" data-number="23.1.2">
+<h3 data-number="23.1.2" class="anchored" data-anchor-id="출력-형식"><span class="header-section-number">23.1.2</span> 1.2 출력 형식</h3>
 <p>모든 클러스터에 대해 동일한 구성으로 (가) 개요(기술 설명 + 측정 과학 관점 해석), (나) 클러스터 세부지표(문헌 수 추이 + 퍼센타일 + KRISS 기여), (다) 지식기반 인접 클러스터(EA/AA) 및 ego network, (라) 키워드 요약(워드클라우드 + 시계열 + 기간 요약), (마) 기관 분석(성과 표 + 기관별 초록 기반 요약), (바) 정책부합성(분포 + 해석 + 근거 예시), (사) 요약을 포함한다.</p>
 <p>Notes/약어집은 본문(1–6) 이후에 배치되는 말미 부록 성격의 구성요소로, 보고서 표현에서는 본문 번호 체계와 분리해 해석한다.</p>
 <table class="table">
@@ -409,8 +441,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="유형분류-프레임-고정" class="level3">
-<h3 class="anchored" data-anchor-id="유형분류-프레임-고정">1.3 유형(분류 프레임) 고정</h3>
+<section id="유형분류-프레임-고정" class="level3" data-number="23.1.3">
+<h3 data-number="23.1.3" class="anchored" data-anchor-id="유형분류-프레임-고정"><span class="header-section-number">23.1.3</span> 1.3 유형(분류 프레임) 고정</h3>
 <p>유형 코드는 내부에서만 사용하되, 보고서 표기에서는 “핵심 역량 / 확장 가능 / 역량 공백”의 3종 유형 라벨을 사용한다. 여기서 ’내부 지표 기준’은 본 보고서에서 정의한 유망성 지표(예: RTA, 문헌 수, 상위 10% 인용 논문 비중(Excellence10)) 조건을 의미하며, 세부 기준은 해당 절에서 제시한다. 각 유형 정의는 다음 1문장을 고정해 보고서 간 표현 변동을 최소화한다.</p>
 <ol type="1">
 <li>핵심 역량: 내부 지표 기준을 충족하는 유형.</li>
@@ -418,46 +450,46 @@ ul.task-list li input[type="checkbox"] {
 <li>역량 공백: 내부 지표 기준에서 상대적으로 부족 축이 표시된 유형.</li>
 </ol>
 </section>
-<section id="지식기반-인접-클러스터eaaa-정의-및-표기" class="level3">
-<h3 class="anchored" data-anchor-id="지식기반-인접-클러스터eaaa-정의-및-표기">1.4 지식기반 인접 클러스터(EA/AA) 정의 및 표기</h3>
+<section id="지식기반-인접-클러스터eaaa-정의-및-표기" class="level3" data-number="23.1.4">
+<h3 data-number="23.1.4" class="anchored" data-anchor-id="지식기반-인접-클러스터eaaa-정의-및-표기"><span class="header-section-number">23.1.4</span> 1.4 지식기반 인접 클러스터(EA/AA) 정의 및 표기</h3>
 <p>지식기반 유사도(예: 코사인 유사도) 임계값을 만족하는 인접 클러스터를 표·그래프로 제시한다. 임계값은 전 클러스터에 동일하게 적용해 비교 가능성을 유지한다.</p>
 <ol type="1">
 <li>EA(ego–alter): 현재 클러스터와 직접 연결된 이웃</li>
 <li>AA(alter–alter): EA를 따라 2단계로 연결되는 이웃(표에서는 중복 제거). 표는 중복 제거로 요약성을 확보하되, 그래프는 연결 구조의 맥락을 위해 연결 노드를 모두 표기할 수 있다.</li>
 </ol>
 </section>
-<section id="키워드-통계의-기본-단위문서-커버리지" class="level3">
-<h3 class="anchored" data-anchor-id="키워드-통계의-기본-단위문서-커버리지">1.5 키워드 통계의 기본 단위(문서 커버리지)</h3>
+<section id="키워드-통계의-기본-단위문서-커버리지" class="level3" data-number="23.1.5">
+<h3 data-number="23.1.5" class="anchored" data-anchor-id="키워드-통계의-기본-단위문서-커버리지"><span class="header-section-number">23.1.5</span> 1.5 키워드 통계의 기본 단위(문서 커버리지)</h3>
 <p>키워드 빈도는 동일 문서 내 다중 등장을 중복 계산하지 않는 “키워드 포함 문서 수(문서 커버리지)”를 기본 단위로 사용한다. 연도별 비율(%)은 “해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수”로 정의한다.</p>
 </section>
-<section id="대표-키워드-score간략-정의" class="level3">
-<h3 class="anchored" data-anchor-id="대표-키워드-score간략-정의">1.6 대표 키워드 score(간략 정의)</h3>
+<section id="대표-키워드-score간략-정의" class="level3" data-number="23.1.6">
+<h3 data-number="23.1.6" class="anchored" data-anchor-id="대표-키워드-score간략-정의"><span class="header-section-number">23.1.6</span> 1.6 대표 키워드 score(간략 정의)</h3>
 <p>score는 클러스터 내 용어의 대표성을 나타내는 점수로, 클래스 기반 TF-IDF(c‑TF‑IDF; class-based term frequency–inverse document frequency) 및 로그우도비(LLR; log-likelihood ratio) 기반 통계량을 표준화한 뒤 가중 결합해 산출한다. 자세한 산출 방식은 본 보고서(분야별 상세 리포팅)를 참고한다.</p>
 </section>
-<section id="기관-분석두-단계-및-대상-기관-선정-규칙" class="level3">
-<h3 class="anchored" data-anchor-id="기관-분석두-단계-및-대상-기관-선정-규칙">1.7 기관 분석(두 단계) 및 대상 기관 선정 규칙</h3>
+<section id="기관-분석두-단계-및-대상-기관-선정-규칙" class="level3" data-number="23.1.7">
+<h3 data-number="23.1.7" class="anchored" data-anchor-id="기관-분석두-단계-및-대상-기관-선정-규칙"><span class="header-section-number">23.1.7</span> 1.7 기관 분석(두 단계) 및 대상 기관 선정 규칙</h3>
 <p>기관 분석은 (가) 기관 성과 지표 표와 (나) 기관별 초록 기반 요약으로 구성한다. 기관별 초록 기반 요약은 최근 5개년(예: 2020–2024) 기준으로 RTA 및 문헌 수 조건을 만족하는 기관을 포함하고, KRISS는 항상 포함한다. 요약문에는 수치를 “참고 정보”로만 1회 언급하며, 과도한 해석·추론을 피한다.</p>
 </section>
-<section id="정책부합성-표현-원칙분포-요약-중심" class="level3">
-<h3 class="anchored" data-anchor-id="정책부합성-표현-원칙분포-요약-중심">1.8 정책부합성 표현 원칙(분포 요약 중심)</h3>
+<section id="정책부합성-표현-원칙분포-요약-중심" class="level3" data-number="23.1.8">
+<h3 data-number="23.1.8" class="anchored" data-anchor-id="정책부합성-표현-원칙분포-요약-중심"><span class="header-section-number">23.1.8</span> 1.8 정책부합성 표현 원칙(분포 요약 중심)</h3>
 <p>정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포 요약이다. 비율/건수 제시를 중심으로 하며, 표본이 희소하거나 분류된 문헌 수가 0인 경우에는 해석을 보류하고 “분류 기준/표본 범위 점검”의 검토 포인트만 제시한다. 근거 예시는 초록에서 1–2문장 발췌로 압축하되, 형식 안정화를 위해 규칙 기반 렌더링으로 출력 형식을 고정한다.</p>
 </section>
-<section id="llm-기반-서술의-범위-제한" class="level3">
-<h3 class="anchored" data-anchor-id="llm-기반-서술의-범위-제한">1.9 LLM 기반 서술의 범위 제한</h3>
+<section id="llm-기반-서술의-범위-제한" class="level3" data-number="23.1.9">
+<h3 data-number="23.1.9" class="anchored" data-anchor-id="llm-기반-서술의-범위-제한"><span class="header-section-number">23.1.9</span> 1.9 LLM 기반 서술의 범위 제한</h3>
 <p>LLM은 (가) 기술 개요/측정 과학 관점 해석, (나) 기관별 초록 기반 요약, (다) 정책부합성 해석, (라) 3문단 요약 등 제한된 구간에서만 사용한다. 숫자·표·분포·발췌문은 가능한 한 규칙 기반으로 삽입하여, LLM이 수치나 근거를 새로 생성하는 경로를 차단한다.</p>
 </section>
-<section id="llm-서술-품질안전장치" class="level3">
-<h3 class="anchored" data-anchor-id="llm-서술-품질안전장치">1.10 LLM 서술 품질·안전장치</h3>
+<section id="llm-서술-품질안전장치" class="level3" data-number="23.1.10">
+<h3 data-number="23.1.10" class="anchored" data-anchor-id="llm-서술-품질안전장치"><span class="header-section-number">23.1.10</span> 1.10 LLM 서술 품질·안전장치</h3>
 <p>LLM 적용 구간에서는 다음 원칙을 강제한다.</p>
 <p>① 입력 밖 생성 금지(수치·기관·정책 배경·표준·문헌정보) ② 과도한 전략·처방형 어휘 금지(“필수/선점/즉시” 등) ③ 내부 식별자(필드명/변수명) 비노출 ④ 약어 표기 정책(후처리로 일관화) ⑤ 모델 호출이 제한되면 템플릿/규칙 기반 문구로 대체.</p>
 </section>
 </section>
-<section id="llm-기반-자동화-절차와-한계" class="level2" data-number="22.2">
-<h2 data-number="22.2" class="anchored" data-anchor-id="llm-기반-자동화-절차와-한계"><span class="header-section-number">22.2</span> 2. LLM 기반 자동화 절차와 한계</h2>
+<section id="llm-기반-자동화-절차와-한계" class="level2" data-number="23.2">
+<h2 data-number="23.2" class="anchored" data-anchor-id="llm-기반-자동화-절차와-한계"><span class="header-section-number">23.2</span> LLM 기반 자동화 절차와 한계</h2>
 <p>간이 리포팅에서 LLM은 대시보드·분석 결과를 문장화하여 가독성을 높이는 도구로 제한적으로 사용한다. 프롬프팅을 통해 환각효과를 최대한 억제할 수는 있으나, 모델 특유의 어투나 일부 환각 가능성이 존재한다는 한계가 있다. 또한 제목과 초록 중심 입력에 기반하므로 전체 본문 맥락(실험 조건, 비교 방법, 한계 등)이 충분히 반영되지 않을 수 있다. 정책부합성 역시 문헌(제목+초록) 기반 분류 결과의 분포 요약이므로, 분류 기준·복수 라벨 처리·표본 범위에 따라 결과가 달라질 수 있다. 따라서 간이 리포트는 대시보드에서 확인 가능한 근거를 빠르게 훑기 위한 보조 자료로 사용하고, 결론·처방을 직접 도출하는 용도로 사용하지 않는다.</p>
 </section>
-<section id="유형별-독해-가이드" class="level2" data-number="22.3">
-<h2 data-number="22.3" class="anchored" data-anchor-id="유형별-독해-가이드"><span class="header-section-number">22.3</span> 3. 유형별 독해 가이드</h2>
+<section id="유형별-독해-가이드" class="level2" data-number="23.3">
+<h2 data-number="23.3" class="anchored" data-anchor-id="유형별-독해-가이드"><span class="header-section-number">23.3</span> 유형별 독해 가이드</h2>
 <p>간이 리포트는 유형 라벨(핵심 역량/확장 가능/역량 공백)에 따라 읽어야 할 포인트가 달라진다.</p>
 <p>핵심 역량 유형에서는 개요 서술이 기술 정체성을 명확히 설명하는지와 함께, 지표 퍼센타일의 상대적 위치를 절대평가 없이 확인한다. EA/AA 연결 구조와 최근 10년 키워드 요약을 통해 지식기반 인접 영역을 파악하되, 기관/정책 항목은 표본 수가 작을 수 있음을 전제로 단정적 해석을 피한다.</p>
 <p>확장 가능 유형에서는 핵심 역량과의 인접성(EA/AA)과 함께, 키워드·기관·정책 분포가 어떤 축으로 분화되어 나타나는지 점검한다. 특히 기관별 요약에서 구현 조건(온도·구동·보정 등)과 측정 목표가 어떻게 정렬되는지 확인하되, “가능성”을 우선순위나 처방으로 해석하지 않는다.</p>
@@ -856,13 +888,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/report_3_4_databook_dashboard.html" class="pagination-link" aria-label="3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">3-4) 포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span>
+      <a href="../docs/report_3_4_databook_dashboard.html" class="pagination-link" aria-label="포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">포트폴리오 탐색 및 모니터링을 위한 데이터북 및 대시보드 구축</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/appendix_detailed_reporting.html" class="pagination-link" aria-label="Detailed Reporting Appendix / 상세 리포팅 부록">
-        <span class="nav-page-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Detailed Reporting Appendix / 상세 리포팅 부록</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/keyword_trends.html" class="pagination-link" aria-label="Keyword Trend Explorer / 키워드 추세 탐색기">
+        <span class="nav-page-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
