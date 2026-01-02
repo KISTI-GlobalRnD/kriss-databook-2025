@@ -2,6 +2,7 @@
 title: "Keyword Trend Explorer / 키워드 추세 탐색기"
 description: "Interactive plot of top-ranked keywords by research cluster and metric."
 page-title: false
+numbered: false
 ---
 
 # Keyword Trend Explorer / 키워드 추세 탐색기

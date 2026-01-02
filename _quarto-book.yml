@@ -10,8 +10,10 @@ project:
     - docs/detailed_reports/*/report.qmd
     - docs/appendix.qmd
   resources:
+    - docs/assets/**
     - "Final_Report_MD/최종보고서 내용/*.png"
     - "Final_Report_MD/최종보고서 내용/*.xlsx"
+    - theme/**
 
 book:
   title: "KRISS 표준과학 연구 데이터북 (Book)"
@@ -32,26 +34,31 @@ book:
     - part: "데이터북 / Databook"
       chapters:
         - docs/report_00_preface.qmd
+        - docs/report_1_overview.qmd
         - docs/report_1_1_data_build.qmd
         - docs/report_1_2_1_global_landscape.qmd
         - docs/report_1_2_2_leiden_clustering.qmd
         - docs/report_1_2_3_kriss_division_mapping.qmd
         - docs/report_1_2_4_keywords_timeseries.qmd
-        - docs/keyword_trends.qmd
         - docs/report_1_2_5_landscape_visualization.qmd
-        - docs/vosviewer_explorer.qmd
+        - docs/report_2_overview.qmd
         - docs/report_2_1_org_country_standardization.qmd
         - docs/report_2_2_benchmark_institutions.qmd
         - docs/report_2_3_collaboration_network.qmd
         - docs/report_2_4_1_country_performance.qmd
         - docs/report_2_4_2_institution_performance.qmd
         - docs/report_2_4_3_policy_alignment.qmd
+        - docs/report_3_overview.qmd
         - docs/report_3_1_portfolio_capability.qmd
         - docs/report_3_2_emerging_candidates.qmd
         - docs/report_3_3_1_emergence_indicators.qmd
         - docs/report_3_3_2_emergence_scoring.qmd
         - docs/report_3_4_databook_dashboard.qmd
         - docs/report_3_5_llm_reporting.qmd
+    - part: "인터랙티브 도구 / Tools"
+      chapters:
+        - docs/keyword_trends.qmd
+        - docs/vosviewer_explorer.qmd
     - part: "부록 / Appendix"
       chapters:
         - docs/appendix_detailed_reporting.qmd
@@ -77,7 +84,16 @@ format:
     toc: true
     toc-depth: 3
     number-sections: true
-    number-depth: 2
+    number-depth: 3
     code-copy: true
     anchor-sections: true
     fig-responsive: true
+    html-math-method:
+      method: mathjax
+      options:
+        tags: all
+    include-in-header:
+      - text: |
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" />
+          <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer></script>
+          <script src="docs/assets/js/datatable-init.js" defer></script>

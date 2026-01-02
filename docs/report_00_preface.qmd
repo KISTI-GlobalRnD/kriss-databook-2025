@@ -1,4 +1,8 @@
-# 서문 / Preface
+---
+title: "서문 / Preface"
+numbered: false
+page-title: false
+---
 
 **빅데이터 기반 표준연구 기관 성과분석 및 유망연구영역 도출**
 

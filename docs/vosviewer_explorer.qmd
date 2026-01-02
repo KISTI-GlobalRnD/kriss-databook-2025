@@ -2,6 +2,7 @@
 title: "Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)"
 description: "Interactive maps of the standard-science research landscape."
 page-title: false
+numbered: false
 ---
 
 # Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)
@@ -40,4 +41,3 @@ page-title: false
   referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 :::
-
