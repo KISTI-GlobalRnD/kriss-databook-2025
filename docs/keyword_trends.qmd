@@ -132,6 +132,7 @@ generated after term canonicalisation.
   const metricKey = "doc_coverage_year_val";
   const metricLabel = "Documents (year)";
   const maxSparklines = 40;
+  const defaultVisibleTerms = 5;
 
   function cleanText(value) {
     if (value === null || value === undefined) {
@@ -185,7 +186,7 @@ generated after term canonicalisation.
       rowsByTerm.set(row.term, termRows);
     });
 
-    const traces = [];
+    const termSeries = [];
     rowsByTerm.forEach((termRows, term) => {
       const sorted = termRows
         .filter(r => r.year !== null && r.year !== undefined && !Number.isNaN(r.year))
@@ -193,6 +194,18 @@ generated after term canonicalisation.
       if (!sorted.length) {
         return;
       }
+      termSeries.push({
+        term,
+        rows: sorted,
+        score: sorted[0].score ?? null
+      });
+    });
+
+    termSeries.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
+
+    const traces = [];
+    termSeries.forEach((series, index) => {
+      const { term, rows: sorted } = series;
       traces.push({
         name: term,
         x: sorted.map(r => r.year),
@@ -215,6 +228,7 @@ generated after term canonicalisation.
           return [term, r.score ?? null, r.frequency ?? null, r.doc_coverage ?? null, clusterDocsYear, share];
         }),
         mode: "lines+markers",
+        visible: index < defaultVisibleTerms ? true : "legendonly",
         line: { width: 2 },
         marker: { size: 6 }
       });
@@ -251,12 +265,13 @@ generated after term canonicalisation.
       },
       legend: {
         orientation: "h",
-        yanchor: "bottom",
-        y: -0.2,
-        xanchor: "center",
-        x: 0.5
+        yanchor: "top",
+        y: -0.25,
+        xanchor: "left",
+        x: 0,
+        font: { size: 12 }
       },
-      margin: { l: 70, r: 30, t: 60, b: 80 },
+      margin: { l: 70, r: 30, t: 60, b: 140 },
       hoverlabel: { bgcolor: "#343a40", font: { color: "#fff" } }
     };
 
