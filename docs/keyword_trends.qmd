@@ -1,6 +1,6 @@
 ---
 title: "Keyword Trend Explorer / 키워드 추세 탐색기"
-description: "Interactive plot of top-ranked keywords by research cluster and metric."
+description: "Interactive plot of top-ranked keywords by research cluster over time."
 page-title: false
 numbered: false
 ---
@@ -8,14 +8,14 @@ numbered: false
 # Keyword Trend Explorer / 키워드 추세 탐색기
 
 Interactively inspect how the highest-ranked keywords evolve across years for each research cluster.
-Use the selectors to switch between clusters and metrics while the legend lets you toggle individual
-keyword curves on and off. All data are sourced from the comprehensive keyword time-series dataset
+Use the selector to switch between clusters while the legend lets you toggle individual keyword curves
+on and off. All data are sourced from the comprehensive keyword time-series dataset
 generated after term canonicalisation.
 
 ::: callout-tip
-모든 곡선은 토큰 기반 비중(PPM; parts-per-million)을 나타냅니다. 포인트에 마우스를 올리면 각 용어의
-점수(c‑TF‑IDF), 총 등장 빈도(토큰 수), 문서 커버리지(해당 용어가 1회 이상 등장한 문서 수)를 함께 확인할
-수 있습니다.
+모든 곡선은 연도·클러스터 단위에서 해당 키워드가 1회 이상 등장한 **문헌 수(문서 커버리지)**를 나타냅니다.
+포인트에 마우스를 올리면 각 용어의 점수(c‑TF‑IDF), 총 등장 빈도(토큰 수), 전체 기간 문서 커버리지(한 문서당 최대 1회),
+그리고 해당 연도의 클러스터 문헌 수(분모) 등을 함께 확인할 수 있습니다.
 :::
 
 <style>
@@ -100,11 +100,12 @@ generated after term canonicalisation.
 <div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;"></div>
 <div class="keyword-timeseries-meta" id="keyword-timeseries-meta"></div>
 <div class="keyword-timeseries-defs">
-  <p><strong>Token Share (PPM)</strong> · Parts per million of the cluster’s total unigram tokens for each term-year pair. \( \mathrm{PPM}_{c,y}(t) = 10^{6} \cdot \frac{n_{c,y}(t)}{N_{c,y}} \)</p>
+  <p><strong>Documents (year)</strong> · Number of documents in the selected cluster-year that mention the term at least once.</p>
+  <p><strong>Cluster Documents (year)</strong> · Total number of documents in the selected cluster-year (context for the document counts).</p>
   <p><strong>Score</strong> · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).</p>
   <p><strong>Frequency</strong> · Total token occurrences of the keyword within the cluster (aggregated across the full period).</p>
   <p><strong>Document Coverage</strong> · Number of documents within the cluster that mention the keyword at least once (aggregated across the full period).</p>
-  <p><em>Score</em>, <em>Frequency</em>, and <em>Document Coverage</em> appear inside the hover tooltips for each point.</p>
+  <p><em>Score</em>, <em>Frequency</em>, <em>Document Coverage</em>, and cluster-year document totals appear inside the hover tooltips for each point.</p>
 </div>
 </div>
 
@@ -128,8 +129,8 @@ generated after term canonicalisation.
   const metaEl = document.getElementById("keyword-timeseries-meta");
   const sparklinesEl = document.getElementById("keyword-timeseries-sparklines");
 
-  const metricKey = "ppm_series_val";
-  const metricLabel = "Token Share (PPM)";
+  const metricKey = "doc_coverage_year_val";
+  const metricLabel = "Documents (year)";
   const maxSparklines = 40;
 
   function cleanText(value) {
@@ -199,11 +200,20 @@ generated after term canonicalisation.
         hovertemplate:
           "<b>%{customdata[0]}</b><br>" +
           "Year: %{x}<br>" +
-          "Token Share (PPM): %{y:.2f}<br>" +
+          "Documents (year): %{y:,.0f}<br>" +
+          "Cluster docs (year): %{customdata[4]:,.0f}<br>" +
+          "Share of cluster-year docs: %{customdata[5]:.1%}<br>" +
           "Score: %{customdata[1]:.3f}<br>" +
           "Frequency (tokens): %{customdata[2]:,.0f}<br>" +
-          "Document coverage: %{customdata[3]:,.0f}<extra></extra>",
-        customdata: sorted.map(r => [term, r.score ?? null, r.frequency ?? null, r.doc_coverage ?? null]),
+          "Document coverage (total): %{customdata[3]:,.0f}<extra></extra>",
+        customdata: sorted.map(r => {
+          const docCountYear = r[metricKey];
+          const clusterDocsYear = r.cluster_year_docs ?? null;
+          const share = Number.isFinite(docCountYear) && Number.isFinite(clusterDocsYear) && clusterDocsYear > 0
+            ? docCountYear / clusterDocsYear
+            : null;
+          return [term, r.score ?? null, r.frequency ?? null, r.doc_coverage ?? null, clusterDocsYear, share];
+        }),
         mode: "lines+markers",
         line: { width: 2 },
         marker: { size: 6 }
@@ -236,7 +246,8 @@ generated after term canonicalisation.
       yaxis: {
         title: metricLabel,
         rangemode: "tozero",
-        hoverformat: ".2f"
+        tickformat: ",.0f",
+        hoverformat: ",.0f"
       },
       legend: {
         orientation: "h",
@@ -324,7 +335,7 @@ generated after term canonicalisation.
       const svg = d3.create("svg")
         .attr("viewBox", "0 0 320 70")
         .attr("role", "img")
-        .attr("aria-label", `${term} document share trend`);
+        .attr("aria-label", `${term} document count trend`);
 
       const margin = { top: 8, right: 48, bottom: 16, left: 48 };
       const width = 320 - margin.left - margin.right;
@@ -337,12 +348,12 @@ generated after term canonicalisation.
         ])
         .range([0, width]);
 
-      const ppmValues = rows
+      const metricValues = rows
         .map(r => r[metricKey])
         .filter(value => Number.isFinite(value));
 
-      const minVal = d3.min(ppmValues);
-      const maxVal = d3.max(ppmValues);
+      const minVal = d3.min(metricValues);
+      const maxVal = d3.max(metricValues);
       const padding = (maxVal - minVal) * 0.1 || (maxVal || 1) * 0.1;
       const y = d3.scaleLinear()
         .domain([
@@ -389,8 +400,12 @@ generated after term canonicalisation.
         .attr("r", 3.5)
         .attr("fill", "#4C72B0");
 
-      const firstValue = Number.isFinite(first[metricKey]) ? first[metricKey].toFixed(2) : "-";
-      const lastValue = Number.isFinite(last[metricKey]) ? last[metricKey].toFixed(2) : "-";
+      const firstValue = Number.isFinite(first[metricKey])
+        ? Math.round(first[metricKey]).toLocaleString()
+        : "-";
+      const lastValue = Number.isFinite(last[metricKey])
+        ? Math.round(last[metricKey]).toLocaleString()
+        : "-";
 
       chart.append("text")
         .attr("x", x(first.year) - 6)
@@ -487,6 +502,10 @@ generated after term canonicalisation.
         row.score = row.score ? Number.parseFloat(row.score) : null;
         row.ppm_series_val = row.ppm_series_val ? Number.parseFloat(row.ppm_series_val) : null;
         row.frequency = row.frequency ? Number.parseFloat(row.frequency) : null;
+        row.doc_coverage = row.doc_coverage ? Number.parseFloat(row.doc_coverage) : null;
+        row.doc_coverage_year_val = row.doc_coverage_year_val ? Number.parseFloat(row.doc_coverage_year_val) : null;
+        row.cluster_year_docs = row.cluster_year_docs ? Number.parseFloat(row.cluster_year_docs) : null;
+        row.doc_ppm_series_val = row.doc_ppm_series_val ? Number.parseFloat(row.doc_ppm_series_val) : null;
 
         if (!Number.isFinite(row.cluster_id)) {
           return;
