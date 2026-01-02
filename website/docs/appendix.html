@@ -480,15 +480,15 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>c‑TF‑IDF (Class‑based TF‑IDF)</strong>: 문서 단위가 아닌 “클러스터(=class) 단위”로 문서‑용어 행렬을 집계한 뒤 TF‑IDF를 계산하는 가중화 방식. 클러스터를 대표하면서도 다른 클러스터와 구분되는 용어를 상위로 선별하는 데 적합하다.</li>
 <li><strong>LLR (Log‑Likelihood Ratio)</strong>: 특정 용어가 “특정 클러스터에서 유의하게 더 많이 나타나는가”를 평가하기 위한 변별력 지표. 클러스터 내부 vs.&nbsp;나머지 코퍼스의 2×2 분할표로 계산할 수 있다.</li>
 <li><strong>MMR (Maximal Marginal Relevance)</strong>: 랭킹에서의 관련성(relevance)과 다양성(diversity)을 함께 고려해 중복을 줄이는 선택 기법.</li>
-<li><strong>PPM (Parts per million)</strong>: 시계열 정규화에서 사용되는 비중 표현. 본 데이터북에서는 “연도·클러스터 단위의 전체 unigram 토큰 수”를 분모로 하는 토큰 기반 PPM을 기본으로 사용한다.</li>
+<li><strong>PPM (Parts per million)</strong>: 시계열 정규화에서 사용되는 비중 표현(값을 (10^{6}) 스케일로 변환). 본 데이터북의 키워드 추세 탐색기에서는 “연도·클러스터 단위의 문헌 수(문서 커버리지)”를 기본 지표로 제공하며, 필요 시 문서/토큰 기반 비중을 보조 지표로 활용할 수 있다.</li>
 <li><strong>Frequency (token frequency)</strong>: 클러스터 내 총 토큰 등장 횟수(동일 문서 내 반복 등장까지 누적).</li>
 <li><strong>Document coverage</strong>: 해당 용어가 1회 이상 등장한 문서의 개수(한 문서당 최대 1회로 카운트).</li>
 </ul>
 </section>
 <section id="시계열-지표-해석-interpreting-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="시계열-지표-해석-interpreting-time-series">시계열 지표 해석 / Interpreting Time Series</h2>
-<p>키워드 시계열은 연도 (y), 클러스터 (c)에서 용어 (t)의 토큰 등장 수 (n_{c,y}(t))를 집계한 뒤, 동일 연도·클러스터의 전체 unigram 토큰 수 (N_{c,y})로 정규화하여 PPM으로 표현한다. [ _{c,y}(t)=10^{6} ]</p>
-<p>PPM은 “문서 수 비중”이 아니라 “토큰 비중”이므로, 특정 문서에서 동일 용어의 반복 사용이 잦은 경우 상대적으로 큰 값이 관측될 수 있다. 따라서 (i) 동일 클러스터 내 연도별 변화(추세)에 대한 해석을 우선하고, (ii) 필요 시 문서 기반 지표(문서 커버리지 기반 비중)를 병행하여 해석하는 것이 바람직하다.</p>
+<p>키워드 시계열은 연도 (y), 클러스터 (c)에서 용어 (t)가 1회 이상 등장한 문헌 수(연도별 문서 커버리지)를 집계한 값으로 해석할 수 있다. [ doc_cov_{c,y}(t)=<em>{d</em>{c,y}} {t d} ]</p>
+<p>(<em>{c,y})는 연도 (y)에 클러스터 (c)에 속한 문헌 집합, ({t d})는 문헌 (d)에서 용어 (t)가 1회 이상 등장하면 1, 그렇지 않으면 0을 갖는 지시함수이다. 문헌량의 연도별 변동을 통제하고자 할 경우, (D</em>{c,y}=|_{c,y}|)로 나눈 문서 기반 비중 ()를 함께 고려할 수 있다. 또한 특정 분석 목적(예: 텍스트에서의 강조 정도)을 위해 토큰 기반 비중(PPM)을 보조 지표로 사용할 수 있다.</p>
 </section>
 <section id="참고문헌-references" class="level2">
 <h2 class="anchored" data-anchor-id="참고문헌-references">참고문헌 / References</h2>
