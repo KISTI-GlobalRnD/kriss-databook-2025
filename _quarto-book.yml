@@ -21,7 +21,7 @@ book:
   sidebar:
     style: floating
     search: true
-    collapse-level: 2
+    collapse-level: 3
     tools:
       - icon: browser
         text: "웹 버전 보기"
@@ -31,9 +31,9 @@ book:
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
   chapters:
     - index.qmd
-    - part: "데이터북 / Databook"
+    - docs/report_00_preface.qmd
+    - part: "1. 문헌 집합 및 연구지형도 구축"
       chapters:
-        - docs/report_00_preface.qmd
         - docs/report_1_overview.qmd
         - docs/report_1_1_data_build.qmd
         - docs/report_1_2_1_global_landscape.qmd
@@ -41,6 +41,8 @@ book:
         - docs/report_1_2_3_kriss_division_mapping.qmd
         - docs/report_1_2_4_keywords_timeseries.qmd
         - docs/report_1_2_5_landscape_visualization.qmd
+    - part: "2. 기관 연구역량 진단"
+      chapters:
         - docs/report_2_overview.qmd
         - docs/report_2_1_org_country_standardization.qmd
         - docs/report_2_2_benchmark_institutions.qmd
@@ -48,6 +50,8 @@ book:
         - docs/report_2_4_1_country_performance.qmd
         - docs/report_2_4_2_institution_performance.qmd
         - docs/report_2_4_3_policy_alignment.qmd
+    - part: "3. 유망 연구영역 도출"
+      chapters:
         - docs/report_3_overview.qmd
         - docs/report_3_1_portfolio_capability.qmd
         - docs/report_3_2_emerging_candidates.qmd

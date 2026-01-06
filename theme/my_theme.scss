@@ -219,4 +219,11 @@ table caption {
   caption-side: bottom;
 }
 
+// --- Sidebar width ---
+// Widen the left sidebar (toc/navigation) to reduce truncation / horizontal scrolling.
+@media (min-width: 992px) {
+  #quarto-sidebar .sidebar-menu-container {
+    min-width: 320px;
+  }
+}
 

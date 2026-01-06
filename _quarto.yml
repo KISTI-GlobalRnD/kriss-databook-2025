@@ -24,7 +24,7 @@ website:
     style: floating
     search: true
     border: true
-    collapse-level: 2
+    collapse-level: 3
     tools:
       - icon: book
         text: "북 버전 보기"
@@ -38,24 +38,39 @@ website:
       - section: "데이터북 / Databook"
         contents:
           - docs/report_00_preface.qmd
-          - docs/report_1_1_data_build.qmd
-          - docs/report_1_2_1_global_landscape.qmd
-          - docs/report_1_2_2_leiden_clustering.qmd
-          - docs/report_1_2_3_kriss_division_mapping.qmd
-          - docs/report_1_2_4_keywords_timeseries.qmd
-          - docs/report_1_2_5_landscape_visualization.qmd
-          - docs/report_2_1_org_country_standardization.qmd
-          - docs/report_2_2_benchmark_institutions.qmd
-          - docs/report_2_3_collaboration_network.qmd
-          - docs/report_2_4_1_country_performance.qmd
-          - docs/report_2_4_2_institution_performance.qmd
-          - docs/report_2_4_3_policy_alignment.qmd
-          - docs/report_3_1_portfolio_capability.qmd
-          - docs/report_3_2_emerging_candidates.qmd
-          - docs/report_3_3_1_emergence_indicators.qmd
-          - docs/report_3_3_2_emergence_scoring.qmd
-          - docs/report_3_4_databook_dashboard.qmd
-          - docs/report_3_5_llm_reporting.qmd
+          - section: "1. 문헌 집합 및 연구지형도 구축"
+            contents:
+              - docs/report_1_overview.qmd
+              - docs/report_1_1_data_build.qmd
+              - section: "1-2. 연구지형도 구축 및 해석"
+                contents:
+                  - docs/report_1_2_1_global_landscape.qmd
+                  - docs/report_1_2_2_leiden_clustering.qmd
+                  - docs/report_1_2_3_kriss_division_mapping.qmd
+                  - docs/report_1_2_4_keywords_timeseries.qmd
+                  - docs/report_1_2_5_landscape_visualization.qmd
+          - section: "2. 기관 연구역량 진단"
+            contents:
+              - docs/report_2_overview.qmd
+              - docs/report_2_1_org_country_standardization.qmd
+              - docs/report_2_2_benchmark_institutions.qmd
+              - docs/report_2_3_collaboration_network.qmd
+              - section: "2-4. 성과·정책부합성 비교"
+                contents:
+                  - docs/report_2_4_1_country_performance.qmd
+                  - docs/report_2_4_2_institution_performance.qmd
+                  - docs/report_2_4_3_policy_alignment.qmd
+          - section: "3. 유망 연구영역 도출"
+            contents:
+              - docs/report_3_overview.qmd
+              - docs/report_3_1_portfolio_capability.qmd
+              - docs/report_3_2_emerging_candidates.qmd
+              - section: "3-3. 유망성 지표·점수"
+                contents:
+                  - docs/report_3_3_1_emergence_indicators.qmd
+                  - docs/report_3_3_2_emergence_scoring.qmd
+              - docs/report_3_4_databook_dashboard.qmd
+              - docs/report_3_5_llm_reporting.qmd
       - section: "인터랙티브 도구 / Tools"
         contents:
           - docs/keyword_trends.qmd

@@ -17,7 +17,10 @@ numbered: false
 :::
 
 ::: {.panel-tabset}
-## 표준과학 연구지형도
+## 연구지형도 / Landscape
+
+::: {.panel-tabset}
+### 표준과학 연구지형도
 
 <p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1Lcm9LnGJYKEK0jgJB1WcwDol5gcdbd9r" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
 
@@ -29,7 +32,7 @@ numbered: false
   referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
 
-## 글로벌 연구지형도
+### 글로벌 연구지형도
 
 <p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D14b6CQcJ0OS6wdA1qolCdLLLKi1tHYIR3" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
 
@@ -40,4 +43,69 @@ numbered: false
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade"
 ></iframe>
+:::
+
+## 협력 네트워크 / Collaboration Network
+
+::: {.panel-tabset}
+### 표준과학 전영역
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw"
+  title="표준과학 전영역 협력 네트워크 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+### 물리측정 영역
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HCzWTCSrE7yfSh_Ksi_QdryFsRdK6Mg-" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HCzWTCSrE7yfSh_Ksi_QdryFsRdK6Mg-"
+  title="물리측정 영역 협력 네트워크 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+### 화학소재측정 영역
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1N2RfNURIGNDnIrJXqs87dol4mKMYLhTR" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1N2RfNURIGNDnIrJXqs87dol4mKMYLhTR"
+  title="화학소재측정 영역 협력 네트워크 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+### 바이오의료측정 영역
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SnjTp57fg3N6pXm1yiEJo57sg0TddWF5" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SnjTp57fg3N6pXm1yiEJo57sg0TddWF5"
+  title="바이오의료측정 영역 협력 네트워크 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+
+### 양자기술 영역
+
+<p><a href="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1zKWEwz3MisYMVzhz10WMRBryvaF_w6Ao" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1zKWEwz3MisYMVzhz10WMRBryvaF_w6Ao"
+  title="양자기술 영역 협력 네트워크 (VOSviewer)"
+  style="width: 100%; height: 840px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
+:::
 :::
