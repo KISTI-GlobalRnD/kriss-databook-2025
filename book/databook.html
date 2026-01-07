@@ -95,10 +95,33 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" aria-current="page"> 
 <span class="menu-text">홈 / Home</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/databook.html"> 
-<span class="menu-text">데이터북 / Databook</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">데이터북 / Databook</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
+        <li>
+    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/databook.html">
+ <span class="dropdown-text">데이터북 (통합)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/databook.html#preface">
+ <span class="dropdown-text">서문 / Preface</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/databook.html#part-1-landscape">
+ <span class="dropdown-text">문헌 집합 및 연구지형도 구축</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/databook.html#part-2-capability">
+ <span class="dropdown-text">기관 연구역량 진단</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/databook.html#part-3-emerging">
+ <span class="dropdown-text">유망 연구영역 도출</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">인터랙티브 도구 / Tools</span>
@@ -190,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#서문-preface" id="toc-서문-preface" class="nav-link active" data-scroll-target="#서문-preface">서문 / Preface</a>
+  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">서문 / Preface</a>
   <ul class="collapse">
   <li><a href="#요약문" id="toc-요약문" class="nav-link" data-scroll-target="#요약문"><span class="header-section-number">2.1</span> 요약문</a>
   <ul class="collapse">
@@ -200,7 +223,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#iv.-연구개발결과의-활용계획" id="toc-iv.-연구개발결과의-활용계획" class="nav-link" data-scroll-target="#iv.-연구개발결과의-활용계획"><span class="header-section-number">2.1.4</span> IV. 연구개발결과의 활용계획</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#문헌-집합-및-연구지형도-구축" id="toc-문헌-집합-및-연구지형도-구축" class="nav-link" data-scroll-target="#문헌-집합-및-연구지형도-구축"><span class="header-section-number">3</span> 문헌 집합 및 연구지형도 구축</a>
+  <li><a href="#part-1-landscape" id="toc-part-1-landscape" class="nav-link" data-scroll-target="#part-1-landscape"><span class="header-section-number">3</span> 문헌 집합 및 연구지형도 구축</a>
   <ul class="collapse">
   <li><a href="#표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" id="toc-표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" class="nav-link" data-scroll-target="#표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축"><span class="header-section-number">3.1</span> 표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</a></li>
   <li><a href="#글로벌-표준과학-연구-영역-모니터링을-위한-web-of-science-기반-분석용-문헌-데이터-구축" id="toc-글로벌-표준과학-연구-영역-모니터링을-위한-web-of-science-기반-분석용-문헌-데이터-구축" class="nav-link" data-scroll-target="#글로벌-표준과학-연구-영역-모니터링을-위한-web-of-science-기반-분석용-문헌-데이터-구축"><span class="header-section-number">3.2</span> 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</a>
@@ -214,7 +237,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#클러스터-기반-키워드-추출-및-시계열-분석" id="toc-클러스터-기반-키워드-추출-및-시계열-분석" class="nav-link" data-scroll-target="#클러스터-기반-키워드-추출-및-시계열-분석"><span class="header-section-number">3.6</span> 클러스터 기반 키워드 추출 및 시계열 분석</a></li>
   <li><a href="#표준과학-연구지형도-시각화" id="toc-표준과학-연구지형도-시각화" class="nav-link" data-scroll-target="#표준과학-연구지형도-시각화"><span class="header-section-number">3.7</span> 표준과학 연구지형도 시각화</a></li>
   </ul></li>
-  <li><a href="#기관-연구역량-진단" id="toc-기관-연구역량-진단" class="nav-link" data-scroll-target="#기관-연구역량-진단"><span class="header-section-number">4</span> 기관 연구역량 진단</a>
+  <li><a href="#part-2-capability" id="toc-part-2-capability" class="nav-link" data-scroll-target="#part-2-capability"><span class="header-section-number">4</span> 기관 연구역량 진단</a>
   <ul class="collapse">
   <li><a href="#기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석" id="toc-기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석" class="nav-link" data-scroll-target="#기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석"><span class="header-section-number">4.1</span> 기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</a></li>
   <li><a href="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" id="toc-표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" class="nav-link" data-scroll-target="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계"><span class="header-section-number">4.2</span> 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</a></li>
@@ -224,7 +247,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석" id="toc-표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석" class="nav-link" data-scroll-target="#표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석"><span class="header-section-number">4.6</span> 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</a></li>
   <li><a href="#표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석" id="toc-표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석" class="nav-link" data-scroll-target="#표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석"><span class="header-section-number">4.7</span> 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</a></li>
   </ul></li>
-  <li><a href="#유망-연구영역-도출" id="toc-유망-연구영역-도출" class="nav-link" data-scroll-target="#유망-연구영역-도출"><span class="header-section-number">5</span> 유망 연구영역 도출</a>
+  <li><a href="#part-3-emerging" id="toc-part-3-emerging" class="nav-link" data-scroll-target="#part-3-emerging"><span class="header-section-number">5</span> 유망 연구영역 도출</a>
   <ul class="collapse">
   <li><a href="#미래-연구영역-전략수립-지원을-위한-유망연구영역-도출" id="toc-미래-연구영역-전략수립-지원을-위한-유망연구영역-도출" class="nav-link" data-scroll-target="#미래-연구영역-전략수립-지원을-위한-유망연구영역-도출"><span class="header-section-number">5.1</span> 미래 연구영역 전략수립 지원을 위한 유망연구영역 도출</a></li>
   <li><a href="#벤치마킹-기관과-한국표준과학연구원의-포트폴리오-및-역량-분석" id="toc-벤치마킹-기관과-한국표준과학연구원의-포트폴리오-및-역량-분석" class="nav-link" data-scroll-target="#벤치마킹-기관과-한국표준과학연구원의-포트폴리오-및-역량-분석"><span class="header-section-number">5.2</span> 벤치마킹 기관과 한국표준과학연구원의 포트폴리오 및 역량 분석</a></li>
@@ -275,7 +298,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="서문-preface" class="level1 unnumbered">
+<section id="preface" class="level1 unnumbered">
 <h1 class="unnumbered">서문 / Preface</h1>
 <p><strong>빅데이터 기반 표준연구 기관 성과분석 및 유망연구영역 도출</strong></p>
 <section id="요약문" class="level2" data-number="2.1">
@@ -323,7 +346,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 </section>
-<section id="문헌-집합-및-연구지형도-구축" class="level1" data-number="3">
+<section id="part-1-landscape" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> 문헌 집합 및 연구지형도 구축</h1>
 <section id="표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축"><span class="header-section-number">3.1</span> 표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</h2>
@@ -1080,7 +1103,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="기관-연구역량-진단" class="level1" data-number="4">
+<section id="part-2-capability" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> 기관 연구역량 진단</h1>
 <section id="기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석"><span class="header-section-number">4.1</span> 기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</h2>
@@ -1856,7 +1879,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 </section>
-<section id="유망-연구영역-도출" class="level1" data-number="5">
+<section id="part-3-emerging" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> 유망 연구영역 도출</h1>
 <section id="미래-연구영역-전략수립-지원을-위한-유망연구영역-도출" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="미래-연구영역-전략수립-지원을-위한-유망연구영역-도출"><span class="header-section-number">5.1</span> 미래 연구영역 전략수립 지원을 위한 유망연구영역 도출</h2>

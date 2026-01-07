@@ -219,11 +219,27 @@ table caption {
   caption-side: bottom;
 }
 
-// --- Sidebar width ---
-// Widen the left sidebar (toc/navigation) to reduce truncation / horizontal scrolling.
+// --- Layout spacing ---
+// Widen the left sidebar and increase content margins on large screens.
 @media (min-width: 992px) {
+  #quarto-sidebar {
+    padding-left: 28px;
+    padding-right: 24px;
+  }
+
   #quarto-sidebar .sidebar-menu-container {
-    min-width: 320px;
+    min-width: 360px;
   }
 }
 
+@media (min-width: 1200px) {
+  main.content {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #quarto-content.page-columns {
+    column-gap: 3rem;
+  }
+}
