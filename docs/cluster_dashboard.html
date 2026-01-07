@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Interactive plot of top-ranked keywords by research cluster over time.">
+<meta name="description" content="Interactive Shiny dashboard for cluster exploration.">
 
-<title>KRISS 표준과학 연구 데이터북 (Databook) - Keyword Trend Explorer / 키워드 추세 탐색기</title>
+<title>KRISS 표준과학 연구 데이터북 (Databook) - 클러스터 대시보드 / Cluster Dashboard</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/vosviewer_explorer.html" rel="next">
-<link href="../book_part3_emerging.html" rel="prev">
+<link href="../docs/appendix_detailed_reporting.html" rel="next">
+<link href="../docs/vosviewer_explorer.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -557,7 +557,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/keyword_trends.html">인터랙티브 도구 / Tools</a></li><li class="breadcrumb-item"><a href="../docs/keyword_trends.html">Keyword Trend Explorer / 키워드 추세 탐색기</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/keyword_trends.html">인터랙티브 도구 / Tools</a></li><li class="breadcrumb-item"><a href="../docs/cluster_dashboard.html">클러스터 대시보드 / Cluster Dashboard</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -577,7 +577,6 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="sidebar-tools-collapse">
     <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 보기" class="quarto-navigation-tool px-1" aria-label="북 버전 보기"><i class="bi bi-book"></i></a>
-    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" title="웹 버전 홈" class="quarto-navigation-tool px-1" aria-label="웹 버전 홈"><i class="bi bi-browser"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -633,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link active">
+  <a href="../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Keyword Trend Explorer / 키워드 추세 탐색기</span></a>
   </div>
 </li>
@@ -645,7 +644,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/cluster_dashboard.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/cluster_dashboard.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">클러스터 대시보드 / Cluster Dashboard</span></a>
   </div>
 </li>
@@ -760,14 +759,14 @@ document.addEventListener("DOMContentLoaded", () => {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/keyword_trends.html">인터랙티브 도구 / Tools</a></li><li class="breadcrumb-item"><a href="../docs/keyword_trends.html">Keyword Trend Explorer / 키워드 추세 탐색기</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/keyword_trends.html">인터랙티브 도구 / Tools</a></li><li class="breadcrumb-item"><a href="../docs/cluster_dashboard.html">클러스터 대시보드 / Cluster Dashboard</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Keyword Trend Explorer / 키워드 추세 탐색기</h1>
+<h1 class="title">클러스터 대시보드 / Cluster Dashboard</h1>
 </div>
 
 <div>
   <div class="description">
-    Interactive plot of top-ranked keywords by research cluster over time.
+    Interactive Shiny dashboard for cluster exploration.
   </div>
 </div>
 
@@ -784,588 +783,27 @@ document.addEventListener("DOMContentLoaded", () => {
 </header>
 
 
-<p>Interactively inspect how the highest-ranked keywords evolve across years for each research cluster. Use the selector to switch between clusters while the legend lets you toggle individual keyword curves on and off. All data are sourced from the comprehensive keyword time-series dataset generated after term canonicalisation.</p>
+<p>클러스터 분석 결과를 탐색할 수 있는 Shiny 대시보드 뷰를 임베드 형태로 제공한다.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+보기 안내
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>모든 곡선은 연도·클러스터 단위에서 해당 키워드가 1회 이상 등장한 <strong>문헌 수(문서 커버리지)</strong>를 나타냅니다. 포인트에 마우스를 올리면 각 용어의 점수(c‑TF‑IDF), 총 등장 빈도(토큰 수), 전체 기간 문서 커버리지(한 문서당 최대 1회), 그리고 해당 연도의 클러스터 문헌 수(분모) 등을 함께 확인할 수 있습니다.</p>
+<ul>
+<li>임베드가 차단되거나 느리게 동작하는 경우, 아래 링크를 눌러 새 탭에서 열어볼 수 있다.</li>
+</ul>
 </div>
 </div>
-<style>
-  .keyword-timeseries-wrapper {
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    padding: 1.25rem;
-    margin-bottom: 1.5rem;
-    background: #f8f9fa;
-  }
-  .keyword-timeseries-controls {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.25rem;
-  }
-  .keyword-timeseries-controls label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-  }
-  .keyword-timeseries-controls select {
-    min-width: 16rem;
-  }
-  .keyword-timeseries-meta {
-    margin-top: 1.25rem;
-    font-size: 0.95rem;
-    line-height: 1.55;
-  }
-  .keyword-timeseries-meta strong {
-    font-weight: 600;
-  }
-  .keyword-timeseries-defs {
-    margin-top: 1.75rem;
-    padding: 1rem 1.2rem;
-    border-left: 4px solid #2c7be5;
-    background: #ffffff;
-  }
-  .keyword-timeseries-defs p {
-    margin-bottom: 0.4rem;
-  }
-  .keyword-timeseries-defs p:last-child {
-    margin-bottom: 0;
-  }
-  .keyword-sparklines {
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 1rem 1.5rem;
-  }
-  .keyword-sparklines .sparkline-card {
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    padding: 0.5rem 0.75rem 0.65rem;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(33, 37, 41, 0.05);
-  }
-  .keyword-sparklines .sparkline-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-    color: #1f2933;
-  }
-  .keyword-sparklines svg {
-    width: 100%;
-    height: 60px;
-  }
-  .keyword-sparklines .sparkline-note {
-    font-size: 0.78rem;
-    color: #495057;
-    margin-top: 0.35rem;
-  }
-</style>
-<script src="https://cdn.plot.ly/plotly-2.27.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
-<div class="keyword-timeseries-wrapper">
-<div id="keyword-timeseries-controls" class="keyword-timeseries-controls">
-
-</div>
-<div id="keyword-timeseries-chart" style="width: 100%; min-height: 520px;">
-
-</div>
-<div id="keyword-timeseries-meta" class="keyword-timeseries-meta">
-
-</div>
-<div class="keyword-timeseries-defs">
 <p>
-<strong>Documents (year)</strong> · Number of documents in the selected cluster-year that mention the term at least once.
+<a href="https://road2you.shinyapps.io/kriss_cluster_dashboard/" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a>
 </p>
-<p>
-<strong>Cluster Documents (year)</strong> · Total number of documents in the selected cluster-year (context for the document counts).
-</p>
-<p>
-<strong>Score</strong> · Cluster-specific c‑TF‑IDF weight used to rank keywords (constant across years).
-</p>
-<p>
-<strong>Frequency</strong> · Total token occurrences of the keyword within the cluster (aggregated across the full period).
-</p>
-<p>
-<strong>Document Coverage</strong> · Number of documents within the cluster that mention the keyword at least once (aggregated across the full period).
-</p>
-<p>
-<em>Score</em>, <em>Frequency</em>, <em>Document Coverage</em>, and cluster-year document totals appear inside the hover tooltips for each point.
-</p>
-</div>
-</div>
-<div id="keyword-timeseries-sparklines" class="keyword-sparklines">
-
-</div>
-<script>
-(() => {
-  const dataUrl = "assets/keyword_all_timeseries.csv.gz";
-  const chartEl = document.getElementById("keyword-timeseries-chart");
-  const controlsEl = document.getElementById("keyword-timeseries-controls");
-  const clusterGroup = document.createElement("div");
-  const clusterLabel = document.createElement("label");
-  clusterLabel.setAttribute("for", "cluster-select");
-  clusterLabel.textContent = "Cluster / 클러스터";
-  const clusterSelect = document.createElement("select");
-  clusterSelect.id = "cluster-select";
-  clusterSelect.setAttribute("aria-label", "Select cluster");
-  clusterGroup.appendChild(clusterLabel);
-  clusterGroup.appendChild(clusterSelect);
-  controlsEl.appendChild(clusterGroup);
-  const metaEl = document.getElementById("keyword-timeseries-meta");
-  const sparklinesEl = document.getElementById("keyword-timeseries-sparklines");
-
-  const metricKey = "doc_coverage_year_val";
-  const metricLabel = "Documents (year)";
-  const maxSparklines = 40;
-  const defaultVisibleTerms = 5;
-
-  function cleanText(value) {
-    if (value === null || value === undefined) {
-      return "";
-    }
-    const text = String(value).trim();
-    if (!text) {
-      return "";
-    }
-    const lower = text.toLowerCase();
-    if (lower === "nan" || lower === "none" || lower === "null") {
-      return "";
-    }
-    return text;
-  }
-
-  function summariseCluster(cluster) {
-    const { id, rows } = cluster;
-    const sample = rows[0] || {};
-    const label = cleanText(sample.short_label_kr) || cleanText(sample.cluster_micro) || `Cluster ${id}`;
-    const longLabel = cleanText(sample.long_label_kr);
-    const summary = cleanText(sample.summary_kr);
-
-    const keywordsEnRaw = cleanText(sample.keywords_en);
-    const keywordsKrRaw = cleanText(sample.keywords_kr);
-    const keywordsEn = keywordsEnRaw
-      ? keywordsEnRaw.split(",").map(part => part.trim()).filter(Boolean).slice(0, 5).join(", ")
-      : "";
-    const keywordsKr = keywordsKrRaw
-      ? keywordsKrRaw.split(",").map(part => part.trim()).filter(Boolean).slice(0, 5).join(", ")
-      : "";
-
-    const termList = Array.from(new Set(rows.map(r => r.term))).slice(0, 5);
-
-    const lines = [
-      `<strong>${label}</strong>${longLabel ? ` (${longLabel})` : ""}`,
-      termList.length ? `Top terms: ${termList.join(", ")}` : "",
-      keywordsEn ? `Keywords (EN): ${keywordsEn}` : "",
-      keywordsKr ? `키워드 (KO): ${keywordsKr}` : "",
-      summary ? `요약: ${summary}` : ""
-    ].filter(Boolean);
-
-    metaEl.innerHTML = lines.map(line => `<p>${line}</p>`).join("");
-  }
-
-  function buildTraces(cluster) {
-    const rowsByTerm = new Map();
-    cluster.rows.forEach(row => {
-      const termRows = rowsByTerm.get(row.term) || [];
-      termRows.push(row);
-      rowsByTerm.set(row.term, termRows);
-    });
-
-    const termSeries = [];
-    rowsByTerm.forEach((termRows, term) => {
-      const sorted = termRows
-        .filter(r => r.year !== null && r.year !== undefined && !Number.isNaN(r.year))
-        .sort((a, b) => a.year - b.year);
-      if (!sorted.length) {
-        return;
-      }
-      termSeries.push({
-        term,
-        rows: sorted,
-        score: sorted[0].score ?? null
-      });
-    });
-
-    termSeries.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
-
-    const traces = [];
-    termSeries.forEach((series, index) => {
-      const { term, rows: sorted } = series;
-      traces.push({
-        name: term,
-        x: sorted.map(r => r.year),
-        y: sorted.map(r => r[metricKey]),
-        hovertemplate:
-          "<b>%{customdata[0]}</b><br>" +
-          "Year: %{x}<br>" +
-          "Documents (year): %{y:,.0f}<br>" +
-          "Cluster docs (year): %{customdata[4]:,.0f}<br>" +
-          "Share of cluster-year docs: %{customdata[5]:.1%}<br>" +
-          "Score: %{customdata[1]:.3f}<br>" +
-          "Frequency (tokens): %{customdata[2]:,.0f}<br>" +
-          "Document coverage (total): %{customdata[3]:,.0f}<extra></extra>",
-        customdata: sorted.map(r => {
-          const docCountYear = r[metricKey];
-          const clusterDocsYear = r.cluster_year_docs ?? null;
-          const share = Number.isFinite(docCountYear) && Number.isFinite(clusterDocsYear) && clusterDocsYear > 0
-            ? docCountYear / clusterDocsYear
-            : null;
-          return [term, r.score ?? null, r.frequency ?? null, r.doc_coverage ?? null, clusterDocsYear, share];
-        }),
-        mode: "lines+markers",
-        visible: index < defaultVisibleTerms ? true : "legendonly",
-        line: { width: 2 },
-        marker: { size: 6 }
-      });
-    });
-    return traces;
-  }
-
-  function updateChart(cluster) {
-    const traces = buildTraces(cluster);
-    const years = cluster.rows
-      .map(r => r.year)
-      .filter(year => year !== null && year !== undefined && !Number.isNaN(year));
-    const minYear = years.length ? Math.min(...years) : null;
-    const maxYear = years.length ? Math.max(...years) : null;
-    const yearRange = minYear !== null && maxYear !== null ? [minYear, maxYear] : null;
-
-    const layout = {
-      title: {
-        text: `Cluster ${cluster.id} · ${metricLabel}`,
-        font: { size: 20 }
-      },
-      xaxis: {
-        title: "Year",
-        dtick: 1,
-        range: yearRange ? [yearRange[0] - 0.5, yearRange[1] + 0.5] : undefined,
-        tickformat: "d",
-        hoverformat: "d"
-      },
-      yaxis: {
-        title: metricLabel,
-        rangemode: "tozero",
-        tickformat: ",.0f",
-        hoverformat: ",.0f"
-      },
-      legend: {
-        orientation: "h",
-        yanchor: "top",
-        y: -0.25,
-        xanchor: "left",
-        x: 0,
-        font: { size: 12 }
-      },
-      margin: { l: 70, r: 30, t: 60, b: 140 },
-      hoverlabel: { bgcolor: "#343a40", font: { color: "#fff" } }
-    };
-
-    const config = {
-      responsive: true,
-      displaylogo: false,
-      modeBarButtonsToRemove: [
-        "lasso2d",
-        "select2d",
-        "autoScale2d",
-        "zoomIn2d",
-        "zoomOut2d",
-        "resetScale2d"
-      ]
-    };
-
-    Plotly.react(chartEl, traces, layout, config);
-    return yearRange;
-  }
-
-  function renderSparklines(cluster, yearRange) {
-    sparklinesEl.innerHTML = "";
-
-    const rowsByTerm = new Map();
-    cluster.rows.forEach(row => {
-      const collection = rowsByTerm.get(row.term) || [];
-      collection.push(row);
-      rowsByTerm.set(row.term, collection);
-    });
-
-    const termSeries = [];
-    rowsByTerm.forEach((termRows, term) => {
-      const sorted = termRows
-        .filter(r => r.year !== null && r.year !== undefined && !Number.isNaN(r.year))
-        .sort((a, b) => a.year - b.year);
-      if (!sorted.length) {
-        return;
-      }
-      const base = sorted[0];
-      termSeries.push({
-        term,
-        rows: sorted,
-        score: base.score ?? null,
-        frequency: base.frequency ?? null
-      });
-    });
-
-    if (!termSeries.length) {
-      sparklinesEl.innerHTML = "<p>시각화할 키워드 시계열이 없습니다.</p>";
-      return;
-    }
-
-    termSeries.sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
-    const termsToRender = termSeries.slice(0, maxSparklines);
-
-    const globalYearRange = yearRange || (() => {
-      const years = cluster.rows
-        .map(r => r.year)
-        .filter(y => y !== null && y !== undefined && !Number.isNaN(y));
-      if (!years.length) {
-        return null;
-      }
-      return [Math.min(...years), Math.max(...years)];
-    })();
-
-    termsToRender.forEach(termData => {
-      const { term, rows, score, frequency } = termData;
-      const container = document.createElement("div");
-      container.className = "sparkline-card";
-
-      const title = document.createElement("div");
-      title.className = "sparkline-title";
-      title.textContent = term;
-      container.appendChild(title);
-
-      const svg = d3.create("svg")
-        .attr("viewBox", "0 0 320 70")
-        .attr("role", "img")
-        .attr("aria-label", `${term} document count trend`);
-
-      const margin = { top: 8, right: 48, bottom: 16, left: 48 };
-      const width = 320 - margin.left - margin.right;
-      const height = 70 - margin.top - margin.bottom;
-
-      const x = d3.scaleLinear()
-        .domain(globalYearRange || [
-          d3.min(rows, d => d.year),
-          d3.max(rows, d => d.year)
-        ])
-        .range([0, width]);
-
-      const metricValues = rows
-        .map(r => r[metricKey])
-        .filter(value => Number.isFinite(value));
-
-      const minVal = d3.min(metricValues);
-      const maxVal = d3.max(metricValues);
-      const padding = (maxVal - minVal) * 0.1 || (maxVal || 1) * 0.1;
-      const y = d3.scaleLinear()
-        .domain([
-          Math.max(0, (minVal ?? 0) - padding),
-          (maxVal ?? 0) + padding
-        ])
-        .range([height, 0]);
-
-      const area = d3.area()
-        .x(d => x(d.year))
-        .y0(y(0))
-        .y1(d => y(d[metricKey] ?? 0))
-        .defined(d => Number.isFinite(d[metricKey]));
-
-      const line = d3.line()
-        .x(d => x(d.year))
-        .y(d => y(d[metricKey] ?? 0))
-        .defined(d => Number.isFinite(d[metricKey]));
-
-      const chart = svg.append("g")
-        .attr("transform", `translate(${margin.left},${margin.top})`);
-
-      chart.append("path")
-        .datum(rows)
-        .attr("fill", "rgba(76, 114, 176, 0.25)")
-        .attr("d", area);
-
-      chart.append("path")
-        .datum(rows)
-        .attr("fill", "none")
-        .attr("stroke", "#4C72B0")
-        .attr("stroke-width", 1.3)
-        .attr("d", line);
-
-      const first = rows[0];
-      const last = rows[rows.length - 1];
-
-      chart.selectAll(".endpoint")
-        .data([first, last])
-        .join("circle")
-        .attr("class", "endpoint")
-        .attr("cx", d => x(d.year))
-        .attr("cy", d => y(d[metricKey] ?? 0))
-        .attr("r", 3.5)
-        .attr("fill", "#4C72B0");
-
-      const firstValue = Number.isFinite(first[metricKey])
-        ? Math.round(first[metricKey]).toLocaleString()
-        : "-";
-      const lastValue = Number.isFinite(last[metricKey])
-        ? Math.round(last[metricKey]).toLocaleString()
-        : "-";
-
-      chart.append("text")
-        .attr("x", x(first.year) - 6)
-        .attr("y", y(first[metricKey] ?? 0) - 4)
-        .attr("text-anchor", "end")
-        .attr("font-size", "10px")
-        .attr("fill", "#4C72B0")
-        .text(firstValue);
-
-      chart.append("text")
-        .attr("x", x(last.year) + 6)
-        .attr("y", y(last[metricKey] ?? 0) - 4)
-        .attr("text-anchor", "start")
-        .attr("font-size", "10px")
-        .attr("fill", "#4C72B0")
-        .text(lastValue);
-
-      chart.append("text")
-        .attr("x", width / 2)
-        .attr("y", height + 12)
-        .attr("text-anchor", "middle")
-        .attr("font-size", "9px")
-        .attr("fill", "#6c757d")
-        .text("Year");
-
-      container.appendChild(svg.node());
-
-      const note = document.createElement("div");
-      note.className = "sparkline-note";
-      const scoreText = Number.isFinite(score) ? score.toFixed(2) : "-";
-      const freqText = Number.isFinite(frequency) ? frequency.toLocaleString() : "-";
-      note.textContent = `Score ${scoreText} · Freq ${freqText}`;
-      container.appendChild(note);
-
-      sparklinesEl.appendChild(container);
-    });
-  }
-
-  function initialiseControls(clusters) {
-    const clusterOptions = Array.from(clusters.values())
-      .sort((a, b) => a.id - b.id)
-      .map(cluster => {
-        const sample = cluster.rows[0] || {};
-        const labelParts = [];
-        const shortLabel = cleanText(sample.short_label_kr);
-        const micro = cleanText(sample.cluster_micro);
-        if (shortLabel) {
-          labelParts.push(shortLabel);
-        }
-        if (micro) {
-          labelParts.push(micro);
-        }
-        const label = labelParts.length ? labelParts.join(" · ") : `Cluster ${cluster.id}`;
-        return { value: cluster.id, label };
-      });
-
-    clusterSelect.innerHTML = "";
-    if (!clusterOptions.length) {
-      clusterSelect.disabled = true;
-      clusterSelect.innerHTML = "<option>No clusters available</option>";
-      return clusterOptions;
-    }
-
-    clusterOptions.forEach(option => {
-      const opt = document.createElement("option");
-      opt.value = option.value;
-      opt.textContent = `${option.value} · ${option.label}`;
-      clusterSelect.appendChild(opt);
-    });
-
-    return clusterOptions;
-  }
-
-  async function loadData() {
-    try {
-      const response = await fetch(dataUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
-      const arrayBuffer = await response.arrayBuffer();
-      const decompressed = pako.ungzip(new Uint8Array(arrayBuffer), { to: "string" });
-      const rows = d3.csvParse(decompressed);
-
-      const clusters = new Map();
-
-      rows.forEach(rawRow => {
-        if (!rawRow) {
-          return;
-        }
-        const row = { ...rawRow };
-        row.cluster_id = Number.parseInt(row.cluster_id, 10);
-        row.year = row.year ? Number.parseInt(row.year, 10) : null;
-        row.rank = row.rank ? Number.parseInt(row.rank, 10) : null;
-        row.score = row.score ? Number.parseFloat(row.score) : null;
-        row.ppm_series_val = row.ppm_series_val ? Number.parseFloat(row.ppm_series_val) : null;
-        row.frequency = row.frequency ? Number.parseFloat(row.frequency) : null;
-        row.doc_coverage = row.doc_coverage ? Number.parseFloat(row.doc_coverage) : null;
-        row.doc_coverage_year_val = row.doc_coverage_year_val ? Number.parseFloat(row.doc_coverage_year_val) : null;
-        row.cluster_year_docs = row.cluster_year_docs ? Number.parseFloat(row.cluster_year_docs) : null;
-        row.doc_ppm_series_val = row.doc_ppm_series_val ? Number.parseFloat(row.doc_ppm_series_val) : null;
-
-        if (!Number.isFinite(row.cluster_id)) {
-          return;
-        }
-
-        const key = row.cluster_id;
-        if (!clusters.has(key)) {
-          clusters.set(key, { id: key, rows: [] });
-        }
-        clusters.get(key).rows.push(row);
-      });
-
-      if (!clusters.size) {
-        metaEl.innerHTML = "<p>가공할 클러스터 데이터가 없습니다.</p>";
-        return;
-      }
-
-      const options = initialiseControls(clusters);
-      const initialClusterId = options[0]?.value;
-
-      function handleUpdate() {
-        const selectedId = Number.parseInt(clusterSelect.value, 10);
-        const cluster = clusters.get(selectedId);
-        if (!cluster) {
-          metaEl.innerHTML = "<p>선택한 클러스터에 대한 데이터가 없습니다.</p>";
-          Plotly.purge(chartEl);
-          sparklinesEl.innerHTML = "";
-          return;
-        }
-        const yearRange = updateChart(cluster);
-        summariseCluster(cluster);
-        renderSparklines(cluster, yearRange);
-      }
-
-      if (initialClusterId !== undefined) {
-        clusterSelect.value = String(initialClusterId);
-        handleUpdate();
-      }
-
-      clusterSelect.addEventListener("change", handleUpdate);
-    } catch (err) {
-      console.error("Failed to load keyword time series.", err);
-      metaEl.innerHTML = "<p>데이터를 불러오지 못했습니다. ZIP 경로 또는 접근 권한을 확인하세요.</p>";
-    }
-  }
-
-  loadData();
-})();
-</script>
+<iframe src="https://road2you.shinyapps.io/kriss_cluster_dashboard/" title="클러스터 대시보드 (Shiny)" style="width: 100%; height: 85vh; min-height: 720px; border: 1px solid #dee2e6; border-radius: 0.5rem;" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
 
 
 
@@ -1759,13 +1197,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../book_part3_emerging.html" class="pagination-link" aria-label="4. 유망 연구영역 도출">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. 유망 연구영역 도출</span>
+      <a href="../docs/vosviewer_explorer.html" class="pagination-link" aria-label="Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/vosviewer_explorer.html" class="pagination-link" aria-label="Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)">
-        <span class="nav-page-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/appendix_detailed_reporting.html" class="pagination-link" aria-label="상세 리포팅 방법론">
+        <span class="nav-page-text">상세 리포팅 방법론</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1774,4 +1212,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/keyword_trends.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/docs/cluster_dashboard.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
