@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>KRISS 표준과학 연구 데이터북 (Databook) - 기관 연구역량 진단</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./book_part3_emerging.html" rel="next">
+<link href="./book_part1_landscape.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
+<script src="docs/assets/js/datatable-init.js" defer=""></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chapterTitle = document.querySelector("h1.web-chapter-title");
+  if (chapterTitle) {
+    const titleBlock = document.querySelector(".quarto-title-block");
+    if (titleBlock) {
+      titleBlock.style.display = "none";
+    }
+
+    const chapterNumber =
+      chapterTitle.getAttribute("data-number") ||
+      (chapterTitle.querySelector(".header-section-number") || {}).textContent?.trim();
+
+    if (chapterNumber) {
+      const prefixRegex = /^\s*표[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const tableCaptions = Array.from(
+        document.querySelectorAll("figcaption.quarto-float-tbl")
+      );
+
+      let tableIndex = 0;
+      const tableIds = [];
+
+      tableCaptions.forEach((caption) => {
+        tableIndex += 1;
+        const newPrefix = `표 ${chapterNumber}.${tableIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        const textNode = walker.nextNode();
+
+        if (textNode && prefixRegex.test(textNode.nodeValue)) {
+          textNode.nodeValue = textNode.nodeValue.replace(prefixRegex, newPrefix);
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("tbl-")) {
+          tableIds.push(float.id);
+        }
+      });
+
+      tableIds.forEach((id, idx) => {
+        const label = `표 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^표[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+
+      const figPrefixRegex = /^\s*그림[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const figCaptions = Array.from(
+        document.querySelectorAll("figure figcaption")
+      ).filter((caption) => {
+        const figure = caption.closest("figure");
+        return !(figure && figure.classList.contains("quarto-float-tbl"));
+      });
+      let figIndex = 0;
+      const figIds = [];
+
+      figCaptions.forEach((caption) => {
+        figIndex += 1;
+        const newPrefix = `그림 ${chapterNumber}.${figIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        let textNode = walker.nextNode();
+        while (textNode && !textNode.nodeValue.trim()) {
+          textNode = walker.nextNode();
+        }
+
+        if (textNode) {
+          if (figPrefixRegex.test(textNode.nodeValue)) {
+            textNode.nodeValue = textNode.nodeValue.replace(figPrefixRegex, newPrefix);
+          } else {
+            textNode.nodeValue = `${newPrefix} ${textNode.nodeValue.trim()}`;
+          }
+        } else {
+          caption.prepend(document.createTextNode(`${newPrefix} `));
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("fig-")) {
+          figIds.push(float.id);
+        }
+      });
+
+      figIds.forEach((id, idx) => {
+        const label = `그림 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^그림[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+    }
+  }
+
+  document.querySelectorAll(".carousel-gallery").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const prevBtn = carousel.querySelector(".carousel-btn.prev");
+    const nextBtn = carousel.querySelector(".carousel-btn.next");
+    let currentIndex = 0;
+    let isPointerDown = false;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let dragStartTranslate = 0;
+    let hasDragged = false;
+
+    const getSlideWidth = () => {
+      const styles = window.getComputedStyle(carousel);
+      const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+      const paddingRight = parseFloat(styles.paddingRight) || 0;
+      return carousel.clientWidth - paddingLeft - paddingRight;
+    };
+
+    const updateDots = () => {
+      if (!dotsContainer) {
+        return;
+      }
+      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, idx) => {
+        dot.classList.toggle("is-active", idx === currentIndex);
+      });
+    };
+
+    const update = () => {
+      const width = getSlideWidth();
+      slides.forEach((slide) => {
+        slide.style.width = `${width}px`;
+      });
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+      updateDots();
+    };
+
+    const goTo = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      update();
+    };
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", `슬라이드 ${idx + 1}`);
+        dot.addEventListener("click", () => goTo(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+    }
+
+    track.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+      dragStartTranslate = -currentIndex * getSlideWidth();
+    });
+
+    track.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          track.classList.add("is-dragging");
+          try {
+            track.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+      track.style.transform = `translateX(${dragStartTranslate + deltaX}px)`;
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      track.classList.remove("is-dragging");
+      try {
+        track.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+      const delta = event.clientX - startX;
+      const width = getSlideWidth();
+      if (Math.abs(delta) > width * 0.2) {
+        goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+      } else {
+        update();
+      }
+      if (hasDragged) {
+        track.dataset.dragging = "true";
+        window.setTimeout(() => {
+          track.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    track.addEventListener("pointerup", endDrag);
+    track.addEventListener("pointercancel", endDrag);
+
+    track.addEventListener("click", (event) => {
+      if (track.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+
+    window.addEventListener("resize", update);
+    update();
+  });
+
+  const initLightboxSwipe = () => {
+    const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!supportsFinePointer) {
+      return;
+    }
+
+    const container = document.querySelector(".glightbox-container");
+    if (!container || container.dataset.swipeInit === "true") {
+      return;
+    }
+    container.dataset.swipeInit = "true";
+
+    const slider = container.querySelector("#glightbox-slider");
+    if (!slider) {
+      return;
+    }
+
+    let isPointerDown = false;
+    let isDragging = false;
+    let hasDragged = false;
+    let startX = 0;
+    let startY = 0;
+
+    const isZoomed = () => {
+      const active = slider.querySelector(".gslide.current");
+      return active && active.classList.contains("zoomed");
+    };
+
+    const goNext = () => {
+      const nextBtn = container.querySelector(".gnext");
+      if (nextBtn && !nextBtn.classList.contains("disabled")) {
+        nextBtn.click();
+      }
+    };
+
+    const goPrev = () => {
+      const prevBtn = container.querySelector(".gprev");
+      if (prevBtn && !prevBtn.classList.contains("disabled")) {
+        prevBtn.click();
+      }
+    };
+
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      if (isZoomed()) {
+        return;
+      }
+      if (event.target.closest(".gbtn")) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          slider.classList.add("is-dragging");
+          try {
+            slider.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      slider.classList.remove("is-dragging");
+      try {
+        slider.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (
+        hasDragged &&
+        Math.abs(deltaX) > Math.abs(deltaY) &&
+        Math.abs(deltaX) > 50
+      ) {
+        if (deltaX < 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+
+      if (hasDragged) {
+        slider.dataset.dragging = "true";
+        window.setTimeout(() => {
+          slider.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    slider.addEventListener("pointerup", endDrag);
+    slider.addEventListener("pointercancel", endDrag);
+
+    slider.addEventListener("click", (event) => {
+      if (slider.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+  };
+
+  initLightboxSwipe();
+  const lightboxObserver = new MutationObserver(() => initLightboxSwipe());
+  lightboxObserver.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">KRISS 표준과학 연구 데이터북 (Databook)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">홈 / Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">데이터북 / Databook</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
+        <li>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">1. 서문 / Preface</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./book_part1_landscape.html">
+ <span class="dropdown-text">2. 문헌 집합 및 연구지형도 구축</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./book_part2_capability.html">
+ <span class="dropdown-text">3. 기관 연구역량 진단</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./book_part3_emerging.html">
+ <span class="dropdown-text">4. 유망 연구영역 도출</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">인터랙티브 도구 / Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="./docs/keyword_trends.html">
+ <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/vosviewer_explorer.html">
+ <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/cluster_dashboard.html">
+ <span class="dropdown-text">클러스터 대시보드 (Shiny)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">부록 / Appendix</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
+        <li>
+    <a class="dropdown-item" href="./docs/appendix_detailed_reporting.html">
+ <span class="dropdown-text">상세 리포팅 방법론</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/appendix_methodology.html">
+ <span class="dropdown-text">클러스터링·키워드 방법론</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/appendix_core_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 핵심 역량</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/appendix_expand_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 확장 가능</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/appendix_gap_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 역량 공백</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./docs/appendix.html">
+ <span class="dropdown-text">용어 및 참고 / Glossary</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="./book_part2_capability.html">3. 기관 연구역량 진단</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+        <div class="sidebar-tools-collapse">
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 보기" class="quarto-navigation-tool px-1" aria-label="북 버전 보기"><i class="bi bi-book"></i></a>
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/website/" title="웹 버전 홈" class="quarto-navigation-tool px-1" aria-label="웹 버전 홈"><i class="bi bi-browser"></i></a>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">홈 / Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">데이터북 / Databook</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. 서문 / Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book_part1_landscape.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. 문헌 집합 및 연구지형도 구축</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book_part2_capability.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3. 기관 연구역량 진단</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book_part3_emerging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. 유망 연구영역 도출</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">인터랙티브 도구 / Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Keyword Trend Explorer / 키워드 추세 탐색기</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/cluster_dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터 대시보드 / Cluster Dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">부록 / Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">상세 리포팅 방법론</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/appendix_methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터링·키워드 방법론</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 핵심 역량</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">20-182 - 다이아몬드결함양자센서</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 확장 가능</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/appendix_expand_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">38-84 - 양자알고리즘·오류정정</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 역량 공백</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/appendix_gap_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-159 - 나노셀룰로오스 소재측정</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">용어 및 참고 / Glossary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#기관-연구역량-진단" id="toc-기관-연구역량-진단" class="nav-link active" data-scroll-target="#기관-연구역량-진단"><span class="header-section-number">3</span> 기관 연구역량 진단</a>
+  <ul class="collapse">
+  <li><a href="#기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석" id="toc-기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석" class="nav-link" data-scroll-target="#기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석"><span class="header-section-number">3.1</span> 기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</a></li>
+  <li><a href="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" id="toc-표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" class="nav-link" data-scroll-target="#표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계"><span class="header-section-number">3.2</span> 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</a></li>
+  <li><a href="#표준연구-분야의-벤치마킹-국가-및-기관-선정" id="toc-표준연구-분야의-벤치마킹-국가-및-기관-선정" class="nav-link" data-scroll-target="#표준연구-분야의-벤치마킹-국가-및-기관-선정"><span class="header-section-number">3.3</span> 표준연구 분야의 벤치마킹 국가 및 기관 선정</a></li>
+  <li><a href="#주요-기관-간-협력-네트워크-분석" id="toc-주요-기관-간-협력-네트워크-분석" class="nav-link" data-scroll-target="#주요-기관-간-협력-네트워크-분석"><span class="header-section-number">3.4</span> 주요 기관 간 협력 네트워크 분석</a></li>
+  <li><a href="#표준과학-연구-분야-영역별-주요-국가의-성과수준-비교-분석" id="toc-표준과학-연구-분야-영역별-주요-국가의-성과수준-비교-분석" class="nav-link" data-scroll-target="#표준과학-연구-분야-영역별-주요-국가의-성과수준-비교-분석"><span class="header-section-number">3.5</span> 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</a></li>
+  <li><a href="#표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석" id="toc-표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석" class="nav-link" data-scroll-target="#표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석"><span class="header-section-number">3.6</span> 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</a></li>
+  <li><a href="#표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석" id="toc-표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석" class="nav-link" data-scroll-target="#표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석"><span class="header-section-number">3.7</span> 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/web_part2_capability.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="./book_part2_capability.html">3. 기관 연구역량 진단</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">기관 연구역량 진단</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="기관-연구역량-진단" class="level1 unlisted web-chapter-title" data-number="3">
+<h1 class="unlisted web-chapter-title" data-number="3"><span class="header-section-number">3</span> 기관 연구역량 진단</h1>
+<section id="기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="기관-연구역량-수준-진단을-위한-과학계량지표-빅데이터-분석"><span class="header-section-number">3.1</span> 기관 연구역량 수준 진단을 위한 과학계량지표 빅데이터 분석</h2>
+<p>본 장에서는 표준연구 분야의 국가·기관 정보를 표준화해 문헌과 연계하고, 벤치마킹 대상 국가·기관을 선정한 뒤, 협력 네트워크와 성과지표를 통해 기관별 연구역량의 수준과 구조를 비교·진단한다.</p>
+</section>
+<section id="표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="표준연구-분야의-주요-국가-및-기관명-표준화-및-문헌-연계"><span class="header-section-number">3.2</span> 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계</h2>
+<p>여기서는 앞 단계에서 최종 구축한 ’표준과학연구 문헌 집합’을 기관 단위로 해석·분석할 수 있도록, Web of Science(WoS) 데이터의 정규화된 기관명(pref_name)과 기관국가명(org_country) 정보를 문헌 단위로 결합하고, 표준과학 영역의 주요 국가 및 기관을 중심으로 기관명 표준화 및 문헌 연계를 수행하고자 한다.</p>
+<p>주요 기관 후보를 추리기 위해 WoS/Incites 기관 데이터의 기관 유형(Organization Type) 정보를 사용했고, 기관 유형이 ‘Academic System’ 또는 ’Healthcare System’인 행을 제거했다. 이후 잔여 기관을 대상으로 논문 수 기준 상위 500개 기관을 우선 추출했다. 이때 정규화된 기관명(pref_name)이 부여되지 못한 기관은 WoS/Incites 상에서 기관 식별이 충분히 이루어지지 않았거나 성과가 제한적이라고 간주하여 주요 기관 후보에서 제외했다. 기관별 논문 수는 full count 방식으로 산정했다. 즉, 1편의 논문에 복수 저자와 복수 기관이 존재하더라도, 해당 논문에 등장하는 각 기관의 기여를 저자 수와 무관하게 1로 계산했다. 예를 들어 논문 A의 저자가 KRISS 소속 2명, NIST 소속 1명으로 구성되어도 KRISS 1편, NIST 1편으로 집계했다.</p>
+<p>기관 유형이 ‘government’로 분류된 기관 가운데에서도 실제로는 연구를 직접 수행하기보다는 연구 지원·관리·조정 또는 정책·재정 기능을 수행하는 기관이 포함될 수 있다. 따라서 UK Research &amp; Innovation(UKRI), Department of Science &amp; Technology(India), Japan Science &amp; Technology Agency(JST), United States Navy, United States Department of Defense(DoD), Department of Space(DoS) Government of India, National Aeronautics &amp; Space Administration(NASA), Ministry of Education &amp; Science of Ukraine, United States Department of Energy(DOE), Egyptian Knowledge Bank(EKB), Academy of Scientific &amp; Innovative Research(AcSIR)은 ‘직접 연구를 수행하지 않는 기관’으로 간주하고 표준과학 영역 연구기관 목록에서 제외했다. 또한 기관 유형이 ‘Nonprofit’ 또는 ’Partnership’인 기관 중 Helmholtz Association은 다수 Helmholtz 센터(DESY, HZB, GSI 등)를 포괄하는 연합체(umbrella) 성격이 강하므로 단일 연구 수행기관으로 보기 어렵다고 판단해 제외했다. 추가로 University of Chinese Academy of Sciences와 University of Science &amp; Technology of China는 Chinese Academy of Sciences(CAS)의 하위 기관으로 간주하여 주요 연구기관 목록에서 제외했다.</p>
+<p>한편 앞 단계에서 수행한 ‘① BIPM 정회원국의 표준과학연구 전문 연구기관 목록을 활용하여 해당 기관들이 발간한 산출 문헌을 추출’ 과정에서 얻은 BIPM 정회원국 대표 연구기관 60개의 기관-논문 매칭 정보는 그대로 활용하였다.</p>
+<p>이상의 절차를 종합한 결과, 표준과학 연구 영역 문헌 집합의 1,099,738개 문헌 중 표준과학 영역의 주요 연구기관 533개가 생산한 문헌 790,227개를 식별했고, 정규화된 기관명(pref_name) 기준의 기관명 표준화와 문헌 연계를 구축했다. 이는 기관별 연구성과 비교와 기관 단위 연구 프로파일 분석을 수행하기 위한 기초 데이터셋으로 활용된다.</p>
+<p><a href="Final_Report_MD/최종보고서 내용/org_paper_count_stdscience_2000_2024_top500_or_bipm_excl.xlsx">org_paper_count_stdscience_2000_2024_top500_or_bipm_excl.xlsx</a></p>
+</section>
+<section id="표준연구-분야의-벤치마킹-국가-및-기관-선정" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="표준연구-분야의-벤치마킹-국가-및-기관-선정"><span class="header-section-number">3.3</span> 표준연구 분야의 벤치마킹 국가 및 기관 선정</h2>
+<p>한국표준과학연구원(KRISS)의 연구성과 및 연구 포트폴리오 비교 분석을 수행하기 위해, 2-1)에서 구축한 표준과학 영역의 문헌–기관 연계 데이터를 기반으로 벤치마킹 대상 기관과 주요 국가를 선정하였다. 분석 목적은 KRISS의 성과를 동일한 기능과 역할을 수행하는 해외 표준과학 전문 연구기관과 비교 가능한 형태로 제시하는 데 있으며, 이를 위해 표준과학 분야에서 BIPM 정회원국 소속 전문 연구기관이 갖는 위상과 특수성을 벤치마킹 대상 선정의 기준으로 삼았다.</p>
+<p>벤치마킹 기관은 BIPM 정회원국의 표준과학 전문 연구기관 가운데 문헌 생산 규모가 큰 기관을 중심으로 선정했다. 이는 표준과학 연구는 국가 인프라 성격이 강하고, 표준·계측 체계의 구축 및 운영과 결합되어 연구기관의 역할이 비교적 명확하게 정의된다는 점에서, 동일한 제도적 맥락을 공유하는 BIPM 정회원국 기관 간 비교가 가장 타당하다고 판단했기 때문이다. 따라서 KRISS를 제외한 BIPM 정회원국 표준과학 전문 연구기관 중 논문 수 최상위 기관을 후보군으로 두고, 기관의 소속 국가가 갖는 비교의 대표성(중요도)을 함께 고려하여 최종 벤치마킹 기관을 확정했다. 이 과정에서 리투아니아의 Center for Physical Sciences &amp; Technology와 스웨덴의 RISE Research Institutes of Sweden은 국가 단위 비교에서의 대표성 및 해석 가능성을 고려했을 때 우선순위를 낮추는 것이 적절하다고 판단하여 제외했으며, 그 결과 총 9개 기관을 KRISS의 벤치마킹 기관으로 선정했다.</p>
+<div id="tbl-benchmark-institutions" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-benchmark-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;1: KRISS의 벤치마킹 기관(9개)
+</figcaption>
+<div aria-describedby="tbl-benchmark-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>국가명(WoS 기준)</th>
+<th>기관명(BIPM 기준)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>United States of America</td>
+<td>National Institute of Standards &amp; Technology (NIST) - USA</td>
+</tr>
+<tr class="even">
+<td>Germany</td>
+<td>Federal Institute for Materials Research &amp; Testing (BAM)</td>
+</tr>
+<tr class="odd">
+<td>Germany</td>
+<td>Physikalisch-Technische Bundesanstalt (PTB)</td>
+</tr>
+<tr class="even">
+<td>India</td>
+<td>CSIR - National Physical Laboratory (NPL)</td>
+</tr>
+<tr class="odd">
+<td>United Kingdom</td>
+<td>National Physical Laboratory - UK</td>
+</tr>
+<tr class="even">
+<td>Canada</td>
+<td>National Research Council Canada [NRC]</td>
+</tr>
+<tr class="odd">
+<td>Italy</td>
+<td>Istituto Nazionale di Ricerca Metrologica (INRIM)</td>
+</tr>
+<tr class="even">
+<td>Japan</td>
+<td>National Metrology Institute of Japan</td>
+</tr>
+<tr class="odd">
+<td>China</td>
+<td>National Institute of Metrology China</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>주요 국가 선정은 기관 비교를 국가 비교로 확장하기 위한 절차로 수행했다. 즉, KRISS와 벤치마킹 기관 간 비교 결과를 국가 수준의 표준과학 연구역량 비교로 연결하기 위해, 앞서 확정한 벤치마킹 기관 9개가 소속된 국가를 우선적으로 주요 국가 후보로 정의했다. 이들 기관이 속한 국가는 미국, 독일, 인도, 영국, 캐나다, 이탈리아, 일본, 중국의 8개국이며, 여기에 국제 표준·계측 체계에서의 영향력과 비교 분석의 정책적 함의를 고려하여 프랑스를 추가로 포함했다. 결과적으로 본 연구는 미국, 독일, 인도, 영국, 캐나다, 이탈리아, 일본, 중국, 프랑스의 9개국을 표준과학 영역 성과 비교를 위한 주요 국가로 선정하였다.</p>
+</section>
+<section id="주요-기관-간-협력-네트워크-분석" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="주요-기관-간-협력-네트워크-분석"><span class="header-section-number">3.4</span> 주요 기관 간 협력 네트워크 분석</h2>
+<p>여기서는 표준연구 분야에서 주요 기관 간 협력 관계의 구조를 파악하기 위해, 기관 간 공저자 관계를 기반으로 협력 네트워크 지형도를 구축하고 그 특징을 분석한 내용을 다룬다. 협력 네트워크는 표준과학 전 영역에서 기관들이 어떤 상대와 얼마나 빈번하게 공동 연구를 수행하는지, 그리고 특정 핵심 기관을 중심으로 협력 관계가 어떻게 확장되는지를 시각적으로 확인할 수 있는 도구가 된다.</p>
+<p>분석에는 2020년부터 2024년까지 최근 5개년의 논문 데이터를 활용하였다. 각 문헌에서 식별되는 기관 간 공동연구(공저 관계) 정보를 이용해 기관 간 연결을 정의하고, 이를 바탕으로 협력관계를 나타내는 네트워크를 구성하였다. 즉, 동일 논문에 두 기관이 함께 등장하면 해당 기관 간 협력 링크가 형성되는 것으로 간주하고, 이러한 링크의 누적을 통해 최근 5개년 협력의 구조적 지형을 도출하였다.</p>
+<p>또한 본 연구의 핵심 관심은 2-2)에서 선정한 표준과학 영역 벤치마킹 기관의 협력 패턴을 비교 가능한 형태로 제시하는 데 있으므로, KRISS를 포함한 벤치마킹 10개 기관을 중심으로 네트워크를 재구성하였다. 구체적으로는 각 기관별로 상위 10개 협력 기관을 먼저 도출하고, 이렇게 도출된 협력 기관들에 대해 다시 상위 5개 협력 기관을 추가로 도출하는 2단계 확장 방식을 적용하여 네트워크를 구축하였다. 이 절차는 벤치마킹 10개 기관의 협력관계를 중심축으로 두면서도, 해당 관계가 어떤 주요 파트너를 통해 추가적으로 연결되는지를 함께 보여주기 위한 설계이며, 전 영역의 모든 협력관계를 제약 없이 포함할 때 발생할 수 있는 시각적 과밀과 해석 난점을 완화하기 위한 목적도 함께 갖는다.</p>
+<p>다만 이 협력 네트워크 그래프는 벤치마킹 10개 기관의 협력 네트워크를 중점적으로 조망하기 위한 분석용 시각화이며, 표준과학 전 영역에서의 실제 협력 현황을 그대로 대표하는 것으로 해석해서는 안 된다. 특히 표준과학 영역에서는 BIPM 정회원국 표준과학 전문 연구기관들 간 협력뿐 아니라, 해당 기관들이 포함되지 않은 상태로 이루어지는 다양한 대학 및 종합연구소 중심의 협력 연구가 더 큰 비중을 차지할 수 있다. 따라서 여기서 살펴볼 협력 네트워크는 ’벤치마킹 대상 기관을 중심으로 한 협력의 상대적 구조’로 이해하는 것이 타당하며, 전반적 협력 규모나 전체 협력의 분포를 직접적으로 대변하는 지표로 사용하는 데에는 제한이 따른다.</p>
+<p>아래 지형도는 벤치마킹 기관 중심 협력 네트워크를 전영역과 4개 세부 영역으로 나누어 정리한 결과다. 노드 크기는 협력 강도(협력 기관 수), 색상은 VOSviewer가 추정한 클러스터를 의미한다. 인터랙티브 지도는 별도 도구에서 제공한다.</p>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/표준과학영역_협력네트워크.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)"><img src="Final_Report_MD/최종보고서 내용/표준과학영역_협력네트워크.png" class="img-fluid figure-img" alt="주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)"></a></p>
+<figcaption>주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/물리영역_협력네트워크.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)"><img src="Final_Report_MD/최종보고서 내용/물리영역_협력네트워크.png" class="img-fluid figure-img" alt="주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)"></a></p>
+<figcaption>주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/화학소재영역_협력네트워크.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)"><img src="Final_Report_MD/최종보고서 내용/화학소재영역_협력네트워크.png" class="img-fluid figure-img" alt="주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)"></a></p>
+<figcaption>주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/바이오의료영역_협력네트워크.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)"><img src="Final_Report_MD/최종보고서 내용/바이오의료영역_협력네트워크.png" class="img-fluid figure-img" alt="주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)"></a></p>
+<figcaption>주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/양자기술영역_협력네트워크.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)"><img src="Final_Report_MD/최종보고서 내용/양자기술영역_협력네트워크.png" class="img-fluid figure-img" alt="주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)"></a></p>
+<figcaption>주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<p>추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력비율과 국제협력논문수를 살펴보았다. 이를 통해 KRISS의 국제협력이 <strong>벤치마킹 기관 대비 어느 정도 수준인지</strong>, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴 볼 수 있다.</p>
+<p>아래 표는 각 기관이 2020–2024년 5개년 동안 생산한 논문 중에서 국제공저(해외 기관과 공동저자)로 수행된 논문의 비중을 계산해, 기관별·연구영역별 국제협력 수준을 비교한 결과를 나타내고 있다. 표 안의 각 %는 해당 기관의 전체(또는 해당 영역) 논문 중 국제공저 논문이 차지하는 비율이고, 괄호 안의 분자와 분모는 각각 국제공저 논문 수와 전체 논문 수를 의미한다.</p>
+<div id="tbl-international-collaboration-rate" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-international-collaboration-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;2: 표준과학 영역별 KRISS와 주요 벤치마킹 기관의 국제협력 비율(국제협력논문수/전체논문수)
+</figcaption>
+<div aria-describedby="tbl-international-collaboration-rate-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>기관명</th>
+<th>전체</th>
+<th>물리측정</th>
+<th>화학소재측정</th>
+<th>바이오의료측정</th>
+<th>양자기술</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NPL</td>
+<td>71.87% (963/1340)</td>
+<td>72.48% (295/407)</td>
+<td>72.24% (203/281)</td>
+<td>72.62% (305/420)</td>
+<td>70.10% (143/204)</td>
+</tr>
+<tr class="even">
+<td>PTB</td>
+<td>61.45% (1014/1650)</td>
+<td>56.43% (259/459)</td>
+<td>54.55% (126/231)</td>
+<td>68.84% (411/597)</td>
+<td>61.05% (210/344)</td>
+</tr>
+<tr class="odd">
+<td>NRC</td>
+<td>57.86% (464/802)</td>
+<td>56.44% (149/264)</td>
+<td>68.65% (208/303)</td>
+<td>43.41% (56/129)</td>
+<td>48.54% (50/103)</td>
+</tr>
+<tr class="even">
+<td>INRIM</td>
+<td>51.50% (377/732)</td>
+<td>52.75% (115/218)</td>
+<td>57.46% (77/134)</td>
+<td>44.08% (67/152)</td>
+<td>52.70% (117/222)</td>
+</tr>
+<tr class="odd">
+<td>BAM</td>
+<td>50.70% (1018/2008)</td>
+<td>46.96% (332/707)</td>
+<td>52.18% (466/893)</td>
+<td>54.70% (192/351)</td>
+<td>50.00% (6/12)</td>
+</tr>
+<tr class="even">
+<td>NIST</td>
+<td>43.76% (2630/6010)</td>
+<td>44.34% (850/1917)</td>
+<td>43.50% (599/1377)</td>
+<td>37.17% (333/896)</td>
+<td>47.72% (804/1685)</td>
+</tr>
+<tr class="odd">
+<td>KRISS</td>
+<td>28.84% (473/1640)</td>
+<td>23.00% (141/613)</td>
+<td>31.03% (126/406)</td>
+<td>26.48% (85/321)</td>
+<td>42.21% (111/263)</td>
+</tr>
+<tr class="even">
+<td>NPLI</td>
+<td>22.98% (364/1584)</td>
+<td>22.41% (106/473)</td>
+<td>23.55% (171/726)</td>
+<td>21.58% (30/139)</td>
+<td>22.47% (51/227)</td>
+</tr>
+<tr class="odd">
+<td>NMIJ/AIST</td>
+<td>22.61% (161/712)</td>
+<td>29.47% (89/302)</td>
+<td>17.42% (31/178)</td>
+<td>11.67% (14/120)</td>
+<td>25.71% (27/105)</td>
+</tr>
+<tr class="even">
+<td>NIM</td>
+<td>15.14% (194/1281)</td>
+<td>20.00% (87/435)</td>
+<td>14.17% (36/254)</td>
+<td>12.53% (45/359)</td>
+<td>10.80% (19/176)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>2020–2024년 기준으로 KRISS의 국제공저 비중은 28.84%(473/1,640)로, 비교 대상 10대 BIPM 기관 중 7위에 위치한다. 상위 기관인 NPL(71.87%), PTB(61.45%), NRC(57.86%)와 비교하면 국제협력 기반의 논문 생산 비중이 낮고, NIST(43.76%)와 비교해도 격차가 크다. 반면 하위권 기관인 NPLI(22.98%), NMIJ/AIST(22.61%), NIM(15.14%)보다는 높은 수준으로, 국제협력이 일정 수준에서는 작동하고 있으나 선도기관 대비 확장 여지가 큰 상태로 해석된다.</p>
+<p>세부 영역별로 보면 KRISS의 국제공저 비중은 물리측정 23.00%, 화학소재측정 31.03%, 바이오의료측정 26.48%, 양자기술 42.21%로 나타난다. 특히 양자기술 영역은 KRISS 내부에서 가장 높은 국제공저 비중을 보이며, NIST(47.72%)와 유사한 수준에 근접해 상대적으로 국제협력 네트워크가 활발한 편이다. 반대로 물리측정 영역은 23.00%로 가장 낮아, 전통 핵심 분야에서 국제공저 기반의 연구 확장이 제한적으로 이루어지고 있음을 시사한다. 화학소재측정과 바이오의료측정은 중간 수준이지만, 상위 기관들이 대체로 50~70%대의 국제공저 비중을 유지하는 것과 대비하면 추가적인 협력 확대가 필요하다.</p>
+<p>종합하면 KRISS의 국제협력은 양자기술을 중심으로 비교적 강하게 나타나지만, 기관 전체의 국제공저 비중은 선도 BIPM 기관 대비 낮은 편이다. NPL, PTB, BAM, INRIM 등 유럽권 국가의 국제협력에 비해 KRISS, NPLI, NMIJ/AIST, NIM의 국제협력 활동이 저조한 특성도 나타나며, 자국에 연구 역량이 뛰어난 대학이 많은 미국의 NIST는 국내협력이 상대적으로 높은 것으로 해석할 수 있다. 이렇듯 자국의 연구 역량이 뛰어난 대학과 협력하는 양상은 중국의 NIM에도 유사하게 나타나는 것으로 해석할 수 있다.</p>
+</section>
+<section id="표준과학-연구-분야-영역별-주요-국가의-성과수준-비교-분석" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="표준과학-연구-분야-영역별-주요-국가의-성과수준-비교-분석"><span class="header-section-number">3.5</span> 표준과학 연구 분야 영역별 주요 국가의 성과수준 비교 분석</h2>
+<p>여기서는 앞서 구축한 연구지형도의 세부 영역인 물리측정, 화학소재측정, 바이오의료측정, 양자기술을 기준으로, 주요 선진국과 대한민국의 성과 수준을 비교하고, 주요 벤치마킹 기관과 한국표준과학연구원(KRISS)의 연구성과를 비교·진단하기 위한 분석 틀과 지표 체계를 제시한다. 즉, 앞 절에서 확정한 주요 국가 및 벤치마킹 기관을 대상으로, 표준과학 전영역을 단순 집계하는 방식이 아니라 세부 영역별로 성과의 수준과 구조가 어떻게 다른지까지 분해하여 확인하는 것을 목표로 한다. 이 절 아래에서는 동일한 체계를 적용해 주요 국가 비교 분석과 벤치마킹 기관 비교 분석을 각각 수행할 예정이다.</p>
+<p>성과 수준 비교에는 인용영향력(citation impact) 지표 중 안정성이 높고 상이한 분야 간 비교에 유리한 것으로 평가되는 피인용수 백분위 기반의 엑셀런스(excellence) 지표를 핵심 지표로 적용하고, 성과 수준의 장기 추이 분석을 병행한다. 기존에 자주 사용되는 ‘논문 1편당 평균 피인용수’나 ‘분야 평균 대비 정규화된 피인용수’ 같은 평균 기반 지표는 학술논문의 피인용 분포가 극단적으로 비대칭(skewed)인 특성 때문에 대표값으로서의 적합성이 낮고, 소수의 초고피인용 논문 존재 여부에 따라 값이 불안정하게 변동할 수 있다. 반면 백분위(percentile) 기반 지표는 분포의 꼬리 효과를 상대적으로 통제하면서 평가 대상 집단의 수준을 더 안정적으로 측정할 수 있고, 분야 간 비교 가능성도 높다는 점에서 우선 적용할 근거가 충분하다. 이러한 문제의식은 2015년 과학계량학자들이 Nature지를 통해 계량분석의 문제점과 방향성에 대해 제안한 ｢라이덴 선언｣에서 백분위 기반 지표를 최우선으로 권고한 흐름과도 일치한다.</p>
+<p>엑셀런스 지표의 산출은 전역(글로벌) 과학기술 지형을 기준으로 상위 10% 문헌을 먼저 식별한 뒤, 표준과학 영역 내에서 해당 상위 10% 문헌의 분포를 재집계하는 방식으로 수행한다. 구체적으로는 글로벌 과학기술 지형 전체 문헌을 대상으로 각 인용 주제(citation topic) 메소(meso)-레벨 클러스터(326개)별로 피인용 상위 10% 문헌을 식별하고, 이후 109만여 편 규모의 표준과학 영역 문헌 집합에서 앞서 식별된 상위 10% 문헌에 해당하는 문헌을 기준으로 국가 및 기관의 상위 10% 논문 점유율을 계산한다. 이 방식은 분야/주제별 인용 환경의 차이를 일정 부분 반영하면서도, 표준과학 영역 내부에서 국가·기관 간 상대적 성과 수준을 비교 가능한 형태로 정렬하기 위한 목적을 가진다. 성과 수준 비교는 엑셀런스 지표(예: 상위 10% 문헌 비율)에 더해 우수성의 ’크기’를 반영하는 척도인 상위 분위수 구간에서의 점유율 분석을 병행하고, 이를 결합해 국가·기관의 성과 수준을 다면적으로 해석한다. 또한 시기 구간별로 각 기관의 최상위(상위 10%) 문헌 비율과 최하위(하위 10%) 문헌 비율을 함께 살펴봄으로써 기관별 문헌의 질적 수준 분포가 어떻게 변화하는지를 분석한다.</p>
+<p>이에 더해 엑셀런스 지표 및 점유율 분석에 그치지 않고 KISTI에서 개발한 분위수 분포 기반 측정 모형을 함께 적용한다. 전통적인 엑셀런스 방식은 상위 10% 또는 상위 1%처럼 특정 기준선을 정한 뒤, 분석 대상 주체가 생산한 문헌 중 그 기준을 만족하는 문헌의 상대적 비중을 계산하는 구조다. 이 지표는 ’상대적 우위’의 존재를 파악하는 데 유용하지만, 분석 대상 주체의 성과가 전체 분위수 구간에서 어떤 형태로 분포하는지, 즉 전반적 역량의 구조를 충분히 설명하기에는 한계가 있다. 이에 따라 아래 그림에서 묘사하는 분위수 분포 기반 모형을 통해 전 분위수 구간의 분포를 함께 비교한다.</p>
+<div id="fig-kisti-percentile-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-kisti-percentile-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Final_Report_MD/최종보고서 내용/KISTI_percentile_model.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6"><img src="Final_Report_MD/최종보고서 내용/KISTI_percentile_model.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kisti-percentile-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;1: KISTI의 분위수 분포 기반 수준 비교 모형
+</figcaption>
+</figure>
+</div>
+<p>표준과학 연구지형도의 세부 영역별로 주요 국가의 성과수준을 비교 분석한다. 분석은 표준과학 전영역을 포함해 물리측정, 화학소재측정, 바이오의료측정, 양자기술의 4개 영역으로 구분하여 수행하며, 각 영역에서 주요 국가의 성과가 어떤 수준과 분포 형태로 나타나는지를 KISTI의 분위수 분포 기반 수준 비교 모형, 최상위 및 최하위 문헌 비율 시계열, 연평균 문헌수 시계열, 엑셀런스 지수와 최상위 문헌 점유율 결합 분석을 통해 확인한다.</p>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_표준과학영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_물리측정영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_화학소재측정영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_바이오의료측정영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/country_histogram_percentiles_2022_2024_양자기술영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-12" data-gallery="quarto-lightbox-gallery-12" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_표준과학영역.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-13" data-gallery="quarto-lightbox-gallery-13" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_물리측정영역.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-14" data-gallery="quarto-lightbox-gallery-14" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_화학소재측정영역.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-15" data-gallery="quarto-lightbox-gallery-15" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_바이오의료측정영역.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-16" data-gallery="quarto-lightbox-gallery-16" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_양자기술영역.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-17" data-gallery="quarto-lightbox-gallery-17" title="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_표준과학영역.png" class="img-fluid figure-img" alt="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"></a></p>
+<figcaption>연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-18" data-gallery="quarto-lightbox-gallery-18" title="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_물리측정영역.png" class="img-fluid figure-img" alt="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"></a></p>
+<figcaption>연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-19" data-gallery="quarto-lightbox-gallery-19" title="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_화학소재측정영역.png" class="img-fluid figure-img" alt="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-20" data-gallery="quarto-lightbox-gallery-20" title="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_바이오의료측정영역.png" class="img-fluid figure-img" alt="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-21" data-gallery="quarto-lightbox-gallery-21" title="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_index10_3yr_양자기술영역.png" class="img-fluid figure-img" alt="연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"></a></p>
+<figcaption>연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-22" data-gallery="quarto-lightbox-gallery-22" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_표준과학영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-23" data-gallery="quarto-lightbox-gallery-23" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_물리측정영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-24" data-gallery="quarto-lightbox-gallery-24" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_화학소재측정영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-25" data-gallery="quarto-lightbox-gallery-25" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_바이오의료측정영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-26" data-gallery="quarto-lightbox-gallery-26" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/country_excellence_vs_share_3yr_양자기술영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<p>분석 대상이 주요 선진국 중심으로 구성되어 있기 때문에, 표준과학 영역에서 관측되는 문헌 성과 분포는 전반적으로 ’우수 모형’에 가까운 형태를 띤다. 이는 표준과학 연구가 국가 연구 인프라와 강하게 결합되어 있고, 상위권 국가들 간 비교에서는 기본적인 연구역량 수준이 이미 높게 형성되어 있음을 시사한다. 따라서 위 그림들을 통한 분석 결과 해석의 초점은 국가들이 ’우수한가 아닌가’를 가르는 데 두기보다, 우수한 집단 내부에서 상대적으로 어떤 국가가 상위 분위수 구간에서 더 높은 점유율을 보이는지, 또는 시간 구간에 따라 분포가 어느 방향으로 이동하는지 같은 미세한 차이를 구체적으로 확인하는 데 두는 것이 타당하다.</p>
+<p>최상위 및 최하위 문헌 비율 시계열을 보면, 한국은 2000년대 중반 이후 상위 10% 문헌 비율이 기준선을 상회한 뒤 전반적으로 증가하는 흐름을 보인다. 다만 동일 집단 내 10대 주요 국가와의 상대 비교에서는 한국의 상위 10% 비율이 여전히 낮은 편에 속한다. 영역별로는 바이오의료측정과 화학소재측정에서 엑셀런스의 증가가 다른 영역에 비해 더 두드러지게 나타나며, 이 두 영역에서는 한국의 성과 수준이 상대적으로 더 강하게 관측된다. 그럼에도 불구하고 전체적으로는 물리측정, 화학소재측정, 바이오의료측정, 양자기술 모든 영역에서 한국이 10대 주요 국가 기준 하위권에 위치하는 양상이 유지된다.</p>
+<p>또한 표준과학 전영역 및 세부 영역 공통으로 최근 3~4년 동안 엑셀런스 추이가 하락하는 현상이 관측된다. 이는 단순한 산출 규모 변화와 분리하여, 최상위 성과 문헌의 비중이 최근 시기에 상대적으로 축소되었음을 의미하며, 국가 간 상대 비교에서도 최근 구간의 변화 방향을 해석할 때 중요한 맥락으로 작용한다.</p>
+<p>마지막으로 엑셀런스 지수(상위 10% 비율)와 상위 10% 문헌 점유율을 결합해 보면, 중국의 빠른 상승세와 미국의 영향력 약화를 동시에 확인할 수 있다. 중국은 상위 10% 비율의 개선과 함께 상위권 문헌 집합에서의 점유율 확대가 동반되는 방향으로 이동하는 반면, 미국은 여전히 높은 절대적 기반을 갖고 있음에도 상위권 점유율과 상대적 우위가 약화되는 신호가 나타난다. 이 결합 분석은 단일 지표만으로는 구분하기 어려운 “상위권 성과의 질적 우위”와 “상위권 성과의 규모(점유)”를 동시에 보여주기 때문에, 주요 국가들의 위상 변화와 경쟁 구도의 재편을 해석하는 데 유용한 근거를 제공한다.</p>
+</section>
+<section id="표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="표준연구-분야-세부-영역별-벤치마킹-기관의-성과수준-비교-분석"><span class="header-section-number">3.6</span> 표준연구 분야 세부 영역별 벤치마킹 기관의 성과수준 비교 분석</h2>
+<p>앞선 분석과 유사하게 표준과학 연구지형도의 세부 영역별로 벤치마킹 기관의 성과수준을 비교 분석한다. 분석은 표준과학 전영역을 포함해 물리측정, 화학소재측정, 바이오의료측정, 양자기술의 4개 영역으로 구분하여 수행하며, 각 영역에서 벤치마킹 기관의 성과가 어떤 수준과 분포 형태로 나타나는지를 KISTI의 분위수 분포 기반 수준 비교 모형, 최상위 및 최하위 문헌 비율 시계열, 연평균 문헌수 시계열, 엑셀런스 지수와 최상위 문헌 점유율 결합 분석을 통해 확인한다.</p>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-27" data-gallery="quarto-lightbox-gallery-27" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_표준과학영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-28" data-gallery="quarto-lightbox-gallery-28" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_물리측정영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-29" data-gallery="quarto-lightbox-gallery-29" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_화학소재측정영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-30" data-gallery="quarto-lightbox-gallery-30" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_바이오의료측정영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-31" data-gallery="quarto-lightbox-gallery-31" title="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/org_histogram_percentiles_2022_2024_양자기술영역.png" class="img-fluid figure-img" alt="분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"></a></p>
+<figcaption>분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_표준과학영역 1.png" class="lightbox" data-glightbox="description: .lightbox-desc-32" data-gallery="quarto-lightbox-gallery-32" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_표준과학영역 1.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_물리측정영역 1.png" class="lightbox" data-glightbox="description: .lightbox-desc-33" data-gallery="quarto-lightbox-gallery-33" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_물리측정영역 1.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_화학소재측정영역 1.png" class="lightbox" data-glightbox="description: .lightbox-desc-34" data-gallery="quarto-lightbox-gallery-34" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_화학소재측정영역 1.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_바이오의료측정영역 1.png" class="lightbox" data-glightbox="description: .lightbox-desc-35" data-gallery="quarto-lightbox-gallery-35" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_바이오의료측정영역 1.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_양자기술영역 1.png" class="lightbox" data-glightbox="description: .lightbox-desc-36" data-gallery="quarto-lightbox-gallery-36" title="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/org_top_bottom10_timeseries_with_log_docs_commonrange_양자기술영역 1.png" class="img-fluid figure-img" alt="최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"></a></p>
+<figcaption>최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_avg_docs_log_3yr_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-37" data-gallery="quarto-lightbox-gallery-37" title="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/org_avg_docs_log_3yr_표준과학영역.png" class="img-fluid figure-img" alt="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"></a></p>
+<figcaption>문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_avg_docs_log_3yr_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-38" data-gallery="quarto-lightbox-gallery-38" title="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_avg_docs_log_3yr_물리측정영역.png" class="img-fluid figure-img" alt="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"></a></p>
+<figcaption>문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_avg_docs_log_3yr_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-39" data-gallery="quarto-lightbox-gallery-39" title="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_avg_docs_log_3yr_화학소재측정영역.png" class="img-fluid figure-img" alt="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_index10_3yr_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-40" data-gallery="quarto-lightbox-gallery-40" title="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_index10_3yr_바이오의료측정영역.png" class="img-fluid figure-img" alt="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_index10_3yr_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-41" data-gallery="quarto-lightbox-gallery-41" title="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_index10_3yr_양자기술영역.png" class="img-fluid figure-img" alt="문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"></a></p>
+<figcaption>문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+표준과학 전영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_표준과학영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-42" data-gallery="quarto-lightbox-gallery-42" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_표준과학영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_물리측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-43" data-gallery="quarto-lightbox-gallery-43" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_물리측정영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+화학소재측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_화학소재측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-44" data-gallery="quarto-lightbox-gallery-44" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_화학소재측정영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+바이오의료측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_바이오의료측정영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-45" data-gallery="quarto-lightbox-gallery-45" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_바이오의료측정영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+양자기술
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_양자기술영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-46" data-gallery="quarto-lightbox-gallery-46" title="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"><img src="Final_Report_MD/최종보고서 내용/org_excellence_vs_share_3yr_양자기술영역.png" class="img-fluid figure-img" alt="엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역"></a></p>
+<figcaption>엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+<p>표준과학 전영역을 대상으로 분위수 분포 기반 수준 비교 모형을 적용해보면, 미국 NIST와 캐나다 NRC는 피인용 분위수 분포가 전반적으로 우수한 형태를 보이는 반면 일본 NMIJ와 중국 NIM은 열위 모형에 가까운 분포를 보인다. KRISS는 상위 10% 구간을 제외하면 특정 구간에 편중되지 않고 전 구간에서 비교적 고르게 분포하는 특징이 나타난다. 이는 최상위 성과 비중이 두드러지게 크지는 않지만, 전반적 기반 성과가 균질하게 형성되어 있다는 신호로 해석된다.</p>
+<p>엑셀런스 지수(상위 10% 문헌 비중)를 보면, 상위 10% 논문 비중이 일관되게 상승하는 추세는 모든 기관에서 공통적으로 확인되지 않는다. 대체로 유지되거나 감소하는 경향이 나타나며, KRISS는 10대 BIPM 기관 기준 중위권에 위치한다. 엑셀런스 기준선(10%)을 하회하는 수준이지만 최근 구간에서 완만한 상승 추세가 관측된다. 기관별로는 일본 NMIJ와 중국 NIM의 엑셀런스 지표가 최근 증가하는 흐름을 보이는 반면, NIST와 더불어 독일의 BAM, PTB, 영국 NPL 등 주요 선진국 기관들은 엑셀런스 값이 공통적으로 하락하는 방향으로 이동한다. 또한 KRISS는 바이오의료측정과 화학소재측정 영역에서 상위 백분위 구간의 비중이 다른 영역에 비해 상대적으로 높게 나타나, 질적 성과의 상대적 강점이 해당 영역에 더 많이 분포해 있음을 시사한다.</p>
+<p>연평균 문헌수 시계열을 함께 보면, NIST가 문헌 규모 측면에서 독보적 위치를 점하는 가운데 KRISS는 PTB, BAM과 유사한 수준이며 NIST 다음의 3~4위권에 해당하는 규모다. 엑셀런스 지수와 최상위 문헌 점유율을 결합해 보면, NIST의 상위 10% 점유율 하락이 특히 큰 폭으로 나타난다. 이는 NIST의 최상위 성과 문헌이 차지하는 상대적 비중이 줄어들고 있음을 의미하며, 단순히 엑셀런스 비중만으로는 포착하기 어려운 “상위권 성과의 규모” 변화가 동반되고 있음을 보여준다.</p>
+<p>물리측정 영역에 한정하면, KRISS는 오랜 기간 양적 수준에서 2~3위를 유지해 왔으나 최근에는 BAM이 이를 추월하고, 인도 NPLI와 중국 NIM의 빠른 증가가 겹치면서 상대적 위치 변동이 나타난다. 질적 수준 측면에서 KRISS는 10대 기관 기준 중하위권에 위치한다. 특히 물리측정 영역은 논문 수가 많은 NIST, BAM, KRISS, PTB, NIM에서 상위 10% 엑셀런스 수준이 높지 않은 경향이 함께 관측된다는 점에 주의가 필요하다. 또한 물리측정 영역에는 양자기술 영역이 포함되지 않는다는 점을 함께 고려해야 하며, NIST의 엑셀런스 하락이 양자기술 영역으로의 투자·집중에 따른 구성 변화의 결과일 가능성도 배제하기 어렵다. 독일의 PTB는 양자기술에 상대적으로 집중하는 반면, BAM은 양자기술 영역의 논문 생산이 거의 없고 물리측정 영역에 더 강하게 집중하는 구조가 나타난다.</p>
+<p>화학소재측정 영역에서는 KRISS가 양적 수준에서 2~3위를 유지해 왔으며 2000년대에는 연간 약 50편, 최근에는 연간 100편 수준으로 생산 규모가 확대된 흐름이 확인된다. 다만 최근에는 BAM이 KRISS를 추월했고, NPLI와 NIM의 추격이 빠르게 전개되면서 현재는 4위 수준으로 내려온 것으로 정리된다. 질적 수준은 10대 기관 기준 5위권으로 비교적 양호한 편이며, 다수의 BIPM 기관에서 질적 지표가 전반적으로 하향세를 보이는 가운데 KRISS는 상대적으로 질적 수준을 유지하는 것으로 해석된다.</p>
+<p>바이오의료측정 영역에서 KRISS는 2000년대 초반 연간 약 10편 수준으로 6위권에 머물렀으나, 현재는 연간 약 50편 수준으로 증가하여 4~5위권을 유지한다. 중국 NIM은 과거 최하위권이었으나 최근 급상승하여 3위권까지 진입하는 양상이 나타난다. 질적 수준은 NIST를 제외하면 상위 기관들과 대체로 유사한 수준을 유지하는 것으로 정리되며, KRISS의 상대적 약점이 두드러지기보다는 상위권과의 격차가 비교적 제한적으로 나타나는 영역으로 볼 수 있다.</p>
+<p>양자기술 영역에서는 KRISS가 규모 측면에서 2~3위를 유지하면서 엑셀런스 기준의 질적 수준이 점진적으로 상승하는 흐름이 나타난다. NIST는 규모와 질 모두에서 독보적 위치를 차지한다. NIST를 제외한 여러 기관은 논문 수가 크게 증가하지 않은 상태에서 질적 수준이 큰 폭으로 하락하는 패턴이 특징적으로 관측되며, 양자기술 분야에서 상위권 경쟁구도가 빠르게 재편되고 있음을 시사한다. KRISS는 2000년대부터 매년 50~60편 수준의 논문을 산출해 온 기반 위에서 질적 지표가 개선되는 방향이 나타나, 벤치마킹 기관 비교에서 상대적으로 전략적 의미가 큰 영역으로 해석된다.</p>
+</section>
+<section id="표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="표준연구-분야-세부-영역별-벤치마킹-기관의-정책부합성-비교-분석"><span class="header-section-number">3.7</span> 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석</h2>
+<p>본 절에서는 한국표준과학연구원과의 벤치마킹 대상으로 선정된 10개 핵심 기관을 중심으로, 연구 영역별 정책부합성을 비교·진단한다. 목적은 각 기관이 보유한 측정표준 역량 기반 연구 활동이 정책적 수요와 얼마나 밀접하게 연계되어 있는지를 정량적으로 파악하는 데 있다.</p>
+<p>본 연구에서 정책부합 연구는 CIPM에서 공식 발표한 자료에 기반하여 두 가지 조건을 동시에 충족하는 논문으로 정의하였다. 첫째, 정책 조건으로 「CIPM Strategy 2030+」의 5대 글로벌 도전과제 분야(기후·환경, 보건·보건안보, 식품·물·소비자 안전, 에너지 전환·에너지안보, 산업혁신·첨단제조) 중 하나 이상으로 분류되어야 한다. 「CIPM Strategy 2030+」는 국제도량형위원회(CIPM)가 향후 30~50년을 대비하여 국제계측시스템의 발전 방향을 제시한 전략 문서이며, 2019년 SI 단위계 개정 이후 2030년 이후의 계측학이 직면할 과학적·사회적 도전 과제를 체계적으로 분석해 대응 방안을 제시한다. 본 연구는 이 5대 분야를 “정책 축” 분류의 핵심 프레임워크로 활용하였다.</p>
+<p>둘째, 측정 역량 조건으로 KCDB 9대 계측 분야 중 하나 이상으로 분류되어야 한다. KCDB(Key Comparison Database)는 CIPM 상호인정협정(CIPM MRA)을 지원하기 위해 BIPM이 운영하는 공개 데이터베이스로, 참여 기관들의 국제적으로 인정된 교정측정역량(CMC)과 이를 뒷받침하는 핵심비교 및 보조비교 결과를 포함한다. KCDB의 분야는 CIPM 자문위원회의 구조를 반영하여 음향·초음파·진동(AUV), 전기·자기(EM), 길이(L), 질량 및 관련량(M), 온도(T), 시간·주파수(TF), 광도·복사(PR), 전리방사선(RI), 화학·생물(QM)의 9개 영역으로 구분된다.</p>
+<p>이처럼 정책 축과 측정 축 두 조건을 동시에 충족하는 연구만을 정책부합 연구로 정의한 것은, 표준연구기관이 보유한 Metrology 역량을 기반으로 사회적 수요에 부합하는 연구를 수행하고 있는지를 구분하기 위함이다.</p>
+<div id="fig-cipm-strategy-2030" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cipm-strategy-2030-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Final_Report_MD/최종보고서 내용/CIPM_strategy_2030.png" class="lightbox" data-glightbox="description: .lightbox-desc-47" data-gallery="quarto-lightbox-gallery-47"><img src="Final_Report_MD/최종보고서 내용/CIPM_strategy_2030.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cipm-strategy-2030-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;2: CIPM Strategy 2030+
+</figcaption>
+</figure>
+</div>
+<p>논문 분류는 두 개의 독립적인 축을 기준으로 수행하였다. 정책 축은 BIPM 5대 글로벌 도전과제에 ’국가 전략기술·과학기술 인프라 정책 지원 Metrology’를 추가한 6대 분야 체계로 분류하되, 최종 정책부합성 분석에서는 5대 글로벌 도전과제 분야로 분류된 논문만을 정책부합 연구로 정의하였다. ’국가 전략기술·과학기술 인프라 정책 지원 Metrology’로 분류된 논문은 표준 그 자체에 대한 연구나 기초 표준 연구 등 측정 인프라 중심의 내용을 다루는 성격이 강해 정책부합성 비교에서는 제외하였다. 분류에 사용한 6대 분야의 정의는 다음과 같다.</p>
+<div id="tbl-policy-categories" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-policy-categories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;3: 정책 축 분류 체계 (CIPM Strategy 2030+)
+</figcaption>
+<div aria-describedby="tbl-policy-categories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>정책 분야명</th>
+<th>약어명</th>
+<th>CIPM Strategy 2030+ 내 주요 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>기후·환경 정책 지원 Metrology</td>
+<td>기후·환경</td>
+<td><strong>지구 환경 모니터링과 기후변화 완화 정책의 공정한 이행을 위한 과학적 기반으로서의 측정과학</strong><em>(Metrology provides the scientific basis to monitor the global environment and to ensure fair implementation of mitigation policies)</em><br>예: 온실가스, 대기·수질·토양 오염, 기후변화, 환경 모니터링 등</td>
+</tr>
+<tr class="even">
+<td>보건·보건안보 정책 지원 Metrology</td>
+<td>건강</td>
+<td><strong>보건 기술 혁신(Innovation in Health Technologies)</strong><br>예: 진단·의료기기, 바이러스·박테리아, 백신·의약품, 감염병 대응 등</td>
+</tr>
+<tr class="odd">
+<td>식품·물·소비자 안전 정책 지원 Metrology</td>
+<td>식품</td>
+<td><strong>안전한 식품과 물을 위한 측정과학(Metrology is Needed for Safe Food and Water)</strong><br>예: 식품 오염물질, 음용수, 유해물질 검출, 식품안전규제 등</td>
+</tr>
+<tr class="even">
+<td>에너지 전환·에너지안보 정책 지원 Metrology</td>
+<td>(재생) 에너지</td>
+<td><strong>재생에너지 개발을 위한 과학적 기반으로서의 측정과학(Metrology Provides a Scientific Basis for Developing and Establishing Renewable Energy Sources)</strong><br>예: 재생에너지, 배터리·연료전지·수소, 전력계량, 에너지효율 등</td>
+</tr>
+<tr class="odd">
+<td>산업혁신·첨단제조 정책 지원 Metrology</td>
+<td>첨단 제조</td>
+<td><strong>첨단 제조를 지원하기 위한 새로운 서비스로서의 측정과학(Metrology is Developing New Services to Support Advanced Manufacturing)</strong><br>예: 제조공정, 3D프린팅·나노·반도체, 자동화·로봇, 품질관리 등</td>
+</tr>
+<tr class="even">
+<td>국가 전략기술·과학기술 인프라 정책 지원 Metrology</td>
+<td>해당 분류 최종 미사용 결정 (5대 분야 이외)</td>
+<td><strong>측정 인프라(표준, 불확도, 추적성, 단위 실현, 시간·주파수, 양자 등) 자체의 고도화 연구</strong><br>예: 양자센서, 시간·주파수표준, 불확도·추적성, 국제비교 등</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>둘째, 측정 축은 CIPM 자문위원회의 구조를 반영한 KCDB의 9대 분야를 기준으로 분류하였다. 각 분야에 대한 주요 내용은 다음과 같다.</p>
+<div id="tbl-kcdb-categories" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-kcdb-categories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;4: KCDB 9대 측정 분야 정의
+</figcaption>
+<div aria-describedby="tbl-kcdb-categories-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>측정 분류</th>
+<th>주요 내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Acoustics, Ultrasound and Vibration (AUV)</td>
+<td>음향, 초음파, 진동</td>
+</tr>
+<tr class="even">
+<td>Electricity and Magnetism (EM)</td>
+<td>전기, 자기, 전자기</td>
+</tr>
+<tr class="odd">
+<td>Length (L)</td>
+<td>길이·거리·치수, 좌표측정기(CMM), 간섭계</td>
+</tr>
+<tr class="even">
+<td>Mass and related quantities (M)</td>
+<td>질량, 힘·토크, 압력, 밀도·점도·유량</td>
+</tr>
+<tr class="odd">
+<td>Thermometry (T)</td>
+<td>온도, 습도, 열물성</td>
+</tr>
+<tr class="even">
+<td>Time and Frequency (TF)</td>
+<td>시간·주파수 표준, 원자시계, 동기화</td>
+</tr>
+<tr class="odd">
+<td>Photometry and Radiometry (PR)</td>
+<td>광도·조도, 복사량, LED·디스플레이</td>
+</tr>
+<tr class="even">
+<td>Ionizing Radiation (RI)</td>
+<td>방사선량, X선·감마선·중성자</td>
+</tr>
+<tr class="odd">
+<td>Chemistry and Biology (QM)</td>
+<td>농도·물질량, 분석화학, 생체표지자</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>분류 시 정책 축은 논문당 최대 3개, 측정 축은 최대 4개의 레이블을 부여하는 멀티레이블 방식을 적용하였으며, 두 축은 서로 독립적으로 판단하였다. 정책 축 분류에서는 연구의 응용 영역이 명확히 드러나는 경우 해당 정책 카테고리를 부여하되, 느슨한 연관성만으로는 분류하지 않도록 하였다. 측정 축 분류에서는 논문이 다루는 핵심 측정 물리량과 기술을 기준으로 판단하되, 보정용이나 부수적 파라미터는 제외하였다.</p>
+<p>각 분류 결과에는 0.0에서 1.0 사이의 신뢰도(confidence) 점수를 부여하였다. 다중 분류 방식을 적용하였으므로 여러 레이블의 신뢰도 합이 1일 필요는 없다. 신뢰도 점수는 제목과 초록의 정보량에 따라 차등 적용하였으며, 상황별 권장 범위는 다음과 같다. 최종적으로 연구진의 검토를 통하여 신뢰도는 0.7 이상인 값만 활용하였다.</p>
+<div id="tbl-policy-confidence" class="quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-policy-confidence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+표&nbsp;5: 신뢰도 점수 권장 범위
+</figcaption>
+<div aria-describedby="tbl-policy-confidence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead>
+<tr class="header">
+<th>상황</th>
+<th>신뢰도</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>제목과 초록이 매우 명확한 경우</td>
+<td>0.8~1.0</td>
+</tr>
+<tr class="even">
+<td>초록 내용으로 추론 가능한 경우</td>
+<td>0.6~0.8</td>
+</tr>
+<tr class="odd">
+<td>제목만 있고 초록이 없는 경우</td>
+<td>0.3~0.6</td>
+</tr>
+<tr class="even">
+<td>미분류 선택 시</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>분류 작업에는 OpenAI의 GPT-5 모델을 활용하였다. 대규모 문헌 집합에 대한 효율적이고 일관된 분류를 위해 상세한 판단 원칙과 카테고리 정의를 포함한 시스템 프롬프트를 설계하였으며, 각 논문의 제목과 초록을 입력으로 제공하여 JSON 형식의 구조화된 분류 결과를 출력하도록 하였다.</p>
+<p>정책부합성 분석은 두 가지 차원에서 수행하였다. 첫째, 기관별 연구 영역에 따른 정책부합 논문 집중도를 산출하였다. 이는 각 기관의 특정 영역 내 정책부합 논문 수를 해당 영역 전체 논문 수로 나눈 비율로 정의되며, 다음과 같이 계산된다.</p>
+<div id="fig-policy-alignment-count-share" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-policy-alignment-count-share-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Final_Report_MD/최종보고서 내용/image 6.png" class="lightbox" data-glightbox="description: .lightbox-desc-48" data-gallery="quarto-lightbox-gallery-48"><img src="Final_Report_MD/최종보고서 내용/image 6.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-policy-alignment-count-share-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;3: 기관별 정책부합 연구 수 및 점유율 비교 (Full Counting)
+</figcaption>
+</figure>
+</div>
+<p>기관별 정책부합 연구 비율은 NPLI 79.4%, BAM 77.6%, KRISS 71.7%로 상대적으로 높게 나타났으며, NIST는 절대 건수에서는 1위이나 비율은 47.4%로 가장 낮았다. 이는 기관의 연구 규모(총 논문 수)와 정책부합 연구의 절대량이 반드시 같은 방향으로 움직이지 않으며, 기관별 포트폴리오 구성에 따라 정책부합 연구의 비중이 달라질 수 있음을 보여준다.</p>
+<div id="fig-policy-alignment-share" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-policy-alignment-share-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Final_Report_MD/최종보고서 내용/image 7.png" class="lightbox" data-glightbox="description: .lightbox-desc-49" data-gallery="quarto-lightbox-gallery-49"><img src="Final_Report_MD/최종보고서 내용/image 7.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-policy-alignment-share-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;4: 기관별 정책부합 연구 비율 비교 (Full Counting)
+</figcaption>
+</figure>
+</div>
+<p>정책 카테고리별 분포를 살펴보면, 기관별로 연구 역량이 집중된 정책 분야가 뚜렷하게 다르게 나타난다. 예컨대 KRISS는 첨단제조 비중이 가장 높고 건강 분야가 그 다음을 차지하며, NIST 또한 첨단제조 중심의 분포를 보인다. 반면 일부 기관은 건강이나 에너지 분야에서 상대적 집중이 관측되며, 이는 기관별 측정표준 역량과 응용 수요의 결합 구조가 상이함을 시사한다.</p>
+<div id="fig-policy-category-overall" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-policy-category-overall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Final_Report_MD/최종보고서 내용/02_전체_기관별_카테고리정책부합비율.png" class="lightbox" data-glightbox="description: .lightbox-desc-50" data-gallery="quarto-lightbox-gallery-50"><img src="Final_Report_MD/최종보고서 내용/02_전체_기관별_카테고리정책부합비율.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-policy-category-overall-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;5: 전체 영역: 기관별 카테고리 정책부합 논문비율
+</figcaption>
+</figure>
+</div>
+<p>정책 카테고리별 연구 집중도(RTA) 관점에서 KRISS는 첨단제조(1.13)와 건강(1.03)에서 비교우위를 보이며, 에너지(1.00)는 평균 수준이다. 반면 기후·환경(0.57)과 식품(0.87)은 비교열위로 나타나, 표준과학 전영역에서의 정책부합 연구 포트폴리오가 산업·제조 및 보건 응용에 상대적으로 치우쳐 있음을 시사한다.</p>
+<div id="fig-policy-category-rta" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-policy-category-rta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="Final_Report_MD/최종보고서 내용/image 8.png" class="lightbox" data-glightbox="description: .lightbox-desc-51" data-gallery="quarto-lightbox-gallery-51"><img src="Final_Report_MD/최종보고서 내용/image 8.png" class="img-fluid figure-img"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-policy-category-rta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+그림&nbsp;6: 기관별 정책 카테고리별 연구 집중도(RTA)
+</figcaption>
+</figure>
+</div>
+<p>정책부합성은 연구 영역별로도 차이를 보인다. 물리측정 영역에서는 대부분의 기관이 첨단제조 분야에 높은 비중을 보이며, KRISS 역시 물리측정 기반 연구가 산업·제조 응용에 강하게 연결되는 양상을 나타낸다. 화학소재측정 영역은 첨단제조와 함께 기후·환경 및 식품 분야 비중이 상대적으로 높아, 환경 모니터링과 화학 기반 안전·규제 수요와의 결합이 더 두드러진다. 바이오의료측정 영역은 건강 분야가 모든 기관에서 압도적으로 높아, 바이오 측정 연구가 본질적으로 보건·의료 정책 수요와 밀접하게 결합됨을 반영한다. 양자기술 영역은 전반적으로 정책부합 비율이 낮고 첨단제조 중심의 분포가 나타나, 정책 응용보다는 기초연구 및 인프라 구축 단계의 성격이 상대적으로 강함을 시사한다.</p>
+<div class="carousel-gallery">
+<div class="carousel-track">
+<div class="carousel-slide">
+<div class="slide-title">
+전체 영역+4개 세부 영역
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/01_기관별_정책부합비율_전체4개영역.png" class="lightbox" data-glightbox="description: .lightbox-desc-52" data-gallery="quarto-lightbox-gallery-52" title="전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율"><img src="Final_Report_MD/최종보고서 내용/01_기관별_정책부합비율_전체4개영역.png" class="img-fluid figure-img" alt="전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율"></a></p>
+<figcaption>전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율</figcaption>
+</figure>
+</div>
+</div>
+<div class="carousel-slide">
+<div class="slide-title">
+물리측정
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Final_Report_MD/최종보고서 내용/02_물리측정_기관별_카테고리정책부합비율.png" class="lightbox" data-glightbox="description: .lightbox-desc-53" data-gallery="quarto-lightbox-gallery-53" title="물리측정 영역: 기관별 카테고리 정책부합 논문비율"><img src="Final_Report_MD/최종보고서 내용/02_물리측정_기관별_카테고리정책부합비율.png" class="img-fluid figure-img" alt="물리측정 영역: 기관별 카테고리 정책부합 논문비율"></a></p>
+<figcaption>물리측정 영역: 기관별 카테고리 정책부합 논문비율</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="carousel-controls">
+<button class="carousel-btn prev" type="button" aria-label="이전">
+‹
+</button>
+<div class="carousel-dots">
+
+</div>
+<button class="carousel-btn next" type="button" aria-label="다음">
+›
+</button>
+</div>
+<div class="carousel-caption">
+좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.
+</div>
+</div>
+
+
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)</span>
+<span class="glightbox-desc lightbox-desc-2">주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)</span>
+<span class="glightbox-desc lightbox-desc-3">주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)</span>
+<span class="glightbox-desc lightbox-desc-4">주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)</span>
+<span class="glightbox-desc lightbox-desc-5">주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)</span>
+<span class="glightbox-desc lightbox-desc-6">그림&nbsp;1: KISTI의 분위수 분포 기반 수준 비교 모형</span>
+<span class="glightbox-desc lightbox-desc-7">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-8">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-9">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-10">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-11">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-12">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-13">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-14">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-15">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-16">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-17">연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-18">연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-19">연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-20">연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-21">연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-22">엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-23">엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-24">엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-25">엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-26">엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-27">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-28">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-29">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-30">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-31">분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-32">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-33">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-34">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-35">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-36">최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-37">문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-38">문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-39">문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-40">문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-41">문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-42">엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역</span>
+<span class="glightbox-desc lightbox-desc-43">엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역</span>
+<span class="glightbox-desc lightbox-desc-44">엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역</span>
+<span class="glightbox-desc lightbox-desc-45">엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역</span>
+<span class="glightbox-desc lightbox-desc-46">엑셀런스 지수와 최상위 문헌 점유율 결합 분석로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역</span>
+<span class="glightbox-desc lightbox-desc-47">그림&nbsp;2: CIPM Strategy 2030+</span>
+<span class="glightbox-desc lightbox-desc-48">그림&nbsp;3: 기관별 정책부합 연구 수 및 점유율 비교 (Full Counting)</span>
+<span class="glightbox-desc lightbox-desc-49">그림&nbsp;4: 기관별 정책부합 연구 비율 비교 (Full Counting)</span>
+<span class="glightbox-desc lightbox-desc-50">그림&nbsp;5: 전체 영역: 기관별 카테고리 정책부합 논문비율</span>
+<span class="glightbox-desc lightbox-desc-51">그림&nbsp;6: 기관별 정책 카테고리별 연구 집중도(RTA)</span>
+<span class="glightbox-desc lightbox-desc-52">전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율</span>
+<span class="glightbox-desc lightbox-desc-53">물리측정 영역: 기관별 카테고리 정책부합 논문비율</span>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./book_part1_landscape.html" class="pagination-link" aria-label="2. 문헌 집합 및 연구지형도 구축">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. 문헌 집합 및 연구지형도 구축</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./book_part3_emerging.html" class="pagination-link" aria-label="4. 유망 연구영역 도출">
+        <span class="nav-page-text">4. 유망 연구영역 도출</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/web_part2_capability.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>

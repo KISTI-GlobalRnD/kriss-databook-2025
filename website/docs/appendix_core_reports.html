@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="간이/상세 리포팅 작성 규칙과 LLM 활용 범위를 정리.">
+<meta name="description" content="핵심 역량 유형 상세 리포트 모음.">
 
-<title>KRISS 표준과학 연구 데이터북 (Databook) - 상세 리포팅 방법론</title>
+<title>KRISS 표준과학 연구 데이터북 (Databook) - 상세 리포팅 — 핵심 역량</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/appendix_methodology.html" rel="next">
-<link href="../docs/cluster_dashboard.html" rel="prev">
+<link href="../docs/detailed_reports/cluster_182/report.html" rel="next">
+<link href="../docs/appendix_methodology.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -557,7 +557,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">상세 리포팅 방법론</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_core_reports.html">상세 리포트 — 핵심 역량</a></li><li class="breadcrumb-item"><a href="../docs/appendix_core_reports.html">개요</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -662,7 +662,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link active">
+  <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">상세 리포팅 방법론</span></a>
   </div>
 </li>
@@ -683,7 +683,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">개요</span></a>
   </div>
 </li>
@@ -755,41 +755,19 @@ document.addEventListener("DOMContentLoaded", () => {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#간이-리포팅-작성-방법론" id="toc-간이-리포팅-작성-방법론" class="nav-link active" data-scroll-target="#간이-리포팅-작성-방법론">간이 리포팅 작성 방법론</a>
-  <ul class="collapse">
-  <li><a href="#입력-구성" id="toc-입력-구성" class="nav-link" data-scroll-target="#입력-구성">입력 구성</a></li>
-  <li><a href="#출력-형식" id="toc-출력-형식" class="nav-link" data-scroll-target="#출력-형식">출력 형식</a></li>
-  <li><a href="#유형분류-프레임-고정" id="toc-유형분류-프레임-고정" class="nav-link" data-scroll-target="#유형분류-프레임-고정">유형(분류 프레임) 고정</a></li>
-  <li><a href="#지식기반-인접-클러스터eaaa-정의-및-표기" id="toc-지식기반-인접-클러스터eaaa-정의-및-표기" class="nav-link" data-scroll-target="#지식기반-인접-클러스터eaaa-정의-및-표기">지식기반 인접 클러스터(EA/AA) 정의 및 표기</a></li>
-  <li><a href="#키워드-통계의-기본-단위문서-커버리지" id="toc-키워드-통계의-기본-단위문서-커버리지" class="nav-link" data-scroll-target="#키워드-통계의-기본-단위문서-커버리지">키워드 통계의 기본 단위(문서 커버리지)</a></li>
-  <li><a href="#대표-키워드-score간략-정의" id="toc-대표-키워드-score간략-정의" class="nav-link" data-scroll-target="#대표-키워드-score간략-정의">대표 키워드 score(간략 정의)</a></li>
-  <li><a href="#기관-분석두-단계-및-대상-기관-선정-규칙" id="toc-기관-분석두-단계-및-대상-기관-선정-규칙" class="nav-link" data-scroll-target="#기관-분석두-단계-및-대상-기관-선정-규칙">기관 분석(두 단계) 및 대상 기관 선정 규칙</a></li>
-  <li><a href="#정책부합성-표현-원칙분포-요약-중심" id="toc-정책부합성-표현-원칙분포-요약-중심" class="nav-link" data-scroll-target="#정책부합성-표현-원칙분포-요약-중심">정책부합성 표현 원칙(분포 요약 중심)</a></li>
-  <li><a href="#llm-기반-서술의-범위-제한" id="toc-llm-기반-서술의-범위-제한" class="nav-link" data-scroll-target="#llm-기반-서술의-범위-제한">LLM 기반 서술의 범위 제한</a></li>
-  <li><a href="#llm-서술-품질안전장치" id="toc-llm-서술-품질안전장치" class="nav-link" data-scroll-target="#llm-서술-품질안전장치">LLM 서술 품질·안전장치</a></li>
-  </ul></li>
-  <li><a href="#llm-기반-자동화-절차와-한계" id="toc-llm-기반-자동화-절차와-한계" class="nav-link" data-scroll-target="#llm-기반-자동화-절차와-한계">LLM 기반 자동화 절차와 한계</a></li>
-  <li><a href="#유형별-독해-가이드" id="toc-유형별-독해-가이드" class="nav-link" data-scroll-target="#유형별-독해-가이드">유형별 독해 가이드</a></li>
-  <li><a href="#상세-리포팅-확장-구성예정" id="toc-상세-리포팅-확장-구성예정" class="nav-link" data-scroll-target="#상세-리포팅-확장-구성예정">상세 리포팅 확장 구성(예정)</a></li>
-  <li><a href="#작성-원칙배포판" id="toc-작성-원칙배포판" class="nav-link" data-scroll-target="#작성-원칙배포판">작성 원칙(배포판)</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_detailed_reporting.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">상세 리포팅 방법론</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_core_reports.html">상세 리포트 — 핵심 역량</a></li><li class="breadcrumb-item"><a href="../docs/appendix_core_reports.html">개요</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">상세 리포팅 방법론</h1>
+<h1 class="title">상세 리포팅 — 핵심 역량</h1>
 </div>
 
 <div>
   <div class="description">
-    간이/상세 리포팅 작성 규칙과 LLM 활용 범위를 정리.
+    핵심 역량 유형 상세 리포트 모음.
   </div>
 </div>
 
@@ -806,162 +784,12 @@ document.addEventListener("DOMContentLoaded", () => {
 </header>
 
 
-<p>상세 리포팅은 데이터북 본문에서 요약된 결과를 클러스터(연구주제) 단위로 확장해, 근거·지표·해석을 보다 촘촘하게 제공하는 보조 장으로 설계한다. 간이 리포팅은 상세 리포팅의 축약판으로, 동일한 템플릿과 규칙을 적용하되 분량을 줄여 빠른 비교·검토를 지원한다. 부록의 유형별 상세 리포트는 단계적으로 확장되며, 본 장은 그에 앞서 작성 규칙과 LLM 활용 범위를 정리한다.</p>
-<section id="간이-리포팅-작성-방법론" class="level2">
-<h2 class="anchored" data-anchor-id="간이-리포팅-작성-방법론">간이 리포팅 작성 방법론</h2>
-<section id="입력-구성" class="level3">
-<h3 class="anchored" data-anchor-id="입력-구성">입력 구성</h3>
-<p>간이 리포트는 클러스터별 문헌(제목+초록)과 메타데이터, 지표/키워드 통계, 지식기반 유사도·연결, 기관 분포 및 정책부합성(분류) 결과를 입력으로 한다. 자연어 서술(개요/기관 요약/정책부합성 해석/요약)은 구조화 입력 데이터에 포함된 텍스트·수치만 사용하도록 제한한다.</p>
-</section>
-<section id="출력-형식" class="level3">
-<h3 class="anchored" data-anchor-id="출력-형식">출력 형식</h3>
-<p>모든 클러스터에 대해 동일한 구성으로 (가) 개요(기술 설명 + 측정 과학 관점 해석), (나) 클러스터 세부지표(문헌 수 추이 + 퍼센타일 + KRISS 기여), (다) 지식기반 인접 클러스터(EA/AA) 및 ego network, (라) 키워드 요약(워드클라우드 + 시계열 + 기간 요약), (마) 기관 분석(성과 표 + 기관별 초록 기반 요약), (바) 정책부합성(분포 + 해석 + 근거 예시), (사) 요약을 포함한다.</p>
-<p>Notes/약어집은 본문(1–6) 이후에 배치되는 말미 부록 성격의 구성요소로, 보고서 표현에서는 본문 번호 체계와 분리해 해석한다.</p>
-<div id="tbl-llm-report-structure" class="quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-llm-report-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;1: 간이 리포트 출력 구성
-</figcaption>
-<div aria-describedby="tbl-llm-report-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>구간</th>
-<th>주요 내용</th>
-<th>생성 방식</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1. 개요</td>
-<td>기술 개요 + 측정 과학 관점 해석</td>
-<td>대규모언어모델(LLM) 기반 서술</td>
-</tr>
-<tr class="even">
-<td>2. 클러스터 세부지표</td>
-<td>문헌 수 추이, 퍼센타일, KRISS 기여</td>
-<td>규칙 기반(수치 삽입)</td>
-</tr>
-<tr class="odd">
-<td>3. 지식기반 인접 클러스터·키워드</td>
-<td>EA/AA 표, ego network, 키워드 시각화·표</td>
-<td>규칙 기반(시각화 포함)</td>
-</tr>
-<tr class="even">
-<td>4. 기관 분석</td>
-<td>성과 표 + 기관별 요약</td>
-<td>혼합(표=규칙, 요약=LLM)</td>
-</tr>
-<tr class="odd">
-<td>5. 정책부합성</td>
-<td>분포 표 + 해석 + 근거 예시</td>
-<td>혼합(분포/근거=규칙, 해석=LLM)</td>
-</tr>
-<tr class="even">
-<td>6. 요약</td>
-<td>3문단 종합 요약</td>
-<td>LLM 기반 서술</td>
-</tr>
-<tr class="odd">
-<td>부록(Notes/약어집)</td>
-<td>안전장치, 약어 목록</td>
-<td>규칙 기반</td>
-</tr>
-</tbody>
-</table>
-</div>
-</figure>
-</div>
-</section>
-<section id="유형분류-프레임-고정" class="level3">
-<h3 class="anchored" data-anchor-id="유형분류-프레임-고정">유형(분류 프레임) 고정</h3>
-<p>유형 코드는 내부에서만 사용하되, 보고서 표기에서는 “핵심 역량 / 확장 가능 / 역량 공백”의 3종 유형 라벨을 사용한다. 여기서 ’내부 지표 기준’은 본 보고서에서 정의한 유망성 지표(예: RTA, 문헌 수, 상위 10% 인용 논문 비중(Excellence10)) 조건을 의미하며, 세부 기준은 해당 절에서 제시한다. 각 유형 정의는 다음 1문장을 고정해 보고서 간 표현 변동을 최소화한다.</p>
-<ol type="1">
-<li>핵심 역량: 내부 지표 기준을 충족하는 유형.</li>
-<li>확장 가능: 핵심 역량과 인접하며 내부 지표 기준에서 일부 부족 축이 표시된 유형.</li>
-<li>역량 공백: 내부 지표 기준에서 상대적으로 부족 축이 표시된 유형.</li>
-</ol>
-</section>
-<section id="지식기반-인접-클러스터eaaa-정의-및-표기" class="level3">
-<h3 class="anchored" data-anchor-id="지식기반-인접-클러스터eaaa-정의-및-표기">지식기반 인접 클러스터(EA/AA) 정의 및 표기</h3>
-<p>지식기반 유사도(예: 코사인 유사도) 임계값을 만족하는 인접 클러스터를 표·그래프로 제시한다. 임계값은 전 클러스터에 동일하게 적용해 비교 가능성을 유지한다.</p>
-<ol type="1">
-<li>EA(ego–alter): 현재 클러스터와 직접 연결된 이웃.</li>
-<li>AA(alter–alter): EA를 따라 2단계로 연결되는 이웃(표에서는 중복 제거). 표는 중복 제거로 요약성을 확보하되, 그래프는 연결 구조의 맥락을 위해 연결 노드를 모두 표기할 수 있다.</li>
-</ol>
-</section>
-<section id="키워드-통계의-기본-단위문서-커버리지" class="level3">
-<h3 class="anchored" data-anchor-id="키워드-통계의-기본-단위문서-커버리지">키워드 통계의 기본 단위(문서 커버리지)</h3>
-<p>키워드 빈도는 동일 문서 내 다중 등장을 중복 계산하지 않는 “키워드 포함 문서 수(문서 커버리지)”를 기본 단위로 사용한다. 연도별 비율(%)은 “해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수”로 정의한다.</p>
-</section>
-<section id="대표-키워드-score간략-정의" class="level3">
-<h3 class="anchored" data-anchor-id="대표-키워드-score간략-정의">대표 키워드 score(간략 정의)</h3>
-<p>score는 클러스터 내 용어의 대표성을 나타내는 점수로, 클래스 기반 TF-IDF(c‑TF‑IDF; class-based term frequency–inverse document frequency) 및 로그우도비(LLR; log-likelihood ratio) 기반 통계량을 표준화한 뒤 가중 결합해 산출한다. 자세한 산출 방식은 본 보고서(분야별 상세 리포팅)를 참고한다.</p>
-</section>
-<section id="기관-분석두-단계-및-대상-기관-선정-규칙" class="level3">
-<h3 class="anchored" data-anchor-id="기관-분석두-단계-및-대상-기관-선정-규칙">기관 분석(두 단계) 및 대상 기관 선정 규칙</h3>
-<p>기관 분석은 (가) 기관 성과 지표 표와 (나) 기관별 초록 기반 요약으로 구성한다. 기관별 초록 기반 요약은 최근 5개년(예: 2020–2024) 기준으로 RTA 및 문헌 수 조건을 만족하는 기관을 포함하고, KRISS는 항상 포함한다. 요약문에는 수치를 “참고 정보”로만 1회 언급하며, 과도한 해석·추론을 피한다.</p>
-</section>
-<section id="정책부합성-표현-원칙분포-요약-중심" class="level3">
-<h3 class="anchored" data-anchor-id="정책부합성-표현-원칙분포-요약-중심">정책부합성 표현 원칙(분포 요약 중심)</h3>
-<p>정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포 요약이다. 비율/건수 제시를 중심으로 하며, 표본이 희소하거나 분류된 문헌 수가 0인 경우에는 해석을 보류하고 “분류 기준/표본 범위 점검”의 검토 포인트만 제시한다. 근거 예시는 초록에서 1–2문장 발췌로 압축하되, 형식 안정화를 위해 규칙 기반 렌더링으로 출력 형식을 고정한다.</p>
-</section>
-<section id="llm-기반-서술의-범위-제한" class="level3">
-<h3 class="anchored" data-anchor-id="llm-기반-서술의-범위-제한">LLM 기반 서술의 범위 제한</h3>
-<p>LLM은 (가) 기술 개요/측정 과학 관점 해석, (나) 기관별 초록 기반 요약, (다) 정책부합성 해석, (라) 3문단 요약 등 제한된 구간에서만 사용한다. 숫자·표·분포·발췌문은 가능한 한 규칙 기반으로 삽입하여, LLM이 수치나 근거를 새로 생성하는 경로를 차단한다.</p>
-</section>
-<section id="llm-서술-품질안전장치" class="level3">
-<h3 class="anchored" data-anchor-id="llm-서술-품질안전장치">LLM 서술 품질·안전장치</h3>
-<p>LLM 적용 구간에서는 다음 원칙을 강제한다.</p>
-<p>① 입력 밖 생성 금지(수치·기관·정책 배경·표준·문헌정보) ② 과도한 전략·처방형 어휘 금지(“필수/선점/즉시” 등) ③ 내부 식별자(필드명/변수명) 비노출 ④ 약어 표기 정책(후처리로 일관화) ⑤ 모델 호출이 제한되면 템플릿/규칙 기반 문구로 대체.</p>
-</section>
-</section>
-<section id="llm-기반-자동화-절차와-한계" class="level2">
-<h2 class="anchored" data-anchor-id="llm-기반-자동화-절차와-한계">LLM 기반 자동화 절차와 한계</h2>
-<p>간이 리포팅에서 LLM은 대시보드·분석 결과를 문장화하여 가독성을 높이는 도구로 제한적으로 사용한다. 프롬프팅을 통해 환각효과를 최대한 억제할 수는 있으나, 모델 특유의 어투나 일부 환각 가능성이 존재한다는 한계가 있다. 또한 제목과 초록 중심 입력에 기반하므로 전체 본문 맥락(실험 조건, 비교 방법, 한계 등)이 충분히 반영되지 않을 수 있다. 정책부합성 역시 문헌(제목+초록) 기반 분류 결과의 분포 요약이므로, 분류 기준·복수 라벨 처리·표본 범위에 따라 결과가 달라질 수 있다. 따라서 간이 리포트는 대시보드에서 확인 가능한 근거를 빠르게 훑기 위한 보조 자료로 사용하고, 결론·처방을 직접 도출하는 용도로 사용하지 않는다.</p>
-</section>
-<section id="유형별-독해-가이드" class="level2">
-<h2 class="anchored" data-anchor-id="유형별-독해-가이드">유형별 독해 가이드</h2>
-<p>간이 리포트는 유형 라벨(핵심 역량/확장 가능/역량 공백)에 따라 읽어야 할 포인트가 달라진다.</p>
-<p>핵심 역량 유형에서는 개요 서술이 기술 정체성을 명확히 설명하는지와 함께, 지표 퍼센타일의 상대적 위치를 절대평가 없이 확인한다. EA/AA 연결 구조와 최근 10년 키워드 요약을 통해 지식기반 인접 영역을 파악하되, 기관/정책 항목은 표본 수가 작을 수 있음을 전제로 단정적 해석을 피한다.</p>
-<p>확장 가능 유형에서는 핵심 역량과의 인접성(EA/AA)과 함께, 키워드·기관·정책 분포가 어떤 축으로 분화되어 나타나는지 점검한다. 특히 기관별 요약에서 구현 조건(온도·구동·보정 등)과 측정 목표가 어떻게 정렬되는지 확인하되, “가능성”을 우선순위나 처방으로 해석하지 않는다.</p>
-<p>역량 공백 유형에서는 표본 수(문헌 수)와 지표 변동성, 정책 근거 예시의 제한 가능성을 함께 고려하여 검토 과제를 도출한다. 이 유형은 “부족/열위”의 평가가 아니라, 입력 데이터 기준에서 관측치가 부족한 축이 표시될 수 있음을 의미하며, 결론은 질문(검토 과제) 중심으로 객관적 사실만을 전달하기 위해 정리했다.</p>
-</section>
-<section id="상세-리포팅-확장-구성예정" class="level2">
-<h2 class="anchored" data-anchor-id="상세-리포팅-확장-구성예정">상세 리포팅 확장 구성(예정)</h2>
-<ol type="1">
-<li><strong>클러스터 프로파일 카드</strong><br>
-각 클러스터별로 다음 정보를 1–2쪽 분량으로 정리한다.</li>
-</ol>
+<p>핵심 역량 유형에 해당하는 상세 리포트를 정리한다. 현재는 대표 리포트 1건을 제공하며, 향후 유형별 10개 내외로 확장할 예정이다.</p>
 <ul>
-<li>연구주제 개요(정의, 범위, 대표 문제의식)</li>
-<li>대표 키워드 및 시계열 추세(상승·하락·정체 패턴)</li>
-<li>성장성·파급력·산업연계 등 주요 지표의 상대적 위치(요약)</li>
-<li>주요 국가·기관 분포 및 특화(기관별 강점/공백 후보)</li>
-<li>대표 문헌(핵심/최근/영향력) 목록과 간단 코멘트</li>
-</ul>
-<ol start="2" type="1">
-<li><p><strong>해석 가이드</strong><br>
-지표 간 해석의 유의점(규모 효과, 분모/정규화, 비교 가능 범위)을 정리하고, 주요 패턴(신규 부상형·성숙형·전환형 등)에 대한 해석 프레임을 제시한다.</p></li>
-<li><p><strong>추가 시각화(선택)</strong><br>
-연구지형도에서의 위치, 인접 연구주제, 겹치기(overlay) 결과 등을 부록용 그래픽으로 정리한다.</p></li>
-</ol>
-</section>
-<section id="작성-원칙배포판" class="level2">
-<h2 class="anchored" data-anchor-id="작성-원칙배포판">작성 원칙(배포판)</h2>
-<ul>
-<li>불필요한 내부 구현 표기(로컬 파일 구조, 변수명 등)는 최소화하고, 독자가 이해 가능한 자연어 설명을 우선한다.</li>
-<li>약어는 최초 1회 풀어쓰고, 이후에는 일관된 표기로 유지한다.</li>
-<li>표·그림은 캡션과 본문 인용을 함께 제공하여, 단독으로 보아도 의미가 유지되도록 한다.</li>
+<li><a href="../docs/detailed_reports/cluster_182/report.html">20-182 - 다이아몬드결함양자센서 (핵심 역량)</a></li>
 </ul>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1353,13 +1181,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/cluster_dashboard.html" class="pagination-link" aria-label="클러스터 대시보드 / Cluster Dashboard">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">클러스터 대시보드 / Cluster Dashboard</span>
+      <a href="../docs/appendix_methodology.html" class="pagination-link" aria-label="클러스터링·키워드 방법론">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">클러스터링·키워드 방법론</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/appendix_methodology.html" class="pagination-link" aria-label="클러스터링·키워드 방법론">
-        <span class="nav-page-text">클러스터링·키워드 방법론</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/detailed_reports/cluster_182/report.html" class="pagination-link" aria-label="20-182 - 다이아몬드결함양자센서">
+        <span class="nav-page-text">20-182 - 다이아몬드결함양자센서</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1368,4 +1196,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_detailed_reporting.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_core_reports.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

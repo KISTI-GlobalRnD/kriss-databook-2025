@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="간이/상세 리포팅 작성 규칙과 LLM 활용 범위를 정리.">
+<meta name="description" content="클러스터링과 키워드 추출 절차를 상세히 정리.">
 
-<title>KRISS 표준과학 연구 데이터북 (Databook) - 상세 리포팅 방법론</title>
+<title>KRISS 표준과학 연구 데이터북 (Databook) - 클러스터링·키워드 방법론</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/appendix_methodology.html" rel="next">
-<link href="../docs/cluster_dashboard.html" rel="prev">
+<link href="../docs/appendix_core_reports.html" rel="next">
+<link href="../docs/appendix_detailed_reporting.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -449,6 +449,35 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -557,7 +586,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">상세 리포팅 방법론</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_methodology.html">클러스터링·키워드 방법론</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -662,13 +691,13 @@ document.addEventListener("DOMContentLoaded", () => {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link active">
+  <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">상세 리포팅 방법론</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/appendix_methodology.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/appendix_methodology.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">클러스터링·키워드 방법론</span></a>
   </div>
 </li>
@@ -759,37 +788,41 @@ document.addEventListener("DOMContentLoaded", () => {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#간이-리포팅-작성-방법론" id="toc-간이-리포팅-작성-방법론" class="nav-link active" data-scroll-target="#간이-리포팅-작성-방법론">간이 리포팅 작성 방법론</a>
+  <li><a href="#부록-leiden-클러스터링-추가-방법론" id="toc-부록-leiden-클러스터링-추가-방법론" class="nav-link active" data-scroll-target="#부록-leiden-클러스터링-추가-방법론">부록: Leiden 클러스터링 추가 방법론</a>
   <ul class="collapse">
-  <li><a href="#입력-구성" id="toc-입력-구성" class="nav-link" data-scroll-target="#입력-구성">입력 구성</a></li>
-  <li><a href="#출력-형식" id="toc-출력-형식" class="nav-link" data-scroll-target="#출력-형식">출력 형식</a></li>
-  <li><a href="#유형분류-프레임-고정" id="toc-유형분류-프레임-고정" class="nav-link" data-scroll-target="#유형분류-프레임-고정">유형(분류 프레임) 고정</a></li>
-  <li><a href="#지식기반-인접-클러스터eaaa-정의-및-표기" id="toc-지식기반-인접-클러스터eaaa-정의-및-표기" class="nav-link" data-scroll-target="#지식기반-인접-클러스터eaaa-정의-및-표기">지식기반 인접 클러스터(EA/AA) 정의 및 표기</a></li>
-  <li><a href="#키워드-통계의-기본-단위문서-커버리지" id="toc-키워드-통계의-기본-단위문서-커버리지" class="nav-link" data-scroll-target="#키워드-통계의-기본-단위문서-커버리지">키워드 통계의 기본 단위(문서 커버리지)</a></li>
-  <li><a href="#대표-키워드-score간략-정의" id="toc-대표-키워드-score간략-정의" class="nav-link" data-scroll-target="#대표-키워드-score간략-정의">대표 키워드 score(간략 정의)</a></li>
-  <li><a href="#기관-분석두-단계-및-대상-기관-선정-규칙" id="toc-기관-분석두-단계-및-대상-기관-선정-규칙" class="nav-link" data-scroll-target="#기관-분석두-단계-및-대상-기관-선정-규칙">기관 분석(두 단계) 및 대상 기관 선정 규칙</a></li>
-  <li><a href="#정책부합성-표현-원칙분포-요약-중심" id="toc-정책부합성-표현-원칙분포-요약-중심" class="nav-link" data-scroll-target="#정책부합성-표현-원칙분포-요약-중심">정책부합성 표현 원칙(분포 요약 중심)</a></li>
-  <li><a href="#llm-기반-서술의-범위-제한" id="toc-llm-기반-서술의-범위-제한" class="nav-link" data-scroll-target="#llm-기반-서술의-범위-제한">LLM 기반 서술의 범위 제한</a></li>
-  <li><a href="#llm-서술-품질안전장치" id="toc-llm-서술-품질안전장치" class="nav-link" data-scroll-target="#llm-서술-품질안전장치">LLM 서술 품질·안전장치</a></li>
+  <li><a href="#실행-대상-그래프-정제-컴포넌트-기준" id="toc-실행-대상-그래프-정제-컴포넌트-기준" class="nav-link" data-scroll-target="#실행-대상-그래프-정제-컴포넌트-기준">1) 실행 대상 그래프 정제: 컴포넌트 기준</a></li>
+  <li><a href="#계층거시중시미시-수준-생성-방식" id="toc-계층거시중시미시-수준-생성-방식" class="nav-link" data-scroll-target="#계층거시중시미시-수준-생성-방식">2) 계층(거시–중시–미시) 수준 생성 방식</a></li>
+  <li><a href="#주요-파라미터-해상도-γ-목적함수-반복-횟수-시드" id="toc-주요-파라미터-해상도-γ-목적함수-반복-횟수-시드" class="nav-link" data-scroll-target="#주요-파라미터-해상도-γ-목적함수-반복-횟수-시드">3) 주요 파라미터: 해상도 γ, 목적함수, 반복 횟수, 시드</a></li>
+  <li><a href="#안정성-점검-민감도-분석-권장-절차" id="toc-안정성-점검-민감도-분석-권장-절차" class="nav-link" data-scroll-target="#안정성-점검-민감도-분석-권장-절차">4) 안정성 점검: 민감도 분석 권장 절차</a></li>
+  <li><a href="#소군집-병합-후처리-해석-가능성-확보" id="toc-소군집-병합-후처리-해석-가능성-확보" class="nav-link" data-scroll-target="#소군집-병합-후처리-해석-가능성-확보">5) 소군집 병합 후처리: 해석 가능성 확보</a></li>
+  <li><a href="#산출물-멤버십메타데이터와-추적성" id="toc-산출물-멤버십메타데이터와-추적성" class="nav-link" data-scroll-target="#산출물-멤버십메타데이터와-추적성">6) 산출물: 멤버십·메타데이터와 추적성</a></li>
   </ul></li>
-  <li><a href="#llm-기반-자동화-절차와-한계" id="toc-llm-기반-자동화-절차와-한계" class="nav-link" data-scroll-target="#llm-기반-자동화-절차와-한계">LLM 기반 자동화 절차와 한계</a></li>
-  <li><a href="#유형별-독해-가이드" id="toc-유형별-독해-가이드" class="nav-link" data-scroll-target="#유형별-독해-가이드">유형별 독해 가이드</a></li>
-  <li><a href="#상세-리포팅-확장-구성예정" id="toc-상세-리포팅-확장-구성예정" class="nav-link" data-scroll-target="#상세-리포팅-확장-구성예정">상세 리포팅 확장 구성(예정)</a></li>
-  <li><a href="#작성-원칙배포판" id="toc-작성-원칙배포판" class="nav-link" data-scroll-target="#작성-원칙배포판">작성 원칙(배포판)</a></li>
+  <li><a href="#부록-키워드-추출정규화시계열-산출-추가-방법론" id="toc-부록-키워드-추출정규화시계열-산출-추가-방법론" class="nav-link" data-scroll-target="#부록-키워드-추출정규화시계열-산출-추가-방법론">부록: 키워드 추출·정규화·시계열 산출 추가 방법론</a>
+  <ul class="collapse">
+  <li><a href="#입력-텍스트-구성-및-정규화" id="toc-입력-텍스트-구성-및-정규화" class="nav-link" data-scroll-target="#입력-텍스트-구성-및-정규화">1) 입력 텍스트 구성 및 정규화</a></li>
+  <li><a href="#용어-후보-생성-유니그램-구문-ngram" id="toc-용어-후보-생성-유니그램-구문-ngram" class="nav-link" data-scroll-target="#용어-후보-생성-유니그램-구문-ngram">2) 용어 후보 생성: 유니그램 + 구문 n‑gram</a></li>
+  <li><a href="#클러스터-단위-희소-집계" id="toc-클러스터-단위-희소-집계" class="nav-link" data-scroll-target="#클러스터-단위-희소-집계">3) 클러스터 단위 희소 집계</a></li>
+  <li><a href="#llrloglikelihood-ratio-기반-변별력-강화" id="toc-llrloglikelihood-ratio-기반-변별력-강화" class="nav-link" data-scroll-target="#llrloglikelihood-ratio-기반-변별력-강화">4) LLR(Log‑Likelihood Ratio) 기반 변별력 강화</a></li>
+  <li><a href="#스코어-결합-정규화와-가중-합산" id="toc-스코어-결합-정규화와-가중-합산" class="nav-link" data-scroll-target="#스코어-결합-정규화와-가중-합산">5) 스코어 결합: 정규화와 가중 합산</a></li>
+  <li><a href="#중복-억제-서브프레이즈-제거-및-mmr" id="toc-중복-억제-서브프레이즈-제거-및-mmr" class="nav-link" data-scroll-target="#중복-억제-서브프레이즈-제거-및-mmr">6) 중복 억제: 서브프레이즈 제거 및 MMR</a></li>
+  <li><a href="#정규화canonicalisation-및-불용어-제거" id="toc-정규화canonicalisation-및-불용어-제거" class="nav-link" data-scroll-target="#정규화canonicalisation-및-불용어-제거">7) 정규화(canonicalisation) 및 불용어 제거</a></li>
+  <li><a href="#연도별-시계열-산출-문서-커버리지" id="toc-연도별-시계열-산출-문서-커버리지" class="nav-link" data-scroll-target="#연도별-시계열-산출-문서-커버리지">8) 연도별 시계열 산출: 문서 커버리지</a></li>
+  <li><a href="#품질-점검" id="toc-품질-점검" class="nav-link" data-scroll-target="#품질-점검">9) 품질 점검</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_detailed_reporting.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_methodology.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">상세 리포팅 방법론</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix_methodology.html">클러스터링·키워드 방법론</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">상세 리포팅 방법론</h1>
+<h1 class="title">클러스터링·키워드 방법론</h1>
 </div>
 
 <div>
   <div class="description">
-    간이/상세 리포팅 작성 규칙과 LLM 활용 범위를 정리.
+    클러스터링과 키워드 추출 절차를 상세히 정리.
   </div>
 </div>
 
@@ -806,161 +839,186 @@ document.addEventListener("DOMContentLoaded", () => {
 </header>
 
 
-<p>상세 리포팅은 데이터북 본문에서 요약된 결과를 클러스터(연구주제) 단위로 확장해, 근거·지표·해석을 보다 촘촘하게 제공하는 보조 장으로 설계한다. 간이 리포팅은 상세 리포팅의 축약판으로, 동일한 템플릿과 규칙을 적용하되 분량을 줄여 빠른 비교·검토를 지원한다. 부록의 유형별 상세 리포트는 단계적으로 확장되며, 본 장은 그에 앞서 작성 규칙과 LLM 활용 범위를 정리한다.</p>
-<section id="간이-리포팅-작성-방법론" class="level2">
-<h2 class="anchored" data-anchor-id="간이-리포팅-작성-방법론">간이 리포팅 작성 방법론</h2>
-<section id="입력-구성" class="level3">
-<h3 class="anchored" data-anchor-id="입력-구성">입력 구성</h3>
-<p>간이 리포트는 클러스터별 문헌(제목+초록)과 메타데이터, 지표/키워드 통계, 지식기반 유사도·연결, 기관 분포 및 정책부합성(분류) 결과를 입력으로 한다. 자연어 서술(개요/기관 요약/정책부합성 해석/요약)은 구조화 입력 데이터에 포함된 텍스트·수치만 사용하도록 제한한다.</p>
+<p>본 부록은 데이터북 본문에서 지면상 간략히 다룬 <strong>클러스터링(Leiden)</strong> 및 <strong>키워드 추출</strong> 절차를 보완하는 “추가 디테일” 모음이다. 본문과 중복되는 기본 정의·서술은 최소화하고, 실제 실행 단계에서 필요한 파라미터/후처리/품질 점검 중심으로 정리한다.</p>
+<section id="부록-leiden-클러스터링-추가-방법론" class="level2">
+<h2 class="anchored" data-anchor-id="부록-leiden-클러스터링-추가-방법론">부록: Leiden 클러스터링 추가 방법론</h2>
+<p>본 절은 본문에서 제시한 “입력 네트워크 구성–하이브리드 relatedness–Leiden 클러스터링–후처리” 흐름을 전제로, 실제 실행 단계에서 필요한 <strong>파라미터 설정</strong>, <strong>안정성 점검</strong>, <strong>계층(거시–중시–미시) 구성</strong>, <strong>소군집 병합 기준</strong>을 추가로 정리한다.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>※ Leiden 알고리즘에 대한 상세 설명이나, 세부 파라미터 등 방법론에 대한 세부 내용은 별도 제공되는 데이터북에 보다 상세히 기술되어 있다.</p>
+</div>
+</div>
+<section id="실행-대상-그래프-정제-컴포넌트-기준" class="level3">
+<h3 class="anchored" data-anchor-id="실행-대상-그래프-정제-컴포넌트-기준">1) 실행 대상 그래프 정제: 컴포넌트 기준</h3>
+<p>인용 기반 네트워크는 문헌 집합의 특성상 고립 노드·극소 컴포넌트가 함께 존재할 수 있다. 이들은 군집 탐지 결과를 불안정하게 만들거나(해상도·시드 변화 시 군집이 쉽게 분해/병합), 후속 분석(대표 키워드, 지표 산출)에서 “의미 있는 군집”으로 해석되기 어렵다. 따라서 클러스터링 실행 전 다음의 정제 절차를 적용한다.</p>
+<ul>
+<li><strong>거대 컴포넌트(giant component) 중심 분석</strong>: 연결성이 높은 최대 연결 성분을 우선 대상으로 삼아 주제 구조의 일관성을 확보한다.</li>
+<li><strong>고립/소형 컴포넌트 처리</strong>: 거대 컴포넌트 밖의 노드는 (i) 별도 ’기타’로 묶어 관리하거나, (ii) 분석 목적에 따라 제외한다.</li>
+</ul>
 </section>
-<section id="출력-형식" class="level3">
-<h3 class="anchored" data-anchor-id="출력-형식">출력 형식</h3>
-<p>모든 클러스터에 대해 동일한 구성으로 (가) 개요(기술 설명 + 측정 과학 관점 해석), (나) 클러스터 세부지표(문헌 수 추이 + 퍼센타일 + KRISS 기여), (다) 지식기반 인접 클러스터(EA/AA) 및 ego network, (라) 키워드 요약(워드클라우드 + 시계열 + 기간 요약), (마) 기관 분석(성과 표 + 기관별 초록 기반 요약), (바) 정책부합성(분포 + 해석 + 근거 예시), (사) 요약을 포함한다.</p>
-<p>Notes/약어집은 본문(1–6) 이후에 배치되는 말미 부록 성격의 구성요소로, 보고서 표현에서는 본문 번호 체계와 분리해 해석한다.</p>
-<div id="tbl-llm-report-structure" class="quarto-float anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-llm-report-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;1: 간이 리포트 출력 구성
-</figcaption>
-<div aria-describedby="tbl-llm-report-structure-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<section id="계층거시중시미시-수준-생성-방식" class="level3">
+<h3 class="anchored" data-anchor-id="계층거시중시미시-수준-생성-방식">2) 계층(거시–중시–미시) 수준 생성 방식</h3>
+<p>한 번의 Leiden 실행만으로 “거칠게 나뉜 대분류”와 “해석 가능한 세부 주제”를 동시에 얻기는 어렵다. 따라서 본 연구는 해상도(γ)를 달리한 다수 수준을 생성하여, 동일 문헌 집합을 <strong>거시–중시–미시</strong>의 계층으로 요약한다. 실무적으로는 아래 두 방식을 조합해 사용한다.</p>
+<ul>
+<li><strong>Coarse-to-fine(순차 해상도) 실행</strong>: 낮은 해상도에서 얻은 군집 할당을 초기값(initial membership)으로 재사용해, 상위 구조를 크게 바꾸지 않으면서 하위 수준을 안정적으로 세분화한다.</li>
+<li><strong>그래프 수축(contract) 기반 계층화</strong>: 한 수준의 군집을 초노드(supernode)로 축약한 뒤, 군집 간 연결 가중치를 집계해 다음 수준을 탐지한다. 이 과정은 (i) 계산량을 줄이고, (ii) 상·하위 수준의 포함관계를 명확하게 만드는 데 유리하다.</li>
+</ul>
+</section>
+<section id="주요-파라미터-해상도-γ-목적함수-반복-횟수-시드" class="level3">
+<h3 class="anchored" data-anchor-id="주요-파라미터-해상도-γ-목적함수-반복-횟수-시드">3) 주요 파라미터: 해상도 γ, 목적함수, 반복 횟수, 시드</h3>
+<p>Leiden은 확률적 최적화에 기반하므로, “같은 입력 그래프”라도 설정에 따라 군집 수와 구성의 세분성이 달라질 수 있다. 본 연구는 다음 원칙으로 파라미터를 관리한다.</p>
+<ul>
+<li><strong>목적함수(objective)</strong>: 모듈러리티 계열(RB 구성 모듈러리티) 또는 CPM 등 목적함수를 선택할 수 있으며, 해상도(γ)는 군집의 세분성을 조절하는 핵심 파라미터다.</li>
+<li><strong>해상도(γ)</strong>: γ가 커질수록 더 많은(더 작은) 군집이 생성되는 경향이 있으므로, “해석 가능성”과 “세분성”의 균형점에서 최종 값을 결정한다.</li>
+<li><strong>반복 횟수(n_iterations)</strong>: 반복 횟수는 최적화 수렴 정도에 영향을 주므로, 동일 조건 비교(γ 스캔, 시드 비교)에서는 반복 횟수를 고정한다.</li>
+<li><strong>시드(seed)</strong>: 재현 가능한 결과를 위해 시드를 고정하고, 필요 시 다중 시드 실험으로 결과 민감도를 점검한다.</li>
+</ul>
+</section>
+<section id="안정성-점검-민감도-분석-권장-절차" class="level3">
+<h3 class="anchored" data-anchor-id="안정성-점검-민감도-분석-권장-절차">4) 안정성 점검: 민감도 분석 권장 절차</h3>
+<p>최종 계층을 확정하기 전, 해상도·시드 변화에 대한 민감도를 점검해 “우연한 분할”을 최소화한다.</p>
+<ol type="1">
+<li><strong>γ 후보군을 설정</strong>하고(거시/중시/미시 수준별로 탐색 범위를 분리 가능), 각 γ에서 다중 시드로 Leiden을 반복 실행한다.</li>
+<li><strong>군집 일치도 지표</strong>(예: NMI)를 계산하여, (i) 동일 γ에서 시드 간 안정적인지, (ii) 인접 γ 간 결과가 급변하지 않는지 확인한다.</li>
+<li><strong>군집 수·크기 분포</strong>(초대형 군집의 과도한 비중, 지나치게 작은 군집의 난립)를 함께 확인해, 후처리(병합) 필요성을 판단한다.</li>
+</ol>
+</section>
+<section id="소군집-병합-후처리-해석-가능성-확보" class="level3">
+<h3 class="anchored" data-anchor-id="소군집-병합-후처리-해석-가능성-확보">5) 소군집 병합 후처리: 해석 가능성 확보</h3>
+<p>매우 작은 군집은 대표 키워드·시계열 등이 불안정해지고, 결과 해석이 어려워질 수 있다. 따라서 최소 규모 기준을 만족하지 못하는 군집을 인접 군집으로 병합한다.</p>
+<ul>
+<li><strong>병합 기준</strong>: 군집 크기(문헌 수) 또는 군집 가중치(노드 가중치 합 등)가 임계값 미만인 군집을 대상화한다.</li>
+<li><strong>병합 대상 선택(best-neighbour)</strong>: 대상 군집과 <strong>군집 간 연결 가중치 합</strong>이 가장 큰 이웃 군집으로 병합한다(동률이면 이웃 군집 크기를 추가 기준으로 사용).</li>
+<li><strong>반복(pass) 제어</strong>: 1회 병합만으로 충분하지 않을 때를 대비해 최대 반복 횟수를 둘 수 있으나, 과도한 반복 병합은 상위 구조를 훼손할 수 있으므로 최소화한다.</li>
+<li><strong>라벨 정리</strong>: 병합 이후 군집 라벨은 연속 정수로 재정렬하여 후속 분석(테이블 조인, 시각화)에서 혼선을 방지한다.</li>
+</ul>
+</section>
+<section id="산출물-멤버십메타데이터와-추적성" class="level3">
+<h3 class="anchored" data-anchor-id="산출물-멤버십메타데이터와-추적성">6) 산출물: 멤버십·메타데이터와 추적성</h3>
+<p>계층 클러스터링 결과는 다음 두 범주의 표로 관리하는 것이 실무적으로 유리하다.</p>
+<ul>
+<li><strong>멤버십 테이블</strong>: 문헌 식별자(UID)별로 거시/중시/미시 군집 라벨을 부여한 테이블.</li>
+<li><strong>군집 메타데이터 테이블</strong>: 군집별 문헌 수(규모), 대표 키워드/요약, 품질(예: 파티션 quality) 및 사용 파라미터(γ, 시드, 반복 횟수) 기록.</li>
+</ul>
+<p>이와 같이 “결과(라벨)”과 “설명(요약·파라미터)”을 분리하면, 향후 γ 재탐색이나 군집 재정의가 발생하더라도 변경 범위를 관리하기 쉽다.</p>
+</section>
+</section>
+<section id="부록-키워드-추출정규화시계열-산출-추가-방법론" class="level2">
+<h2 class="anchored" data-anchor-id="부록-키워드-추출정규화시계열-산출-추가-방법론">부록: 키워드 추출·정규화·시계열 산출 추가 방법론</h2>
+<p>본 절은 본문에서 제시한 c‑TF‑IDF 기반 키워드 추출을 전제로, 대규모 코퍼스에서 실제로 적용한 <strong>후보 생성–희소 집계–스코어 결합–중복 억제–정규화–시계열 재집계</strong>의 세부 절차를 보완 설명한다.</p>
+<section id="입력-텍스트-구성-및-정규화" class="level3">
+<h3 class="anchored" data-anchor-id="입력-텍스트-구성-및-정규화">1) 입력 텍스트 구성 및 정규화</h3>
+<p>키워드 추출은 기본적으로 문서의 제목·초록 텍스트를 입력으로 한다. 대규모 문헌에서는 표기 변형과 잡음 토큰이 결과를 오염시키기 쉬우므로, 최소한 다음의 정규화를 권장한다.</p>
+<ul>
+<li><strong>태그/기호 정리</strong>: <code>&lt;sup&gt;</code> 등 HTML 유사 태그 제거, 특수기호 정리로 인공 토큰(예: <code>sup sup</code>) 생성 방지.</li>
+<li><strong>대소문자/공백 표준화</strong>: 연속 공백 축약, 필요 시 소문자화(영문)로 표면형 변이를 축소.</li>
+<li><strong>부가 신호 결합(선택)</strong>: 저자 키워드와 같은 표면형 메타데이터가 존재하면, 텍스트에 결합하여 동일한 집계·스코어링 흐름으로 처리할 수 있다.</li>
+</ul>
+</section>
+<section id="용어-후보-생성-유니그램-구문-ngram" class="level3">
+<h3 class="anchored" data-anchor-id="용어-후보-생성-유니그램-구문-ngram">2) 용어 후보 생성: 유니그램 + 구문 n‑gram</h3>
+<p>대표 키워드는 단일 토큰(unigram)과 구문(phrase)을 함께 고려할 때 해석 가능성이 높다. 실무적으로는 다음 원칙으로 후보를 구성한다.</p>
+<ul>
+<li><strong>유니그램/구문 벡터라이저 분리</strong>: 유니그램과 n‑gram(바이/트라이그램 등)을 별도 어휘로 학습·관리해, 희소성이 높은 구문 후보가 유니그램 통계에 영향을 주지 않도록 한다.</li>
+<li><strong>최소 문서 빈도(min_df) 기준</strong>: 지나치게 희귀한 후보는 노이즈일 가능성이 높으므로 초기 단계에서 제거한다.</li>
+<li><strong>순수 불용어 구문 제거</strong>: “of the”, “in the”와 같이 정보량이 낮은 불용어 조합은 후보 단계에서 자동 제거한다.</li>
+</ul>
+</section>
+<section id="클러스터-단위-희소-집계" class="level3">
+<h3 class="anchored" data-anchor-id="클러스터-단위-희소-집계">3) 클러스터 단위 희소 집계</h3>
+<p>문서 100만 건 수준에서는 “클러스터별 문서 텍스트를 단일 문자열로 합쳐 처리”하는 방식이 비효율적이다. 대신 문서–용어 희소 행렬을 배치로 생성한 뒤, 클러스터 인덱스로 그룹 합산하여 다음의 통계를 동시에 확보한다.</p>
+<ul>
+<li><strong>총 빈도(frequency)</strong>: 클러스터 <span class="math inline">\(c\)</span>에서 용어 <span class="math inline">\(j\)</span>의 총 등장 횟수 <span class="math inline">\(f_{c,j}\)</span>.</li>
+<li><strong>문서 커버리지(doc coverage)</strong>: 해당 용어가 1회 이상 등장한 문서 수 <span class="math inline">\(df_{c,j}\)</span>.</li>
+<li><strong>클러스터 문서 수</strong>: <span class="math inline">\(n_c\)</span> (커버리지 비율, 필터 임계값의 기준으로 사용).</li>
+</ul>
+</section>
+<section id="llrloglikelihood-ratio-기반-변별력-강화" class="level3">
+<h3 class="anchored" data-anchor-id="llrloglikelihood-ratio-기반-변별력-강화">4) LLR(Log‑Likelihood Ratio) 기반 변별력 강화</h3>
+<p>본문에서는 c‑TF‑IDF를 기본 스코어로 사용하되, 대규모 코퍼스에서 “다른 클러스터에서도 흔한 일반어”가 상위권을 점유하는 현상을 완화하기 위해 LLR을 보강 신호로 사용할 수 있음을 언급하였다. LLR은 특정 용어가 클러스터 내부에서 “기대 이상으로” 집중되는지를, 전체 코퍼스의 나머지와 대비해 측정한다.</p>
+<p>클러스터 <span class="math inline">\(c\)</span> vs.&nbsp;그 외(outside) 비교를 위해 다음의 2×2 분할표를 구성한다.</p>
 <table class="table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
-<th>구간</th>
-<th>주요 내용</th>
-<th>생성 방식</th>
+<th></th>
+<th style="text-align: right;">term <span class="math inline">\(j\)</span> present</th>
+<th style="text-align: right;">term <span class="math inline">\(j\)</span> absent</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>1. 개요</td>
-<td>기술 개요 + 측정 과학 관점 해석</td>
-<td>대규모언어모델(LLM) 기반 서술</td>
+<td><strong>in c</strong></td>
+<td style="text-align: right;"><span class="math inline">\(k_{11}=df_{c,j}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(k_{12}=n_c-df_{c,j}\)</span></td>
 </tr>
 <tr class="even">
-<td>2. 클러스터 세부지표</td>
-<td>문헌 수 추이, 퍼센타일, KRISS 기여</td>
-<td>규칙 기반(수치 삽입)</td>
-</tr>
-<tr class="odd">
-<td>3. 지식기반 인접 클러스터·키워드</td>
-<td>EA/AA 표, ego network, 키워드 시각화·표</td>
-<td>규칙 기반(시각화 포함)</td>
-</tr>
-<tr class="even">
-<td>4. 기관 분석</td>
-<td>성과 표 + 기관별 요약</td>
-<td>혼합(표=규칙, 요약=LLM)</td>
-</tr>
-<tr class="odd">
-<td>5. 정책부합성</td>
-<td>분포 표 + 해석 + 근거 예시</td>
-<td>혼합(분포/근거=규칙, 해석=LLM)</td>
-</tr>
-<tr class="even">
-<td>6. 요약</td>
-<td>3문단 종합 요약</td>
-<td>LLM 기반 서술</td>
-</tr>
-<tr class="odd">
-<td>부록(Notes/약어집)</td>
-<td>안전장치, 약어 목록</td>
-<td>규칙 기반</td>
+<td><strong>outside</strong></td>
+<td style="text-align: right;"><span class="math inline">\(k_{21}=df_j-df_{c,j}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(k_{22}=N-n_c-k_{21}\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
+<p>여기서 <span class="math inline">\(df_j\)</span>는 전체 문서에서 term <span class="math inline">\(j\)</span>가 등장한 문서 수(혹은 집계 기준에 맞춘 coverage)이며, <span class="math inline">\(N\)</span>은 전체 문서 수이다. 독립 가정 하 기대도수 <span class="math inline">\(e_i\)</span>를 두면 LLR은 다음과 같이 계산할 수 있다. <span class="math display">\[
+\mathrm{LLR}_{c,j}=2\sum_{i=1}^{4} k_i \log\left(\frac{k_i}{e_i}\right)
+\]</span></p>
 </section>
-<section id="유형분류-프레임-고정" class="level3">
-<h3 class="anchored" data-anchor-id="유형분류-프레임-고정">유형(분류 프레임) 고정</h3>
-<p>유형 코드는 내부에서만 사용하되, 보고서 표기에서는 “핵심 역량 / 확장 가능 / 역량 공백”의 3종 유형 라벨을 사용한다. 여기서 ’내부 지표 기준’은 본 보고서에서 정의한 유망성 지표(예: RTA, 문헌 수, 상위 10% 인용 논문 비중(Excellence10)) 조건을 의미하며, 세부 기준은 해당 절에서 제시한다. 각 유형 정의는 다음 1문장을 고정해 보고서 간 표현 변동을 최소화한다.</p>
-<ol type="1">
-<li>핵심 역량: 내부 지표 기준을 충족하는 유형.</li>
-<li>확장 가능: 핵심 역량과 인접하며 내부 지표 기준에서 일부 부족 축이 표시된 유형.</li>
-<li>역량 공백: 내부 지표 기준에서 상대적으로 부족 축이 표시된 유형.</li>
-</ol>
-</section>
-<section id="지식기반-인접-클러스터eaaa-정의-및-표기" class="level3">
-<h3 class="anchored" data-anchor-id="지식기반-인접-클러스터eaaa-정의-및-표기">지식기반 인접 클러스터(EA/AA) 정의 및 표기</h3>
-<p>지식기반 유사도(예: 코사인 유사도) 임계값을 만족하는 인접 클러스터를 표·그래프로 제시한다. 임계값은 전 클러스터에 동일하게 적용해 비교 가능성을 유지한다.</p>
-<ol type="1">
-<li>EA(ego–alter): 현재 클러스터와 직접 연결된 이웃.</li>
-<li>AA(alter–alter): EA를 따라 2단계로 연결되는 이웃(표에서는 중복 제거). 표는 중복 제거로 요약성을 확보하되, 그래프는 연결 구조의 맥락을 위해 연결 노드를 모두 표기할 수 있다.</li>
-</ol>
-</section>
-<section id="키워드-통계의-기본-단위문서-커버리지" class="level3">
-<h3 class="anchored" data-anchor-id="키워드-통계의-기본-단위문서-커버리지">키워드 통계의 기본 단위(문서 커버리지)</h3>
-<p>키워드 빈도는 동일 문서 내 다중 등장을 중복 계산하지 않는 “키워드 포함 문서 수(문서 커버리지)”를 기본 단위로 사용한다. 연도별 비율(%)은 “해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수”로 정의한다.</p>
-</section>
-<section id="대표-키워드-score간략-정의" class="level3">
-<h3 class="anchored" data-anchor-id="대표-키워드-score간략-정의">대표 키워드 score(간략 정의)</h3>
-<p>score는 클러스터 내 용어의 대표성을 나타내는 점수로, 클래스 기반 TF-IDF(c‑TF‑IDF; class-based term frequency–inverse document frequency) 및 로그우도비(LLR; log-likelihood ratio) 기반 통계량을 표준화한 뒤 가중 결합해 산출한다. 자세한 산출 방식은 본 보고서(분야별 상세 리포팅)를 참고한다.</p>
-</section>
-<section id="기관-분석두-단계-및-대상-기관-선정-규칙" class="level3">
-<h3 class="anchored" data-anchor-id="기관-분석두-단계-및-대상-기관-선정-규칙">기관 분석(두 단계) 및 대상 기관 선정 규칙</h3>
-<p>기관 분석은 (가) 기관 성과 지표 표와 (나) 기관별 초록 기반 요약으로 구성한다. 기관별 초록 기반 요약은 최근 5개년(예: 2020–2024) 기준으로 RTA 및 문헌 수 조건을 만족하는 기관을 포함하고, KRISS는 항상 포함한다. 요약문에는 수치를 “참고 정보”로만 1회 언급하며, 과도한 해석·추론을 피한다.</p>
-</section>
-<section id="정책부합성-표현-원칙분포-요약-중심" class="level3">
-<h3 class="anchored" data-anchor-id="정책부합성-표현-원칙분포-요약-중심">정책부합성 표현 원칙(분포 요약 중심)</h3>
-<p>정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포 요약이다. 비율/건수 제시를 중심으로 하며, 표본이 희소하거나 분류된 문헌 수가 0인 경우에는 해석을 보류하고 “분류 기준/표본 범위 점검”의 검토 포인트만 제시한다. 근거 예시는 초록에서 1–2문장 발췌로 압축하되, 형식 안정화를 위해 규칙 기반 렌더링으로 출력 형식을 고정한다.</p>
-</section>
-<section id="llm-기반-서술의-범위-제한" class="level3">
-<h3 class="anchored" data-anchor-id="llm-기반-서술의-범위-제한">LLM 기반 서술의 범위 제한</h3>
-<p>LLM은 (가) 기술 개요/측정 과학 관점 해석, (나) 기관별 초록 기반 요약, (다) 정책부합성 해석, (라) 3문단 요약 등 제한된 구간에서만 사용한다. 숫자·표·분포·발췌문은 가능한 한 규칙 기반으로 삽입하여, LLM이 수치나 근거를 새로 생성하는 경로를 차단한다.</p>
-</section>
-<section id="llm-서술-품질안전장치" class="level3">
-<h3 class="anchored" data-anchor-id="llm-서술-품질안전장치">LLM 서술 품질·안전장치</h3>
-<p>LLM 적용 구간에서는 다음 원칙을 강제한다.</p>
-<p>① 입력 밖 생성 금지(수치·기관·정책 배경·표준·문헌정보) ② 과도한 전략·처방형 어휘 금지(“필수/선점/즉시” 등) ③ 내부 식별자(필드명/변수명) 비노출 ④ 약어 표기 정책(후처리로 일관화) ⑤ 모델 호출이 제한되면 템플릿/규칙 기반 문구로 대체.</p>
-</section>
-</section>
-<section id="llm-기반-자동화-절차와-한계" class="level2">
-<h2 class="anchored" data-anchor-id="llm-기반-자동화-절차와-한계">LLM 기반 자동화 절차와 한계</h2>
-<p>간이 리포팅에서 LLM은 대시보드·분석 결과를 문장화하여 가독성을 높이는 도구로 제한적으로 사용한다. 프롬프팅을 통해 환각효과를 최대한 억제할 수는 있으나, 모델 특유의 어투나 일부 환각 가능성이 존재한다는 한계가 있다. 또한 제목과 초록 중심 입력에 기반하므로 전체 본문 맥락(실험 조건, 비교 방법, 한계 등)이 충분히 반영되지 않을 수 있다. 정책부합성 역시 문헌(제목+초록) 기반 분류 결과의 분포 요약이므로, 분류 기준·복수 라벨 처리·표본 범위에 따라 결과가 달라질 수 있다. 따라서 간이 리포트는 대시보드에서 확인 가능한 근거를 빠르게 훑기 위한 보조 자료로 사용하고, 결론·처방을 직접 도출하는 용도로 사용하지 않는다.</p>
-</section>
-<section id="유형별-독해-가이드" class="level2">
-<h2 class="anchored" data-anchor-id="유형별-독해-가이드">유형별 독해 가이드</h2>
-<p>간이 리포트는 유형 라벨(핵심 역량/확장 가능/역량 공백)에 따라 읽어야 할 포인트가 달라진다.</p>
-<p>핵심 역량 유형에서는 개요 서술이 기술 정체성을 명확히 설명하는지와 함께, 지표 퍼센타일의 상대적 위치를 절대평가 없이 확인한다. EA/AA 연결 구조와 최근 10년 키워드 요약을 통해 지식기반 인접 영역을 파악하되, 기관/정책 항목은 표본 수가 작을 수 있음을 전제로 단정적 해석을 피한다.</p>
-<p>확장 가능 유형에서는 핵심 역량과의 인접성(EA/AA)과 함께, 키워드·기관·정책 분포가 어떤 축으로 분화되어 나타나는지 점검한다. 특히 기관별 요약에서 구현 조건(온도·구동·보정 등)과 측정 목표가 어떻게 정렬되는지 확인하되, “가능성”을 우선순위나 처방으로 해석하지 않는다.</p>
-<p>역량 공백 유형에서는 표본 수(문헌 수)와 지표 변동성, 정책 근거 예시의 제한 가능성을 함께 고려하여 검토 과제를 도출한다. 이 유형은 “부족/열위”의 평가가 아니라, 입력 데이터 기준에서 관측치가 부족한 축이 표시될 수 있음을 의미하며, 결론은 질문(검토 과제) 중심으로 객관적 사실만을 전달하기 위해 정리했다.</p>
-</section>
-<section id="상세-리포팅-확장-구성예정" class="level2">
-<h2 class="anchored" data-anchor-id="상세-리포팅-확장-구성예정">상세 리포팅 확장 구성(예정)</h2>
-<ol type="1">
-<li><strong>클러스터 프로파일 카드</strong><br>
-각 클러스터별로 다음 정보를 1–2쪽 분량으로 정리한다.</li>
-</ol>
+<section id="스코어-결합-정규화와-가중-합산" class="level3">
+<h3 class="anchored" data-anchor-id="스코어-결합-정규화와-가중-합산">5) 스코어 결합: 정규화와 가중 합산</h3>
+<p>c‑TF‑IDF와 LLR은 스케일이 다르므로 단순 합산보다 <strong>클러스터 내부 정규화(z‑score)</strong> 후 결합하는 것이 안정적이다. 예를 들어 <span class="math display">\[
+score_{c,j}
+= w_{ctfidf}\cdot z\!\left(score^{ctfidf}_{c,j}\right)
++ w_{llr}\cdot z\!\left(\mathrm{LLR}_{c,j}\right)
+\]</span> 처럼 결합한다. 여기서 <span class="math inline">\(w_{ctfidf}, w_{llr}\)</span>은 가중치이며, <span class="math inline">\(z(\cdot)\)</span>는 클러스터 <span class="math inline">\(c\)</span> 내 후보 용어들의 평균 0, 표준편차 1로 정규화하는 연산이다.</p>
+<p>실무 팁:</p>
 <ul>
-<li>연구주제 개요(정의, 범위, 대표 문제의식)</li>
-<li>대표 키워드 및 시계열 추세(상승·하락·정체 패턴)</li>
-<li>성장성·파급력·산업연계 등 주요 지표의 상대적 위치(요약)</li>
-<li>주요 국가·기관 분포 및 특화(기관별 강점/공백 후보)</li>
-<li>대표 문헌(핵심/최근/영향력) 목록과 간단 코멘트</li>
+<li><strong>필터를 먼저 적용</strong>: 커버리지/빈도 기준을 먼저 적용한 뒤 점수를 결합해야 희귀 노이즈가 과대평가되는 것을 줄일 수 있다.</li>
+<li><strong>가중치 조정</strong>: LLR은 “클러스터 간 대비”를 강화하므로, 지나치게 키우면 특이하지만 해석이 어려운 표현이 상위에 올라올 수 있다.</li>
 </ul>
-<ol start="2" type="1">
-<li><p><strong>해석 가이드</strong><br>
-지표 간 해석의 유의점(규모 효과, 분모/정규화, 비교 가능 범위)을 정리하고, 주요 패턴(신규 부상형·성숙형·전환형 등)에 대한 해석 프레임을 제시한다.</p></li>
-<li><p><strong>추가 시각화(선택)</strong><br>
-연구지형도에서의 위치, 인접 연구주제, 겹치기(overlay) 결과 등을 부록용 그래픽으로 정리한다.</p></li>
-</ol>
 </section>
-<section id="작성-원칙배포판" class="level2">
-<h2 class="anchored" data-anchor-id="작성-원칙배포판">작성 원칙(배포판)</h2>
+<section id="중복-억제-서브프레이즈-제거-및-mmr" class="level3">
+<h3 class="anchored" data-anchor-id="중복-억제-서브프레이즈-제거-및-mmr">6) 중복 억제: 서브프레이즈 제거 및 MMR</h3>
+<p>상위 키워드 목록이 유사 표현으로 채워지지 않도록, 스코어링 이후 중복 억제 단계를 둔다.</p>
 <ul>
-<li>불필요한 내부 구현 표기(로컬 파일 구조, 변수명 등)는 최소화하고, 독자가 이해 가능한 자연어 설명을 우선한다.</li>
-<li>약어는 최초 1회 풀어쓰고, 이후에는 일관된 표기로 유지한다.</li>
-<li>표·그림은 캡션과 본문 인용을 함께 제공하여, 단독으로 보아도 의미가 유지되도록 한다.</li>
+<li><strong>서브프레이즈(subphrase) 제거</strong>: 긴 구문이 선택된 경우, 그 내부에 포함되는 짧은 구문(부분 문자열)이 독립적으로 높은 순위를 차지하지 않도록 억제한다.</li>
+<li><strong>Jaccard‑MMR 다양성 제어</strong>: 후보를 점수 순으로 순회하며, 이미 선택된 키워드 집합과의 유사도(예: 토큰 Jaccard)가 큰 후보는 페널티를 주어 “표현 다양성”을 확보한다.</li>
+</ul>
+</section>
+<section id="정규화canonicalisation-및-불용어-제거" class="level3">
+<h3 class="anchored" data-anchor-id="정규화canonicalisation-및-불용어-제거">7) 정규화(canonicalisation) 및 불용어 제거</h3>
+<p>대규모 문헌에서는 약어/단복수/하이픈/동의어 등 표면형 변이가 많아, 동일 개념이 여러 키워드로 분산되는 문제가 반복된다. 이를 완화하기 위해 “원표현 → 표준형(canonical)” 매핑을 구성하고 통계를 재집계한다.</p>
+<ul>
+<li><strong>액션 스키마</strong>: 각 표면형에 대해 <code>keep</code>(유지), <code>merge</code>(대표 표준형으로 병합), <code>drop</code>(제거) 중 하나를 부여한다.</li>
+<li><strong>재집계 원칙</strong>: <code>merge</code>된 항목은 대표 표준형으로 빈도·커버리지·시계열을 합산하고, 이후 스코어를 재계산해 “병합된 결과”가 점수에도 반영되도록 한다.</li>
+<li><strong>전역 불용어 재점검</strong>: 특정 클러스터에서는 ’대표’처럼 보이더라도 전체 코퍼스에서 지나치게 흔한 용어가 남을 수 있으므로, 전역 문서 커버리지 기반의 추가 제거 단계를 둘 수 있다.</li>
+</ul>
+</section>
+<section id="연도별-시계열-산출-문서-커버리지" class="level3">
+<h3 class="anchored" data-anchor-id="연도별-시계열-산출-문서-커버리지">8) 연도별 시계열 산출: 문서 커버리지</h3>
+<p>최종 선정된(정규화된) 키워드 집합을 기준으로, 문서 스트림을 재생(replay)하여 클러스터×키워드×연도 단위 시계열을 산출한다. 이때 표준형 키워드는 <code>source_terms</code>(별칭 집합)의 합으로 집계한다.</p>
+<p>키워드 시계열은 연도별로 “해당 키워드가 1회 이상 등장한 문헌 수(연도별 문서 커버리지)”를 집계하여 산출한다. <span class="math display">\[
+doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
+\]</span> 여기서 <span class="math inline">\(\mathcal{D}_{c,y}\)</span>는 연도 <span class="math inline">\(y\)</span>에 클러스터 <span class="math inline">\(c\)</span>에 속한 문헌 집합이며, <span class="math inline">\(\mathbf{1}\{k \in d\}\)</span>는 문헌 <span class="math inline">\(d\)</span>에서 키워드 <span class="math inline">\(k\)</span>가 1회 이상 등장하면 1, 그렇지 않으면 0을 갖는 지시함수이다. 연도별 클러스터 문헌 수 <span class="math inline">\(D_{c,y}=|\mathcal{D}_{c,y}|\)</span>로 나누면 문서 기반 비중 <span class="math inline">\(\frac{doc\_cov_{c,y}(k)}{D_{c,y}}\)</span>를 함께 정의할 수 있다. (토큰 기반 정규화 지표가 필요한 경우는 별도로 산출하되, 데이터북 기본 지표는 문서 커버리지다.)</p>
+</section>
+<section id="품질-점검" class="level3">
+<h3 class="anchored" data-anchor-id="품질-점검">9) 품질 점검</h3>
+<p>마지막으로, 아래 항목을 점검하면 키워드 결과의 신뢰도를 높일 수 있다.</p>
+<ul>
+<li>상위권에 일반어/불용어가 남아 있는지(전역·클러스터별 커버리지 분포)</li>
+<li>동일 개념의 표기 변형이 중복으로 남아 있는지(정규화 필요성)</li>
+<li>클러스터 크기 대비 커버리지 임계값이 과도하게 높거나 낮지 않은지</li>
+<li>대표 키워드와 해당 군집의 대표 문헌(또는 요약)이 일관되는지(해석 가능성)</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1353,13 +1411,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/cluster_dashboard.html" class="pagination-link" aria-label="클러스터 대시보드 / Cluster Dashboard">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">클러스터 대시보드 / Cluster Dashboard</span>
+      <a href="../docs/appendix_detailed_reporting.html" class="pagination-link" aria-label="상세 리포팅 방법론">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">상세 리포팅 방법론</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/appendix_methodology.html" class="pagination-link" aria-label="클러스터링·키워드 방법론">
-        <span class="nav-page-text">클러스터링·키워드 방법론</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/appendix_core_reports.html" class="pagination-link" aria-label="개요">
+        <span class="nav-page-text">개요</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1368,4 +1426,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_detailed_reporting.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/blob/main/docs/appendix_methodology.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/kimyoungjin06/final-report-placeholder/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

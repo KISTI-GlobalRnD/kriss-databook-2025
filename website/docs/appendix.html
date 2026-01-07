@@ -70,7 +70,412 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
 <script src="docs/assets/js/datatable-init.js" defer=""></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chapterTitle = document.querySelector("h1.web-chapter-title");
+  if (chapterTitle) {
+    const titleBlock = document.querySelector(".quarto-title-block");
+    if (titleBlock) {
+      titleBlock.style.display = "none";
+    }
 
+    const chapterNumber =
+      chapterTitle.getAttribute("data-number") ||
+      (chapterTitle.querySelector(".header-section-number") || {}).textContent?.trim();
+
+    if (chapterNumber) {
+      const prefixRegex = /^\s*표[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const tableCaptions = Array.from(
+        document.querySelectorAll("figcaption.quarto-float-tbl")
+      );
+
+      let tableIndex = 0;
+      const tableIds = [];
+
+      tableCaptions.forEach((caption) => {
+        tableIndex += 1;
+        const newPrefix = `표 ${chapterNumber}.${tableIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        const textNode = walker.nextNode();
+
+        if (textNode && prefixRegex.test(textNode.nodeValue)) {
+          textNode.nodeValue = textNode.nodeValue.replace(prefixRegex, newPrefix);
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("tbl-")) {
+          tableIds.push(float.id);
+        }
+      });
+
+      tableIds.forEach((id, idx) => {
+        const label = `표 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^표[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+
+      const figPrefixRegex = /^\s*그림[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const figCaptions = Array.from(
+        document.querySelectorAll("figure figcaption")
+      ).filter((caption) => {
+        const figure = caption.closest("figure");
+        return !(figure && figure.classList.contains("quarto-float-tbl"));
+      });
+      let figIndex = 0;
+      const figIds = [];
+
+      figCaptions.forEach((caption) => {
+        figIndex += 1;
+        const newPrefix = `그림 ${chapterNumber}.${figIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        let textNode = walker.nextNode();
+        while (textNode && !textNode.nodeValue.trim()) {
+          textNode = walker.nextNode();
+        }
+
+        if (textNode) {
+          if (figPrefixRegex.test(textNode.nodeValue)) {
+            textNode.nodeValue = textNode.nodeValue.replace(figPrefixRegex, newPrefix);
+          } else {
+            textNode.nodeValue = `${newPrefix} ${textNode.nodeValue.trim()}`;
+          }
+        } else {
+          caption.prepend(document.createTextNode(`${newPrefix} `));
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("fig-")) {
+          figIds.push(float.id);
+        }
+      });
+
+      figIds.forEach((id, idx) => {
+        const label = `그림 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^그림[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+    }
+  }
+
+  document.querySelectorAll(".carousel-gallery").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const prevBtn = carousel.querySelector(".carousel-btn.prev");
+    const nextBtn = carousel.querySelector(".carousel-btn.next");
+    let currentIndex = 0;
+    let isPointerDown = false;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let dragStartTranslate = 0;
+    let hasDragged = false;
+
+    const getSlideWidth = () => {
+      const styles = window.getComputedStyle(carousel);
+      const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+      const paddingRight = parseFloat(styles.paddingRight) || 0;
+      return carousel.clientWidth - paddingLeft - paddingRight;
+    };
+
+    const updateDots = () => {
+      if (!dotsContainer) {
+        return;
+      }
+      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, idx) => {
+        dot.classList.toggle("is-active", idx === currentIndex);
+      });
+    };
+
+    const update = () => {
+      const width = getSlideWidth();
+      slides.forEach((slide) => {
+        slide.style.width = `${width}px`;
+      });
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+      updateDots();
+    };
+
+    const goTo = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      update();
+    };
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", `슬라이드 ${idx + 1}`);
+        dot.addEventListener("click", () => goTo(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+    }
+
+    track.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+      dragStartTranslate = -currentIndex * getSlideWidth();
+    });
+
+    track.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          track.classList.add("is-dragging");
+          try {
+            track.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+      track.style.transform = `translateX(${dragStartTranslate + deltaX}px)`;
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      track.classList.remove("is-dragging");
+      try {
+        track.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+      const delta = event.clientX - startX;
+      const width = getSlideWidth();
+      if (Math.abs(delta) > width * 0.2) {
+        goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+      } else {
+        update();
+      }
+      if (hasDragged) {
+        track.dataset.dragging = "true";
+        window.setTimeout(() => {
+          track.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    track.addEventListener("pointerup", endDrag);
+    track.addEventListener("pointercancel", endDrag);
+
+    track.addEventListener("click", (event) => {
+      if (track.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+
+    window.addEventListener("resize", update);
+    update();
+  });
+
+  const initLightboxSwipe = () => {
+    const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!supportsFinePointer) {
+      return;
+    }
+
+    const container = document.querySelector(".glightbox-container");
+    if (!container || container.dataset.swipeInit === "true") {
+      return;
+    }
+    container.dataset.swipeInit = "true";
+
+    const slider = container.querySelector("#glightbox-slider");
+    if (!slider) {
+      return;
+    }
+
+    let isPointerDown = false;
+    let isDragging = false;
+    let hasDragged = false;
+    let startX = 0;
+    let startY = 0;
+
+    const isZoomed = () => {
+      const active = slider.querySelector(".gslide.current");
+      return active && active.classList.contains("zoomed");
+    };
+
+    const goNext = () => {
+      const nextBtn = container.querySelector(".gnext");
+      if (nextBtn && !nextBtn.classList.contains("disabled")) {
+        nextBtn.click();
+      }
+    };
+
+    const goPrev = () => {
+      const prevBtn = container.querySelector(".gprev");
+      if (prevBtn && !prevBtn.classList.contains("disabled")) {
+        prevBtn.click();
+      }
+    };
+
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      if (isZoomed()) {
+        return;
+      }
+      if (event.target.closest(".gbtn")) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          slider.classList.add("is-dragging");
+          try {
+            slider.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      slider.classList.remove("is-dragging");
+      try {
+        slider.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (
+        hasDragged &&
+        Math.abs(deltaX) > Math.abs(deltaY) &&
+        Math.abs(deltaX) > 50
+      ) {
+        if (deltaX < 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+
+      if (hasDragged) {
+        slider.dataset.dragging = "true";
+        window.setTimeout(() => {
+          slider.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    slider.addEventListener("pointerup", endDrag);
+    slider.addEventListener("pointercancel", endDrag);
+
+    slider.addEventListener("click", (event) => {
+      if (slider.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+  };
+
+  initLightboxSwipe();
+  const lightboxObserver = new MutationObserver(() => initLightboxSwipe());
+  lightboxObserver.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -91,30 +496,30 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">홈 / Home</span></a>
+  </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">데이터북 / Databook</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
         <li>
-    <a class="dropdown-item" href="../databook.html">
- <span class="dropdown-text">데이터북 (통합)</span></a>
+    <a class="dropdown-item" href="../preface.html">
+ <span class="dropdown-text">1. 서문 / Preface</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../databook.html#preface">
- <span class="dropdown-text">서문 / Preface</span></a>
+    <a class="dropdown-item" href="../book_part1_landscape.html">
+ <span class="dropdown-text">2. 문헌 집합 및 연구지형도 구축</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../databook.html#part-1-landscape">
- <span class="dropdown-text">문헌 집합 및 연구지형도 구축</span></a>
+    <a class="dropdown-item" href="../book_part2_capability.html">
+ <span class="dropdown-text">3. 기관 연구역량 진단</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../databook.html#part-2-capability">
- <span class="dropdown-text">기관 연구역량 진단</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../databook.html#part-3-emerging">
- <span class="dropdown-text">유망 연구영역 도출</span></a>
+    <a class="dropdown-item" href="../book_part3_emerging.html">
+ <span class="dropdown-text">4. 유망 연구영역 도출</span></a>
   </li>  
     </ul>
   </li>
@@ -132,7 +537,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://road2you.shinyapps.io/kriss_cluster_dashboard/">
+    <a class="dropdown-item" href="../docs/cluster_dashboard.html">
  <span class="dropdown-text">클러스터 대시보드 (Shiny)</span></a>
   </li>  
     </ul>
@@ -144,11 +549,27 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
         <li>
     <a class="dropdown-item" href="../docs/appendix_detailed_reporting.html">
- <span class="dropdown-text">상세 리포팅(예정) / Detailed Reporting</span></a>
+ <span class="dropdown-text">상세 리포팅 방법론</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/appendix_methodology.html">
+ <span class="dropdown-text">클러스터링·키워드 방법론</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/appendix_core_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 핵심 역량</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/appendix_expand_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 확장 가능</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../docs/appendix_gap_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 역량 공백</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../docs/appendix.html">
- <span class="dropdown-text">Appendix</span></a>
+ <span class="dropdown-text">용어 및 참고 / Glossary</span></a>
   </li>  
     </ul>
   </li>
@@ -163,7 +584,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix.html">Appendix / 부록</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../docs/appendix.html">용어 및 참고 / Glossary</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -195,7 +616,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../databook.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">데이터북 / Databook</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -204,26 +625,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../databook.html#preface" class="sidebar-item-text sidebar-link">
- <span class="menu-text">서문 / Preface</span></a>
+  <a href="../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. 서문 / Preface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../databook.html#part-1-landscape" class="sidebar-item-text sidebar-link">
- <span class="menu-text">문헌 집합 및 연구지형도 구축</span></a>
+  <a href="../book_part1_landscape.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. 문헌 집합 및 연구지형도 구축</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../databook.html#part-2-capability" class="sidebar-item-text sidebar-link">
- <span class="menu-text">기관 연구역량 진단</span></a>
+  <a href="../book_part2_capability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. 기관 연구역량 진단</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../databook.html#part-3-emerging" class="sidebar-item-text sidebar-link">
- <span class="menu-text">유망 연구영역 도출</span></a>
+  <a href="../book_part3_emerging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. 유망 연구영역 도출</span></a>
   </div>
 </li>
       </ul>
@@ -251,8 +672,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://road2you.shinyapps.io/kriss_cluster_dashboard/" class="sidebar-item-text sidebar-link">
- <span class="menu-text">클러스터 대시보드 (Shiny)</span></a>
+  <a href="../docs/cluster_dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터 대시보드 / Cluster Dashboard</span></a>
   </div>
 </li>
       </ul>
@@ -269,31 +690,88 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Detailed Reporting Appendix / 상세 리포팅 부록</span></a>
+ <span class="menu-text">상세 리포팅 방법론</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/appendix_methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터링·키워드 방법론</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 핵심 역량</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">상세 리포트(핵심 역량) — 20-182</span></a>
+ <span class="menu-text">20-182 - 다이아몬드결함양자센서</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 확장 가능</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/appendix_expand_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">상세 리포트(확장 가능) — 38-84</span></a>
+ <span class="menu-text">38-84 - 양자알고리즘·오류정정</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 역량 공백</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/appendix_gap_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">상세 리포트(역량 공백) — 11-159</span></a>
+ <span class="menu-text">11-159 - 나노셀룰로오스 소재측정</span></a>
   </div>
 </li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/appendix.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Appendix / 부록</span></a>
+ <span class="menu-text">용어 및 참고 / Glossary</span></a>
   </div>
 </li>
       </ul>
@@ -308,9 +786,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#appendix-부록" id="toc-appendix-부록" class="nav-link active" data-scroll-target="#appendix-부록">Appendix / 부록</a>
+  <li><a href="#용어-및-참고-glossary" id="toc-용어-및-참고-glossary" class="nav-link active" data-scroll-target="#용어-및-참고-glossary">용어 및 참고 / Glossary</a>
   <ul class="collapse">
-  <li><a href="#용어-및-약어-glossary" id="toc-용어-및-약어-glossary" class="nav-link" data-scroll-target="#용어-및-약어-glossary">용어 및 약어 / Glossary</a></li>
+  <li><a href="#용어-및-약어" id="toc-용어-및-약어" class="nav-link" data-scroll-target="#용어-및-약어">용어 및 약어</a></li>
   <li><a href="#시계열-지표-해석-interpreting-time-series" id="toc-시계열-지표-해석-interpreting-time-series" class="nav-link" data-scroll-target="#시계열-지표-해석-interpreting-time-series">시계열 지표 해석 / Interpreting Time Series</a></li>
   <li><a href="#참고문헌-references" id="toc-참고문헌-references" class="nav-link" data-scroll-target="#참고문헌-references">참고문헌 / References</a></li>
   </ul></li>
@@ -323,23 +801,25 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="appendix-부록" class="level1">
-<h1>Appendix / 부록</h1>
-<section id="용어-및-약어-glossary" class="level2">
-<h2 class="anchored" data-anchor-id="용어-및-약어-glossary">용어 및 약어 / Glossary</h2>
+<section id="용어-및-참고-glossary" class="level1">
+<h1>용어 및 참고 / Glossary</h1>
+<section id="용어-및-약어" class="level2">
+<h2 class="anchored" data-anchor-id="용어-및-약어">용어 및 약어</h2>
 <ul>
 <li><strong>c‑TF‑IDF (Class‑based TF‑IDF)</strong>: 문서 단위가 아닌 “클러스터(=class) 단위”로 문서‑용어 행렬을 집계한 뒤 TF‑IDF를 계산하는 가중화 방식. 클러스터를 대표하면서도 다른 클러스터와 구분되는 용어를 상위로 선별하는 데 적합하다.</li>
 <li><strong>LLR (Log‑Likelihood Ratio)</strong>: 특정 용어가 “특정 클러스터에서 유의하게 더 많이 나타나는가”를 평가하기 위한 변별력 지표. 클러스터 내부 vs.&nbsp;나머지 코퍼스의 2×2 분할표로 계산할 수 있다.</li>
 <li><strong>MMR (Maximal Marginal Relevance)</strong>: 랭킹에서의 관련성(relevance)과 다양성(diversity)을 함께 고려해 중복을 줄이는 선택 기법.</li>
-<li><strong>PPM (Parts per million)</strong>: 시계열 정규화에서 사용되는 비중 표현(값을 (10^{6}) 스케일로 변환). 본 데이터북의 키워드 추세 탐색기에서는 “연도·클러스터 단위의 문헌 수(문서 커버리지)”를 기본 지표로 제공하며, 필요 시 문서/토큰 기반 비중을 보조 지표로 활용할 수 있다.</li>
+<li><strong>PPM (Parts per million)</strong>: 시계열 정규화에서 사용되는 비중 표현(값을 <span class="math inline">\(10^{6}\)</span> 스케일로 변환). 본 데이터북의 키워드 추세 탐색기에서는 “연도·클러스터 단위의 문헌 수(문서 커버리지)”를 기본 지표로 제공하며, 필요 시 문서/토큰 기반 비중을 보조 지표로 활용할 수 있다.</li>
 <li><strong>Frequency (token frequency)</strong>: 클러스터 내 총 토큰 등장 횟수(동일 문서 내 반복 등장까지 누적).</li>
 <li><strong>Document coverage</strong>: 해당 용어가 1회 이상 등장한 문서의 개수(한 문서당 최대 1회로 카운트).</li>
 </ul>
 </section>
 <section id="시계열-지표-해석-interpreting-time-series" class="level2">
 <h2 class="anchored" data-anchor-id="시계열-지표-해석-interpreting-time-series">시계열 지표 해석 / Interpreting Time Series</h2>
-<p>키워드 시계열은 연도 (y), 클러스터 (c)에서 용어 (t)가 1회 이상 등장한 문헌 수(연도별 문서 커버리지)를 집계한 값으로 해석할 수 있다. [ doc_cov_{c,y}(t)=<em>{d</em>{c,y}} {t d} ]</p>
-<p>(<em>{c,y})는 연도 (y)에 클러스터 (c)에 속한 문헌 집합, ({t d})는 문헌 (d)에서 용어 (t)가 1회 이상 등장하면 1, 그렇지 않으면 0을 갖는 지시함수이다. 문헌량의 연도별 변동을 통제하고자 할 경우, (D</em>{c,y}=|_{c,y}|)로 나눈 문서 기반 비중 ()를 함께 고려할 수 있다. 또한 특정 분석 목적(예: 텍스트에서의 강조 정도)을 위해 토큰 기반 비중(PPM)을 보조 지표로 사용할 수 있다.</p>
+<p>키워드 시계열은 연도 <span class="math inline">\(y\)</span>, 클러스터 <span class="math inline">\(c\)</span>에서 용어 <span class="math inline">\(t\)</span>가 1회 이상 등장한 문헌 수(연도별 문서 커버리지)를 집계한 값으로 해석할 수 있다. <span class="math display">\[
+doc\_cov_{c,y}(t)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{t \in d\}
+\]</span></p>
+<p><span class="math inline">\(\mathcal{D}_{c,y}\)</span>는 연도 <span class="math inline">\(y\)</span>에 클러스터 <span class="math inline">\(c\)</span>에 속한 문헌 집합, <span class="math inline">\(\mathbf{1}\{t \in d\}\)</span>는 문헌 <span class="math inline">\(d\)</span>에서 용어 <span class="math inline">\(t\)</span>가 1회 이상 등장하면 1, 그렇지 않으면 0을 갖는 지시함수이다. 문헌량의 연도별 변동을 통제하고자 할 경우, <span class="math inline">\(D_{c,y}=|\mathcal{D}_{c,y}|\)</span>로 나눈 문서 기반 비중 <span class="math inline">\(\frac{doc\_cov_{c,y}(t)}{D_{c,y}}\)</span>를 함께 고려할 수 있다. 또한 특정 분석 목적(예: 텍스트에서의 강조 정도)을 위해 토큰 기반 비중(PPM)을 보조 지표로 사용할 수 있다.</p>
 </section>
 <section id="참고문헌-references" class="level2">
 <h2 class="anchored" data-anchor-id="참고문헌-references">참고문헌 / References</h2>
@@ -743,8 +1223,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/detailed_reports/cluster_159/report.html" class="pagination-link" aria-label="상세 리포트(역량 공백) — 11-159">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">상세 리포트(역량 공백) — 11-159</span>
+      <a href="../docs/detailed_reports/cluster_159/report.html" class="pagination-link" aria-label="11-159 - 나노셀룰로오스 소재측정">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">11-159 - 나노셀룰로오스 소재측정</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

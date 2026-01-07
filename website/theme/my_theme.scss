@@ -223,23 +223,184 @@ table caption {
 // Widen the left sidebar and increase content margins on large screens.
 @media (min-width: 992px) {
   #quarto-sidebar {
-    padding-left: 28px;
-    padding-right: 24px;
+    padding-left: 14px;
+    padding-right: 10px;
+    width: 250px;
+    max-width: 250px;
+    min-width: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   #quarto-sidebar .sidebar-menu-container {
-    min-width: 360px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+    white-space: normal;
   }
 }
 
 @media (min-width: 1200px) {
   main.content {
-    max-width: 1280px;
+    max-width: none;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
   }
 
   #quarto-content.page-columns {
-    column-gap: 3rem;
+    column-gap: 0.75rem;
   }
+
+  body.nav-sidebar.floating .page-columns {
+    grid-template-columns: [screen-start] 1em [screen-start-inset] 5fr [page-start]
+      minmax(2px, 6px) [page-start-inset] minmax(250px, 250px)
+      [body-start-outset] minmax(2px, 6px) [body-start] 0.4em
+      [body-content-start] minmax(700px, min(1400px, 75vw))
+      [body-content-end] 0.4em [body-end] minmax(2px, 6px)
+      [body-end-outset] minmax(250px, 250px) [page-end-inset]
+      minmax(2px, 6px) [page-end] 5fr [screen-end-inset] 1em
+      [screen-end] !important;
+  }
+}
+
+#quarto-sidebar .sidebar-item-text,
+#quarto-sidebar .sidebar-item-text .menu-text {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+#quarto-margin-sidebar {
+  padding-left: 12px;
+  padding-right: 12px;
+  width: 250px;
+  max-width: 250px;
+  min-width: 250px;
+}
+
+#quarto-margin-sidebar nav[role=doc-toc] a,
+#quarto-margin-sidebar nav[role=doc-toc] .toc-text {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+// --- Figure carousel ---
+.carousel-gallery {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: var(--bs-body-bg);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  will-change: transform;
+  width: 100%;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+}
+
+.carousel-slide {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.carousel-slide .slide-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.carousel-slide figure {
+  margin: 0 0 0.75rem 0;
+}
+
+.carousel-slide figcaption {
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+.carousel-slide .column {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.carousel-btn {
+  border: 1px solid #d6d6d6;
+  background: #fff;
+  color: #333;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.carousel-track.is-dragging {
+  cursor: grabbing;
+}
+
+.carousel-track img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
+// Lightbox swipe (desktop)
+.glightbox-container #glightbox-slider {
+  cursor: grab;
+}
+
+.glightbox-container #glightbox-slider.is-dragging {
+  cursor: grabbing;
+}
+
+.carousel-btn:focus {
+  outline: 2px solid rgba(0, 123, 255, 0.25);
+  outline-offset: 2px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 0.4rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.carousel-dot {
+  border: 0;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: #c7c7c7;
+  padding: 0;
+}
+
+.carousel-dot.is-active {
+  background: #333;
+}
+
+.carousel-caption {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  color: #6c757d;
+  text-align: center;
 }
