@@ -22,9 +22,14 @@ project:
     - "Final_Report_MD/최종보고서 내용/*.xlsx"
     - theme/**
 
+filters:
+  - filters/fix_single_quotes.lua
+
 book:
   title: "KRISS 표준과학 연구 데이터북 (Book)"
   date-format: iso
+  repo-url: "https://github.com/KISTI-GlobalRnD/kriss-databook-2025"
+  repo-actions: [source, issue]
   sidebar:
     style: floating
     search: true
@@ -32,14 +37,14 @@ book:
     tools:
       - icon: browser
         text: "웹 버전 보기"
-        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/"
       - icon: book
         text: "북 버전 홈"
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
   navbar:
     left:
       - text: "홈 / Home"
-        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/"
       - text: "데이터북 / Databook"
         menu:
           - text: "서문 / Preface"
@@ -53,25 +58,25 @@ book:
       - text: "인터랙티브 도구 / Tools"
         menu:
           - text: "키워드 추세 탐색기 / Keyword Trends"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/keyword_trends.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/keyword_trends.html"
           - text: "연구지형도(인터랙티브 맵) / VOSviewer"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/vosviewer_explorer.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/vosviewer_explorer.html"
           - text: "클러스터 대시보드 (Shiny)"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/cluster_dashboard.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/cluster_dashboard.html"
       - text: "부록 / Appendix"
         menu:
           - text: "상세 리포팅 방법론"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_detailed_reporting.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_detailed_reporting.html"
           - text: "클러스터링·키워드 방법론"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_methodology.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_methodology.html"
           - text: "상세 리포팅 — 핵심 역량"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_core_reports.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_core_reports.html"
           - text: "상세 리포팅 — 확장 가능"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_expand_reports.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_expand_reports.html"
           - text: "상세 리포팅 — 역량 공백"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_gap_reports.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_gap_reports.html"
           - text: "용어 및 참고 / Glossary"
-            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix.html"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix.html"
   chapters:
     - index.qmd
     - book_part1_landscape.qmd

@@ -23,10 +23,13 @@ project:
     - "Final_Report_MD/최종보고서 내용/*.xlsx"
     - theme/**
 
+filters:
+  - filters/fix_single_quotes.lua
+
 website:
   title: "KRISS 표준과학 연구 데이터북 (Databook)"
   description: "Curated report with lightweight interactive tools for monitoring the standard-science research landscape"
-  repo-url: https://github.com/kimyoungjin06/final-report-placeholder
+  repo-url: https://github.com/KISTI-GlobalRnD/kriss-databook-2025
   repo-actions: [source, issue]
   sidebar:
     style: floating
@@ -37,9 +40,6 @@ website:
       - icon: book
         text: "북 버전 보기"
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
-      - icon: browser
-        text: "웹 버전 홈"
-        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
     contents:
       - text: "홈 / Home"
         href: web_home.qmd

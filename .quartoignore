@@ -1,0 +1,5 @@
+book/**
+website/**
+_site_book/**
+_site_website/**
+.quarto/**

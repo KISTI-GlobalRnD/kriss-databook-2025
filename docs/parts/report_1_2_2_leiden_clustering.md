@@ -44,4 +44,4 @@ $$
 
 ![작은 군집 병합 전후 클러스터 크기 분포 비교](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/download%201.png){#fig-cluster-size-before-after}
 
-※ Leiden 알고리즘에 대한 상세 설명이나, 세부 파라미터 등 방법론에 대한 세부 내용은 별도 제공되는 데이터북에 보다 상세히 기술되어 있다.
+※ Leiden 알고리즘의 상세 설명과 세부 파라미터 설정 기준은 데이터북 부록의 [클러스터링·키워드 방법론](docs/appendix_methodology.html)에서 확인할 수 있다.
