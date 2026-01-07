@@ -1,0 +1,20 @@
+---
+title: "문헌 집합 및 연구지형도 구축"
+filename: part-1-landscape
+page-title: false
+toc: true
+---
+
+{{< include docs/parts/report_1_overview.md >}}
+
+{{< include docs/parts/report_1_1_data_build.md >}}
+
+{{< include docs/parts/report_1_2_1_global_landscape.md >}}
+
+{{< include docs/parts/report_1_2_2_leiden_clustering.md >}}
+
+{{< include docs/parts/report_1_2_3_kriss_division_mapping.md >}}
+
+{{< include docs/parts/report_1_2_4_keywords_timeseries.md >}}
+
+{{< include docs/parts/report_1_2_5_landscape_visualization.md >}}

@@ -1,0 +1,31 @@
+---
+title: "홈 / Home"
+page-title: false
+toc: false
+output-file: index.html
+---
+
+# KRISS 표준과학 연구 데이터북 {.unlisted .web-chapter-title}
+
+이 데이터북은 표준과학 연구 영역의 연구지형도, 클러스터 구조, 성과 지표, 유망 연구영역 도출 결과를
+보고서 흐름으로 정리한 자료다. 필요할 때는 인터랙티브 도구를 통해 주요 결과를 직접 탐색할 수 있다.
+
+## 데이터북 구성
+
+- [1. 서문 / Preface](web_index.qmd)
+- [2. 문헌 집합 및 연구지형도 구축](web_part1_landscape.qmd)
+- [3. 기관 연구역량 진단](web_part2_capability.qmd)
+- [4. 유망 연구영역 도출](web_part3_emerging.qmd)
+
+## 바로가기
+
+- [키워드 추세 탐색기](docs/keyword_trends.qmd)
+- [연구지형도(인터랙티브 맵)](docs/vosviewer_explorer.qmd)
+- [클러스터 대시보드](docs/cluster_dashboard.qmd)
+- [상세 리포팅 방법론](docs/appendix_detailed_reporting.qmd)
+- [클러스터링·키워드 방법론](docs/appendix_methodology.qmd)
+
+## 권장 읽기 흐름
+
+서문에서 과제 목적과 범위를 확인한 뒤, 문헌 집합 구축 → 기관 역량 진단 → 유망 연구영역 도출 순으로
+보면 전체 분석의 연결성이 가장 명확하게 드러난다. 필요 시 각 절에서 제시된 도구를 병행해 확인하면 좋다.

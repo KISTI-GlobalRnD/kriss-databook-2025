@@ -1,6 +1,5 @@
 ---
 title: "20-182 - 다이아몬드결함양자센서 (핵심 역량)"
-description: "Detailed focused report (representative sample: core capability)."
 format:
   html:
     toc: true

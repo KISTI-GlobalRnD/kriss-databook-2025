@@ -1,0 +1,168 @@
+## 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축
+
+특정 연구 분야에 대한 계량서지학 연구에서 과학적 영역의 범위를 설정하는 일은 분석에 앞서 선행되어야 할 가장 기초적인 과제이다. 그러나 다학제성과 다양성이 높거나 빠르게 발전하며 새로운 세부 분야의 발생 및 융합이 일어나는 등 불안정성이 높은 연구 분야에서는 범위 설정이 단순하지 않다(Zitt et al., 2019). 
+
+한편, 표준과학 연구 분야는 분야 간의 융합 및 확산성이 높은 다학제성(multidisciplinarity)을 갖는 것으로 파악된다. 표준과학 연구 분야는 물리학, 화학, 생물학, 공학, 환경과학 등 여러 학문 분야를 포괄하고 있으며, 각 산업에서의 주요 문제를 해결하기 위한 도구로서 성능 지표 개발, 측정 및 시험 방법, 프로토콜, 데이터 표준, 기준 물질 등을 창출하는 데 기여하고 있다(NIST, Definition of Measurement Science).
+
+이러한 표준과학 영역의 특성은 해당 영역에 대응하는 데이터 구축 작업을 어렵게 만들기 때문에, 본 연구에서는 분석용 표준과학 연구 논문을 식별하기 위해 아래 2가지 전략을 결합하였다.
+
+(1)  표준과학 연구 영역 **핵심 문헌 집합** 구축
+
+① 표준과학 전문 연구기관(BIPM 정회원국의 대표 표준과학 연구기관) 목록을 활용하여 해당 기관들이 발간한 산출 문헌 및 ② 표준과학 연구 전문 저널의 논문 추출 후 ①과 ②의 합집합을 표준과학 연구 영역 핵심 문헌 집합으로 간주
+
+(2) 표준과학 연구 영역 핵심 문헌 집합 확장 및 **최종 문헌 집합** 구축
+
+③ 표준과학 전문 연구기관에서 발간한 논문이 아니면서 표준과학연구 전문 저널에 수록된 논문도 아니지만, 위 ①, ②에서 얻은 핵심 문헌 집합과 유사한 내용을 다루는 문헌들을 추가로 표준과학연구 문헌 집합에 포함하기 위해 텍스트 임베딩 기법 및 전후방 인용 관계에 기반하여 핵심 문헌 집합을 확장
+
+상술한 2가지 전략은 KISTI에서 라이선스를 보유 중인 Web of Science(WoS) XML Raw Data에서 추출한 전체 논문 정보(2025년 26주차)에 대하여 적용하되, 그 활용 범위는 WoS의 3대 에디션 SCIE, SSCI, AHCI 저널 논문 중 문헌유형이 연구논문(Article)인 경우에 한정하였으며 (철회논문 제외), 게재연도 기준 2000년-2024년(총 25개년)에 속하는 문헌 총 35,649,109건에 대해 적용하였다.
+
+### 표준과학 연구 영역 핵심 문헌 집합 구축
+
+우선 BIPM 정회원국의 대표 표준과학 연구기관을 표준과학연구 전문 연구기관으로 간주하고, 아래 프로세스를 통해 BIPM 정회원국 및 소속 연구기관 목록을 활용하여 문헌 추출을 위한 표준과학연구 전문 연구기관 목록 생성하기로 한다.
+
+BIPM 정회원국 및 소속 연구기관 목록은 BIPM 공식 홈페이지에서 추출하였으며 2025년 6월 30일자 정보를 활용하였다.[^bipm-sources]
+
+[^bipm-sources]: https://www.bipm.org/en/cipm-mra/participation, https://www.bipm.org/en/member-states
+
+각 국가별 NMI(National Measurement Institute)를 우선시하되, 표준연과의 협의를 통해 영국, 독일, 러시아 3개 국가에 대해서는 DI(Designated Institutes) 중 일부를 전문 연구기관 목록에 포함하였다. 또한 사전 전처리 작업을 통해 NMI의 WoS 데이터 상 정규화된 기관명(pref_name)이 없으며 (즉, 논문이 충분치 않은) 정부기관에 가까운 국가를 파악한 뒤, 그 중 대표 DI가 논문이 많은 우크라이나와 벨라루스 2개 국가에 대해선 대표 DI를 포함하였다.  그 결과 총 64개 BIPM 정회원국의 62개 NMI와 5개 DI(영국, 독일, 러시아, 우크라이나, 벨라루스)로 이루어진 BIPM 정회원국 대표 연구기관 67개의 목록을 생성할 수 있었다.
+
+※ 기관 목록의 근거 자료 및 중간 정리 파일은 내부 검증용으로 별도 관리한다.
+
+| 국가명(WoS 기준) | 기관명(BIPM 기준) | NMI 여부 |
+| --- | --- | --- |
+| Singapore | National Metrology Centre, Agency for Science, Technology and Research [NMC A*STAR] | Y |
+| Lithuania | State Research Institute, Center for Physical Sciences and Technology [FTMC] | Y |
+| Poland | Central Office of Measures [GUM] | Y |
+| Iraq | Central Organization for Standardization and Quality Control [COSQC] | Y |
+| Spain | Centro Español de Metrología [CEM] | Y |
+| Mexico | Centro Nacional de Metrología [CENAM] | Y |
+| India | CSIR National Physical Laboratory of India [NPLI] | Y |
+| Czechia | Czech Metrology Institute [CMI] | Y |
+| Denmark | Danish Fundamental Metrology A/S [DFM] | Y |
+| Serbia | Directorate of Measures and Precious Metals [DMDM] | Y |
+| Austria | Bundesamt für Eich- und Vermessungswesen [BEV] | Y |
+| Greece | Hellenic Institute of Metrology [EIM] | Y |
+| Iran (Islamic Republic of) | Iran National Standards Organization [INSO] | Y |
+| Colombia | Instituto Nacional de Metrología de Colombia [INM Colombia] | Y |
+| Brazil | Instituto Nacional de Metrologia, Qualidade e Tecnologia [INMETRO] | Y |
+| Argentina | Instituto Nacional de Tecnología Industrial [INTI] | Y |
+| Portugal | Instituto Português da Qualidade [IPQ] | Y |
+| Italy | Istituto Nazionale di Ricerca Metrologica [INRIM] | Y |
+| Kazakhstan | Republican State Enterprise "Kazakhstan Institute of Standardization and Metrology" [RSE "KazStandard"] | Y |
+| Kenya | Kenya Bureau of Standards [KEBS] | Y |
+| Korea (Republic of) | Korea Research Institute of Standards and Science [KRISS] | Y |
+| France | Laboratoire National de Métrologie et d'Essais [LNE] | Y |
+| Uruguay | Laboratorio Tecnológico del Uruguay [LATU] | Y |
+| New Zealand | Measurement Standards Laboratory of New Zealand [MSL] | Y |
+| Belgium | SPF Economie, DG Qualité et Sécurité [SMD] | Y |
+| Egypt | National Institute of Standards [NIS] | Y |
+| Romania | National Institute of Metrology/Institutul National de Metrologie [INM] | Y |
+| China | National Institute of Metrology [NIM] | Y |
+| Thailand | National Institute of Metrology (Thailand) [NIMT] | Y |
+| United States of America | National Institute of Standards and Technology [NIST] | Y |
+| Australia | National Measurement Institute, Australia [NMIA] | Y |
+| Japan | National Metrology Institute of Japan, AIST [NMIJ/AIST] | Y |
+| Malaysia | National Metrology Institute of Malaysia [NMIM] | Y |
+| South Africa | National Metrology Institute of South Africa [NMISA] | Y |
+| Türkiye | National Metrology Institute of Türkiye/TÜBITAK Ulusal Metroloji Enstitüsü [UME] | Y |
+| Pakistan | National Metrology Institute of Pakistan [NMIP] | Y |
+| United Kingdom | National Physical Laboratory [NPL] | Y |
+| Israel | National Physical Laboratory of Israel [INPL] | Y |
+| Canada | National Research Council of Canada [NRC] | Y |
+| Norway | Norwegian Metrology Service/Justervesenet [JV] | Y |
+| Ireland | NSAI National Metrology Laboratory [NSAI NML] | Y |
+| Germany | Physikalisch-Technische Bundesanstalt [PTB] | Y |
+| Sweden | RISE Research Institutes of Sweden AB [RISE] | Y |
+| Russian Federation | Federal Agency on Technical Regulating and Metrology [Rosstandart] | Y |
+| Saudi Arabia | Saudi Standards, Metrology and Quality Organization/National Measurement and Calibration Center [SASO-NMCC] | Y |
+| Slovakia | Slovak Institute of Metrology/Slovenský Metrologický Ústav [SMU] | Y |
+| Switzerland | Federal Institute of Metrology METAS [METAS] | Y |
+| Netherlands | VSL Dutch Metrology Institute [VSL] | Y |
+| Bulgaria | Bulgarian Institute of Metrology [BIM] | Y |
+| Chile | Instituto Nacional de Normalización [INN] | Y |
+| Costa Rica | Laboratorio Costarricense de Metrología [LACOMET] | Y |
+| Croatia | State Office for Metrology [DZM] | Y |
+| Ecuador | Servicio Ecuatoriano de Normalización [INEN] | Y |
+| Estonia | Central Office of Metrology [AS METROSERT] | Y |
+| Finland | VTT Technical Research Centre of Finland Ltd, Centre for Metrology / Mittatekniikan keskus [MIKES] | Y |
+| Hungary | Government Office of the Capital City Budapest [BFKH] | Y |
+| Indonesia | Directorate for National Measurement Standards of Mechanics, Radiation, and Biology and Directorate for National Measurement Standards of Thermoelectric and Chemistry, National Standardization Agency of Indonesia [SNSU-BSN] | Y |
+| Montenegro | Bureau of Metrology [BMM] | Y |
+| Morocco | Laboratoire Public d’Essais et d’Études, Laboratoire National de Métrologie [LPEE/LNM] | Y |
+| Slovenia | Metrology Institute of the Republic of Slovenia, Ministry of the Economy, Tourism and Sport [MIRS] | Y |
+| Tunisia | Agence Nationale de Métrologie, Ministère du Commerce et de l'Artisanat [ANM] | Y |
+| United Arab Emirates | Emirates Metrology Institute [EMI] | Y |
+| Germany | Federal Institute for Materials Research and Testing/Bundesanstalt für Materialforschung und -prüfung [BAM] |  |
+| United Kingdom | LGC Ltd. [LGC] |  |
+| Ukraine | National Scientific Centre "Institute of Metrology" [NSC IM] |  |
+| Russian Federation | D.I. Mendeleyev Institute for Metrology, Rosstandart [VNIIM] |  |
+| Belarus | Belarussian State Institute for Metrology [BelGIM] |  |
+
+: BIPM 정회원국의 대표 표준과학 연구기관 목록 {#tbl-bipm-institutions .datatable}
+
+이어 BIPM 정회원국 대표 연구기관 67개의 목록을 바탕으로 BIPM 정회원국의 대표 표준과학 연구기관 논문 데이터 집합(①)을 구축하는 작업을 수행하였다. 
+
+우선 WoS 데이터 상 정규화된 기관명(pref_name)이 존재하는 표준과학 전문 연구기관에 대해서는 기관과 문헌 고유번호(uid)를 전처리 없이 매칭하여 활용한다. 
+
+이 때, 정규화된 기관명(pref_name)이 존재하지만 종합연구소 성격이 강한 캐나다의 NMI인 National Research Council Canada(NRC)의 경우 연구의 범위가 너무 넓으므로 표준과학과 직접적으로 연관된 하위 3개 기관(METRO, INMS, MSS) 정보를 활용하였다. 하위 3개 기관의 논문으로 NRC가 산출한 문헌으로 한정하기 위해 우선 NRC 공식 홈페이지의 Publications 검색 페이지에서 NRC의 표준과학 전문 3개 기관 affiliation에 해당하는 자료를 각각 추출하여 논문 목록을 확보 후 분석에 필요한 핵심 식별자만 남기기 위해 각 레코드에서 DOI와 논문 제목만 유지하고, 중복 레코드를 제거하였다. 그 다음으로 구축된 산하 3개 기관 논문 목록 및 정보를 활용하여 WoS 데이터베이스의 DOI 정보(doi 및 xref_doi)와 논문 제목(title)과 매칭하여 고유 식별자(uid)를 확보하였다. 매칭 이후에는 기관 소속의 국가 식별 정확도를 높이기 위해, 매칭된 uid 중 country 값이 “canada”인 레코드만 유지하였다. 전 과정에서 문자열 비교는 대소문자 구분 없이 수행하였다. 
+
+이와 같이 수행한 WoS 매칭 결과에는 정규화된 기관명(pref_name)가 누락되거나 다양한 표기로 입력된 사례가 포함될 수 있으므로, 추가적으로 기관 식별 규칙을 적용하였다. 구체적으로 정규화된 기관명(pref_name)이 “National Research Council Canada”인 경우는 그대로 유지하고, 정규화된 기관명(pref_name)이 NULL인 경우에는 org_name에 “nrc”, “nat”, “res”, “meas”, “metrol”, “stand”, “inms”, “mss” 중 하나라도 포함되는 레코드만 남긴 뒤, 최종적으로 육안 검토를 통해 오탐을 제거하였다. 마지막으로 육안 검토 과정에서 정규화된 기관명(pref_name)이 NULL인 상태로 남아 있던 문헌의 기관명 표기 중에서도 NRC 및 표준·계측 관련 조직을 의미하는 변형 표기가 확인되었으므로(예: “Measurement Canada”, “Measurement Sci & Stand”, “Metrol Res Ctr”, “NATL RES COUNCIL CANADA”, “Natl Res Cou Cil Canada”, “NRC Metrol” 등) 이러한 변형 표기를 포함하는 레코드를 반영하여 중복을 재정리하였다.
+
+ WoS 데이터 상 정규화된 기관명(pref_name)이 존재하지 않는 표준과학 전문 연구기관에 대해서도 추가 전처리 작업을 수행하였다. 앞선 과정에서 기관과 매칭되지 않은 문헌에 한정하여 문헌고유번호(uid), 기관명(org_name_raw), 기관국가명(org_country), 기관도시명(org_city), 기관주소(addr_full)로 구성된 데이터를 구축 후 규칙 기반으로 문헌과 기관을 매칭하는 과정을 거쳤다. 육안 검토에 앞서 진행한 선별 작업의 규칙은 다음과 같다:
+(1) 문헌의 기관국가명(org_country)이 BIPM 정회원국 대표 연구기관의 소속 국가(country)와 반드시 일치해야 할 것, (2) 기관명(org_name_raw)에 BIPM 정회원국 대표 연구기관 기관명의 약어(예: KRISS)가 포함되거나, BIPM 정회원국 대표 연구기관 기관명의 핵심 키워드(예: Standard Science)가 모두 포함될 것, (3) 문헌기관명(org_name_raw)에 네거티브 키워드(예: Hospital, University)가 나타나지 않을 것. 
+
+규칙 기반 선별을 통해 걸러진 문헌들에 대해서는 기관명(org_name_raw), 기관국가명(org_country), 기관도시명(org_city), 기관주소(addr_full)를 종합적으로 확인하여 최종적으로 육안 검토를 수행하였으며 기존 기관 및 문헌 전처리 단계에서 확보되지 않았던 문헌고유번호(uid) 기준 문헌을 1,277건 추가 확보하였다.
+
+ 상기 절차를 적용하였음에도, 67개 BIPM 정회원국의 표준과학연구 전문 연구기관 중 아래 7개 기관에 대해서는 WoS 상에서 해당 기관의 논문을 확인하지 못하였다. 그 결과 프로세스를 통해 58개 BIPM 정회원국의 대표 표준과학 연구기관 60개의 논문 데이터 집합(①)을 구축할 수 있었다. 
+
+| 국가명(WoS 기준) | 기관명(BIPM 기준) |
+| --- | --- |
+| Tunisia | Agence Nationale de Métrologie, Ministère du Commerce et de l'Artisanat [ANM] |
+| Chile | Instituto Nacional de Normalización [INN] |
+| Costa Rica | Laboratorio Costarricense de Metrología [LACOMET] |
+| Ecuador | Servicio Ecuatoriano de Normalización [INEN] |
+| Hungary | Government Office of the Capital City Budapest [BFKH] |
+| Iraq | Central Organization for Standardization and Quality Control [COSQC] |
+| United Arab Emirates | Emirates Metrology Institute [EMI] |
+
+: BIPM 정회원국의 대표 표준과학 연구기관 중 논문을 식별하지 못한 기관 목록 {#tbl-bipm-no-wos}
+
+[2. BIPM_inst_uid.xlsx](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/2._BIPM_inst_uid.xlsx)
+
+이어 표준과학연구에 특화된 전문 저널들의 목록 정리 및 해당 저널의 모든 문헌 수집을 위해 표준연과의 협의 및 표준연 연구그룹의 검토를 거쳐 아래 표의 저널 9종을 선별하였으며, 해당 저널들에 수록된 문헌을 표준과학 연구 전문 저널의 논문(②)으로 간주하여 추출하였다.
+
+| 표준과학 연구 전문 저널 |
+| --- |
+| FLOW MEASUREMENT AND INSTRUMENTATION |
+| IEEE TRANSACTIONS ON INSTRUMENTATION AND MEASUREMENT |
+| JOURNAL OF INSTRUMENTATION |
+| JOURNAL OF PHYSICAL AND CHEMICAL REFERENCE DATA |
+| MAPAN-JOURNAL OF METROLOGY SOCIETY OF INDIA |
+| MEASUREMENT SCIENCE AND TECHNOLOGY |
+| MEASUREMENT |
+| METROLOGIA |
+| RADIATION MEASUREMENTS |
+
+: 표준과학 연구 전문 저널 목록 {#tbl-metrology-journals}
+
+※ 전문 저널 목록 선정 및 문헌 식별의 근거 자료는 내부 검증용으로 별도 관리한다.
+
+이와 같은 과정을 통해 표준과학연구 전문 벤치마킹 연구기관의 논문(①)과 표준과학연구 전문 저널의 논문(②)의 합집합에 대해 중복 제거 후 최종적으로 143,346건의 핵심 문헌 집합을 구축할 수 있었다. 이 핵심 문헌 집합들은 WoS의 3대 에디션 SCIE, SSCI, AHCI 저널의 연구논문(Article) 중 철회되지 않았으며 게재연도가 2000년-2024년 사이인 문헌이어야한다는 조건을 모두 충족한다. 
+
+### 표준과학 연구 영역 핵심 문헌 집합 기반 확장 문헌 집합 구축
+
+표준과학 연구 영역 핵심 문헌 집합(①U②)에서 얻은 문헌들과 유사한 내용을 다루는 문헌들(③)을 추가로 표준과학연구 문헌 집합에 포함하기 위해 텍스트 임베딩 기법 및 전후방 인용 관계에 기반하여 핵심 문헌 집합을 확장하는 작업을 추가로 진행하였다.
+
+우선 Allen AI의 과학기술 문헌 특화 임베딩 모델인 SPECTER2(Singh et al. 2023)를 활용하여 WoS 전체 문헌을 임베딩하고, 표준과학 연구 영역 핵심 문헌 집합(①U②)과 텍스트적으로 유사한 문헌을 탐색·매칭하여 논문을 추가 포집하는 전략을 채택하였다. 이 전략을 수행하기 위해 2023년 8월 기준의 allenai/specter2 모델을 사용하였으며, 유사도 산출은 임베딩 벡터 간 코사인 유사도를 활용하였다. 
+
+이 때 임베딩 벡터 간 코사인 유사도의 임계치는 임베딩 모델, 토크나이징 방식, 문헌 제목 및 초록 처리 방식에 따라 유사도 스케일이 달라질 수 있다는 점을 고려하여, 표본 논문 5편에 대해 유사도 구간 별 후보 논문을 수집한 뒤 육안 검토를 통해 “표분 논문의 저자라면 선행연구 리뷰에 포함할 것인가”라는 기준에서 수용 가능한 수준으로 판단하여 0.92로 결정하였다.
+
+단, 임베딩 기반 확장 시 과포집 방지 및 우연성 완화 장치를 도입하여 총 842,344편의 논문을 추가 포집하였다. 구체적으로는 주제별 상한을 부여하여 WoS 글로벌 연구지형도 분류단위인 인용 주제(Citation Topics) 마이크로(micro)-레벨 클러스터(2,478개)에 대해 표준과학 연구 영역 핵심 문헌 집합과 유사도 기준을 만족하는 문헌만을 수집하되 해당 인용 주제 클러스터에서 최초 포함된 표준과학 연구 영역 핵심 문헌 수 대비 최대 30배 이내로 확장 문헌 수를 제한하여 과포집을 방지하였다. 
+
+※ 인용주제(Citation Topic) 클러스터: Web of Science(WoS)에서 논문의 인용 관계를 기반으로 자동 군집화하여 생성한 연구 주제 그룹을 의미하며 Citation Topic의 분야 이해도 향상 목적으로 대규모 언어모델을 활용하여 토픽의 이름, 정의, 요약 등의 정보를 생성할 수 있다.
+
+또한 표준과학 연구 영역 핵심 문헌 집합에서 최소 3건 이상의 문헌과 코사인 유사도 0.92 이상으로 매칭되는 문헌만 최종 포함하여 단일 혹은 극소수의 핵심 문헌과의 유사성이 우연에 의해 발생할 가능성을 줄이고, 핵심 문헌 집합에서 표준과학 연구와 거리가 있는 문헌이 유사도 기반 확장에 유입시키는 노이즈를 완화하고자 하였다.
+
+임베딩 기반 확장과 별도로, 핵심 문헌 집합(①U②)의 전후방 인용관계를 활용하여 핵심 데이터셋 확장을 추가로 수행하였으며, 구체적으로는 핵심 문헌 집합에서 연도별 HCP(피인용 상위 5%) 문헌을 추출한 뒤 다음 두 경로로 확장 후보를 탐색하였다. 참고문헌 중첩도(Bibliographic Coupling, BC) 기반 코사인 유사도 0.3 이상이면서, 중첩 참고문헌이 3편 이상인 문헌을 탐색하여 187,617편을 포집하였다. 추가로 동시 인용(Co-Citation, CC)을 고려하기 위해 연도별 고피인용 문헌(Highly Cited Papers, HCP) 집합 중 3편 이상을 동시 인용하는 문헌을 탐색하여 47,262편을 추가로 포집하였다. 
+
+그 결과 상술한 텍스트 임베딩 기법 및 전후방 인용 관계에 기반한 핵심 문헌 집합 확장을 통해 총 1,129,091편의 문헌 집합(①U②U③)을 구축할 수 있었다. 단, 이어지는 표준과학 연구 영역 문헌 집합의 클러스터링 및 연구지형도 구축에서는 각 논문의 초록 및 논문제목 메타데이터가 요구된다. 이에 최종적으로 해당 메타데이터가 존재하는 문헌으로 한정한 1,099,738건의 문헌을 표준과학 연구 영역 확장 문헌 집합(이하 표준과학 연구 영역 문헌 집합)으로 정의하였다.

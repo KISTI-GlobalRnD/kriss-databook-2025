@@ -3,9 +3,10 @@ title: "Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵
 description: "Interactive maps of the standard-science research landscape."
 page-title: false
 numbered: false
+format:
+  html:
+    title-block: false
 ---
-
-# Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)
 
 본 페이지는 표준과학 연구지형도 결과를 VOSviewer 기반의 인터랙티브 맵 형태로 제공한다. 지도에서는
 연구주제(클러스터) 간의 상대적 근접성, 연결 강도, 그리고 주요 지표(규모·분포·특화 등)의 색상 겹치기

@@ -1,4 +1,4 @@
-# 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계
+## 표준연구 분야의 주요 국가 및 기관명 표준화 및 문헌 연계
 
 여기서는 앞 단계에서 최종 구축한 ‘표준과학연구 문헌 집합’을 기관 단위로 해석·분석할 수 있도록, Web of Science(WoS) 데이터의 정규화된 기관명(pref_name)과 기관국가명(org_country) 정보를 문헌 단위로 결합하고, 표준과학 영역의 주요 국가 및 기관을 중심으로 기관명 표준화 및 문헌 연계를 수행하고자 한다. 
 
@@ -10,4 +10,4 @@
 
 이상의 절차를 종합한 결과, 표준과학 연구 영역 문헌 집합의 1,099,738개 문헌 중 표준과학 영역의 주요 연구기관 533개가 생산한 문헌 790,227개를 식별했고, 정규화된 기관명(pref_name) 기준의 기관명 표준화와 문헌 연계를 구축했다. 이는 기관별 연구성과 비교와 기관 단위 연구 프로파일 분석을 수행하기 위한 기초 데이터셋으로 활용된다.
 
-[org_paper_count_stdscience_2000_2024_top500_or_bipm_excl.xlsx](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/org_paper_count_stdscience_2000_2024_top500_or_bipm_excl.xlsx)
+[org_paper_count_stdscience_2000_2024_top500_or_bipm_excl.xlsx](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/org_paper_count_stdscience_2000_2024_top500_or_bipm_excl.xlsx)

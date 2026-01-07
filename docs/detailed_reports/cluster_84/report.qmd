@@ -1,6 +1,5 @@
 ---
 title: "38-84 - 양자알고리즘·오류정정 (확장 가능)"
-description: "Detailed focused report (representative sample: expandable area)."
 format:
   html:
     toc: true

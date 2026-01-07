@@ -115,11 +115,8 @@ for batch in 문서 스트림:
 ## Stage 3 – Year Series / 연도별 집계
 
 - Reuse the restricted vocabulary of selected keywords.
-- Replay the document stream to collect `{year: frequency}` counters for each canonical keyword, summing across all `source_terms`. / `source_terms`에 속한 모든 별칭을 합산해 `{year: frequency}` 시계열을 계산합니다.
-- Capture per-cluster/year unigram totals (`pipeline.cluster_year_token_denoms`) so ppm/log-lift style normalisation is available downstream. If \(n_{c,y}(t)\) denotes the term count and \(N_{c,y}\) the unigram denominator, you can compute \(\mathrm{ppm}_{c,y}(t) = 10^{6} \cdot \tfrac{n_{c,y}(t)}{N_{c,y}}\) or other log-lift style metrics. / 클러스터·연도별 유니그램 총량을 `pipeline.cluster_year_token_denoms`에 보관하여, \(n_{c,y}(t)\) (용어 빈도)와 \(N_{c,y}\) (유니그램 분모)를 이용해 \(\mathrm{ppm}_{c,y}(t) = 10^{6} \cdot \tfrac{n_{c,y}(t)}{N_{c,y}}\) 같은 정규화 지표를 계산할 수 있습니다.
-- Default normalised curves (`ppm_series`, `loglift_series`, `bayesian_log_odds_series`) are attached to
-  the canonical table for immediate plotting. / 기본 정규화 시계열(`ppm_series`, `loglift_series`,
-  `bayesian_log_odds_series`)이 canonical 테이블에 포함됩니다.
+- Replay the document stream to collect `{year: doc_coverage}` counters for each canonical keyword (documents where the term appears ≥1), summing across all `source_terms`. / `source_terms`에 속한 모든 별칭을 합산해 `{year: doc_coverage}`(해당 키워드가 1회 이상 등장한 문헌 수) 시계열을 계산합니다.
+- Capture per-cluster/year document totals as denominators so you can compute coverage shares when needed. / 클러스터·연도별 문헌 수(분모)를 함께 저장해 문서 커버리지 비중(share) 계산에 활용합니다.
 - Export enriched tables that include scores, raw counts, coverage, and temporal signals.
 - Ensure this replay happens after any canonicalisation or manual vocabulary curation so that the time
   series reflect the cleaned term set. / 정규화나 수동 정제가 끝난 뒤에 재생을 수행하여 정제된 용어 기준의 시계열을 얻습니다.

@@ -1,0 +1,21 @@
+## 표준연구 분야의 벤치마킹 국가 및 기관 선정
+
+한국표준과학연구원(KRISS)의 연구성과 및 연구 포트폴리오 비교 분석을 수행하기 위해, 2-1)에서 구축한 표준과학 영역의 문헌–기관 연계 데이터를 기반으로 벤치마킹 대상 기관과 주요 국가를 선정하였다. 분석 목적은 KRISS의 성과를 동일한 기능과 역할을 수행하는 해외 표준과학 전문 연구기관과 비교 가능한 형태로 제시하는 데 있으며, 이를 위해 표준과학 분야에서 BIPM 정회원국 소속 전문 연구기관이 갖는 위상과 특수성을 벤치마킹 대상 선정의 기준으로 삼았다.
+
+벤치마킹 기관은 BIPM 정회원국의 표준과학 전문 연구기관 가운데 문헌 생산 규모가 큰 기관을 중심으로 선정했다. 이는 표준과학 연구는 국가 인프라 성격이 강하고, 표준·계측 체계의 구축 및 운영과 결합되어 연구기관의 역할이 비교적 명확하게 정의된다는 점에서, 동일한 제도적 맥락을 공유하는 BIPM 정회원국 기관 간 비교가 가장 타당하다고 판단했기 때문이다. 따라서 KRISS를 제외한 BIPM 정회원국 표준과학 전문 연구기관 중 논문 수 최상위 기관을 후보군으로 두고, 기관의 소속 국가가 갖는 비교의 대표성(중요도)을 함께 고려하여 최종 벤치마킹 기관을 확정했다. 이 과정에서 리투아니아의 Center for Physical Sciences & Technology와 스웨덴의 RISE Research Institutes of Sweden은 국가 단위 비교에서의 대표성 및 해석 가능성을 고려했을 때 우선순위를 낮추는 것이 적절하다고 판단하여 제외했으며, 그 결과 총 9개 기관을 KRISS의 벤치마킹 기관으로 선정했다.
+
+| 국가명(WoS 기준) | 기관명(BIPM 기준) |
+| --- | --- |
+| United States of America | National Institute of Standards & Technology (NIST) - USA |
+| Germany | Federal Institute for Materials Research & Testing (BAM) |
+| Germany | Physikalisch-Technische Bundesanstalt (PTB) |
+| India | CSIR - National Physical Laboratory (NPL) |
+| United Kingdom | National Physical Laboratory - UK |
+| Canada | National Research Council Canada [NRC] |
+| Italy | Istituto Nazionale di Ricerca Metrologica (INRIM) |
+| Japan | National Metrology Institute of Japan |
+| China | National Institute of Metrology China |
+
+: KRISS의 벤치마킹 기관(9개) {#tbl-benchmark-institutions}
+
+주요 국가 선정은 기관 비교를 국가 비교로 확장하기 위한 절차로 수행했다. 즉, KRISS와 벤치마킹 기관 간 비교 결과를 국가 수준의 표준과학 연구역량 비교로 연결하기 위해, 앞서 확정한 벤치마킹 기관 9개가 소속된 국가를 우선적으로 주요 국가 후보로 정의했다. 이들 기관이 속한 국가는 미국, 독일, 인도, 영국, 캐나다, 이탈리아, 일본, 중국의 8개국이며, 여기에 국제 표준·계측 체계에서의 영향력과 비교 분석의 정책적 함의를 고려하여 프랑스를 추가로 포함했다. 결과적으로 본 연구는 미국, 독일, 인도, 영국, 캐나다, 이탈리아, 일본, 중국, 프랑스의 9개국을 표준과학 영역 성과 비교를 위한 주요 국가로 선정하였다.

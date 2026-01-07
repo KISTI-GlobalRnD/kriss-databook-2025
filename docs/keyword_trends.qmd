@@ -3,9 +3,10 @@ title: "Keyword Trend Explorer / 키워드 추세 탐색기"
 description: "Interactive plot of top-ranked keywords by research cluster over time."
 page-title: false
 numbered: false
+format:
+  html:
+    title-block: false
 ---
-
-# Keyword Trend Explorer / 키워드 추세 탐색기
 
 Interactively inspect how the highest-ranked keywords evolve across years for each research cluster.
 Use the selector to switch between clusters while the legend lets you toggle individual keyword curves

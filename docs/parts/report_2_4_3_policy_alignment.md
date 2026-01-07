@@ -1,4 +1,4 @@
-# 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석
+## 표준연구 분야 세부 영역별 벤치마킹 기관의 정책부합성 비교 분석
 
 본 절에서는 한국표준과학연구원과의 벤치마킹 대상으로 선정된 10개 핵심 기관을 중심으로, 연구 영역별 정책부합성을 비교·진단한다. 목적은 각 기관이 보유한 측정표준 역량 기반 연구 활동이 정책적 수요와 얼마나 밀접하게 연계되어 있는지를 정량적으로 파악하는 데 있다.
 
@@ -8,24 +8,20 @@
 
 이처럼 정책 축과 측정 축 두 조건을 동시에 충족하는 연구만을 정책부합 연구로 정의한 것은, 표준연구기관이 보유한 Metrology 역량을 기반으로 사회적 수요에 부합하는 연구를 수행하고 있는지를 구분하기 위함이다.
 
-![CIPM Strategy 2030+](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/CIPM_strategy_2030.png){#fig-cipm-strategy-2030}
+![CIPM Strategy 2030+](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/CIPM_strategy_2030.png){#fig-cipm-strategy-2030}
 
 논문 분류는 두 개의 독립적인 축을 기준으로 수행하였다. 정책 축은 BIPM 5대 글로벌 도전과제에 ‘국가 전략기술·과학기술 인프라 정책 지원 Metrology’를 추가한 6대 분야 체계로 분류하되, 최종 정책부합성 분석에서는 5대 글로벌 도전과제 분야로 분류된 논문만을 정책부합 연구로 정의하였다. ‘국가 전략기술·과학기술 인프라 정책 지원 Metrology’로 분류된 논문은 표준 그 자체에 대한 연구나 기초 표준 연구 등 측정 인프라 중심의 내용을 다루는 성격이 강해 정책부합성 비교에서는 제외하였다. 분류에 사용한 6대 분야의 정의는 다음과 같다.
 
 | 정책 분야명 | 약어명 | CIPM Strategy 2030+ 내 주요 내용 |
 | --- | --- | --- |
-| 기후·환경 정책 지원 Metrology | 기후·환경 | **지구 환경 모니터링과 기후변화 완화 정책의 공정한 이행을 위한 과학적 기반으로서의 측정과학***(Metrology provides the scientific basis to monitor the global environment and to ensure fair implementation of mitigation policies)*
-예: 온실가스, 대기·수질·토양 오염, 기후변화, 환경 모니터링 등 |
-| 보건·보건안보 정책 지원 Metrology | 건강 | **보건 기술 혁신(Innovation in Health Technologies)**
-예: 진단·의료기기, 바이러스·박테리아, 백신·의약품, 감염병 대응 등 |
-| 식품·물·소비자 안전 정책 지원 Metrology | 식품 | **안전한 식품과 물을 위한 측정과학(Metrology is Needed for Safe Food and Water)**
-예: 식품 오염물질, 음용수, 유해물질 검출, 식품안전규제 등 |
-| 에너지 전환·에너지안보 정책 지원 Metrology | (재생) 에너지 | **재생에너지 개발을 위한 과학적 기반으로서의 측정과학(Metrology Provides a Scientific Basis for Developing and Establishing Renewable Energy Sources)**
-예: 재생에너지, 배터리·연료전지·수소, 전력계량, 에너지효율 등 |
-| 산업혁신·첨단제조 정책 지원 Metrology | 첨단 제조 | **첨단 제조를 지원하기 위한 새로운 서비스로서의 측정과학(Metrology is Developing New Services to Support Advanced Manufacturing)**
-예: 제조공정, 3D프린팅·나노·반도체, 자동화·로봇, 품질관리 등 |
-| 국가 전략기술·과학기술 인프라 정책 지원 Metrology | 해당 분류 최종 미사용 결정 (5대 분야 이외) | **측정 인프라(표준, 불확도, 추적성, 단위 실현, 시간·주파수, 양자 등) 자체의 고도화 연구**
-예: 양자센서, 시간·주파수표준, 불확도·추적성, 국제비교 등 |
+| 기후·환경 정책 지원 Metrology | 기후·환경 | **지구 환경 모니터링과 기후변화 완화 정책의 공정한 이행을 위한 과학적 기반으로서의 측정과학***(Metrology provides the scientific basis to monitor the global environment and to ensure fair implementation of mitigation policies)*<br>예: 온실가스, 대기·수질·토양 오염, 기후변화, 환경 모니터링 등 |
+| 보건·보건안보 정책 지원 Metrology | 건강 | **보건 기술 혁신(Innovation in Health Technologies)**<br>예: 진단·의료기기, 바이러스·박테리아, 백신·의약품, 감염병 대응 등 |
+| 식품·물·소비자 안전 정책 지원 Metrology | 식품 | **안전한 식품과 물을 위한 측정과학(Metrology is Needed for Safe Food and Water)**<br>예: 식품 오염물질, 음용수, 유해물질 검출, 식품안전규제 등 |
+| 에너지 전환·에너지안보 정책 지원 Metrology | (재생) 에너지 | **재생에너지 개발을 위한 과학적 기반으로서의 측정과학(Metrology Provides a Scientific Basis for Developing and Establishing Renewable Energy Sources)**<br>예: 재생에너지, 배터리·연료전지·수소, 전력계량, 에너지효율 등 |
+| 산업혁신·첨단제조 정책 지원 Metrology | 첨단 제조 | **첨단 제조를 지원하기 위한 새로운 서비스로서의 측정과학(Metrology is Developing New Services to Support Advanced Manufacturing)**<br>예: 제조공정, 3D프린팅·나노·반도체, 자동화·로봇, 품질관리 등 |
+| 국가 전략기술·과학기술 인프라 정책 지원 Metrology | 해당 분류 최종 미사용 결정 (5대 분야 이외) | **측정 인프라(표준, 불확도, 추적성, 단위 실현, 시간·주파수, 양자 등) 자체의 고도화 연구**<br>예: 양자센서, 시간·주파수표준, 불확도·추적성, 국제비교 등 |
+
+: 정책 축 분류 체계 (CIPM Strategy 2030+) {#tbl-policy-categories}
 
 둘째, 측정 축은 CIPM 자문위원회의 구조를 반영한 KCDB의 9대 분야를 기준으로 분류하였다. 각 분야에 대한 주요 내용은 다음과 같다.
 
@@ -41,6 +37,8 @@
 | Ionizing Radiation (RI) | 방사선량, X선·감마선·중성자 |
 | Chemistry and Biology (QM) | 농도·물질량, 분석화학, 생체표지자 |
 
+: KCDB 9대 측정 분야 정의 {#tbl-kcdb-categories}
+
 분류 시 정책 축은 논문당 최대 3개, 측정 축은 최대 4개의 레이블을 부여하는 멀티레이블 방식을 적용하였으며, 두 축은 서로 독립적으로 판단하였다. 정책 축 분류에서는 연구의 응용 영역이 명확히 드러나는 경우 해당 정책 카테고리를 부여하되, 느슨한 연관성만으로는 분류하지 않도록 하였다. 측정 축 분류에서는 논문이 다루는 핵심 측정 물리량과 기술을 기준으로 판단하되, 보정용이나 부수적 파라미터는 제외하였다.
 
 각 분류 결과에는 0.0에서 1.0 사이의 신뢰도(confidence) 점수를 부여하였다. 다중 분류 방식을 적용하였으므로 여러 레이블의 신뢰도 합이 1일 필요는 없다. 신뢰도 점수는 제목과 초록의 정보량에 따라 차등 적용하였으며, 상황별 권장 범위는 다음과 같다. 최종적으로 연구진의 검토를 통하여 신뢰도는 0.7 이상인 값만 활용하였다.
@@ -52,26 +50,54 @@
 | 제목만 있고 초록이 없는 경우 | 0.3~0.6 |
 | 미분류 선택 시 | 1.0 |
 
+: 신뢰도 점수 권장 범위 {#tbl-policy-confidence}
+
 분류 작업에는 OpenAI의 GPT-5 모델을 활용하였다. 대규모 문헌 집합에 대한 효율적이고 일관된 분류를 위해 상세한 판단 원칙과 카테고리 정의를 포함한 시스템 프롬프트를 설계하였으며, 각 논문의 제목과 초록을 입력으로 제공하여 JSON 형식의 구조화된 분류 결과를 출력하도록 하였다.
 
 정책부합성 분석은 두 가지 차원에서 수행하였다. 첫째, 기관별 연구 영역에 따른 정책부합 논문 집중도를 산출하였다. 이는 각 기관의 특정 영역 내 정책부합 논문 수를 해당 영역 전체 논문 수로 나눈 비율로 정의되며, 다음과 같이 계산된다.
 
-![기관별 정책부합 연구 수 및 점유율 비교 (Full Counting)](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%206.png){#fig-policy-alignment-count-share}
+![기관별 정책부합 연구 수 및 점유율 비교 (Full Counting)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%206.png){#fig-policy-alignment-count-share}
 
 기관별 정책부합 연구 비율은 NPLI 79.4%, BAM 77.6%, KRISS 71.7%로 상대적으로 높게 나타났으며, NIST는 절대 건수에서는 1위이나 비율은 47.4%로 가장 낮았다. 이는 기관의 연구 규모(총 논문 수)와 정책부합 연구의 절대량이 반드시 같은 방향으로 움직이지 않으며, 기관별 포트폴리오 구성에 따라 정책부합 연구의 비중이 달라질 수 있음을 보여준다.
 
-![기관별 정책부합 연구 비율 비교 (Full Counting)](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%207.png){#fig-policy-alignment-share}
+![기관별 정책부합 연구 비율 비교 (Full Counting)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%207.png){#fig-policy-alignment-share}
 
 정책 카테고리별 분포를 살펴보면, 기관별로 연구 역량이 집중된 정책 분야가 뚜렷하게 다르게 나타난다. 예컨대 KRISS는 첨단제조 비중이 가장 높고 건강 분야가 그 다음을 차지하며, NIST 또한 첨단제조 중심의 분포를 보인다. 반면 일부 기관은 건강이나 에너지 분야에서 상대적 집중이 관측되며, 이는 기관별 측정표준 역량과 응용 수요의 결합 구조가 상이함을 시사한다.
 
-![전체 영역: 기관별 카테고리 정책부합 논문비율](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/02_%EC%A0%84%EC%B2%B4_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8.png){#fig-policy-category-overall}
+![전체 영역: 기관별 카테고리 정책부합 논문비율](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/02_%EC%A0%84%EC%B2%B4_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8.png){#fig-policy-category-overall}
 
 정책 카테고리별 연구 집중도(RTA) 관점에서 KRISS는 첨단제조(1.13)와 건강(1.03)에서 비교우위를 보이며, 에너지(1.00)는 평균 수준이다. 반면 기후·환경(0.57)과 식품(0.87)은 비교열위로 나타나, 표준과학 전영역에서의 정책부합 연구 포트폴리오가 산업·제조 및 보건 응용에 상대적으로 치우쳐 있음을 시사한다.
 
-![기관별 정책 카테고리별 연구 집중도(RTA)](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%208.png){#fig-policy-category-rta}
+![기관별 정책 카테고리별 연구 집중도(RTA)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/image%208.png){#fig-policy-category-rta}
 
 정책부합성은 연구 영역별로도 차이를 보인다. 물리측정 영역에서는 대부분의 기관이 첨단제조 분야에 높은 비중을 보이며, KRISS 역시 물리측정 기반 연구가 산업·제조 응용에 강하게 연결되는 양상을 나타낸다. 화학소재측정 영역은 첨단제조와 함께 기후·환경 및 식품 분야 비중이 상대적으로 높아, 환경 모니터링과 화학 기반 안전·규제 수요와의 결합이 더 두드러진다. 바이오의료측정 영역은 건강 분야가 모든 기관에서 압도적으로 높아, 바이오 측정 연구가 본질적으로 보건·의료 정책 수요와 밀접하게 결합됨을 반영한다. 양자기술 영역은 전반적으로 정책부합 비율이 낮고 첨단제조 중심의 분포가 나타나, 정책 응용보다는 기초연구 및 인프라 구축 단계의 성격이 상대적으로 강함을 시사한다.
 
-![전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/01_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8_%EC%A0%84%EC%B2%B44%EA%B0%9C%EC%98%81%EC%97%AD.png)
+:::{.content-visible unless-profile="book"}
+::: {.carousel-gallery}
+::: {.carousel-track}
+::: {.carousel-slide}
+<div class="slide-title">전체 영역+4개 세부 영역</div>
 
-![물리측정 영역: 기관별 카테고리 정책부합 논문비율](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/02_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8.png)
+![전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/01_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8_%EC%A0%84%EC%B2%B44%EA%B0%9C%EC%98%81%EC%97%AD.png)
+:::
+
+::: {.carousel-slide}
+<div class="slide-title">물리측정</div>
+
+![물리측정 영역: 기관별 카테고리 정책부합 논문비율](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/02_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8.png)
+:::
+:::
+
+::: {.carousel-controls}
+<button class="carousel-btn prev" type="button" aria-label="이전">‹</button>
+<div class="carousel-dots"></div>
+<button class="carousel-btn next" type="button" aria-label="다음">›</button>
+:::
+<div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
+:::
+:::
+:::{.content-visible when-profile="book"}
+![전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/01_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8_%EC%A0%84%EC%B2%B44%EA%B0%9C%EC%98%81%EC%97%AD.png)
+
+![물리측정 영역: 기관별 카테고리 정책부합 논문비율](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/02_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_%EA%B8%B0%EA%B4%80%EB%B3%84_%EC%B9%B4%ED%85%8C%EA%B3%A0%EB%A6%AC%EC%A0%95%EC%B1%85%EB%B6%80%ED%95%A9%EB%B9%84%EC%9C%A8.png)
+:::

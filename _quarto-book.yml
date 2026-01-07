@@ -3,10 +3,17 @@ project:
   output-dir: _site_book
   render:
     - index.qmd
-    - docs/report_*.qmd
+    - book_part1_landscape.qmd
+    - book_part2_capability.qmd
+    - book_part3_emerging.qmd
     - docs/keyword_trends.qmd
     - docs/vosviewer_explorer.qmd
+    - docs/cluster_dashboard.qmd
     - docs/appendix_detailed_reporting.qmd
+    - docs/appendix_methodology.qmd
+    - docs/appendix_core_reports.qmd
+    - docs/appendix_expand_reports.qmd
+    - docs/appendix_gap_reports.qmd
     - docs/detailed_reports/*/report.qmd
     - docs/appendix.qmd
   resources:
@@ -29,47 +36,63 @@ book:
       - icon: book
         text: "북 버전 홈"
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
+  navbar:
+    left:
+      - text: "홈 / Home"
+        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/"
+      - text: "데이터북 / Databook"
+        menu:
+          - text: "서문 / Preface"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/index.html"
+          - text: "문헌 집합 및 연구지형도 구축"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/part-1-landscape.html"
+          - text: "기관 연구역량 진단"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/part-2-capability.html"
+          - text: "유망 연구영역 도출"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/part-3-emerging.html"
+      - text: "인터랙티브 도구 / Tools"
+        menu:
+          - text: "키워드 추세 탐색기 / Keyword Trends"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/keyword_trends.html"
+          - text: "연구지형도(인터랙티브 맵) / VOSviewer"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/vosviewer_explorer.html"
+          - text: "클러스터 대시보드 (Shiny)"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/cluster_dashboard.html"
+      - text: "부록 / Appendix"
+        menu:
+          - text: "상세 리포팅 방법론"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_detailed_reporting.html"
+          - text: "클러스터링·키워드 방법론"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_methodology.html"
+          - text: "상세 리포팅 — 핵심 역량"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_core_reports.html"
+          - text: "상세 리포팅 — 확장 가능"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_expand_reports.html"
+          - text: "상세 리포팅 — 역량 공백"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix_gap_reports.html"
+          - text: "용어 및 참고 / Glossary"
+            href: "https://kisti-globalrnd.github.io/kriss-databook-2025/website/docs/appendix.html"
   chapters:
     - index.qmd
-    - docs/report_00_preface.qmd
-    - part: "1. 문헌 집합 및 연구지형도 구축"
+    - book_part1_landscape.qmd
+    - book_part2_capability.qmd
+    - book_part3_emerging.qmd
+  appendices:
+    - docs/appendix_detailed_reporting.qmd
+    - docs/appendix_methodology.qmd
+    - part: "상세 리포트 — 핵심 역량"
       chapters:
-        - docs/report_1_overview.qmd
-        - docs/report_1_1_data_build.qmd
-        - docs/report_1_2_1_global_landscape.qmd
-        - docs/report_1_2_2_leiden_clustering.qmd
-        - docs/report_1_2_3_kriss_division_mapping.qmd
-        - docs/report_1_2_4_keywords_timeseries.qmd
-        - docs/report_1_2_5_landscape_visualization.qmd
-    - part: "2. 기관 연구역량 진단"
-      chapters:
-        - docs/report_2_overview.qmd
-        - docs/report_2_1_org_country_standardization.qmd
-        - docs/report_2_2_benchmark_institutions.qmd
-        - docs/report_2_3_collaboration_network.qmd
-        - docs/report_2_4_1_country_performance.qmd
-        - docs/report_2_4_2_institution_performance.qmd
-        - docs/report_2_4_3_policy_alignment.qmd
-    - part: "3. 유망 연구영역 도출"
-      chapters:
-        - docs/report_3_overview.qmd
-        - docs/report_3_1_portfolio_capability.qmd
-        - docs/report_3_2_emerging_candidates.qmd
-        - docs/report_3_3_1_emergence_indicators.qmd
-        - docs/report_3_3_2_emergence_scoring.qmd
-        - docs/report_3_4_databook_dashboard.qmd
-        - docs/report_3_5_llm_reporting.qmd
-    - part: "인터랙티브 도구 / Tools"
-      chapters:
-        - docs/keyword_trends.qmd
-        - docs/vosviewer_explorer.qmd
-    - part: "부록 / Appendix"
-      chapters:
-        - docs/appendix_detailed_reporting.qmd
+        - docs/appendix_core_reports.qmd
         - docs/detailed_reports/cluster_182/report.qmd
+    - part: "상세 리포트 — 확장 가능"
+      chapters:
+        - docs/appendix_expand_reports.qmd
         - docs/detailed_reports/cluster_84/report.qmd
+    - part: "상세 리포트 — 역량 공백"
+      chapters:
+        - docs/appendix_gap_reports.qmd
         - docs/detailed_reports/cluster_159/report.qmd
-        - docs/appendix.qmd
+    - docs/appendix.qmd
 
 language:
   section-title-footnotes: "각주"
@@ -92,6 +115,7 @@ format:
     code-copy: true
     anchor-sections: true
     fig-responsive: true
+    lightbox: true
     html-math-method:
       method: mathjax
       options:

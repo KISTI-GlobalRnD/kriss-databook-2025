@@ -1,0 +1,20 @@
+---
+title: "기관 연구역량 진단"
+filename: part-2-capability
+page-title: false
+toc: true
+---
+
+{{< include docs/parts/report_2_overview.md >}}
+
+{{< include docs/parts/report_2_1_org_country_standardization.md >}}
+
+{{< include docs/parts/report_2_2_benchmark_institutions.md >}}
+
+{{< include docs/parts/report_2_3_collaboration_network.md >}}
+
+{{< include docs/parts/report_2_4_1_country_performance.md >}}
+
+{{< include docs/parts/report_2_4_2_institution_performance.md >}}
+
+{{< include docs/parts/report_2_4_3_policy_alignment.md >}}

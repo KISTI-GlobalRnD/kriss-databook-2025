@@ -1,0 +1,20 @@
+---
+title: "유망 연구영역 도출"
+filename: part-3-emerging
+page-title: false
+toc: true
+---
+
+{{< include docs/parts/report_3_overview.md >}}
+
+{{< include docs/parts/report_3_1_portfolio_capability.md >}}
+
+{{< include docs/parts/report_3_2_emerging_candidates.md >}}
+
+{{< include docs/parts/report_3_3_1_emergence_indicators.md >}}
+
+{{< include docs/parts/report_3_3_2_emergence_scoring.md >}}
+
+{{< include docs/parts/report_3_4_databook_dashboard.md >}}
+
+{{< include docs/parts/report_3_5_llm_reporting.md >}}

@@ -1,0 +1,26 @@
+---
+title: "클러스터 대시보드 / Cluster Dashboard"
+description: "Interactive Shiny dashboard for cluster exploration."
+page-title: false
+numbered: false
+format:
+  html:
+    title-block: false
+---
+
+클러스터 분석 결과를 탐색할 수 있는 Shiny 대시보드 뷰를 임베드 형태로 제공한다.
+
+::: {.callout-tip}
+## 보기 안내
+- 임베드가 차단되거나 느리게 동작하는 경우, 아래 링크를 눌러 새 탭에서 열어볼 수 있다.
+:::
+
+<p><a href="https://road2you.shinyapps.io/kriss_cluster_dashboard/" target="_blank" rel="noopener noreferrer">새 탭에서 열기</a></p>
+
+<iframe
+  src="https://road2you.shinyapps.io/kriss_cluster_dashboard/"
+  title="클러스터 대시보드 (Shiny)"
+  style="width: 100%; height: 85vh; min-height: 720px; border: 1px solid #dee2e6; border-radius: 0.5rem;"
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+></iframe>
