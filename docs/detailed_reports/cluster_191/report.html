@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>KRISS 표준과학 연구 데이터북 (Databook) - 9-191 - 물분해 전기촉매 측정 (확장 가능)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../docs/detailed_reports/cluster_15/report.html" rel="next">
+<link href="../../../docs/detailed_reports/cluster_154/report.html" rel="prev">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
+<script src="docs/assets/js/datatable-init.js" defer=""></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chapterTitle = document.querySelector("h1.web-chapter-title");
+  if (chapterTitle) {
+    const titleBlock = document.querySelector(".quarto-title-block");
+    if (titleBlock) {
+      titleBlock.style.display = "none";
+    }
+
+    const chapterNumber =
+      chapterTitle.getAttribute("data-number") ||
+      (chapterTitle.querySelector(".header-section-number") || {}).textContent?.trim();
+
+    if (chapterNumber) {
+      const prefixRegex = /^\s*표[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const tableCaptions = Array.from(
+        document.querySelectorAll("figcaption.quarto-float-tbl")
+      );
+
+      let tableIndex = 0;
+      const tableIds = [];
+
+      tableCaptions.forEach((caption) => {
+        tableIndex += 1;
+        const newPrefix = `표 ${chapterNumber}.${tableIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        const textNode = walker.nextNode();
+
+        if (textNode && prefixRegex.test(textNode.nodeValue)) {
+          textNode.nodeValue = textNode.nodeValue.replace(prefixRegex, newPrefix);
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("tbl-")) {
+          tableIds.push(float.id);
+        }
+      });
+
+      tableIds.forEach((id, idx) => {
+        const label = `표 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^표[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+
+      const figPrefixRegex = /^\s*그림[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const figCaptions = Array.from(
+        document.querySelectorAll("figure figcaption")
+      ).filter((caption) => {
+        const figure = caption.closest("figure");
+        return !(figure && figure.classList.contains("quarto-float-tbl"));
+      });
+      let figIndex = 0;
+      const figIds = [];
+
+      figCaptions.forEach((caption) => {
+        figIndex += 1;
+        const newPrefix = `그림 ${chapterNumber}.${figIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        let textNode = walker.nextNode();
+        while (textNode && !textNode.nodeValue.trim()) {
+          textNode = walker.nextNode();
+        }
+
+        if (textNode) {
+          if (figPrefixRegex.test(textNode.nodeValue)) {
+            textNode.nodeValue = textNode.nodeValue.replace(figPrefixRegex, newPrefix);
+          } else {
+            textNode.nodeValue = `${newPrefix} ${textNode.nodeValue.trim()}`;
+          }
+        } else {
+          caption.prepend(document.createTextNode(`${newPrefix} `));
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("fig-")) {
+          figIds.push(float.id);
+        }
+      });
+
+      figIds.forEach((id, idx) => {
+        const label = `그림 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^그림[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+    }
+  }
+
+  document.querySelectorAll(".carousel-gallery").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const prevBtn = carousel.querySelector(".carousel-btn.prev");
+    const nextBtn = carousel.querySelector(".carousel-btn.next");
+    let currentIndex = 0;
+    let isPointerDown = false;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let dragStartTranslate = 0;
+    let hasDragged = false;
+
+    const getSlideWidth = () => {
+      const styles = window.getComputedStyle(carousel);
+      const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+      const paddingRight = parseFloat(styles.paddingRight) || 0;
+      return carousel.clientWidth - paddingLeft - paddingRight;
+    };
+
+    const updateDots = () => {
+      if (!dotsContainer) {
+        return;
+      }
+      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, idx) => {
+        dot.classList.toggle("is-active", idx === currentIndex);
+      });
+    };
+
+    const update = () => {
+      const width = getSlideWidth();
+      slides.forEach((slide) => {
+        slide.style.width = `${width}px`;
+      });
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+      updateDots();
+    };
+
+    const goTo = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      update();
+    };
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", `슬라이드 ${idx + 1}`);
+        dot.addEventListener("click", () => goTo(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+    }
+
+    track.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+      dragStartTranslate = -currentIndex * getSlideWidth();
+    });
+
+    track.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          track.classList.add("is-dragging");
+          try {
+            track.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+      track.style.transform = `translateX(${dragStartTranslate + deltaX}px)`;
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      track.classList.remove("is-dragging");
+      try {
+        track.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+      const delta = event.clientX - startX;
+      const width = getSlideWidth();
+      if (Math.abs(delta) > width * 0.2) {
+        goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+      } else {
+        update();
+      }
+      if (hasDragged) {
+        track.dataset.dragging = "true";
+        window.setTimeout(() => {
+          track.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    track.addEventListener("pointerup", endDrag);
+    track.addEventListener("pointercancel", endDrag);
+
+    track.addEventListener("click", (event) => {
+      if (track.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+
+    window.addEventListener("resize", update);
+    update();
+  });
+
+  const initLightboxSwipe = () => {
+    const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!supportsFinePointer) {
+      return;
+    }
+
+    const container = document.querySelector(".glightbox-container");
+    if (!container || container.dataset.swipeInit === "true") {
+      return;
+    }
+    container.dataset.swipeInit = "true";
+
+    const slider = container.querySelector("#glightbox-slider");
+    if (!slider) {
+      return;
+    }
+
+    let isPointerDown = false;
+    let isDragging = false;
+    let hasDragged = false;
+    let startX = 0;
+    let startY = 0;
+
+    const isZoomed = () => {
+      const active = slider.querySelector(".gslide.current");
+      return active && active.classList.contains("zoomed");
+    };
+
+    const goNext = () => {
+      const nextBtn = container.querySelector(".gnext");
+      if (nextBtn && !nextBtn.classList.contains("disabled")) {
+        nextBtn.click();
+      }
+    };
+
+    const goPrev = () => {
+      const prevBtn = container.querySelector(".gprev");
+      if (prevBtn && !prevBtn.classList.contains("disabled")) {
+        prevBtn.click();
+      }
+    };
+
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      if (isZoomed()) {
+        return;
+      }
+      if (event.target.closest(".gbtn")) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          slider.classList.add("is-dragging");
+          try {
+            slider.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      slider.classList.remove("is-dragging");
+      try {
+        slider.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (
+        hasDragged &&
+        Math.abs(deltaX) > Math.abs(deltaY) &&
+        Math.abs(deltaX) > 50
+      ) {
+        if (deltaX < 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+
+      if (hasDragged) {
+        slider.dataset.dragging = "true";
+        window.setTimeout(() => {
+          slider.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    slider.addEventListener("pointerup", endDrag);
+    slider.addEventListener("pointercancel", endDrag);
+
+    slider.addEventListener("click", (event) => {
+      if (slider.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+  };
+
+  initLightboxSwipe();
+  const lightboxObserver = new MutationObserver(() => initLightboxSwipe());
+  lightboxObserver.observe(document.body, { childList: true, subtree: true });
+});
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">KRISS 표준과학 연구 데이터북 (Databook)</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../../index.html" aria-current="page"> 
+<span class="menu-text">홈 / Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">데이터북 / Databook</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
+        <li>
+    <a class="dropdown-item" href="../../../preface.html">
+ <span class="dropdown-text">1. 서문 / Preface</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../book_part1_landscape.html">
+ <span class="dropdown-text">2. 문헌 집합 및 연구지형도 구축</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../book_part2_capability.html">
+ <span class="dropdown-text">3. 기관 연구역량 진단</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../book_part3_emerging.html">
+ <span class="dropdown-text">4. 유망 연구영역 도출</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">인터랙티브 도구 / Tools</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+        <li>
+    <a class="dropdown-item" href="../../../docs/keyword_trends.html">
+ <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/vosviewer_explorer.html">
+ <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/cluster_dashboard.html">
+ <span class="dropdown-text">클러스터 대시보드 (Shiny)</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">부록 / Appendix</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
+        <li>
+    <a class="dropdown-item" href="../../../docs/appendix_detailed_reporting.html">
+ <span class="dropdown-text">상세 리포팅 방법론</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/appendix_methodology.html">
+ <span class="dropdown-text">클러스터링·키워드 방법론</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/appendix_core_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 핵심 역량</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/appendix_expand_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 확장 가능</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/appendix_gap_reports.html">
+ <span class="dropdown-text">상세 리포팅 — 역량 공백</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../docs/appendix.html">
+ <span class="dropdown-text">용어 및 참고 / Glossary</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../../../docs/appendix_expand_reports.html">상세 리포트 — 확장 가능</a></li><li class="breadcrumb-item"><a href="../../../docs/detailed_reports/cluster_191/report.html">9-191 - 물분해 전기촉매 측정</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+        <div class="sidebar-tools-collapse">
+    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 보기" class="quarto-navigation-tool px-1" aria-label="북 버전 보기"><i class="bi bi-book"></i></a>
+</div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">홈 / Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">데이터북 / Databook</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. 서문 / Preface</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../book_part1_landscape.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. 문헌 집합 및 연구지형도 구축</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../book_part2_capability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. 기관 연구역량 진단</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../book_part3_emerging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. 유망 연구영역 도출</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">인터랙티브 도구 / Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Keyword Trend Explorer / 키워드 추세 탐색기</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/cluster_dashboard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터 대시보드 / Cluster Dashboard</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">부록 / Appendix</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">상세 리포팅 방법론</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/appendix_methodology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">클러스터링·키워드 방법론</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 핵심 역량</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_12/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9-12 - 배터리 양극·계면 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_173/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-173 - 2차원·산화물 가스센서</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_24/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-24 - 폴리머 난연성 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_167/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12-167 - 스핀전류 변환·제어</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">20-182 - 다이아몬드결함양자센서</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_69/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">34-69 - 메타표면 광학소자</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_77/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">36-77 - 2차원 광전소자 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_145/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">37-145 - 광음향·초음파 나노진단치료</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_127/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">41-127 - 뇌파 감정상태 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_178/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">43-178 - 현장진단 바이오센서</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 확장 가능</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/appendix_expand_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_117/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2-117 - 레이저 미량가스 분광측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_154/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7-154 - 리튬이온전지 예지진단</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_191/report.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">9-191 - 물분해 전기촉매 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_15/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-15 - 전자파 차폐·흡수 복합재</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_123/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25-123 - 위상광자·비에르미트상</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_176/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25-176 - 양자다체 비평형 동역학</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_79/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">37-79 - 미세·나노입자 계측표준</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">38-84 - 양자알고리즘·오류정정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_107/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">38-107 - 초전도 회로 양자전기역학</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_141/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">41-141 - 신축성 전자피부 센서</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
+ <span class="menu-text">상세 리포트 — 역량 공백</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/appendix_gap_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_189/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9-189 - 다공성골격 가스분리</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-159 - 나노셀룰로오스 소재측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_112/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15-112 - 업컨버전 나노입자</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_133/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">18-133 - 적층 바이오제조 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_131/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">26-131 - 중력파 검출·분석</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_179/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">29-179 - 프로테오믹스 질량분석</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_169/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">30-169 - 위상 양자물질 전자구조 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_62/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">32-62 - 집적 광주파수콤</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_162/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">34-162 - 궤도각운동량 광계측</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/detailed_reports/cluster_125/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">43-125 - 유전체 변이 측정표준</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../docs/appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">용어 및 참고 / Glossary</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#개요" id="toc-개요" class="nav-link active" data-scroll-target="#개요">1. 개요</a>
+  <ul class="collapse">
+  <li><a href="#클러스터-설명" id="toc-클러스터-설명" class="nav-link" data-scroll-target="#클러스터-설명">1-1. 클러스터 설명</a></li>
+  <li><a href="#측정-과학-관점-해석" id="toc-측정-과학-관점-해석" class="nav-link" data-scroll-target="#측정-과학-관점-해석">1-2. 측정 과학 관점 해석</a></li>
+  </ul></li>
+  <li><a href="#클러스터-세부지표" id="toc-클러스터-세부지표" class="nav-link" data-scroll-target="#클러스터-세부지표">2. 클러스터 세부지표</a>
+  <ul class="collapse">
+  <li><a href="#전체-문헌-수-추이연도별" id="toc-전체-문헌-수-추이연도별" class="nav-link" data-scroll-target="#전체-문헌-수-추이연도별">2-1. 전체 문헌 수 추이(연도별)</a></li>
+  <li><a href="#퍼센타일요약" id="toc-퍼센타일요약" class="nav-link" data-scroll-target="#퍼센타일요약">2-2. 퍼센타일(요약)</a></li>
+  <li><a href="#kriss-기여" id="toc-kriss-기여" class="nav-link" data-scroll-target="#kriss-기여">2-3. KRISS 기여</a></li>
+  <li><a href="#간단-해석" id="toc-간단-해석" class="nav-link" data-scroll-target="#간단-해석">2-4. 간단 해석</a></li>
+  </ul></li>
+  <li><a href="#지식기반-인접-클러스터키워드" id="toc-지식기반-인접-클러스터키워드" class="nav-link" data-scroll-target="#지식기반-인접-클러스터키워드">3. 지식기반 인접 클러스터·키워드</a>
+  <ul class="collapse">
+  <li><a href="#지식기반-인접-클러스터eaaa" id="toc-지식기반-인접-클러스터eaaa" class="nav-link" data-scroll-target="#지식기반-인접-클러스터eaaa">3-1. 지식기반 인접 클러스터(EA/AA)</a></li>
+  <li><a href="#워드클라우드" id="toc-워드클라우드" class="nav-link" data-scroll-target="#워드클라우드">3-2. 워드클라우드</a></li>
+  <li><a href="#키워드-시계열비율-20152024" id="toc-키워드-시계열비율-20152024" class="nav-link" data-scroll-target="#키워드-시계열비율-20152024">3-3. 키워드 시계열(비율, 2015–2024)</a></li>
+  <li><a href="#주요-키워드기간별-비율문서수" id="toc-주요-키워드기간별-비율문서수" class="nav-link" data-scroll-target="#주요-키워드기간별-비율문서수">3-4. 주요 키워드(기간별 비율·문서수)</a></li>
+  </ul></li>
+  <li><a href="#기관-분석20202024" id="toc-기관-분석20202024" class="nav-link" data-scroll-target="#기관-분석20202024">4. 기관 분석(2020–2024)</a>
+  <ul class="collapse">
+  <li><a href="#개-기관-성과-지표" id="toc-개-기관-성과-지표" class="nav-link" data-scroll-target="#개-기관-성과-지표">4-1. 10개 기관 성과 지표</a></li>
+  <li><a href="#상위-기관문헌-수-기준-20202024" id="toc-상위-기관문헌-수-기준-20202024" class="nav-link" data-scroll-target="#상위-기관문헌-수-기준-20202024">4-2. 상위 기관(문헌 수 기준, 2020–2024)</a></li>
+  <li><a href="#기관별-초록-기반-요약20202024" id="toc-기관별-초록-기반-요약20202024" class="nav-link" data-scroll-target="#기관별-초록-기반-요약20202024">4-3. 기관별 초록 기반 요약(2020–2024)</a></li>
+  </ul></li>
+  <li><a href="#정책부합성분포" id="toc-정책부합성분포" class="nav-link" data-scroll-target="#정책부합성분포">5. 정책부합성(분포)</a>
+  <ul class="collapse">
+  <li><a href="#분포비율건수" id="toc-분포비율건수" class="nav-link" data-scroll-target="#분포비율건수">5-1. 분포(비율%/건수)</a></li>
+  <li><a href="#정책부합성-해석" id="toc-정책부합성-해석" class="nav-link" data-scroll-target="#정책부합성-해석">5-2. 정책부합성 해석</a></li>
+  <li><a href="#분류-근거-예시" id="toc-분류-근거-예시" class="nav-link" data-scroll-target="#분류-근거-예시">5-3. 분류 근거 예시</a></li>
+  </ul></li>
+  <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">6. 요약</a></li>
+  <li><a href="#부록.-데이터-커버리지주의" id="toc-부록.-데이터-커버리지주의" class="nav-link" data-scroll-target="#부록.-데이터-커버리지주의">부록. 데이터 커버리지·주의</a></li>
+  <li><a href="#부록.-약어" id="toc-부록.-약어" class="nav-link" data-scroll-target="#부록.-약어">부록. 약어</a></li>
+  <li><a href="#부록.-상위-인용-논문" id="toc-부록.-상위-인용-논문" class="nav-link" data-scroll-target="#부록.-상위-인용-논문">부록. 상위 인용 논문</a>
+  <ul class="collapse">
+  <li><a href="#부록-1.-전체기간-인용수-상위-5개" id="toc-부록-1.-전체기간-인용수-상위-5개" class="nav-link" data-scroll-target="#부록-1.-전체기간-인용수-상위-5개">부록-1. 전체기간 인용수 상위 5개</a></li>
+  <li><a href="#부록-2.-최근-5년20202024-인용수-상위-5개" id="toc-부록-2.-최근-5년20202024-인용수-상위-5개" class="nav-link" data-scroll-target="#부록-2.-최근-5년20202024-인용수-상위-5개">부록-2. 최근 5년(2020–2024) 인용수 상위 5개</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/docs/detailed_reports/cluster_191/report.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../../../docs/appendix_expand_reports.html">상세 리포트 — 확장 가능</a></li><li class="breadcrumb-item"><a href="../../../docs/detailed_reports/cluster_191/report.html">9-191 - 물분해 전기촉매 측정</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">9-191 - 물분해 전기촉매 측정 (확장 가능)</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+@page {
+  size: A4;
+  margin: 30mm 18mm 30mm 18mm;
+}
+</style>
+<section id="개요" class="level2">
+<h2 class="anchored" data-anchor-id="개요">1. 개요</h2>
+<blockquote class="blockquote">
+<p>유형: 확장 가능 — 핵심 역량과 인접하며 내부 지표 기준에서 일부 부족 축이 표시된 유형.</p>
+<p>연관 그룹: 첨단소재측정그룹, 소재물성측정그룹</p>
+</blockquote>
+<section id="클러스터-설명" class="level3">
+<h3 class="anchored" data-anchor-id="클러스터-설명">1-1. 클러스터 설명</h3>
+<p>이 클러스터의 핵심은 <strong>electrocatalyst</strong>를 이용해 물을 전기적으로 분해할 때, 수소와 산소가 얼마나 효율적으로 만들어지는지(그리고 얼마나 오래 안정적으로 작동하는지) 를 정량적으로 평가하는 것입니다. 물 분해는 두 반쪽 반응(수소 발생과 산소 발생) 을 동시에 만족해야 하고, 전극 표면에서 일어나는 반응과 전해질·전극 구조 같은 조건이 결과를 크게 좌우하므로, “좋아 보이는 촉매”와 “재현 가능한 촉매 성능” 사이에 간극이 생기기 쉽습니다. 여기서 <strong>layered double hydroxide</strong>는 니켈·철·코발트 같은 금속을 포함하는 층상 수산화물 계열 재료로, 전극 표면에서 반응 중간체의 흡착과 전하 이동을 조절하면서 특히 산소 발생 반응에 자주 쓰이는 촉매 골격입니다.</p>
+<p>물 분해 전기촉매는 입력으로 전극에 걸어주는 전압(또는 흘려주는 전류) 과 전해질 조건(예: <strong>alkaline</strong> 환경) 을 받습니다. alkaline 조건은 수산화 이온이 풍부한 전해질에서 구동하는 방식으로, 같은 촉매라도 반응 경로와 표면 상태가 달라질 수 있어 시험 조건을 명확히 고정하는 것이 중요합니다. 전극 표면에서는 물 분자와 이온이 촉매 활성점에 붙었다 떨어지며 전자가 이동하고, 그 결과 기체 수소와 산소가 생성되면서 기포가 전극에서 빠져나갑니다. 이때 촉매가 얇은 나노시트, 다공성 3차원 구조, 이종접합 구조처럼 설계되면, 전자가 이동하기 쉬운 통로와 반응물이 드나드는 통로, 그리고 기포가 빠져나갈 통로를 동시에 마련하려는 의도가 담깁니다.</p>
+<p>출력은 결국 “이 전극이 얼마나 적은 추가 에너지로 반응을 구동하는가”와 “지속 운전 중 성능이 얼마나 유지되는가”로 정리됩니다. 대표적인 출력 지표로 <strong>overpotential</strong>이 쓰이는데, 이는 이상적으로 필요한 전압보다 실제로 더 보태야 하는 추가 전압을 뜻하며, 촉매가 반응 장벽을 얼마나 낮추는지에 직접 연결됩니다. 또한 같은 전극에서 어느 수준의 전류를 꾸준히 낼 수 있는지가 중요해서 <strong>current density</strong>처럼 전극 면적당 전류로 성능을 비교합니다. 이런 지표들은 촉매 자체의 활성뿐 아니라 전극의 거칠기, 접촉 저항, 기포로 인한 가림, 물질전달 저항까지 함께 반영되기 때문에, “촉매 재료”와 “전극 시스템”을 구분해 해석하는 습관이 필요합니다.</p>
+</section>
+<section id="측정-과학-관점-해석" class="level3">
+<h3 class="anchored" data-anchor-id="측정-과학-관점-해석">1-2. 측정 과학 관점 해석</h3>
+<p>이 분야의 측정 대상은 물 분해 전극이 만들어내는 수소·산소 생성 능력과 그때 필요한 전기적 구동 조건입니다. 즉, 특정 전해질 조건(예: <strong>alkaline</strong>) 에서 수소 발생 반응과 산소 발생 반응을 어느 정도의 전압/전류로 구동하는지, 그리고 생성 가스의 양이 전기적으로 흘린 전하와 얼마나 일치하는지를 측정합니다. 센서 반응에 해당하는 것은 전기화학 셀에서 전극 전위와 전류가 바뀌고, 그에 따라 기체 발생 속도와 전극 표면 상태가 함께 변하는 것입니다. 신호 판독은 전극 전위-전류 관계(예: 특정 전류에서의 전압) 로 촉매 성능을 읽고, 필요하면 생성된 수소·산소의 발생량을 정량해 전기 신호와 연결하는 방식으로 이뤄집니다.</p>
+<p>성능지표는 왜 중요한지부터 잡아야 합니다. <strong>overpotential</strong>이 작아야 같은 생산량의 수소를 만들 때 전기에너지 손실이 줄어듭니다. 반면 <strong>current density</strong>는 “얼마나 빠르게” 수소·산소를 만들 수 있는지를 나타내므로, 낮은 전류에서만 좋은 촉매와 높은 전류에서도 버티는 촉매를 구분하는 핵심 기준이 됩니다. 특히 <strong>layered double hydroxide</strong> 같은 촉매는 표면에서 실제로 반응을 담당하는 상태가 운전 중 형성되거나 변할 수 있어, 특정 전류 구간에서의 지표가 촉매의 ‘본래’ 특성인지 ‘운전 중 변화된’ 상태인지까지 함께 생각해야 합니다. 이 때문에 전류-전압만 보지 않고, 장시간 구동에서 지표가 얼마나 유지되는지도 같은 무게로 다룹니다.</p>
+<p>비교 가능성과 재현성은 전기화학 셀의 “조건 고정”에서 출발합니다. 같은 촉매라도 기준전극 보정이 다르거나, 용액 저항 보상 방식이 다르면 전극에 실제로 걸린 전위가 달라져 <strong>overpotential</strong> 비교가 흔들릴 수 있습니다. 또한 전극 제조가 조금만 달라도(촉매 로딩, 전극-집전체 접촉, 기공 구조) 기포가 빠져나가는 경로나 물질전달 저항이 달라져 <strong>current density</strong>가 같은 의미를 갖기 어려워집니다. 특히 고전류 구동에서는 기포 거동과 물질전달 저항이 지배적으로 커질 수 있어, 촉매 활성 변화와 ‘전극에서의 가림/막힘’을 구분하지 않으면 성능 해석이 뒤섞입니다.</p>
+<p>마지막으로, 촉매 조성이나 결함 농도, 단일원자 부하량처럼 “촉매가 무엇으로 얼마나 구성되어 있는지”를 정밀 정량하지 않으면, 전기화학 결과와 구조·조성의 연결이 불안정해집니다. 그래서 촉매 합성 뒤 조성 분석과 전극 제작 조건(전해질 종류, 셀 구성, 저항 보상, 기준전극 보정, 가속 내구성 시험 프로토콜) 을 함께 묶어 관리해야, 서로 다른 실험실이나 장비에서도 결과를 같은 의미로 비교할 수 있습니다. 이런 측정 체계가 갖춰져야 물 분해 전기촉매 성능이 ‘좋다’는 말이 특정 조건에서 재현 가능한 수치로 정리됩니다.</p>
+</section>
+</section>
+<section id="클러스터-세부지표" class="level2">
+<h2 class="anchored" data-anchor-id="클러스터-세부지표">2. 클러스터 세부지표</h2>
+<section id="전체-문헌-수-추이연도별" class="level3">
+<h3 class="anchored" data-anchor-id="전체-문헌-수-추이연도별">2-1. 전체 문헌 수 추이(연도별)</h3>
+<p><a href="figures/02_docs_by_year.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="figures/02_docs_by_year.svg" class="img-fluid"></a></p>
+<blockquote class="blockquote">
+<p>좌측 축은 해당 클러스터, 우측 축은 195개 micro 전체 합계의 연도별 문헌 수(N_docs) 입니다(절대값 비교가 아니라 추세 비교 목적).</p>
+</blockquote>
+<p>2001–2024 전체 기간의 연도별 문헌 수(UID 기준) 추이를 표시했습니다. 최근 5개년(2020–2024) 합계는 <strong>1,605편</strong>이며, 같은 기간 micro 전체 합계는 <strong>450,518편</strong>입니다. 참고로 2001–2024 기간 micro 전체 누적 합계는 <strong>1,088,302편</strong>이며, 2024년 micro 연도별 합계는 <strong>113,736편</strong>입니다.</p>
+</section>
+<section id="퍼센타일요약" class="level3">
+<h3 class="anchored" data-anchor-id="퍼센타일요약">2-2. 퍼센타일(요약)</h3>
+<p>아래 지표는 입력 데이터의 퍼센타일(0~100) 기준이며, 숫자가 클수록 상대적 위치가 높습니다. ‘스코프 다양성(폭)’은 유망성 판단이 아니라 주제 범위/세분화 정도를 나타내는 보조 지표로 해석합니다.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>지표</th>
+<th style="text-align: right;">퍼센타일</th>
+<th>수준</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>성장성</td>
+<td style="text-align: right;">93.33</td>
+<td>상위 10% (매우 우수)</td>
+</tr>
+<tr class="even">
+<td>파급력</td>
+<td style="text-align: right;">87.18</td>
+<td>상위 30% (우수)</td>
+</tr>
+<tr class="odd">
+<td>기술진보기여도</td>
+<td style="text-align: right;">73.33</td>
+<td>상위 30% (우수)</td>
+</tr>
+<tr class="even">
+<td>스코프 다양성(폭)</td>
+<td style="text-align: right;">2.05</td>
+<td>하위 10% (매우 낮음)</td>
+</tr>
+<tr class="odd">
+<td>종합(총점)</td>
+<td style="text-align: right;">89.74</td>
+<td>상위 30% (우수)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="kriss-기여" class="level3">
+<h3 class="anchored" data-anchor-id="kriss-기여">2-3. KRISS 기여</h3>
+<p>RTA·논문수(N_docs) 는 양적 활동도, Excellence10은 상위 10% 인용 논문 비중(%) 으로 질적 성과를 나타냅니다. 단, Excellence10은 표본 수(N_docs) 가 적을 때 변동성이 커 참고용으로 해석하는 것이 안전합니다.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>항목</th>
+<th style="text-align: right;">값</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>KRISS RTA(최근 5개년)</td>
+<td style="text-align: right;">1.23</td>
+</tr>
+<tr class="even">
+<td>KRISS Excellence10(최근 5개년, %)</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="odd">
+<td>KRISS 논문수(최근 5개년)</td>
+<td style="text-align: right;">7</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="간단-해석" class="level3">
+<h3 class="anchored" data-anchor-id="간단-해석">2-4. 간단 해석</h3>
+<p>기술진보기여도 퍼센타일이 상위 30% 수준으로 집계됩니다. 파급력 퍼센타일이 상위 30% 수준으로 집계됩니다.</p>
+</section>
+</section>
+<section id="지식기반-인접-클러스터키워드" class="level2">
+<h2 class="anchored" data-anchor-id="지식기반-인접-클러스터키워드">3. 지식기반 인접 클러스터·키워드</h2>
+<section id="지식기반-인접-클러스터eaaa" class="level3">
+<h3 class="anchored" data-anchor-id="지식기반-인접-클러스터eaaa">3-1. 지식기반 인접 클러스터(EA/AA)</h3>
+<p>용어: ego는 현재 클러스터, alter는 유사도 기준으로 연결된 이웃 클러스터를 뜻합니다. 표의 <code>구분</code>은 EA(ego–alter) / AA(alter–alter) 로 표기합니다.</p>
+<p>확장 가능 유형 클러스터로, 핵심 역량 앵커는 9-12 - 배터리 양극·계면 측정(1.00) 로 확인됩니다. KRISS 최근 5개년 기준에서 핵심 역량 기준 3조건 중 부족한 축은 RTA·N_docs·Excellence10입니다.</p>
+<p><a href="figures/01_ego_network.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="figures/01_ego_network.png" class="img-fluid"></a></p>
+<table class="table table-sm" style="table-layout: fixed; width: 100%;">
+<colgroup>
+<col style="width: 8%;">
+<col style="width: 34%;">
+<col style="width: 10%;">
+<col style="width: 8%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left; vertical-align: top; white-space: nowrap;">
+구분
+</th>
+<th style="text-align: left; vertical-align: top;">
+클러스터
+</th>
+<th style="text-align: left; vertical-align: top; white-space: nowrap;">
+유형
+</th>
+<th style="text-align: right; vertical-align: top; white-space: nowrap;">
+유사도
+</th>
+<th style="text-align: left; vertical-align: top;">
+대표 키워드
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+EA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+9-12 - 배터리 양극·계면 측정
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+핵심 역량
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+1.00
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+lithium ion battery, cathode, li rich, lini0, capacity
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+EA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+7-154 - 리튬이온전지 예지진단
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+확장 가능
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+1.00
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+soh, lithium ion battery, state of charge, network, remaining useful life
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+EA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+35-94 - 연료전지 수분 계측
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+확장 가능
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+0.71
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+water, imaging, proton exchange membrane, pemfc, neutron
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+AA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+23-37 - 계산 위상 이미징
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+unknown
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+0.67
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+imaging, digital holography, hologram, ptychography, object
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+AA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+23-56 - 광학 3차원 형상계측
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+unknown
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+0.67
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+fringe, interferometry, interferometer, profilometry, wavefront
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+AA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+34-162 - 궤도각운동량 광계측
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+역량 공백
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+0.66
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+orbital angular momentum, optical vortex, beam, polarization, mode
+</td>
+</tr>
+<tr>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+AA
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+4-86 - 광학 전장 변형계측
+</td>
+<td style="text-align: left; vertical-align: top; white-space: nowrap;">
+unknown
+</td>
+<td style="text-align: right; vertical-align: top; white-space: nowrap;">
+0.55
+</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">
+digital image correlation, displacement, strain, deformation, camera
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="워드클라우드" class="level3">
+<h3 class="anchored" data-anchor-id="워드클라우드">3-2. 워드클라우드</h3>
+<p><a href="figures/03_wordcloud.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="figures/03_wordcloud.png" class="img-fluid"></a></p>
+<p>생성 방식: 클러스터 전체 초록에서 stopword를 제거하고, 단어·bi-gram 빈도를 계산했습니다(상위 3200개). 여기에 입력 키워드 빈도 정보를 <code>alpha=0.5</code>로 가중 결합해(스케일 정규화 후) 표현했습니다.</p>
+</section>
+<section id="키워드-시계열비율-20152024" class="level3">
+<h3 class="anchored" data-anchor-id="키워드-시계열비율-20152024">3-3. 키워드 시계열(비율, 2015–2024)</h3>
+<p><a href="figures/03_keywords_trend.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="figures/03_keywords_trend.svg" class="img-fluid"></a></p>
+<p><code>비율(%) = (해당 연도·클러스터에서 키워드가 포함된 문서 수 / 같은 연도·클러스터 전체 문서 수) × 100</code> 위 heatmap은 상위 키워드의 비율(%) 을 <strong>키워드별 0~1 정규화(최대값=1)</strong>해 상대 변화를 보여줍니다.</p>
+</section>
+<section id="주요-키워드기간별-비율문서수" class="level3">
+<h3 class="anchored" data-anchor-id="주요-키워드기간별-비율문서수">3-4. 주요 키워드(기간별 비율·문서수)</h3>
+<p>기간은 2015–2024를 기준으로 하며, 초기(2015–2017), 중기(2018–2021), 후기(2022–2024) 로 3구간 요약합니다.</p>
+<p>표의 각 셀은 <code>비율% (문서수)</code> 형식이며, 괄호 안 숫자는 해당 기간에 키워드가 포함된 문서 수(중복 제거) 입니다(동일 문서 내 다중 등장은 1회로 계산).</p>
+<p>score는 클러스터 내 용어의 대표성을 나타내는 점수로, c‑TF‑IDF와 LLR을 z‑score 후 가중합해 계산합니다. 자세한 산출 방식은 분야별 상세 리포팅(본 보고서) 을 참고해 주십시오.</p>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>term</th>
+<th style="text-align: right;">score</th>
+<th style="text-align: right;">10년 합계(2015–2024)</th>
+<th style="text-align: right;">초기(2015–2017)</th>
+<th style="text-align: right;">중기(2018–2021)</th>
+<th style="text-align: right;">후기(2022–2024)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>layered double hydroxide</td>
+<td style="text-align: right;">0.96</td>
+<td style="text-align: right;">17.93% (382)</td>
+<td style="text-align: right;">10.61% (21)</td>
+<td style="text-align: right;">15.48% (120)</td>
+<td style="text-align: right;">20.83% (241)</td>
+</tr>
+<tr class="even">
+<td>hydrogen evolution reaction</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">59.44% (1,266)</td>
+<td style="text-align: right;">53.54% (106)</td>
+<td style="text-align: right;">61.55% (477)</td>
+<td style="text-align: right;">59.03% (683)</td>
+</tr>
+<tr class="odd">
+<td>electrocatalyst</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">72.86% (1,552)</td>
+<td style="text-align: right;">62.63% (124)</td>
+<td style="text-align: right;">71.10% (551)</td>
+<td style="text-align: right;">75.80% (877)</td>
+</tr>
+<tr class="even">
+<td>nickel</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">60.42% (1,287)</td>
+<td style="text-align: right;">46.46% (92)</td>
+<td style="text-align: right;">58.97% (457)</td>
+<td style="text-align: right;">63.79% (738)</td>
+</tr>
+<tr class="odd">
+<td>catalyst</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">63.57% (1,354)</td>
+<td style="text-align: right;">66.16% (131)</td>
+<td style="text-align: right;">63.23% (490)</td>
+<td style="text-align: right;">63.35% (733)</td>
+</tr>
+<tr class="even">
+<td>electrocatalysis</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">46.76% (996)</td>
+<td style="text-align: right;">45.96% (91)</td>
+<td style="text-align: right;">49.03% (380)</td>
+<td style="text-align: right;">45.38% (525)</td>
+</tr>
+<tr class="odd">
+<td>current density</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">73.10% (1,557)</td>
+<td style="text-align: right;">53.03% (105)</td>
+<td style="text-align: right;">71.61% (555)</td>
+<td style="text-align: right;">77.53% (897)</td>
+</tr>
+<tr class="even">
+<td>overpotential</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">73.47% (1,565)</td>
+<td style="text-align: right;">54.55% (108)</td>
+<td style="text-align: right;">70.32% (545)</td>
+<td style="text-align: right;">78.82% (912)</td>
+</tr>
+<tr class="odd">
+<td>nife</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">17.61% (375)</td>
+<td style="text-align: right;">11.11% (22)</td>
+<td style="text-align: right;">14.19% (110)</td>
+<td style="text-align: right;">21.00% (243)</td>
+</tr>
+<tr class="even">
+<td>doping</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">13.85% (295)</td>
+<td style="text-align: right;">6.57% (13)</td>
+<td style="text-align: right;">11.74% (91)</td>
+<td style="text-align: right;">16.51% (191)</td>
+</tr>
+<tr class="odd">
+<td>alkaline</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">54.08% (1,152)</td>
+<td style="text-align: right;">40.40% (80)</td>
+<td style="text-align: right;">52.26% (405)</td>
+<td style="text-align: right;">57.65% (667)</td>
+</tr>
+<tr class="even">
+<td>activity</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">65.02% (1,385)</td>
+<td style="text-align: right;">65.66% (130)</td>
+<td style="text-align: right;">68.00% (527)</td>
+<td style="text-align: right;">62.92% (728)</td>
+</tr>
+<tr class="odd">
+<td>bifunctional</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">23.57% (502)</td>
+<td style="text-align: right;">16.67% (33)</td>
+<td style="text-align: right;">24.77% (192)</td>
+<td style="text-align: right;">23.94% (277)</td>
+</tr>
+<tr class="even">
+<td>pt</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">25.31% (539)</td>
+<td style="text-align: right;">32.32% (64)</td>
+<td style="text-align: right;">26.97% (209)</td>
+<td style="text-align: right;">22.99% (266)</td>
+</tr>
+<tr class="odd">
+<td>electrolysis</td>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">26.67% (568)</td>
+<td style="text-align: right;">12.63% (25)</td>
+<td style="text-align: right;">23.48% (182)</td>
+<td style="text-align: right;">31.20% (361)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="기관-분석20202024" class="level2">
+<h2 class="anchored" data-anchor-id="기관-분석20202024">4. 기관 분석(2020–2024)</h2>
+<section id="개-기관-성과-지표" class="level3">
+<h3 class="anchored" data-anchor-id="개-기관-성과-지표">4-1. 10개 기관 성과 지표</h3>
+<p>최근 5개년(2020–2024) 기준으로 10개 기관의 논문 수(N_docs), RTA, Excellence10(상위 10% 인용 논문 비중×100) 을 정리했습니다. N_docs·RTA는 양적 활동도, Excellence10은 질적 성과를 나타내며, 표본 수(N_docs) 가 적을 때 Excellence10은 변동성이 커 참고용으로 해석하는 것이 안전합니다.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>기관</th>
+<th style="text-align: right;">N_docs</th>
+<th style="text-align: right;">RTA</th>
+<th style="text-align: right;">Excellence10(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NIST</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;"><strong>18.18</strong></td>
+</tr>
+<tr class="even">
+<td>NPL</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;"><strong>1.71</strong></td>
+<td style="text-align: right;"><strong>37.50</strong></td>
+</tr>
+<tr class="odd">
+<td>BAM</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;"><strong>1.00</strong></td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td><strong>KRISS</strong></td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;"><strong>1.23</strong></td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="odd">
+<td>NIM</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;"><strong>1.61</strong></td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="even">
+<td>NPLI</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.90</td>
+<td style="text-align: right;">0.00</td>
+</tr>
+<tr class="odd">
+<td>NRC</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.70</td>
+<td style="text-align: right;">0.00*</td>
+</tr>
+<tr class="even">
+<td>PTB</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.34</td>
+<td style="text-align: right;"><strong>50.00</strong>*</td>
+</tr>
+<tr class="odd">
+<td>INRIM</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">0.00*</td>
+</tr>
+<tr class="even">
+<td>NMIJ/AIST</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+<p>* N_docs &lt; 5인 경우 Excellence10은 표본 수 영향이 커 참고용으로 해석하는 것이 안전합니다.</p>
+<p>요약: KRISS의 최근 5개년 논문 수는 <strong>7편</strong>이며, 비교기관 중 최대치는 <strong>11편</strong>입니다. KRISS RTA는 <strong>1.23</strong>이며, 비교기관 중 최대치는 <strong>1.71</strong>입니다. KRISS Excellence10은 <strong>0.00%</strong>이며, 비교기관 중 최대치는 <strong>50.00%</strong>입니다.</p>
+</section>
+<section id="상위-기관문헌-수-기준-20202024" class="level3">
+<h3 class="anchored" data-anchor-id="상위-기관문헌-수-기준-20202024">4-2. 상위 기관(문헌 수 기준, 2020–2024)</h3>
+<p><strong>전체(Top500 + BIPM) Top5</strong></p>
+<table class="table table-sm" style="table-layout: fixed; width: 100%;">
+<colgroup>
+<col style="width: 4em;">
+<col>
+<col style="width: 6em;">
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right; white-space: nowrap;">
+순위
+</th>
+<th>
+기관
+</th>
+<th style="text-align: right; white-space: nowrap;">
+N_docs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+1
+</td>
+<td>
+Chinese Academy of Sciences
+</td>
+<td style="text-align: right; white-space: nowrap;">
+170
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+2
+</td>
+<td>
+University of Science &amp; Technology of China, CAS
+</td>
+<td style="text-align: right; white-space: nowrap;">
+49
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+3
+</td>
+<td>
+State Research Institute, Center for Physical Sciences and Technology [FTMC]
+</td>
+<td style="text-align: right; white-space: nowrap;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+4
+</td>
+<td>
+China University of Petroleum
+</td>
+<td style="text-align: right; white-space: nowrap;">
+31
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+5
+</td>
+<td>
+Tsinghua University
+</td>
+<td style="text-align: right; white-space: nowrap;">
+30
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BIPM 한정 Top5</strong></p>
+<table class="table table-sm" style="table-layout: fixed; width: 100%;">
+<colgroup>
+<col style="width: 4em;">
+<col>
+<col style="width: 6em;">
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right; white-space: nowrap;">
+순위
+</th>
+<th>
+기관
+</th>
+<th style="text-align: right; white-space: nowrap;">
+N_docs
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+1
+</td>
+<td>
+State Research Institute, Center for Physical Sciences and Technology [FTMC]
+</td>
+<td style="text-align: right; white-space: nowrap;">
+32
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+2
+</td>
+<td>
+National Institute of Standards and Technology [NIST]
+</td>
+<td style="text-align: right; white-space: nowrap;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+3
+</td>
+<td>
+National Physical Laboratory [NPL]
+</td>
+<td style="text-align: right; white-space: nowrap;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+4
+</td>
+<td>
+Federal Institute for Materials Research and Testing/Bundesanstalt für Materialforschung und -prüfung [BAM]
+</td>
+<td style="text-align: right; white-space: nowrap;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align: right; white-space: nowrap;">
+5
+</td>
+<td>
+Korea Research Institute of Standards and Science [KRISS]
+</td>
+<td style="text-align: right; white-space: nowrap;">
+7
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="기관별-초록-기반-요약20202024" class="level3">
+<h3 class="anchored" data-anchor-id="기관별-초록-기반-요약20202024">4-3. 기관별 초록 기반 요약(2020–2024)</h3>
+<p>대상 기관 선정 기준: 최근 5개년(2020–2024) 기준으로 RTA(revealed technological advantage) &gt; 0.8 및 문헌 수 &gt; 5인 기관을 포함하고, KRISS는 항상 포함했습니다.</p>
+<ul>
+<li><p><strong>NPL</strong>: 알칼리 수전해에서 고전류밀도 수소 발생을 구현하는 전극 설계에 집중하고 있습니다 (RTA 1.71, 문헌 8건). 비정질 TiO2 가 코팅된 Cu 나노로드에 Ru-Cu 나노 이종구조를 결합한 계층 전극을 개발해 1 M NaOH 에서 -200 mA/cm2 조건 과전압 74 mV, 250 h 이상 안정 구동을 달성했습니다. 또한 Ru 나노입자를 수직 Cu 나노플레이트 배열에 전착한 캐소드로 1 A/cm2 에서 1.69 V, 3.6 A/cm2 에서 2 V 성능과 1 A/cm2 기준 300 h 이상 연속 운전을 제시했습니다. 클러스터 빔 증착으로 Co 도핑 MoS2 클러스터를 제조하고, Ni 도핑과 달리 Co 도핑이 HER 활성을 저해하는 메커니즘을 밀도 범함수 이론 계산으로 설명했습니다 (총 인용수: 163).</p></li>
+<li><p><strong>NIM</strong>: 계면 공학을 활용해 알칼리 조건에서 HER-OER 동시 성능을 높이는 이중기능 전기촉매에 집중하고 있습니다 (RTA 1.61, 문헌 7건). 다공성 NiFe 층상 이중 수산화물에 Ru 서브나노클러스터를 결합해 H* 흡착과 HER 반응 속도를 개선하고, 전위 유도 변환으로 RuO2-NiFe(OOH) x 계면을 형성해 OER 성능까지 함께 강화했습니다. MoS2 표면에 그래파이트형 탄소 질화물을 결합한 이종구조로 계면 전하 재분포와 수소 흡착 조절을 유도해 10 mA/cm(-2) 에서 과전압 141 mV, Tafel 기울기 57 mV/dec 을 달성했습니다. 비정질 Ni-Fe 인화물을 2차원 WS2 나노시트에 성장시킨 촉매를 태양전지와 결합해 1.67 V 에서 10 mA/cm2 구동과 태양-수소 변환 효율 8.49% 를 구현했습니다 (총 인용수: 116).</p></li>
+<li><p><strong>KRISS</strong>: 전기촉매의 조성·상·나노구조를 정밀 제어해 물분해 반응의 활성과 내구성을 동시에 높이는 연구에 집중하고 있습니다 (RTA 1.23, 문헌 7건). 나노결정 Ni-Mo 박막을 전착으로 만들고 Mo 함량(최대 26 at.%) 과 결정상에 따른 전기화학적 유효 표면적(최대 228 cm2/1 cm2) 및 HER 성능을 연계해, 10 mA/cm2 에서 과전압 120 mV 를 제시했습니다. 다공성 Ni 나노튜브 주형 위에 Ir 촉매를 형성해 10 mA cm(-2) 에서 1.500 V (가역 수소 전극 기준), Tafel 기울기 44.34 mV/dec 및 질량 활성 3273 A g(-1) (1.53 V) 를 달성하면서 10 h 이상 안정 운전을 구현했습니다. Ru 나노클러스터가 분출된 MoO2-Ni4Mo 촉매로 음이온 교환막 수전해와 염수 조건에서 1.0 A cm(-2) 를 300 h 이상 유지하고, 태양광 보조 시스템에서 태양-수소 변환 효율 22.5% 를 제시했습니다 (총 인용수: 59).</p></li>
+<li><p><strong>BAM</strong>: 산소 발생 반응 촉매의 활성 구조를 규명하고 안정적으로 구동되는 전극 재료를 설계하는 연구에 집중하고 있습니다 (RTA 1.00, 문헌 7건). Fe3O4(001) 단결정 표면에 Ni 를 도입한 모델 촉매로 Ni 첨가가 반응성에 미치는 영향을 표면 분석과 전기화학 측정으로 연결하고, 표면 양이온 중 Fe 분율 20–40% 범위에서 OER 활성이 개선되는 조건을 제시했습니다. 확산 반사 자외-가시 분광 전기화학 측정을 구축해 Zn0.35Co0.65O 와 CoAl2O4 촉매가 작동 전위에서 겪는 전자구조 변화를 추적하고, 전위에 따른 구조-활성 상관을 도출하는 방법을 개발했습니다. 2차원 층상 산화물에 Ni 를 낮은 적재량(&lt;20 wt%) 으로 삽입한 촉매에서 pH 14 조건 과전압 206 mV(<span class="citation" data-cites="10">@10</span> mA cm(-2)) 와 개시 과전압 100 mV 를 달성해 Ni 활성점 기반 OER 성능을 구현했습니다 (총 인용수: 66).</p></li>
+</ul>
+</section>
+</section>
+<section id="정책부합성분포" class="level2">
+<h2 class="anchored" data-anchor-id="정책부합성분포">5. 정책부합성(분포)</h2>
+<p>정책부합성은 문헌(제목+초록) 기반 분류 결과의 <strong>분포</strong>를 요약한 것으로, 본 간이 리포트에서는 ‘비율/건수’만을 제시합니다(인과·정당화 단정 금지).</p>
+<section id="분포비율건수" class="level3">
+<h3 class="anchored" data-anchor-id="분포비율건수">5-1. 분포(비율%/건수)</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>정책 카테고리</th>
+<th style="text-align: right;">비율(%)</th>
+<th style="text-align: right;">건수(편)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>기후·환경 정책 지원 측정 과학</td>
+<td style="text-align: right;">2.13</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td>보건·보건안보 정책 지원 측정 과학</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td>식품·물·소비자 안전 정책 지원 측정 과학</td>
+<td style="text-align: right;">1.06</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td>에너지 전환·에너지안보 정책 지원 측정 과학</td>
+<td style="text-align: right;">90.43</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr class="odd">
+<td>산업혁신·첨단제조 정책 지원 측정 과학</td>
+<td style="text-align: right;">6.38</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td>미분류</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td>합계</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td>기준 문헌 수</td>
+<td style="text-align: right;"></td>
+<td style="text-align: right;">50</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="정책부합성-해석" class="level3">
+<h3 class="anchored" data-anchor-id="정책부합성-해석">5-2. 정책부합성 해석</h3>
+<p>이 클러스터는 물 분해 전기촉매의 수소·산소 생성 효율과 장기 안정성을 전압·전류 조건과 함께 정량 평가하는 연구를 다루며, 문헌 분류 결과 <code>에너지 전환·에너지안보 정책 지원 측정 과학</code> 영역이 90.43%(42편) 로 가장 높은 비중을 차지합니다. 이는 alkaline 조건에서 overpotential과 current density 같은 지표로 전해조(전극·전해질·구조) 의 구동 성능과 내구성을 비교·재현 가능하게 만드는 측정이 핵심이기 때문입니다. 다음으로 <code>산업혁신·첨단제조 정책 지원 측정 과학</code>이 6.38%(3편) 로, 나노시트·다공성 3차원·이종접합 등 전극 구조 설계와 제조 조건이 성능지표에 직접 연결되는 점과 맞닿습니다.</p>
+<p>예를 들어 <code>Our electrolyzers exhibit current densities as high as 1 A/cm(2) at 1.69 V and 3.6 A/cm(2) at 2 V</code>처럼 전압에서의 전류밀도 성능을 수치로 제시해, 물 분해 장치의 전력-생산 성능을 계량화하는 에너지 전환·에너지안보 정책 지원 측정 과학과 직접 연결됩니다.</p>
+<p>다만 이 결과는 문헌(제목+초록) 기반 분류와 복수 라벨 적용 여부에 따라 달라질 수 있으므로, 분류 기준과 미분류 3편을 포함한 전체 50편 범위의 재검토가 필요합니다.</p>
+</section>
+<section id="분류-근거-예시" class="level3">
+<h3 class="anchored" data-anchor-id="분류-근거-예시">5-3. 분류 근거 예시</h3>
+<p>형식: <code>연도 · 정책 분야 · 측정 축 · 제목</code> — 초록 발췌 (제목은 굵게, 발췌문은 이탤릭).- 2023 · 에너지 전환·에너지안보 정책 지원 측정 과학 · Electricity and Magnetism(EM) · <strong>High-performance alkaline water electrolyzers based on Ru-perturbed Cu nanoplatelets cathode</strong> — <em>Alkaline electrolyzers generally produce hydrogen at current densities below 0.5 A/cm(2). Here, we design a cost-effective and robust cathode, consisting of electrodeposited Ru nanoparticles (mass loading similar to 53 mu g/cm(2)) on vertically oriented Cu nanoplatelet arrays grown on metallic meshes. Such cathode is coupled with an anode based on stacked…</em>EM · <strong>Ru-Cu Nanoheterostructures for Efficient Hydrogen Evolution Reaction in Alkaline Water Electrolyzers</strong> — <em>Combining multiple species working in tandem for different hydrogen evolution reaction(HER) steps is an effective strategy to design HER electrocatalysts. Here, we engineered a hierarchical electrode for the HER composed of amorphous-TiO2/Cu nanorods (NRs) decorated with cost-effective Ru-Cu nanoheterostructures (Ru mass loading = 52 mu g/cm(2)). Such an…</em></p>
+<p>관련도 해석 메모: 특정 카테고리의 비율/건수가 높다는 것은 해당 축으로 분류된 문헌이 상대적으로 많음을 의미합니다. 다만 분류 기준·모호성·복수 라벨 여부에 따라 분포가 달라질 수 있어, 상세 리포팅에서는 클러스터 스코프(기술/응용) 와 함께 교차 검토하는 것이 안전합니다.</p>
+</section>
+</section>
+<section id="요약" class="level2">
+<h2 class="anchored" data-anchor-id="요약">6. 요약</h2>
+<p>이 클러스터는 <strong>electrocatalyst</strong>로 물을 전기적으로 분해할 때 수소·산소가 얼마나 효율적으로 만들어지고, 장시간 운전에서도 성능이 얼마나 유지되는지를 정량 평가하는 연구에 초점이 있습니다. 특히 <strong>layered double hydroxide</strong> 기반 촉매와 전극 구조(나노시트, 다공성 3차원, 이종접합 등) 가 <strong>alkaline</strong> 조건에서 보이는 반응 특성을, <strong>overpotential</strong>과 <strong>current density</strong> 같은 지표로 비교하되, 기준전극 보정·저항 보상·전극 제조 조건·기포 및 물질전달 영향까지 함께 고려해 “재현 가능한 촉매 성능”으로 해석하는 관점이 강조됩니다. 성장성 93.33, 파급력 87.18, 기술진보기여도 73.33, 스코프 다양성(폭) 2.05, 종합 89.74로 정리되며, 문헌 수는 2020년 216건, 2021년 232건, 2022년 317건, 2023년 359건, 2024년 481건이고 최근 5개년 합은 1,605건입니다.</p>
+<p>2020–2024년 비교에서 KRISS는 문헌 수 7건, RTA(revealed technological advantage) 1.23, Excellence10 0.00으로 나타나며, 같은 기간 BIPM 상위 기관 표에서 KRISS는 7건으로 BAM(7건) 과 같은 규모이고 NPL(8건), NIST(11건) 보다는 작게 정리됩니다. 또한 KRISS의 RTA 1.71은 NIST의 0.53보다 높고 BAM의 1.00을 상회하지만, NPL의 1.71 및 NIM의 1.61보다는 낮게 나타나 상대적으로 “특정 분야 집중도” 측면의 위치를 함께 보여줍니다. Excellence10은 KRISS가 7건으로 표본이 크지 않은 조건에서 0.00으로 제시되어 참고 수준에서 해석할 수 있습니다. 협력 네트워크 요약에서는 KRISS의 연결 수 30, 가중 연결 강도 201.00이며, BIPM 한정(2020–2024) 에서는 연결 수 22, 가중 연결 강도 합 108.00으로 정리됩니다.</p>
+<p>정책부합성 분포는 분류된 문헌 47건(기준 문헌 50건) 중 ‘에너지 전환·에너지안보 정책 지원 측정 과학’이 90.43%(42건) 로 가장 큰 비중을 차지하고, 다음으로 ‘산업혁신·첨단제조 정책 지원 측정 과학’ 6.38%(3건), ‘기후·환경 정책 지원 측정 과학’ 2.13%(1건) 순으로 나타납니다. 최상위 범주 근거 예시에서는 알칼리 수전해기에서 높은 전류밀도 운전과 안정적 동작을 다루는 서술이 포함되어 있어, 예컨대 <code>current densities as high as 1 A/cm(2) at 1.69 V</code>와 같은 표현이 범주 판정에 활용된 정황이 확인됩니다. 본 클러스터는 KRISS 최근 5개년 지표에서 RTA 1.23과 문헌 수 7건은 기준을 충족하나 Excellence10 0.00이 부족한 축으로 표시된 ‘확장 가능’ 유형이며, ’9-12 - 배터리 양극·계면 측정’과 유사도 0.998로 인접합니다. 향후에는 알칼리 조건에서의 기준전극 보정·저항 보상·전극 제조 조건을 포함한 비교가능성 요건을 어디까지 측정 체계로 포괄할지 점검할 수 있습니다. 또한 KRISS의 최근 5개년 성과를 해석할 때는 문헌 수 7건과 Excellence10 0.00이 함께 제시된 점을 전제로, 인접 분야와의 연계 범위 및 성과 지표의 민감도를 함께 검토할 수 있습니다.</p>
+</section>
+<section id="부록.-데이터-커버리지주의" class="level2">
+<h2 class="anchored" data-anchor-id="부록.-데이터-커버리지주의">부록. 데이터 커버리지·주의</h2>
+<ul>
+<li>최근 5개년 KRISS 논문 수가 7편으로 작아, 비율/퍼센타일 해석은 보수적으로 보는 것이 안전합니다.</li>
+<li>키워드 추이는 ‘문서 포함 비율(%)’ 지표이며, 논문 수 증가/감소로 단정하지 않습니다.</li>
+<li>정책부합성은 문헌(제목+초록) 기반 분류 결과의 분포이며, 인과/정당화로 해석하지 않습니다.</li>
+<li>10개 기관 성과 지표(4-1, 2020–2024) 는 선택된 10개 기관에 한정된 비교입니다(모든 기관 전체 비교 아님).</li>
+</ul>
+</section>
+<section id="부록.-약어" class="level2">
+<h2 class="anchored" data-anchor-id="부록.-약어">부록. 약어</h2>
+<p>보고서 본문에 등장한 약어와 영문 전체 명칭을 정리했습니다(첫 등장에만 영문 전체 명칭을 포함하고, 이후는 약어만 사용).</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>약어</th>
+<th>영문 전체 명칭</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RTA</td>
+<td>revealed technological advantage</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="부록.-상위-인용-논문" class="level2">
+<h2 class="anchored" data-anchor-id="부록.-상위-인용-논문">부록. 상위 인용 논문</h2>
+<p>본 부록은 입력 데이터에서 제공되는 최소 서지(제목/연도/WoS UID/인용수)를 기준으로 정리했습니다.</p>
+<section id="부록-1.-전체기간-인용수-상위-5개" class="level3">
+<h3 class="anchored" data-anchor-id="부록-1.-전체기간-인용수-상위-5개">부록-1. 전체기간 인용수 상위 5개</h3>
+<ol type="1">
+<li>An Advanced Ni-Fe Layered Double Hydroxide Electrocatalyst for Water Oxidation. (2013). <em>Web of Science Core Collection</em> (UID: WOS:000320483900006; 인용수: 2,488).</li>
+<li>Molybdenum sulfides-efficient and viable materials for electro - and photoelectrocatalytic hydrogen evolution. (2012). <em>Web of Science Core Collection</em> (UID: WOS:000299502300009; 인용수: 1,225).</li>
+<li>Efficient Water Oxidation Using Nanostructured α-Nickel-Hydroxide as an Electrocatalyst. (2014). <em>Web of Science Core Collection</em> (UID: WOS:000336078400052; 인용수: 1,214).</li>
+<li>Triggering the electrocatalytic hydrogen evolution activity of the inert two-dimensional MoS<sub>2</sub> surface <i>via</i> single-atom metal doping. (2015). <em>Web of Science Core Collection</em> (UID: WOS:000354192900023; 인용수: 1,172).</li>
+<li>Rapid room-temperature synthesis of nanocrystalline spinels as oxygen reduction and evolution electrocatalysts. (2011). <em>Web of Science Core Collection</em> (UID: WOS:000285336900021; 인용수: 1,171).</li>
+</ol>
+</section>
+<section id="부록-2.-최근-5년20202024-인용수-상위-5개" class="level3">
+<h3 class="anchored" data-anchor-id="부록-2.-최근-5년20202024-인용수-상위-5개">부록-2. 최근 5년(2020–2024) 인용수 상위 5개</h3>
+<ol type="1">
+<li>Exceptional performance of hierarchical Ni-Fe oxyhydroxide@NiFe alloy nanowire array electrocatalysts for large current density water splitting. (2020). <em>Web of Science Core Collection</em> (UID: WOS:000508857600027; 인용수: 864).</li>
+<li>Single-Atom Vacancy Defect to Trigger High-Efficiency Hydrogen Evolution of MoS<sub>2</sub>. (2020). <em>Web of Science Core Collection</em> (UID: WOS:000518700800027; 인용수: 751).</li>
+<li>Engineering single-atomic ruthenium catalytic sites on defective nickel-iron layered double hydroxide for overall water splitting. (2021). <em>Web of Science Core Collection</em> (UID: WOS:000680875400015; 인용수: 613).</li>
+<li>Lattice oxygen activation enabled by high-valence metal sites for enhanced water oxidation. (2020). <em>Web of Science Core Collection</em> (UID: WOS:000564248600004; 인용수: 593).</li>
+<li>Platinum single-atom catalyst coupled with transition metal/metal oxide heterostructure for accelerating alkaline hydrogen evolution reaction. (2021). <em>Web of Science Core Collection</em> (UID: WOS:000665040300012; 인용수: 577).</li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../docs/detailed_reports/cluster_154/report.html" class="pagination-link" aria-label="7-154 - 리튬이온전지 예지진단">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">7-154 - 리튬이온전지 예지진단</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../docs/detailed_reports/cluster_15/report.html" class="pagination-link" aria-label="11-15 - 전자파 차폐·흡수 복합재">
+        <span class="nav-page-text">11-15 - 전자파 차폐·흡수 복합재</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/docs/detailed_reports/cluster_191/report.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
+
+
+
+
+</body></html>
