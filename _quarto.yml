@@ -20,7 +20,6 @@ project:
   resources:
     - docs/assets/**
     - "Final_Report_MD/최종보고서 내용/*.png"
-    - "Final_Report_MD/최종보고서 내용/*.xlsx"
     - theme/**
 
 filters:
@@ -35,7 +34,7 @@ website:
     style: floating
     search: true
     border: true
-    collapse-level: 2
+    collapse-level: 1
     contents:
       - text: "홈 / Home"
         href: web_home.qmd

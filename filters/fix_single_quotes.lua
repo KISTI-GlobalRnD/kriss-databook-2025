@@ -11,8 +11,10 @@ local LEFT = "‘" -- U+2018
 
 local function should_fix(text)
   -- Convert only when the quote is used as an opening mark (followed by a word).
-  -- Avoid leading apostrophes for years like ’98 by excluding digits.
+  -- Avoid leading apostrophes for years like ’98 by excluding plain digits,
+  -- but allow cluster-id patterns such as ’34-69.
   return text:match("^" .. RIGHT .. "[A-Za-z_가-힣]")
+    or text:match("^" .. RIGHT .. "%d+%-%d")
 end
 
 local function fix_inlines(inlines)

@@ -19,7 +19,6 @@ project:
   resources:
     - docs/assets/**
     - "Final_Report_MD/최종보고서 내용/*.png"
-    - "Final_Report_MD/최종보고서 내용/*.xlsx"
     - theme/**
 
 filters:
@@ -38,9 +37,6 @@ book:
       - icon: browser
         text: "웹 버전 보기"
         href: "https://kisti-globalrnd.github.io/kriss-databook-2025/"
-      - icon: book
-        text: "북 버전 홈"
-        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
   navbar:
     left:
       - text: "홈 / Home"
