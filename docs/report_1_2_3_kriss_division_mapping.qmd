@@ -2,7 +2,7 @@
 
 표준과학 연구지형도는 연구주제의 구조를 보여주지만, 정책·기관 관점의 해석을 위해서는 이를 조직 축으로 재표현하는 단계가 필요하다. 본 사업에서는 도출된 연구주제 클러스터를 KRISS 조직 축(물리측정·화학소재측정·바이오의료측정·양자)으로 요약하는 후처리 절차를 수행하였으며, 본 절에서는 그 기준과 절차를 정리하였다.
 
-![KRISS 조직도(측정본부 및 측정 그룹)](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/kriss_org_group.png){#fig-kriss-org-groups}
+![KRISS 조직도(측정본부 및 측정 그룹)](../Final_Report_MD/report_assets/kriss_org_group.png){#fig-kriss-org-groups}
 
 (1) 목적과 적용 범위
 

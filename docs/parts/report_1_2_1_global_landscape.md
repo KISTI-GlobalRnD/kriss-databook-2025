@@ -17,4 +17,4 @@ WoS의 인용 주제(Citation Topics) 메소(meso)-레벨 클러스터(326개)�
 
 : 글로벌 연구지형도 시각화 핵심 지표 {#tbl-global-landscape-indicators}
 
-![Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/global_landscape_map_stdsciratio.png){#fig-global-landscape-2020-2024}
+![Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)](Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png){#fig-global-landscape-2020-2024}

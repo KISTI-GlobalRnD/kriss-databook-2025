@@ -10,31 +10,31 @@
 
 [그림 21] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)
 
-![표준과학영역_협력네트워크.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%ED%91%9C%EC%A4%80%EA%B3%BC%ED%95%99%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![stdscience_collaboration_network.png](../Final_Report_MD/report_assets/stdscience_collaboration_network.png)
 
 위 그림에 나타나는 표준과학 전영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw)).
 
 [그림 22] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)
 
-![물리영역_협력네트워크.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EB%AC%BC%EB%A6%AC%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![physical_collaboration_network.png](../Final_Report_MD/report_assets/physical_collaboration_network.png)
 
 위 그림에 나타나는 물리측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HCzWTCSrE7yfSh_Ksi_QdryFsRdK6Mg-)).
 
 [그림 23] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)
 
-![화학소재영역_협력네트워크.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![chemical_materials_collaboration_network.png](../Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
 
 위 그림에 나타나는 화학소재측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1N2RfNURIGNDnIrJXqs87dol4mKMYLhTR)).
 
 [그림 24] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)
 
-![바이오의료영역_협력네트워크.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![biomedical_collaboration_network.png](../Final_Report_MD/report_assets/biomedical_collaboration_network.png)
 
 위 그림에 나타나는 바이오의료측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SnjTp57fg3N6pXm1yiEJo57sg0TddWF5)).
 
 [그림 25] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)
 
-![양자기술영역_협력네트워크.png](../Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![quantum_collaboration_network.png](../Final_Report_MD/report_assets/quantum_collaboration_network.png)
 
 위 그림에 나타나는 양자기술 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1zKWEwz3MisYMVzhz10WMRBryvaF_w6Ao)).
 

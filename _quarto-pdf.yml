@@ -1,0 +1,42 @@
+project:
+  type: book
+  output-dir: _site_pdf
+  render:
+    - index.qmd
+    - book_part1_landscape.qmd
+    - book_part2_capability.qmd
+    - book_part3_emerging.qmd
+    - docs/appendix_detailed_reporting.qmd
+    - docs/appendix_core_reports.qmd
+    - docs/appendix_expand_reports.qmd
+    - docs/appendix_gap_reports.qmd
+    - docs/appendix_methodology.qmd
+    - docs/appendix.qmd
+
+book:
+  output-file: kriss_databook_print.pdf
+  title: "KRISS 표준과학 연구 데이터북 (Print)"
+  chapters:
+    - index.qmd
+    - book_part1_landscape.qmd
+    - book_part2_capability.qmd
+    - book_part3_emerging.qmd
+  appendices:
+    - docs/appendix_detailed_reporting.qmd
+    - docs/appendix_core_reports.qmd
+    - docs/appendix_expand_reports.qmd
+    - docs/appendix_gap_reports.qmd
+    - docs/appendix_methodology.qmd
+    - docs/appendix.qmd
+
+format:
+  pdf:
+    pdf-engine: xelatex
+    keep-tex: true
+    geometry:
+      - a4paper
+      - margin=20mm
+    fontsize: 11pt
+    mainfont: "Noto Serif CJK KR"
+    sansfont: "Noto Sans CJK KR"
+    monofont: "Noto Sans Mono CJK KR"

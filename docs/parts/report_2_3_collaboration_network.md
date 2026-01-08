@@ -16,31 +16,31 @@
 ::: {.carousel-slide}
 <div class="slide-title">표준과학 전영역</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%ED%91%9C%EC%A4%80%EA%B3%BC%ED%95%99%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">물리측정</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EB%AC%BC%EB%A6%AC%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">화학소재측정</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">바이오의료측정</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">양자기술</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
 :::
 :::
 
@@ -53,15 +53,15 @@
 :::
 :::
 :::{.content-visible when-profile="book"}
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%ED%91%9C%EC%A4%80%EA%B3%BC%ED%95%99%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EB%AC%BC%EB%A6%AC%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0%EC%98%81%EC%97%AD_%ED%98%91%EB%A0%A5%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC.png)
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
 :::
 
 추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력비율과 국제협력논문수를 살펴보았다. 이를 통해 KRISS의 국제협력이 **벤치마킹 기관 대비 어느 정도 수준인지**, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴 볼 수 있다. 

@@ -16,14 +16,16 @@
 ## 작업 체크리스트
 
 1. TinyTeX(LaTeX) 설치
-2. `Final_Report_MD/최종보고서 내용/*.png` 파일명 영문화 + 문서 내 링크 갱신
+2. `Final_Report_MD/report_assets/*.png` 파일명 영문화 + 문서 내 링크 갱신
 3. 미사용 이미지 아카이브 폴더로 이동 + `.gitignore` 반영
 4. PDF 전용 Quarto 프로필 추가(`--profile book,pdf` 방식 권장)
 5. PDF 렌더 테스트 및 깨지는 요소(표/그림/수식) 정리
 
-## 빌드 명령(예정)
+## 빌드 명령
 
-- PDF 렌더(프로필 병합): `quarto render --profile book,pdf`
+- PDF 렌더(프로필 병합): `bash print/build_pdf.sh`
+- 직접 실행: `quarto render --profile pdf --to pdf`
+- 출력물: `_site_pdf/kriss_databook_print.pdf`
 
 ## 파일명 리네임 정책(예정)
 
@@ -31,4 +33,3 @@
 - 공백은 `_`로 치환
 - 중복 파일명은 `_1`, `_2` 등 suffix로 처리
 - 리네임 매핑은 `print/asset_rename_map.csv`에 기록
-

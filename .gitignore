@@ -2,6 +2,7 @@
 _site/
 _site_website/
 _site_book/
+_site_pdf/
 .quarto/
 
 # Python / R caches
@@ -30,15 +31,18 @@ Final_Report_MD/*.html
 Final_Report_MD/*_files/
 Final_Report_MD/.~*
 
+# Local-only archive (keep out of repo & deployment)
+Final_Report_MD/_archive/
+
 # Avoid committing heavyweight binaries from intermediate exports (copied via resources only when needed)
-Final_Report_MD/최종보고서 내용/*.docx
-Final_Report_MD/최종보고서 내용/*.hwp
-Final_Report_MD/최종보고서 내용/*.xlsx
+Final_Report_MD/report_assets/*.docx
+Final_Report_MD/report_assets/*.hwp
+Final_Report_MD/report_assets/*.xlsx
 
 # Local conversion artifacts (docx/hwpx compatibility builds)
 Final_Report_MD/_docx_assets/
 Final_Report_MD/*_processed.md
-Final_Report_MD/최종보고서 내용/*.hwpx
+Final_Report_MD/report_assets/*.hwpx
 
 # Final report source DOCX (kept locally; avoid large binary commits)
 붙임__빅데이터_기반_*최종보고서*.docx

@@ -20,10 +20,10 @@
 
 ::: {.columns}
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png)
 :::
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png)
 :::
 :::
 :::
@@ -33,10 +33,10 @@
 
 ::: {.columns}
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png)
 :::
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png)
 :::
 :::
 :::
@@ -46,10 +46,10 @@
 
 ::: {.columns}
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png)
 :::
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png)
 :::
 :::
 :::
@@ -59,10 +59,10 @@
 
 ::: {.columns}
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png)
 :::
 ::: {.column width="50%"}
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png)
 :::
 :::
 :::
@@ -77,19 +77,19 @@
 :::
 :::
 :::{.content-visible when-profile="book"}
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%AC%BC%EB%A6%AC%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%ED%99%94%ED%95%99%EC%86%8C%EC%9E%AC%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%B8%A1%EC%A0%95_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EB%B0%94%EC%9D%B4%EC%98%A4%EC%9D%98%EB%A3%8C%EC%B8%A1%EC%A0%95_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0_clusters_2plus_orgs_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png)
 
-![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/heatmap_div_%EC%96%91%EC%9E%90%EA%B8%B0%EC%88%A0_clusters_1org_conditions.png)
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png)
 :::

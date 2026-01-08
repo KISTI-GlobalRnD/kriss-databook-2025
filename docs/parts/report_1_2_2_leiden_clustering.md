@@ -32,16 +32,16 @@ $$
 
 클러스터링은 하이브리드 인용 네트워크를 구축한 뒤, 연결성이 낮은 고립 노드/극소 컴포넌트가 결과를 불안정하게 만들 수 있다는 점을 고려하여 연결성이 높은 거대 컴포넌트를 중심으로 분석 대상을 정제한다. 다음으로 Leiden 알고리즘을 적용해 네트워크 커뮤니티 구조를 탐지하며(Traag et al. 2019), 군집의 세분성을 조절하는 해상도(γ)를 분석 목적(세분화 수준과 해석 가능성의 균형)에 맞추어 설정한다. 또한 재현 가능한 결과를 위해 난수 시드(seed)를 관리하고, 필요 시 해상도와 시드를 함께 변화시키며 NMI(Normalized Mutual Information) 등 일치도 지표로 민감도를 점검할 수 있다. 마지막으로 지나치게 작은 군집은 해석 가능성이 낮고 후속 분석(예: 대표 키워드)의 불안정을 초래할 수 있으므로, 군집 간 연결 가중치 합이 가장 큰 인접 군집으로 병합하는 후처리를 수행하였다.
 
-![Leiden 알고리즘 개요(예시; Traag et al., 2019)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/Leiden_Algorithm.png){#fig-leiden-overview}
+![Leiden 알고리즘 개요(예시; Traag et al., 2019)](Final_Report_MD/report_assets/Leiden_Algorithm.png){#fig-leiden-overview}
 
 ### 4. 산출물: 거시–중시–미시 3수준 연구주제 클러스터(8–46–195)
 
 상기 절차를 통해 표준과학 연구 영역 최종 문헌 집합을 인용 기반 연구주제 단위로 분할하였다. 최종 연구지형도는 마크로 수준 8개, 메조 수준 46개, 마이크로 수준 195개의 계층 구조로 정리되며, 이후의 후속 분석(측정 그룹 매핑, 키워드 추출, 시계열 분석)에서는 주로 마이크로 수준 연구주제 클러스터를 기본 분석 단위로 활용하였다. 
 
-![3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/download.png){#fig-cluster-hierarchy-3levels}
+![3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)](Final_Report_MD/report_assets/download.png){#fig-cluster-hierarchy-3levels}
 
 마이크로 클러스터에서 최소 클러스터 문헌 수는 2,000건으로, 이러한 병합과정을 거치지 않으면 너무 자잘한 미세클러스터가 빈번히 등장하여 분석단위의 상대적 크기를 맞추기 어려운 한계점이 존재하였다. 이러한 병합 이전 클러스터 수는 1,662개 였으며, 병합 이후 195로 줄어들었다.
 
-![작은 군집 병합 전후 클러스터 크기 분포 비교](Final_Report_MD/%EC%B5%9C%EC%A2%85%EB%B3%B4%EA%B3%A0%EC%84%9C%20%EB%82%B4%EC%9A%A9/download%201.png){#fig-cluster-size-before-after}
+![작은 군집 병합 전후 클러스터 크기 분포 비교](Final_Report_MD/report_assets/download_1.png){#fig-cluster-size-before-after}
 
 ※ Leiden 알고리즘의 상세 설명과 세부 파라미터 설정 기준은 데이터북 부록의 [클러스터링·키워드 방법론](docs/appendix_methodology.html)에서 확인할 수 있다.
