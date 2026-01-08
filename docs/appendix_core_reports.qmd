@@ -4,6 +4,15 @@ description: "핵심 역량 유형 상세 리포트 모음."
 page-title: true
 ---
 
-핵심 역량 유형에 해당하는 상세 리포트를 정리한다. 현재는 대표 리포트 1건을 제공하며, 향후 유형별 10개 내외로 확장할 예정이다.
+핵심 역량 유형에 해당하는 상세 리포트를 정리한다(총 10건).
 
+- [9-12 - 배터리 양극·계면 측정 (핵심 역량)](detailed_reports/cluster_12/report.qmd)
+- [10-173 - 2차원·산화물 가스센서 (핵심 역량)](detailed_reports/cluster_173/report.qmd)
+- [11-24 - 폴리머 난연성 측정 (핵심 역량)](detailed_reports/cluster_24/report.qmd)
+- [12-167 - 스핀전류 변환·제어 (핵심 역량)](detailed_reports/cluster_167/report.qmd)
 - [20-182 - 다이아몬드결함양자센서 (핵심 역량)](detailed_reports/cluster_182/report.qmd)
+- [34-69 - 메타표면 광학소자 (핵심 역량)](detailed_reports/cluster_69/report.qmd)
+- [36-77 - 2차원 광전소자 측정 (핵심 역량)](detailed_reports/cluster_77/report.qmd)
+- [37-145 - 광음향·초음파 나노진단치료 (핵심 역량)](detailed_reports/cluster_145/report.qmd)
+- [41-127 - 뇌파 감정상태 측정 (핵심 역량)](detailed_reports/cluster_127/report.qmd)
+- [43-178 - 현장진단 바이오센서 (핵심 역량)](detailed_reports/cluster_178/report.qmd)

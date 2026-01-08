@@ -4,6 +4,15 @@ description: "확장 가능 유형 상세 리포트 모음."
 page-title: true
 ---
 
-확장 가능 유형에 해당하는 상세 리포트를 정리한다. 현재는 대표 리포트 1건을 제공하며, 향후 유형별 10개 내외로 확장할 예정이다.
+확장 가능 유형에 해당하는 상세 리포트를 정리한다(총 10건).
 
+- [2-117 - 레이저 미량가스 분광측정 (확장 가능)](detailed_reports/cluster_117/report.qmd)
+- [7-154 - 리튬이온전지 예지진단 (확장 가능)](detailed_reports/cluster_154/report.qmd)
+- [9-191 - 물분해 전기촉매 측정 (확장 가능)](detailed_reports/cluster_191/report.qmd)
+- [11-15 - 전자파 차폐·흡수 복합재 (확장 가능)](detailed_reports/cluster_15/report.qmd)
+- [25-123 - 위상광자·비에르미트상 (확장 가능)](detailed_reports/cluster_123/report.qmd)
+- [25-176 - 양자다체 비평형 동역학 (확장 가능)](detailed_reports/cluster_176/report.qmd)
+- [37-79 - 미세·나노입자 계측표준 (확장 가능)](detailed_reports/cluster_79/report.qmd)
 - [38-84 - 양자알고리즘·오류정정 (확장 가능)](detailed_reports/cluster_84/report.qmd)
+- [38-107 - 초전도 회로 양자전기역학 (확장 가능)](detailed_reports/cluster_107/report.qmd)
+- [41-141 - 신축성 전자피부 센서 (확장 가능)](detailed_reports/cluster_141/report.qmd)

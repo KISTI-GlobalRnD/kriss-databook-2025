@@ -29,3 +29,5 @@ format:
 {{< include parts/10_notes.md >}}
 
 {{< include parts/11_abbreviations.md >}}
+
+{{< include parts/12_top_papers.md >}}

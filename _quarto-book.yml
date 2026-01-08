@@ -88,15 +88,42 @@ book:
     - part: "상세 리포트 — 핵심 역량"
       chapters:
         - docs/appendix_core_reports.qmd
+        - docs/detailed_reports/cluster_12/report.qmd
+        - docs/detailed_reports/cluster_173/report.qmd
+        - docs/detailed_reports/cluster_24/report.qmd
+        - docs/detailed_reports/cluster_167/report.qmd
         - docs/detailed_reports/cluster_182/report.qmd
+        - docs/detailed_reports/cluster_69/report.qmd
+        - docs/detailed_reports/cluster_77/report.qmd
+        - docs/detailed_reports/cluster_145/report.qmd
+        - docs/detailed_reports/cluster_127/report.qmd
+        - docs/detailed_reports/cluster_178/report.qmd
     - part: "상세 리포트 — 확장 가능"
       chapters:
         - docs/appendix_expand_reports.qmd
+        - docs/detailed_reports/cluster_117/report.qmd
+        - docs/detailed_reports/cluster_154/report.qmd
+        - docs/detailed_reports/cluster_191/report.qmd
+        - docs/detailed_reports/cluster_15/report.qmd
+        - docs/detailed_reports/cluster_123/report.qmd
+        - docs/detailed_reports/cluster_176/report.qmd
+        - docs/detailed_reports/cluster_79/report.qmd
         - docs/detailed_reports/cluster_84/report.qmd
+        - docs/detailed_reports/cluster_107/report.qmd
+        - docs/detailed_reports/cluster_141/report.qmd
     - part: "상세 리포트 — 역량 공백"
       chapters:
         - docs/appendix_gap_reports.qmd
+        - docs/detailed_reports/cluster_189/report.qmd
         - docs/detailed_reports/cluster_159/report.qmd
+        - docs/detailed_reports/cluster_112/report.qmd
+        - docs/detailed_reports/cluster_133/report.qmd
+        - docs/detailed_reports/cluster_131/report.qmd
+        - docs/detailed_reports/cluster_179/report.qmd
+        - docs/detailed_reports/cluster_169/report.qmd
+        - docs/detailed_reports/cluster_62/report.qmd
+        - docs/detailed_reports/cluster_162/report.qmd
+        - docs/detailed_reports/cluster_125/report.qmd
     - docs/appendix.qmd
 
 language:

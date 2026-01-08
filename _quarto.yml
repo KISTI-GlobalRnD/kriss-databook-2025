@@ -68,20 +68,74 @@ website:
             contents:
               - text: "개요"
                 href: docs/appendix_core_reports.qmd
+              - text: "9-12 - 배터리 양극·계면 측정"
+                href: docs/detailed_reports/cluster_12/report.qmd
+              - text: "10-173 - 2차원·산화물 가스센서"
+                href: docs/detailed_reports/cluster_173/report.qmd
+              - text: "11-24 - 폴리머 난연성 측정"
+                href: docs/detailed_reports/cluster_24/report.qmd
+              - text: "12-167 - 스핀전류 변환·제어"
+                href: docs/detailed_reports/cluster_167/report.qmd
               - text: "20-182 - 다이아몬드결함양자센서"
                 href: docs/detailed_reports/cluster_182/report.qmd
+              - text: "34-69 - 메타표면 광학소자"
+                href: docs/detailed_reports/cluster_69/report.qmd
+              - text: "36-77 - 2차원 광전소자 측정"
+                href: docs/detailed_reports/cluster_77/report.qmd
+              - text: "37-145 - 광음향·초음파 나노진단치료"
+                href: docs/detailed_reports/cluster_145/report.qmd
+              - text: "41-127 - 뇌파 감정상태 측정"
+                href: docs/detailed_reports/cluster_127/report.qmd
+              - text: "43-178 - 현장진단 바이오센서"
+                href: docs/detailed_reports/cluster_178/report.qmd
           - section: "상세 리포트 — 확장 가능"
             contents:
               - text: "개요"
                 href: docs/appendix_expand_reports.qmd
+              - text: "2-117 - 레이저 미량가스 분광측정"
+                href: docs/detailed_reports/cluster_117/report.qmd
+              - text: "7-154 - 리튬이온전지 예지진단"
+                href: docs/detailed_reports/cluster_154/report.qmd
+              - text: "9-191 - 물분해 전기촉매 측정"
+                href: docs/detailed_reports/cluster_191/report.qmd
+              - text: "11-15 - 전자파 차폐·흡수 복합재"
+                href: docs/detailed_reports/cluster_15/report.qmd
+              - text: "25-123 - 위상광자·비에르미트상"
+                href: docs/detailed_reports/cluster_123/report.qmd
+              - text: "25-176 - 양자다체 비평형 동역학"
+                href: docs/detailed_reports/cluster_176/report.qmd
+              - text: "37-79 - 미세·나노입자 계측표준"
+                href: docs/detailed_reports/cluster_79/report.qmd
               - text: "38-84 - 양자알고리즘·오류정정"
                 href: docs/detailed_reports/cluster_84/report.qmd
+              - text: "38-107 - 초전도 회로 양자전기역학"
+                href: docs/detailed_reports/cluster_107/report.qmd
+              - text: "41-141 - 신축성 전자피부 센서"
+                href: docs/detailed_reports/cluster_141/report.qmd
           - section: "상세 리포트 — 역량 공백"
             contents:
               - text: "개요"
                 href: docs/appendix_gap_reports.qmd
+              - text: "9-189 - 다공성골격 가스분리"
+                href: docs/detailed_reports/cluster_189/report.qmd
               - text: "11-159 - 나노셀룰로오스 소재측정"
                 href: docs/detailed_reports/cluster_159/report.qmd
+              - text: "15-112 - 업컨버전 나노입자"
+                href: docs/detailed_reports/cluster_112/report.qmd
+              - text: "18-133 - 적층 바이오제조 측정"
+                href: docs/detailed_reports/cluster_133/report.qmd
+              - text: "26-131 - 중력파 검출·분석"
+                href: docs/detailed_reports/cluster_131/report.qmd
+              - text: "29-179 - 프로테오믹스 질량분석"
+                href: docs/detailed_reports/cluster_179/report.qmd
+              - text: "30-169 - 위상 양자물질 전자구조 측정"
+                href: docs/detailed_reports/cluster_169/report.qmd
+              - text: "32-62 - 집적 광주파수콤"
+                href: docs/detailed_reports/cluster_62/report.qmd
+              - text: "34-162 - 궤도각운동량 광계측"
+                href: docs/detailed_reports/cluster_162/report.qmd
+              - text: "43-125 - 유전체 변이 측정표준"
+                href: docs/detailed_reports/cluster_125/report.qmd
           - text: "용어 및 참고 / Glossary"
             href: docs/appendix.qmd
   navbar:

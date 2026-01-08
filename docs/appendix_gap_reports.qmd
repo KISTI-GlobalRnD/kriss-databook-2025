@@ -4,6 +4,15 @@ description: "역량 공백 유형 상세 리포트 모음."
 page-title: true
 ---
 
-역량 공백 유형에 해당하는 상세 리포트를 정리한다. 현재는 대표 리포트 1건을 제공하며, 향후 유형별 10개 내외로 확장할 예정이다.
+역량 공백 유형에 해당하는 상세 리포트를 정리한다(총 10건).
 
+- [9-189 - 다공성골격 가스분리 (역량 공백)](detailed_reports/cluster_189/report.qmd)
 - [11-159 - 나노셀룰로오스 소재측정 (역량 공백)](detailed_reports/cluster_159/report.qmd)
+- [15-112 - 업컨버전 나노입자 (역량 공백)](detailed_reports/cluster_112/report.qmd)
+- [18-133 - 적층 바이오제조 측정 (역량 공백)](detailed_reports/cluster_133/report.qmd)
+- [26-131 - 중력파 검출·분석 (역량 공백)](detailed_reports/cluster_131/report.qmd)
+- [29-179 - 프로테오믹스 질량분석 (역량 공백)](detailed_reports/cluster_179/report.qmd)
+- [30-169 - 위상 양자물질 전자구조 측정 (역량 공백)](detailed_reports/cluster_169/report.qmd)
+- [32-62 - 집적 광주파수콤 (역량 공백)](detailed_reports/cluster_62/report.qmd)
+- [34-162 - 궤도각운동량 광계측 (역량 공백)](detailed_reports/cluster_162/report.qmd)
+- [43-125 - 유전체 변이 측정표준 (역량 공백)](detailed_reports/cluster_125/report.qmd)
