@@ -36,10 +36,6 @@ website:
     search: true
     border: true
     collapse-level: 2
-    tools:
-      - icon: book
-        text: "북 버전 보기"
-        href: "https://kisti-globalrnd.github.io/kriss-databook-2025/book/"
     contents:
       - text: "홈 / Home"
         href: web_home.qmd
@@ -62,8 +58,6 @@ website:
         contents:
           - text: "상세 리포팅 방법론"
             href: docs/appendix_detailed_reporting.qmd
-          - text: "클러스터링·키워드 방법론"
-            href: docs/appendix_methodology.qmd
           - section: "상세 리포트 — 핵심 역량"
             contents:
               - text: "개요"
@@ -136,6 +130,8 @@ website:
                 href: docs/detailed_reports/cluster_162/report.qmd
               - text: "43-125 - 유전체 변이 측정표준"
                 href: docs/detailed_reports/cluster_125/report.qmd
+          - text: "클러스터링·키워드 방법론"
+            href: docs/appendix_methodology.qmd
           - text: "용어 및 참고 / Glossary"
             href: docs/appendix.qmd
   navbar:
@@ -164,14 +160,14 @@ website:
         menu:
           - text: "상세 리포팅 방법론"
             href: docs/appendix_detailed_reporting.qmd
-          - text: "클러스터링·키워드 방법론"
-            href: docs/appendix_methodology.qmd
           - text: "상세 리포팅 — 핵심 역량"
             href: docs/appendix_core_reports.qmd
           - text: "상세 리포팅 — 확장 가능"
             href: docs/appendix_expand_reports.qmd
           - text: "상세 리포팅 — 역량 공백"
             href: docs/appendix_gap_reports.qmd
+          - text: "클러스터링·키워드 방법론"
+            href: docs/appendix_methodology.qmd
           - text: "용어 및 참고 / Glossary"
             href: docs/appendix.qmd
   page-navigation: true
