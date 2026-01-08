@@ -605,7 +605,6 @@ window.Quarto = {
         </div>
         <div class="sidebar-tools-collapse">
     <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/" title="웹 버전 보기" class="quarto-navigation-tool px-1" aria-label="웹 버전 보기"><i class="bi bi-browser"></i></a>
-    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/" title="북 버전 홈" class="quarto-navigation-tool px-1" aria-label="북 버전 홈"><i class="bi bi-book"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
@@ -937,7 +936,6 @@ window.Quarto = {
 <li><strong>c‑TF‑IDF (Class‑based TF‑IDF)</strong>: 문서 단위가 아닌 “클러스터(=class) 단위”로 문서‑용어 행렬을 집계한 뒤 TF‑IDF를 계산하는 가중화 방식. 클러스터를 대표하면서도 다른 클러스터와 구분되는 용어를 상위로 선별하는 데 적합하다.</li>
 <li><strong>LLR (Log‑Likelihood Ratio)</strong>: 특정 용어가 “특정 클러스터에서 유의하게 더 많이 나타나는가”를 평가하기 위한 변별력 지표. 클러스터 내부 vs.&nbsp;나머지 코퍼스의 2×2 분할표로 계산할 수 있다.</li>
 <li><strong>MMR (Maximal Marginal Relevance)</strong>: 랭킹에서의 관련성(relevance)과 다양성(diversity)을 함께 고려해 중복을 줄이는 선택 기법.</li>
-<li><strong>PPM (Parts per million)</strong>: 시계열 정규화에서 사용되는 비중 표현(값을 <span class="math inline">\(10^{6}\)</span> 스케일로 변환). 본 데이터북의 키워드 추세 탐색기에서는 “연도·클러스터 단위의 문헌 수(문서 커버리지)”를 기본 지표로 제공하며, 필요 시 문서/토큰 기반 비중을 보조 지표로 활용할 수 있다.</li>
 <li><strong>Frequency (token frequency)</strong>: 클러스터 내 총 토큰 등장 횟수(동일 문서 내 반복 등장까지 누적).</li>
 <li><strong>Document coverage</strong>: 해당 용어가 1회 이상 등장한 문서의 개수(한 문서당 최대 1회로 카운트).</li>
 </ul>
@@ -947,7 +945,7 @@ window.Quarto = {
 <p>키워드 시계열은 연도 <span class="math inline">\(y\)</span>, 클러스터 <span class="math inline">\(c\)</span>에서 용어 <span class="math inline">\(t\)</span>가 1회 이상 등장한 문헌 수(연도별 문서 커버리지)를 집계한 값으로 해석할 수 있다. <span class="math display">\[
 doc\_cov_{c,y}(t)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{t \in d\}
 \]</span></p>
-<p><span class="math inline">\(\mathcal{D}_{c,y}\)</span>는 연도 <span class="math inline">\(y\)</span>에 클러스터 <span class="math inline">\(c\)</span>에 속한 문헌 집합, <span class="math inline">\(\mathbf{1}\{t \in d\}\)</span>는 문헌 <span class="math inline">\(d\)</span>에서 용어 <span class="math inline">\(t\)</span>가 1회 이상 등장하면 1, 그렇지 않으면 0을 갖는 지시함수이다. 문헌량의 연도별 변동을 통제하고자 할 경우, <span class="math inline">\(D_{c,y}=|\mathcal{D}_{c,y}|\)</span>로 나눈 문서 기반 비중 <span class="math inline">\(\frac{doc\_cov_{c,y}(t)}{D_{c,y}}\)</span>를 함께 고려할 수 있다. 또한 특정 분석 목적(예: 텍스트에서의 강조 정도)을 위해 토큰 기반 비중(PPM)을 보조 지표로 사용할 수 있다.</p>
+<p><span class="math inline">\(\mathcal{D}_{c,y}\)</span>는 연도 <span class="math inline">\(y\)</span>에 클러스터 <span class="math inline">\(c\)</span>에 속한 문헌 집합, <span class="math inline">\(\mathbf{1}\{t \in d\}\)</span>는 문헌 <span class="math inline">\(d\)</span>에서 용어 <span class="math inline">\(t\)</span>가 1회 이상 등장하면 1, 그렇지 않으면 0을 갖는 지시함수이다. 문헌량의 연도별 변동을 통제하고자 할 경우, <span class="math inline">\(D_{c,y}=|\mathcal{D}_{c,y}|\)</span>로 나눈 문서 기반 비중 <span class="math inline">\(\frac{doc\_cov_{c,y}(t)}{D_{c,y}}\)</span>를 함께 고려할 수 있다.</p>
 </section>
 <section id="참고문헌-references" class="level2" data-number="d.3">
 <h2 data-number="d.3" class="anchored" data-anchor-id="참고문헌-references"><span class="header-section-number">d.3</span> 참고문헌 / References</h2>
