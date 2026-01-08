@@ -35,7 +35,7 @@ website:
     style: floating
     search: true
     border: true
-    collapse-level: 3
+    collapse-level: 2
     tools:
       - icon: book
         text: "북 버전 보기"

@@ -33,7 +33,7 @@ book:
   sidebar:
     style: floating
     search: true
-    collapse-level: 3
+    collapse-level: 1
     tools:
       - icon: browser
         text: "웹 버전 보기"
