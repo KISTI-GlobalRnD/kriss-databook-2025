@@ -18,8 +18,11 @@
 1. TinyTeX(LaTeX) 설치
 2. `Final_Report_MD/report_assets/*.png` 파일명 영문화 + 문서 내 링크 갱신
 3. 미사용 이미지 아카이브 폴더로 이동 + `.gitignore` 반영
-4. PDF 전용 Quarto 프로필 추가(`--profile book,pdf` 방식 권장)
+4. PDF 전용 Quarto 프로필 추가(`--profile pdf`)
 5. PDF 렌더 테스트 및 깨지는 요소(표/그림/수식) 정리
+
+> 참고: 현재 `pdf` 프로필은 **상세 리포트(클러스터별 30개 report)** 를 제외하고 렌더한다.  
+> 상세 리포트를 PDF에 포함하려면 SVG(예: `02_docs_by_year.svg`) → PDF 변환 도구(`rsvg-convert` 등)가 필요하다.
 
 ## 빌드 명령
 
