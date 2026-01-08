@@ -1,10 +1,10 @@
 ---
 title: "상세 리포팅 — 역량 공백"
-description: "역량 공백 유형 상세 리포트 모음."
+description: "역량 공백 유형의 상세 리포트를 수록하였다."
 page-title: true
 ---
 
-역량 공백 유형에 해당하는 상세 리포트를 정리한다(총 10건).
+역량 공백 유형에 해당하는 상세 리포트를 아래와 같이 수록하였다(총 10건).
 
 - [9-189 - 다공성골격 가스분리 (역량 공백)](detailed_reports/cluster_189/report.qmd)
 - [11-159 - 나노셀룰로오스 소재측정 (역량 공백)](detailed_reports/cluster_159/report.qmd)

@@ -1,6 +1,6 @@
 ---
 title: "클러스터 대시보드 / Cluster Dashboard"
-description: "Interactive Shiny dashboard for cluster exploration."
+description: "클러스터 분석 결과를 탐색할 수 있는 Shiny 대시보드를 제공하였다."
 page-title: false
 numbered: false
 format:
@@ -8,7 +8,7 @@ format:
     title-block: false
 ---
 
-클러스터 분석 결과를 탐색할 수 있는 Shiny 대시보드 뷰를 임베드 형태로 제공한다.
+클러스터 분석 결과를 탐색할 수 있는 Shiny 대시보드를 임베드 형태로 제공하였다.
 
 ::: {.callout-tip}
 ## 보기 안내

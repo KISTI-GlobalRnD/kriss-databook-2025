@@ -1,10 +1,10 @@
 ---
 title: "상세 리포팅 — 확장 가능"
-description: "확장 가능 유형 상세 리포트 모음."
+description: "확장 가능 유형의 상세 리포트를 수록하였다."
 page-title: true
 ---
 
-확장 가능 유형에 해당하는 상세 리포트를 정리한다(총 10건).
+확장 가능 유형에 해당하는 상세 리포트를 아래와 같이 수록하였다(총 10건).
 
 - [2-117 - 레이저 미량가스 분광측정 (확장 가능)](detailed_reports/cluster_117/report.qmd)
 - [7-154 - 리튬이온전지 예지진단 (확장 가능)](detailed_reports/cluster_154/report.qmd)

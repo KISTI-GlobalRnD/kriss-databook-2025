@@ -1,10 +1,10 @@
 ---
 title: "상세 리포팅 — 핵심 역량"
-description: "핵심 역량 유형 상세 리포트 모음."
+description: "핵심 역량 유형의 상세 리포트를 수록하였다."
 page-title: true
 ---
 
-핵심 역량 유형에 해당하는 상세 리포트를 정리한다(총 10건).
+핵심 역량 유형에 해당하는 상세 리포트를 아래와 같이 수록하였다(총 10건).
 
 - [9-12 - 배터리 양극·계면 측정 (핵심 역량)](detailed_reports/cluster_12/report.qmd)
 - [10-173 - 2차원·산화물 가스센서 (핵심 역량)](detailed_reports/cluster_173/report.qmd)
