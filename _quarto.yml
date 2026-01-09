@@ -19,6 +19,7 @@ project:
     - docs/appendix.qmd
   resources:
     - docs/assets/**
+    - img/**
     - "Final_Report_MD/report_assets/*.png"
     - theme/**
 
@@ -195,6 +196,8 @@ format:
       method: mathjax
       options:
         tags: all
+    include-before-body:
+      - theme/brandbar.html
     include-in-header:
       - text: |
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" />

@@ -1,5 +1,15 @@
 /*-- scss:defaults --*/
 
+$kriss-gray: #54585a !default;
+$kriss-orange: #fd8223 !default;
+$kriss-silver: #8c9191 !default;
+$kriss-gold: #c3a975 !default;
+$kriss-light-gray: #cbc8c7 !default;
+
+$primary: $kriss-orange !default;
+$secondary: $kriss-gray !default;
+$link-color: $kriss-orange !default;
+$link-hover-color: darken($kriss-orange, 10%) !default;
 
 // @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
 //@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
@@ -24,6 +34,14 @@ $font-family-sans-serif: 'Noto Sans KR', 'Open Sans', serif !default;
 //$font-family-sans-serif: 'NanumSquareNeo', 'Open Sans', serif !default;
 $font-family-serif: 'Noto Serif KR', 'Noto Serif', serif !default;
 $font-family-monospace: 'D2Coding', monospace !default;
+
+:root {
+  --kriss-gray: #{$kriss-gray};
+  --kriss-orange: #{$kriss-orange};
+  --kriss-silver: #{$kriss-silver};
+  --kriss-gold: #{$kriss-gold};
+  --kriss-light-gray: #{$kriss-light-gray};
+}
 
 //$font-family-serif: 'NanumGothicCoding', serif !default;
 
@@ -403,4 +421,75 @@ table caption {
   font-size: 0.9rem;
   color: #6c757d;
   text-align: center;
+}
+
+// --- KRISS branding ---
+.kriss-brandbar {
+  background: #fff;
+  border-bottom: 2px solid var(--kriss-orange);
+  font-size: 0.85rem;
+}
+
+.kriss-brandbar-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kriss-brandbar-label {
+  color: var(--kriss-gray);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.kriss-brandbar-logos {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.kriss-brandbar-logo img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .kriss-brandbar-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .kriss-brandbar-label {
+    width: 100%;
+  }
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.navbar .navbar-brand {
+  font-weight: 700;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  color: var(--kriss-orange) !important;
+}
+
+#quarto-sidebar .sidebar-link.active,
+#quarto-sidebar .sidebar-link.active .menu-text {
+  color: var(--kriss-orange) !important;
+  font-weight: 700;
+}
+
+#quarto-sidebar .sidebar-link.active {
+  border-left: 3px solid var(--kriss-orange);
+  padding-left: 6px;
 }
