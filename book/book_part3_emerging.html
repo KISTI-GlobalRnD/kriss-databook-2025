@@ -929,6 +929,31 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<div class="kriss-brandbar" role="contentinfo" aria-label="과제 제공 및 수행 기관">
+  <div class="kriss-brandbar-inner">
+    <div class="kriss-brandbar-label">과제 제공/수행 기관</div>
+    <div class="kriss-brandbar-logos">
+      <a class="kriss-brandbar-logo" href="https://www.kriss.re.kr/" target="_blank" rel="noopener" aria-label="KRISS 한국표준과학연구원">
+        <img data-kriss-src="img/ci3_3_2.png" alt="KRISS" loading="eager">
+      </a>
+      <a class="kriss-brandbar-logo" href="https://www.kisti.re.kr/" target="_blank" rel="noopener" aria-label="KISTI 한국과학기술정보연구원">
+        <img data-kriss-src="img/KORE2.png" alt="KISTI" loading="eager">
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const offset =
+      document.querySelector('meta[name="quarto:offset"]')?.content ?? "./";
+    document.querySelectorAll("img[data-kriss-src]").forEach((img) => {
+      const rel = img.getAttribute("data-kriss-src");
+      if (!rel) return;
+      img.setAttribute("src", `${offset}${rel}`);
+    });
+  })();
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -963,49 +988,49 @@ window.Quarto = {
 <p>이 기준을 적용하여 기관별로 특정 연구영역이 ‘활동이 있는 영역’인지(양적 역량) 또는 ‘상위권 성과까지 확보한 영역’인지(질적 역량)를 구분할 수 있으며, 이를 통해 KRISS의 강점 영역과 개선 필요 영역, 그리고 벤치마킹 기관 대비 공백 영역을 체계적으로 탐색할 수 있다. 예컨대 복수의 벤치마킹 기관들이 공통적으로 역량을 확보하고 있는 영역인데 KRISS가 양적·질적 기준을 동시에 충족하지 못하는 경우, 해당 영역은 전략적 공백 후보로 우선순위를 높게 부여할 수 있다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-4" data-gallery="quarto-lightbox-gallery-4" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-5" data-gallery="quarto-lightbox-gallery-5" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-6" data-gallery="quarto-lightbox-gallery-6" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"><img src="Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-7" data-gallery="quarto-lightbox-gallery-7" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역"><img src="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7" data-glightbox="description: .lightbox-desc-7" title="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역"><img src="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역</figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png" class="lightbox" data-glightbox="description: .lightbox-desc-8" data-gallery="quarto-lightbox-gallery-8" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역"><img src="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역"></a></p>
+<p><a href="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8" data-glightbox="description: .lightbox-desc-8" title="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역"><img src="Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png" class="img-fluid figure-img" alt="KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역"></a></p>
 <figcaption>KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역</figcaption>
 </figure>
 </div>
@@ -1873,14 +1898,14 @@ EmergenceScore = 2 \times ActivePeriodTrend + (RecentTrend + MidYearToLastYearSl
 <p><a href="#tbl-expand-top10" class="quarto-xref">표&nbsp;<span>4.6</span></a>은 확장 가능 연구영역(후보군 유형2) 가운데 유망성 종합점수 상위 10개 연구영역을 정리한 결과다. 이 연구영역들은 핵심 역량 연구영역(유형1)과 인지적으로 인접한 영역들 중에서 종합 유망성이 높은 분야를 추려낸 것으로, “확장 투자 시 성과로 연결될 가능성이 큰 영역”을 의미한다. 즉, KRISS가 이미 축적한 지식 기반과 연구 역량, 인프라 등을 활용해 비교적 낮은 비용으로 진입할 수 있으면서도 성장성·파급력·기술진보 기여도가 높아 유망한 영역들로 해석할 수 있다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/image_12.png" class="lightbox" data-glightbox="description: .lightbox-desc-9" data-gallery="quarto-lightbox-gallery-9" title="물리측정 영역의 핵심 역량 확장 가능 영역 예시"><img src="Final_Report_MD/report_assets/image_12.png" class="img-fluid figure-img" alt="물리측정 영역의 핵심 역량 확장 가능 영역 예시"></a></p>
+<p><a href="Final_Report_MD/report_assets/image_12.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9" data-glightbox="description: .lightbox-desc-9" title="물리측정 영역의 핵심 역량 확장 가능 영역 예시"><img src="Final_Report_MD/report_assets/image_12.png" class="img-fluid figure-img" alt="물리측정 영역의 핵심 역량 확장 가능 영역 예시"></a></p>
 <figcaption>물리측정 영역의 핵심 역량 확장 가능 영역 예시</figcaption>
 </figure>
 </div>
 <p>물리측정 영역에서는 ‘34-69 메타표면 광학소자’를 기반으로 확장 가능한 영역 중 ‘11-15 전자파 차폐·흡수 복합재’가 유망연구영역으로 선정되었다. 이 영역은 195개 클러스터 중 후속 연구에 대한 파급력이 3위로 나타나 영향력 측면에서 특히 높은 점수를 받았다. 또한 KRISS도 해당 영역에 논문이 존재해 최소한의 연구 기반과 잠재력이 확인되며, 핵심 역량 영역에서의 축적을 응용·확장해 성과로 연결될 가능성이 높은 후보로 해석된다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/image_13.png" class="lightbox" data-glightbox="description: .lightbox-desc-10" data-gallery="quarto-lightbox-gallery-10" title="화학소재측정 영역의 핵심 역량 확장 가능 영역 예시"><img src="Final_Report_MD/report_assets/image_13.png" class="img-fluid figure-img" alt="화학소재측정 영역의 핵심 역량 확장 가능 영역 예시"></a></p>
+<p><a href="Final_Report_MD/report_assets/image_13.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10" data-glightbox="description: .lightbox-desc-10" title="화학소재측정 영역의 핵심 역량 확장 가능 영역 예시"><img src="Final_Report_MD/report_assets/image_13.png" class="img-fluid figure-img" alt="화학소재측정 영역의 핵심 역량 확장 가능 영역 예시"></a></p>
 <figcaption>화학소재측정 영역의 핵심 역량 확장 가능 영역 예시</figcaption>
 </figure>
 </div>
@@ -1888,7 +1913,7 @@ EmergenceScore = 2 \times ActivePeriodTrend + (RecentTrend + MidYearToLastYearSl
 <p>바이오의료측정 영역에서 유형2 상위 유망 영역으로는 ‘41-141 신축성 전자피부 센서’가 도출되었다. 이 영역은 바이오의료측정 범주에 속하지만, 인지적 기반이 물리측정 영역의 특정 핵심 역량(예: ‘11 비플러렌 유기태양전지’)과 연결되어 있는 형태로 나타나, 영역 간 지식 확장 경로를 보여주는 사례로 해석된다. 이는 바이오의료측정 내에서의 단순 연장선 확장뿐 아니라, 물리 기반 소재·소자 역량을 바이오 응용 측정으로 전환하는 확장 가능성이 있을 수 있음을 시사한다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/image_14.png" class="lightbox" data-glightbox="description: .lightbox-desc-11" data-gallery="quarto-lightbox-gallery-11" title="양자기술 영역의 핵심 역량 확장 가능 영역 예시"><img src="Final_Report_MD/report_assets/image_14.png" class="img-fluid figure-img" alt="양자기술 영역의 핵심 역량 확장 가능 영역 예시"></a></p>
+<p><a href="Final_Report_MD/report_assets/image_14.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11" data-glightbox="description: .lightbox-desc-11" title="양자기술 영역의 핵심 역량 확장 가능 영역 예시"><img src="Final_Report_MD/report_assets/image_14.png" class="img-fluid figure-img" alt="양자기술 영역의 핵심 역량 확장 가능 영역 예시"></a></p>
 <figcaption>양자기술 영역의 핵심 역량 확장 가능 영역 예시</figcaption>
 </figure>
 </div>
@@ -2434,7 +2459,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/book_part3_emerging.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":false});
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/book_part3_emerging.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"loop":false,"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

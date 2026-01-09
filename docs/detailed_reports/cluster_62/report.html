@@ -963,6 +963,31 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<div class="kriss-brandbar" role="contentinfo" aria-label="과제 제공 및 수행 기관">
+  <div class="kriss-brandbar-inner">
+    <div class="kriss-brandbar-label">과제 제공/수행 기관</div>
+    <div class="kriss-brandbar-logos">
+      <a class="kriss-brandbar-logo" href="https://www.kriss.re.kr/" target="_blank" rel="noopener" aria-label="KRISS 한국표준과학연구원">
+        <img data-kriss-src="img/ci3_3_2.png" alt="KRISS" loading="eager">
+      </a>
+      <a class="kriss-brandbar-logo" href="https://www.kisti.re.kr/" target="_blank" rel="noopener" aria-label="KISTI 한국과학기술정보연구원">
+        <img data-kriss-src="img/KORE2.png" alt="KISTI" loading="eager">
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    const offset =
+      document.querySelector('meta[name="quarto:offset"]')?.content ?? "./";
+    document.querySelectorAll("img[data-kriss-src]").forEach((img) => {
+      const rel = img.getAttribute("data-kriss-src");
+      if (!rel) return;
+      img.setAttribute("src", `${offset}${rel}`);
+    });
+  })();
+</script>
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../docs/appendix_detailed_reporting.html">부록 / Appendix</a></li><li class="breadcrumb-item"><a href="../../../docs/appendix_gap_reports.html">상세 리포트 — 역량 공백</a></li><li class="breadcrumb-item"><a href="../../../docs/detailed_reports/cluster_62/report.html">32-62 - 집적 광주파수콤</a></li></ol></nav>
 <div class="quarto-title">
@@ -2325,7 +2350,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/docs/detailed_reports/cluster_62/report.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","selector":".lightbox","descPosition":"bottom","closeEffect":"zoom"});
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/docs/detailed_reports/cluster_62/report.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
