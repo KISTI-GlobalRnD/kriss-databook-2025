@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; 문헌 집합 및 연구지형도 구축 – KRISS 표준과학 연구 데이터북</title>
+<title>문헌 집합 및 연구지형도 구축 – KRISS 표준과학 연구 데이터북 (Databook)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./book_part2_capability.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./preface.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-22c6d4a1e1080544900c7a3f5a890c75.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ae15c89b8d0103601f926e184af3bbbc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-14f798cdecae2101784749914b4e12ff.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -76,6 +76,382 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
 <script src="docs/assets/js/datatable-init.js" defer=""></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const chapterTitle = document.querySelector("h1.web-chapter-title");
+  if (chapterTitle) {
+    const titleBlock = document.querySelector(".quarto-title-block");
+    if (titleBlock) {
+      titleBlock.style.display = "none";
+    }
+
+    const chapterNumber =
+      chapterTitle.getAttribute("data-number") ||
+      (chapterTitle.querySelector(".header-section-number") || {}).textContent?.trim();
+
+    if (chapterNumber) {
+      const prefixRegex = /^\s*표[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const tableCaptions = Array.from(
+        document.querySelectorAll("figcaption.quarto-float-tbl")
+      );
+
+      let tableIndex = 0;
+      const tableIds = [];
+
+      tableCaptions.forEach((caption) => {
+        tableIndex += 1;
+        const newPrefix = `표 ${chapterNumber}.${tableIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        const textNode = walker.nextNode();
+
+        if (textNode && prefixRegex.test(textNode.nodeValue)) {
+          textNode.nodeValue = textNode.nodeValue.replace(prefixRegex, newPrefix);
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("tbl-")) {
+          tableIds.push(float.id);
+        }
+      });
+
+      tableIds.forEach((id, idx) => {
+        const label = `표 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^표[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+
+      const figPrefixRegex = /^\s*그림[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+      const figCaptions = Array.from(
+        document.querySelectorAll("figure figcaption")
+      ).filter((caption) => {
+        const figure = caption.closest("figure");
+        return !(figure && figure.classList.contains("quarto-float-tbl"));
+      });
+      let figIndex = 0;
+      const figIds = [];
+
+      figCaptions.forEach((caption) => {
+        figIndex += 1;
+        const newPrefix = `그림 ${chapterNumber}.${figIndex}:`;
+        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+        let textNode = walker.nextNode();
+        while (textNode && !textNode.nodeValue.trim()) {
+          textNode = walker.nextNode();
+        }
+
+        if (textNode) {
+          if (figPrefixRegex.test(textNode.nodeValue)) {
+            textNode.nodeValue = textNode.nodeValue.replace(figPrefixRegex, newPrefix);
+          } else {
+            textNode.nodeValue = `${newPrefix} ${textNode.nodeValue.trim()}`;
+          }
+        } else {
+          caption.prepend(document.createTextNode(`${newPrefix} `));
+        }
+
+        const float = caption.closest(".quarto-float");
+        if (float && float.id && float.id.startsWith("fig-")) {
+          figIds.push(float.id);
+        }
+      });
+
+      figIds.forEach((id, idx) => {
+        const label = `그림 ${chapterNumber}.${idx + 1}`;
+        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+          const text = (anchor.textContent || "").trim();
+          if (/^그림[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+            anchor.textContent = label;
+          }
+        });
+      });
+    }
+  }
+
+  document.querySelectorAll(".carousel-gallery").forEach((carousel) => {
+    const track = carousel.querySelector(".carousel-track");
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    if (!track || slides.length === 0) {
+      return;
+    }
+
+    const dotsContainer = carousel.querySelector(".carousel-dots");
+    const prevBtn = carousel.querySelector(".carousel-btn.prev");
+    const nextBtn = carousel.querySelector(".carousel-btn.next");
+    let currentIndex = 0;
+    let isPointerDown = false;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let dragStartTranslate = 0;
+    let hasDragged = false;
+
+    const getSlideWidth = () => {
+      const styles = window.getComputedStyle(carousel);
+      const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+      const paddingRight = parseFloat(styles.paddingRight) || 0;
+      return carousel.clientWidth - paddingLeft - paddingRight;
+    };
+
+    const updateDots = () => {
+      if (!dotsContainer) {
+        return;
+      }
+      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, idx) => {
+        dot.classList.toggle("is-active", idx === currentIndex);
+      });
+    };
+
+    const update = () => {
+      const width = getSlideWidth();
+      slides.forEach((slide) => {
+        slide.style.width = `${width}px`;
+      });
+      track.style.transform = `translateX(-${currentIndex * width}px)`;
+      updateDots();
+    };
+
+    const goTo = (index) => {
+      currentIndex = (index + slides.length) % slides.length;
+      update();
+    };
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+      slides.forEach((_, idx) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", `슬라이드 ${idx + 1}`);
+        dot.addEventListener("click", () => goTo(idx));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+    }
+
+    track.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+      dragStartTranslate = -currentIndex * getSlideWidth();
+    });
+
+    track.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          track.classList.add("is-dragging");
+          try {
+            track.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+      track.style.transform = `translateX(${dragStartTranslate + deltaX}px)`;
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      track.classList.remove("is-dragging");
+      try {
+        track.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+      const delta = event.clientX - startX;
+      const width = getSlideWidth();
+      if (Math.abs(delta) > width * 0.2) {
+        goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+      } else {
+        update();
+      }
+      if (hasDragged) {
+        track.dataset.dragging = "true";
+        window.setTimeout(() => {
+          track.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    track.addEventListener("pointerup", endDrag);
+    track.addEventListener("pointercancel", endDrag);
+
+    track.addEventListener("click", (event) => {
+      if (track.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+
+    window.addEventListener("resize", update);
+    update();
+  });
+
+  const initLightboxSwipe = () => {
+    const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+    if (!supportsFinePointer) {
+      return;
+    }
+
+    const container = document.querySelector(".glightbox-container");
+    if (!container || container.dataset.swipeInit === "true") {
+      return;
+    }
+    container.dataset.swipeInit = "true";
+
+    const slider = container.querySelector("#glightbox-slider");
+    if (!slider) {
+      return;
+    }
+
+    let isPointerDown = false;
+    let isDragging = false;
+    let hasDragged = false;
+    let startX = 0;
+    let startY = 0;
+
+    const isZoomed = () => {
+      const active = slider.querySelector(".gslide.current");
+      return active && active.classList.contains("zoomed");
+    };
+
+    const goNext = () => {
+      const nextBtn = container.querySelector(".gnext");
+      if (nextBtn && !nextBtn.classList.contains("disabled")) {
+        nextBtn.click();
+      }
+    };
+
+    const goPrev = () => {
+      const prevBtn = container.querySelector(".gprev");
+      if (prevBtn && !prevBtn.classList.contains("disabled")) {
+        prevBtn.click();
+      }
+    };
+
+    slider.addEventListener("pointerdown", (event) => {
+      if (event.button && event.button !== 0) {
+        return;
+      }
+      if (isZoomed()) {
+        return;
+      }
+      if (event.target.closest(".gbtn")) {
+        return;
+      }
+      isPointerDown = true;
+      isDragging = false;
+      hasDragged = false;
+      startX = event.clientX;
+      startY = event.clientY;
+    });
+
+    slider.addEventListener("pointermove", (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (!isDragging) {
+        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+          isDragging = true;
+          hasDragged = true;
+          slider.classList.add("is-dragging");
+          try {
+            slider.setPointerCapture(event.pointerId);
+          } catch (error) {
+            // ignore if pointer capture fails
+          }
+        } else {
+          return;
+        }
+      }
+    });
+
+    const endDrag = (event) => {
+      if (!isPointerDown) {
+        return;
+      }
+      isPointerDown = false;
+      if (!isDragging) {
+        return;
+      }
+      isDragging = false;
+      slider.classList.remove("is-dragging");
+      try {
+        slider.releasePointerCapture(event.pointerId);
+      } catch (error) {
+        // ignore if pointer was not captured
+      }
+
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      if (
+        hasDragged &&
+        Math.abs(deltaX) > Math.abs(deltaY) &&
+        Math.abs(deltaX) > 50
+      ) {
+        if (deltaX < 0) {
+          goNext();
+        } else {
+          goPrev();
+        }
+      }
+
+      if (hasDragged) {
+        slider.dataset.dragging = "true";
+        window.setTimeout(() => {
+          slider.dataset.dragging = "false";
+        }, 0);
+      }
+    };
+
+    slider.addEventListener("pointerup", endDrag);
+    slider.addEventListener("pointercancel", endDrag);
+
+    slider.addEventListener("click", (event) => {
+      if (slider.dataset.dragging === "true") {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    });
+  };
+
+  initLightboxSwipe();
+  const lightboxObserver = new MutationObserver(() => initLightboxSwipe());
+  lightboxObserver.observe(document.body, { childList: true, subtree: true });
+});
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -117,7 +493,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">KRISS 표준과학 연구 데이터북</span>
+    <span class="navbar-title">KRISS 표준과학 연구 데이터북 (Databook)</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -136,20 +512,20 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
         <li>
-    <a class="dropdown-item" href="./index.html">
- <span class="dropdown-text">서문 / Preface</span></a>
+    <a class="dropdown-item" href="./preface.html">
+ <span class="dropdown-text">1. 서문 / Preface</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./book_part1_landscape.html">
- <span class="dropdown-text">문헌 집합 및 연구지형도 구축</span></a>
+ <span class="dropdown-text">2. 문헌 집합 및 연구지형도 구축</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./book_part2_capability.html">
- <span class="dropdown-text">기관 연구역량 진단</span></a>
+ <span class="dropdown-text">3. 기관 연구역량 진단</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./book_part3_emerging.html">
- <span class="dropdown-text">유망 연구영역 도출</span></a>
+ <span class="dropdown-text">4. 유망 연구영역 도출</span></a>
   </li>  
     </ul>
   </li>
@@ -206,7 +582,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-    <a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -215,7 +590,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./book_part1_landscape.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">문헌 집합 및 연구지형도 구축</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="./book_part1_landscape.html">2. 문헌 집합 및 연구지형도 구축</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -238,43 +613,45 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">서문 / Preface</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./book_part1_landscape.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">문헌 집합 및 연구지형도 구축</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./book_part2_capability.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">기관 연구역량 진단</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./book_part3_emerging.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">유망 연구영역 도출</span></span></a>
+ <span class="menu-text">홈 / Home</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
- <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터북 / Databook</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">상세 리포팅 방법론</span></span></a>
+  <a href="./preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. 서문 / Preface</span></a>
   </div>
 </li>
-          <li class="sidebar-item sidebar-item-section">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book_part1_landscape.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2. 문헌 집합 및 연구지형도 구축</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book_part2_capability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. 기관 연구역량 진단</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./book_part3_emerging.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. 유망 연구영역 도출</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">인터랙티브 도구 / Tools</span></a>
@@ -282,108 +659,46 @@ window.Quarto = {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Keyword Trend Explorer / 키워드 추세 탐색기</span></span></a>
+ <span class="menu-text">Keyword Trend Explorer / 키워드 추세 탐색기</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/vosviewer_explorer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></span></a>
+ <span class="menu-text">Research Landscape Map (VOSviewer) / 연구지형도(인터랙티브 맵)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/cluster_dashboard.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">클러스터 대시보드 / Cluster Dashboard</span></span></a>
+ <span class="menu-text">클러스터 대시보드 / Cluster Dashboard</span></a>
   </div>
 </li>
       </ul>
   </li>
-          <li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">상세 리포트 — 핵심 역량</span></a>
+ <span class="menu-text">부록 / Appendix</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">상세 리포팅 — 핵심 역량</span></span></a>
+  <a href="./docs/appendix_detailed_reporting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">상세 리포팅 방법론</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_12/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">9-12 - 배터리 양극·계면 측정 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_173/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">G</span>&nbsp; <span class="chapter-title">10-173 - 2차원·산화물 가스센서 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_24/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">H</span>&nbsp; <span class="chapter-title">11-24 - 폴리머 난연성 측정 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_167/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">I</span>&nbsp; <span class="chapter-title">12-167 - 스핀전류 변환·제어 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">J</span>&nbsp; <span class="chapter-title">20-182 - 다이아몬드결함양자센서 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_69/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">K</span>&nbsp; <span class="chapter-title">34-69 - 메타표면 광학소자 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_77/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">L</span>&nbsp; <span class="chapter-title">36-77 - 2차원 광전소자 측정 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_145/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">M</span>&nbsp; <span class="chapter-title">37-145 - 광음향·초음파 나노진단치료 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_127/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">N</span>&nbsp; <span class="chapter-title">41-127 - 뇌파 감정상태 측정 (핵심 역량)</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_178/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">O</span>&nbsp; <span class="chapter-title">43-178 - 현장진단 바이오센서 (핵심 역량)</span></span></a>
-  </div>
-</li>
-      </ul>
-  </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
- <span class="menu-text">상세 리포트 — 확장 가능</span></a>
+ <span class="menu-text">상세 리포트 — 핵심 역량</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -391,68 +706,68 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/appendix_expand_reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">P</span>&nbsp; <span class="chapter-title">상세 리포팅 — 확장 가능</span></span></a>
+  <a href="./docs/appendix_core_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_117/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">Q</span>&nbsp; <span class="chapter-title">2-117 - 레이저 미량가스 분광측정 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_12/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9-12 - 배터리 양극·계면 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_154/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">R</span>&nbsp; <span class="chapter-title">7-154 - 리튬이온전지 예지진단 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_173/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10-173 - 2차원·산화물 가스센서</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_191/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">S</span>&nbsp; <span class="chapter-title">9-191 - 물분해 전기촉매 측정 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_24/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-24 - 폴리머 난연성 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_15/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">T</span>&nbsp; <span class="chapter-title">11-15 - 전자파 차폐·흡수 복합재 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_167/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12-167 - 스핀전류 변환·제어</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_123/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">U</span>&nbsp; <span class="chapter-title">25-123 - 위상광자·비에르미트상 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_182/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">20-182 - 다이아몬드결함양자센서</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_176/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">V</span>&nbsp; <span class="chapter-title">25-176 - 양자다체 비평형 동역학 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_69/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">34-69 - 메타표면 광학소자</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_79/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">W</span>&nbsp; <span class="chapter-title">37-79 - 미세·나노입자 계측표준 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_77/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">36-77 - 2차원 광전소자 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">X</span>&nbsp; <span class="chapter-title">38-84 - 양자알고리즘·오류정정 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_145/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">37-145 - 광음향·초음파 나노진단치료</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_107/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">Y</span>&nbsp; <span class="chapter-title">38-107 - 초전도 회로 양자전기역학 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_127/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">41-127 - 뇌파 감정상태 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/detailed_reports/cluster_141/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">Z</span>&nbsp; <span class="chapter-title">41-141 - 신축성 전자피부 센서 (확장 가능)</span></span></a>
+  <a href="./docs/detailed_reports/cluster_178/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">43-178 - 현장진단 바이오센서</span></a>
   </div>
 </li>
       </ul>
@@ -460,7 +775,7 @@ window.Quarto = {
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
- <span class="menu-text">상세 리포트 — 역량 공백</span></a>
+ <span class="menu-text">상세 리포트 — 확장 가능</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -468,68 +783,145 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./docs/appendix_expand_reports.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">개요</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_117/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2-117 - 레이저 미량가스 분광측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_154/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7-154 - 리튬이온전지 예지진단</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_191/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">9-191 - 물분해 전기촉매 측정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_15/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11-15 - 전자파 차폐·흡수 복합재</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_123/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25-123 - 위상광자·비에르미트상</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_176/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">25-176 - 양자다체 비평형 동역학</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_79/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">37-79 - 미세·나노입자 계측표준</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_84/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">38-84 - 양자알고리즘·오류정정</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_107/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">38-107 - 초전도 회로 양자전기역학</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/detailed_reports/cluster_141/report.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">41-141 - 신축성 전자피부 센서</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false">
+ <span class="menu-text">상세 리포트 — 역량 공백</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./docs/appendix_gap_reports.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"></span></a>
+ <span class="menu-text">개요</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_189/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">&lt;/span&gt;&nbsp; <span class="chapter-title">9-189 - 다공성골격 가스분리 (역량 공백)</span></span> [<span class="chapter-number">]</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
+ <span class="menu-text">9-189 - 다공성골격 가스분리</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number"><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2FwcGVuZGl4X2dhcF9yZXBvcnRzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPls8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7IOB7IS4LeumrO2PrO2MhS3igJQt7Jet65+JLeqzteuwsTwvc3Bhbj4="></span>&nbsp; <span class="chapter-title">상세 리포팅 — 역량 공백</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xODkvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPlw8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+OS0xODktLS3ri6Tqs7XshLHqs6jqsqkt6rCA7Iqk67aE66asLSjsl63rn4kt6rO167CxKTwvc3Bhbj4="><span class="chapter-number">&lt;/span&gt;&nbsp; <span class="chapter-title">9-189 - 다공성골격 가스분리 (역량 공백)</span></span> [<span class="chapter-number">]</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMTIvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPl48L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MTUtMTEyLS0t7JeF7Luo67KE7KCELeuCmOuFuOyeheyekC0o7Jet65+JLeqzteuwsSk8L3NwYW4+"><span class="chapter-number">^</span>&nbsp; <span class="chapter-title">15-112 - 업컨버전 나노입자 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMzMvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPl88L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MTgtMTMzLS0t7KCB7Li1LeuwlOydtOyYpOygnOyhsC3suKHsoJUtKOyXreufiS3qs7XrsLEpPC9zcGFuPg=="><span class="chapter-number">_</span>&nbsp; <span class="chapter-title">18-133 - 적층 바이오제조 측정 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMzEvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmA8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MjYtMTMxLS0t7KSR66Cl7YyMLeqygOy2nMK367aE7ISdLSjsl63rn4kt6rO167CxKTwvc3Bhbj4="><span class="chapter-number">`</span>&nbsp; <span class="chapter-title">26-131 - 중력파 검출·분석 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xNzkvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmE8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MjktMTc5LS0t7ZSE66Gc7YWM7Jik66+57IqkLeyniOufieu2hOyEnS0o7Jet65+JLeqzteuwsSk8L3NwYW4+"><span class="chapter-number">a</span>&nbsp; <span class="chapter-title">29-179 - 프로테오믹스 질량분석 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xNjkvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmI8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MzAtMTY5LS0t7JyE7IOBLeyWkeyekOusvOyniC3soITsnpDqtazsobAt7Lih7KCVLSjsl63rn4kt6rO167CxKTwvc3Bhbj4="><span class="chapter-number">b</span>&nbsp; <span class="chapter-title">30-169 - 위상 양자물질 전자구조 측정 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl82Mi9yZXBvcnQuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Yzwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz4zMi02Mi0tLeynkeyggS3qtJHso7zso7ztjIzsiJjruZctKOyXreufiS3qs7XrsLEpPC9zcGFuPg=="><span class="chapter-number">c</span>&nbsp; <span class="chapter-title">32-62 - 집적 광주주파수빗 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xNjIvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmQ8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MzQtMTYyLS0t6rak64+E6rCB7Jq064+Z65+JLeq0keqzhOy4oS0o7Jet65+JLeqzteuwsSk8L3NwYW4+"><span class="chapter-number">d</span>&nbsp; <span class="chapter-title">34-162 - 궤도각운동량 광계측 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMjUvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmU8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+NDMtMTI1LS0t7Jyg7KCE7LK0LeuzgOydtC3suKHsoJXtkZzspIAtKOyXreufiS3qs7XrsLEpPC9zcGFuPg=="><span class="chapter-number">e</span>&nbsp; <span class="chapter-title">43-125 - 유전체 변이 측정표준 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2FwcGVuZGl4X21ldGhvZG9sb2d5Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmY8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7YG065+s7Iqk7YSw66eBwrftgqTsm4zrk5wt67Cp67KV66GgPC9zcGFuPg=="><span class="chapter-number">f</span>&nbsp; <span class="chapter-title">클러스터링·키워드 방법론</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2FwcGVuZGl4Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmc8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7Jqp7Ja0Leuwjy3ssLjqs6AtLy1HbG9zc2FyeTwvc3Bhbj4="><span class="chapter-number">g</span>&nbsp; <span class="chapter-title">용어 및 참고 / Glossary</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67ZmIIC8gSG9tZQ==">홈 / Home</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2luZGV4Lmh0bWw=">/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6642w7J207YSw67aBIC8gRGF0YWJvb2s=">데이터북 / Databook</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67ISc66y4IC8gUHJlZmFjZQ==">서문 / Preface</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI666y47ZeMIOynke2VqSDrsI8g7Jew6rWs7KeA7ZiV64+EIOq1rOy2lQ==">문헌 집합 및 연구지형도 구축</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jvb2tfcGFydDFfbGFuZHNjYXBlLmh0bWw=">/book_part1_landscape.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI66riw6rSAIOyXsOq1rOyXreufiSDsp4Tri6g=">기관 연구역량 진단</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jvb2tfcGFydDJfY2FwYWJpbGl0eS5odG1s">/book_part2_capability.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67Jyg66edIOyXsOq1rOyYgeyXrSDrj4Tstpw=">유망 연구영역 도출</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jvb2tfcGFydDNfZW1lcmdpbmcuaHRtbA==">/book_part3_emerging.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67J247YSw656Z7Yuw67iMIOuPhOq1rCAvIFRvb2xz">인터랙티브 도구 / Tools</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67YKk7JuM65OcIOy2lOyEuCDtg5Dsg4nquLAgLyBLZXl3b3JkIFRyZW5kcw==">키워드 추세 탐색기 / Keyword Trends</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3Mva2V5d29yZF90cmVuZHMuaHRtbA==">/docs/keyword_trends.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67Jew6rWs7KeA7ZiV64+EKOyduO2EsOueme2LsOu4jCDrp7UpIC8gVk9Tdmlld2Vy">연구지형도(인터랙티브 맵) / VOSviewer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3Mvdm9zdmlld2VyX2V4cGxvcmVyLmh0bWw=">/docs/vosviewer_explorer.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67YG065+s7Iqk7YSwIOuMgOyLnOuztOuTnCAoU2hpbnkp">클러스터 대시보드 (Shiny)</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvY2x1c3Rlcl9kYXNoYm9hcmQuaHRtbA==">/docs/cluster_dashboard.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI667aA66GdIC8gQXBwZW5kaXg=">부록 / Appendix</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDrsKnrspXroaA=">상세 리포팅 방법론</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfZGV0YWlsZWRfcmVwb3J0aW5nLmh0bWw=">/docs/appendix_detailed_reporting.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDigJQg7ZW17IusIOyXreufiQ==">상세 리포팅 — 핵심 역량</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfY29yZV9yZXBvcnRzLmh0bWw=">/docs/appendix_core_reports.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDigJQg7ZmV7J6lIOqwgOuKpQ==">상세 리포팅 — 확장 가능</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfZXhwYW5kX3JlcG9ydHMuaHRtbA==">/docs/appendix_expand_reports.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDigJQg7Jet65+JIOqzteuwsQ==">상세 리포팅 — 역량 공백</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfZ2FwX3JlcG9ydHMuaHRtbA==">/docs/appendix_gap_reports.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67YG065+s7Iqk7YSw66eBwrftgqTsm4zrk5wg67Cp67KV66Gg">클러스터링·키워드 방법론</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfbWV0aG9kb2xvZ3kuaHRtbA==">/docs/appendix_methodology.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67Jqp7Ja0IOuwjyDssLjqs6AgLyBHbG9zc2FyeQ==">용어 및 참고 / Glossary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXguaHRtbA==">/docs/appendix.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL2dpdGh1Yi5jb20vS0lTVEktR2xvYmFsUm5EL2tyaXNzLWRhdGFib29rLTIwMjU=">https://github.com/KISTI-GlobalRnD/kriss-databook-2025</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7rrLjtl4wt7KeR7ZWpLeuwjy3sl7Dqtazsp4DtmJXrj4Qt6rWs7LaVPC9zcGFuPg=="><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">문헌 집합 및 연구지형도 구축</span></span></span></a>
+ <span class="menu-text">11-159 - 나노셀룰로오스 소재측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_112/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">^</span>&nbsp; <span class="chapter-title">15-112 - 업컨버전 나노입자 (역량 공백)</span></span></a>
+ <span class="menu-text">15-112 - 업컨버전 나노입자</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_133/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">_</span>&nbsp; <span class="chapter-title">18-133 - 적층 바이오제조 측정 (역량 공백)</span></span></a>
+ <span class="menu-text">18-133 - 적층 바이오제조 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_131/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">`</span>&nbsp; <span class="chapter-title">26-131 - 중력파 검출·분석 (역량 공백)</span></span></a>
+ <span class="menu-text">26-131 - 중력파 검출·분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_179/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">a</span>&nbsp; <span class="chapter-title">29-179 - 프로테오믹스 질량분석 (역량 공백)</span></span></a>
+ <span class="menu-text">29-179 - 프로테오믹스 질량분석</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_169/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">b</span>&nbsp; <span class="chapter-title">30-169 - 위상 양자물질 전자구조 측정 (역량 공백)</span></span></a>
+ <span class="menu-text">30-169 - 위상 양자물질 전자구조 측정</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_62/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">c</span>&nbsp; <span class="chapter-title">32-62 - 집적 광주주파수빗 (역량 공백)</span></span></a>
+ <span class="menu-text">32-62 - 집적 광주주파수빗</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_162/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">d</span>&nbsp; <span class="chapter-title">34-162 - 궤도각운동량 광계측 (역량 공백)</span></span></a>
+ <span class="menu-text">34-162 - 궤도각운동량 광계측</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_125/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">e</span>&nbsp; <span class="chapter-title">43-125 - 유전체 변이 측정표준 (역량 공백)</span></span></a>
+ <span class="menu-text">43-125 - 유전체 변이 측정표준</span></a>
   </div>
 </li>
       </ul>
@@ -537,13 +929,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/appendix_methodology.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">f</span>&nbsp; <span class="chapter-title">클러스터링·키워드 방법론</span></span></a>
+ <span class="menu-text">클러스터링·키워드 방법론</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">g</span>&nbsp; <span class="chapter-title">용어 및 참고 / Glossary</span></span></a>
+ <span class="menu-text">용어 및 참고 / Glossary</span></a>
   </div>
 </li>
       </ul>
@@ -555,10 +947,12 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" id="toc-표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" class="nav-link active" data-scroll-target="#표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축"><span class="header-section-number">2.1</span> 표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</a></li>
+  <li><a href="#문헌-집합-및-연구지형도-구축" id="toc-문헌-집합-및-연구지형도-구축" class="nav-link active" data-scroll-target="#문헌-집합-및-연구지형도-구축"><span class="header-section-number">2</span> 문헌 집합 및 연구지형도 구축</a>
+  <ul class="collapse">
+  <li><a href="#표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" id="toc-표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" class="nav-link" data-scroll-target="#표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축"><span class="header-section-number">2.1</span> 표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</a></li>
   <li><a href="#글로벌-표준과학-연구-영역-모니터링을-위한-web-of-science-기반-분석용-문헌-데이터-구축" id="toc-글로벌-표준과학-연구-영역-모니터링을-위한-web-of-science-기반-분석용-문헌-데이터-구축" class="nav-link" data-scroll-target="#글로벌-표준과학-연구-영역-모니터링을-위한-web-of-science-기반-분석용-문헌-데이터-구축"><span class="header-section-number">2.2</span> 글로벌 표준과학 연구 영역 모니터링을 위한 Web of Science 기반 분석용 문헌 데이터 구축</a>
   <ul class="collapse">
   <li><a href="#표준과학-연구-영역-핵심-문헌-집합-구축" id="toc-표준과학-연구-영역-핵심-문헌-집합-구축" class="nav-link" data-scroll-target="#표준과학-연구-영역-핵심-문헌-집합-구축"><span class="header-section-number">2.2.1</span> 표준과학 연구 영역 핵심 문헌 집합 구축</a></li>
@@ -588,8 +982,9 @@ window.Quarto = {
   <li><a href="#실행-규모" id="toc-실행-규모" class="nav-link" data-scroll-target="#실행-규모"><span class="header-section-number">2.6.5</span> 5. 실행 규모</a></li>
   </ul></li>
   <li><a href="#표준과학-연구지형도-시각화" id="toc-표준과학-연구지형도-시각화" class="nav-link" data-scroll-target="#표준과학-연구지형도-시각화"><span class="header-section-number">2.7</span> 표준과학 연구지형도 시각화</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/book_part1_landscape.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/web_part1_landscape.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -619,9 +1014,9 @@ window.Quarto = {
   })();
 </script>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./preface.html">데이터북 / Databook</a></li><li class="breadcrumb-item"><a href="./book_part1_landscape.html">2. 문헌 집합 및 연구지형도 구축</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">문헌 집합 및 연구지형도 구축</span></h1>
+<h1 class="title">문헌 집합 및 연구지형도 구축</h1>
 </div>
 
 
@@ -638,6 +1033,8 @@ window.Quarto = {
 </header>
 
 
+<section id="문헌-집합-및-연구지형도-구축" class="level1 unlisted web-chapter-title" data-number="2">
+<h1 class="unlisted web-chapter-title" data-number="2"><span class="header-section-number">2</span> 문헌 집합 및 연구지형도 구축</h1>
 <section id="표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="표준과학-연구-영역-분석을-위한-문헌-집합-및-연구지형도-구축"><span class="header-section-number">2.1</span> 표준과학 연구 영역 분석을 위한 문헌 집합 및 연구지형도 구축</h2>
 <p>본 사업에서는 표준과학 연구 영역을 대상으로 분석용 문헌 집합을 구축하고, 인용 기반 클러스터링을 통해 연구지형도를 구성하였다. 이어서 해석을 위한 보조 분석(조직 매핑, 키워드·시계열, 시각화)을 수행하였다. 이 장에서는 그 절차와 결과를 정리하였다.</p>
@@ -661,7 +1058,7 @@ window.Quarto = {
 <div id="tbl-bipm-institutions" class="datatable quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bipm-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;2.1: BIPM 정회원국의 대표 표준과학 연구기관 목록
+표&nbsp;1: BIPM 정회원국의 대표 표준과학 연구기관 목록
 </figcaption>
 <div aria-describedby="tbl-bipm-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="datatable caption-top table">
@@ -1033,7 +1430,7 @@ window.Quarto = {
 <div id="tbl-bipm-no-wos" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bipm-no-wos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;2.2: BIPM 정회원국의 대표 표준과학 연구기관 중 논문을 식별하지 못한 기관 목록
+표&nbsp;2: BIPM 정회원국의 대표 표준과학 연구기관 중 논문을 식별하지 못한 기관 목록
 </figcaption>
 <div aria-describedby="tbl-bipm-no-wos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1081,11 +1478,11 @@ window.Quarto = {
 </div>
 </figure>
 </div>
-<p>이어 표준과학연구에 특화된 전문 저널들의 목록 정리 및 해당 저널의 모든 문헌 수집을 위해 표준연과의 협의 및 표준연 연구그룹의 검토를 거쳐 <a href="#tbl-metrology-journals" class="quarto-xref">표&nbsp;<span>2.3</span></a>의 저널 9종을 선별하였으며, 해당 저널들에 수록된 문헌을 표준과학 연구 전문 저널의 논문(②)으로 간주하여 추출하였다.</p>
+<p>이어 표준과학연구에 특화된 전문 저널들의 목록 정리 및 해당 저널의 모든 문헌 수집을 위해 표준연과의 협의 및 표준연 연구그룹의 검토를 거쳐 <a href="#tbl-metrology-journals" class="quarto-xref">표&nbsp;3</a>의 저널 9종을 선별하였으며, 해당 저널들에 수록된 문헌을 표준과학 연구 전문 저널의 논문(②)으로 간주하여 추출하였다.</p>
 <div id="tbl-metrology-journals" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-metrology-journals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;2.3: 표준과학 연구 전문 저널 목록
+표&nbsp;3: 표준과학 연구 전문 저널 목록
 </figcaption>
 <div aria-describedby="tbl-metrology-journals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1147,11 +1544,11 @@ window.Quarto = {
 <p>우선 표준연구 영역에 대한 연구지형도 도출에 앞서 전체 과학기술 및 인문사회 영역을 포괄하는 전체 ‘글로벌 연구지형도’를 구성하고, 앞서 식별한 분석용 표준연구 논문 데이터 집합을 글로벌 연구지형도에 ‘겹치기(overlay)’ 매핑함으로써 표준과학 연구 영역이 전체 학문분야에서 차지하는 ‘분포’를 확인하고자 한다.</p>
 <p>WoS의 인용 주제(Citation Topics) 메소(meso)-레벨 클러스터(326개)를 개별 연구영역(노드, node)으로 간주하였다. 클러스터 쌍의 연결(엣지, edge)은 하나의 클러스터 내 문헌들의 지식기반 분포가 다른 클러스터 내 문헌들의 지식기반 분포와 유사할수록 두터워진다. 지식기반의 분포는 참고문헌들이 각기 속한 메소(meso)-레벨 클러스터의 빈도수 벡터를 이용한 코사인 유사도로 측정하였다.</p>
 <p>아래 그림에서는 문헌의 수(노드 크기)와 표준과학연구 연구 영역 논문 문헌의 비율을 나타내고 있다(노드 색상; 적색에 가까울수록 높으며 청색에 가까울수록 낮음). 글로벌 연구지형도는 VOSviewer 기반의 인터랙티브 맵으로도 제공되며, 데이터북의 <a href="./docs/vosviewer_explorer.html">연구지형도(인터랙티브 맵)</a> 페이지에서 확인할 수 있다.</p>
-<p><a href="#tbl-global-landscape-indicators" class="quarto-xref">표&nbsp;<span>2.4</span></a>는 글로벌 연구지형도 시각화에서 활용되는 핵심 지표를 요약한다.</p>
+<p><a href="#tbl-global-landscape-indicators" class="quarto-xref">표&nbsp;4</a>는 글로벌 연구지형도 시각화에서 활용되는 핵심 지표를 요약한다.</p>
 <div id="tbl-global-landscape-indicators" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-global-landscape-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;2.4: 글로벌 연구지형도 시각화 핵심 지표
+표&nbsp;4: 글로벌 연구지형도 시각화 핵심 지표
 </figcaption>
 <div aria-describedby="tbl-global-landscape-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1196,10 +1593,10 @@ window.Quarto = {
 <div id="fig-global-landscape-2020-2024" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-landscape-2020-2024-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;2.1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)"><img src="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)"><img src="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-landscape-2020-2024-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-그림&nbsp;2.1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)
+그림&nbsp;1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)
 </figcaption>
 </figure>
 </div>
@@ -1230,10 +1627,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <div id="fig-leiden-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-leiden-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;2.2: Leiden 알고리즘 개요(예시; Traag et al., 2019)"><img src="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;2: Leiden 알고리즘 개요(예시; Traag et al., 2019)"><img src="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leiden-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-그림&nbsp;2.2: Leiden 알고리즘 개요(예시; Traag et al., 2019)
+그림&nbsp;2: Leiden 알고리즘 개요(예시; Traag et al., 2019)
 </figcaption>
 </figure>
 </div>
@@ -1244,10 +1641,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <div id="fig-cluster-hierarchy-3levels" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cluster-hierarchy-3levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/download.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;2.3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)"><img src="Final_Report_MD/report_assets/download.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/download.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)"><img src="Final_Report_MD/report_assets/download.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cluster-hierarchy-3levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-그림&nbsp;2.3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)
+그림&nbsp;3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)
 </figcaption>
 </figure>
 </div>
@@ -1255,10 +1652,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <div id="fig-cluster-size-before-after" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cluster-size-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/download_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="그림&nbsp;2.4: 작은 군집 병합 전후 클러스터 크기 분포 비교"><img src="Final_Report_MD/report_assets/download_1.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/download_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="그림&nbsp;4: 작은 군집 병합 전후 클러스터 크기 분포 비교"><img src="Final_Report_MD/report_assets/download_1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cluster-size-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-그림&nbsp;2.4: 작은 군집 병합 전후 클러스터 크기 분포 비교
+그림&nbsp;4: 작은 군집 병합 전후 클러스터 크기 분포 비교
 </figcaption>
 </figure>
 </div>
@@ -1271,10 +1668,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <div id="fig-kriss-org-groups" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kriss-org-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/kriss_org_group.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="그림&nbsp;2.5: KRISS 조직도(측정본부 및 측정 그룹)"><img src="Final_Report_MD/report_assets/kriss_org_group.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/kriss_org_group.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="그림&nbsp;5: KRISS 조직도(측정본부 및 측정 그룹)"><img src="Final_Report_MD/report_assets/kriss_org_group.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kriss-org-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-그림&nbsp;2.5: KRISS 조직도(측정본부 및 측정 그룹)
+그림&nbsp;5: KRISS 조직도(측정본부 및 측정 그룹)
 </figcaption>
 </figure>
 </div>
@@ -1344,7 +1741,7 @@ doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
 <div id="tbl-vosviewer-overlay-indicators" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vosviewer-overlay-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-표&nbsp;2.5: VOSviewer 연구지형도(겹치기 시각화) 주요 지표
+표&nbsp;5: VOSviewer 연구지형도(겹치기 시각화) 주요 지표
 </figcaption>
 <div aria-describedby="tbl-vosviewer-overlay-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
@@ -1414,14 +1811,15 @@ doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
 
 
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">각주</h2>
+
 <ol>
 <li id="fn1"><p>https://www.bipm.org/en/cipm-mra/participation, https://www.bipm.org/en/member-states<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section>
-
-</main> <!-- /main -->
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1824,18 +2222,18 @@ doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="서문 / Preface">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">서문 / Preface</span></span>
+      <a href="./preface.html" class="pagination-link" aria-label="1. 서문 / Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. 서문 / Preface</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./book_part2_capability.html" class="pagination-link" aria-label="기관 연구역량 진단">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">기관 연구역량 진단</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./book_part2_capability.html" class="pagination-link" aria-label="3. 기관 연구역량 진단">
+        <span class="nav-page-text">3. 기관 연구역량 진단</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/book_part1_landscape.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/web_part1_landscape.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
   window.onload = () => {
