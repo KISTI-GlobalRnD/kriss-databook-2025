@@ -8,6 +8,7 @@ book/
 website/
 _tool_runtime/
 final_report_site/
+_archive_site/
 
 # Python / R caches
 __pycache__/
