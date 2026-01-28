@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.8.27">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>KRISS 표준과학 연구 데이터북 (Book) - 2&nbsp; 문헌 집합 및 연구지형도 구축</title>
+<title>2&nbsp; 문헌 집합 및 연구지형도 구축 – KRISS 표준과학 연구 데이터북</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,15 +32,17 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./book_part2_capability.html" rel="next">
 <link href="./index.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-22c6d4a1e1080544900c7a3f5a890c75.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ae15c89b8d0103601f926e184af3bbbc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
@@ -74,384 +76,8 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css">
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer=""></script>
 <script src="docs/assets/js/datatable-init.js" defer=""></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const chapterTitle = document.querySelector("h1.web-chapter-title");
-  if (chapterTitle) {
-    const titleBlock = document.querySelector(".quarto-title-block");
-    if (titleBlock) {
-      titleBlock.style.display = "none";
-    }
 
-    const chapterNumber =
-      chapterTitle.getAttribute("data-number") ||
-      (chapterTitle.querySelector(".header-section-number") || {}).textContent?.trim();
-
-    if (chapterNumber) {
-      const prefixRegex = /^\s*표[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
-      const tableCaptions = Array.from(
-        document.querySelectorAll("figcaption.quarto-float-tbl")
-      );
-
-      let tableIndex = 0;
-      const tableIds = [];
-
-      tableCaptions.forEach((caption) => {
-        tableIndex += 1;
-        const newPrefix = `표 ${chapterNumber}.${tableIndex}:`;
-        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
-        const textNode = walker.nextNode();
-
-        if (textNode && prefixRegex.test(textNode.nodeValue)) {
-          textNode.nodeValue = textNode.nodeValue.replace(prefixRegex, newPrefix);
-        }
-
-        const float = caption.closest(".quarto-float");
-        if (float && float.id && float.id.startsWith("tbl-")) {
-          tableIds.push(float.id);
-        }
-      });
-
-      tableIds.forEach((id, idx) => {
-        const label = `표 ${chapterNumber}.${idx + 1}`;
-        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
-          const text = (anchor.textContent || "").trim();
-          if (/^표[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
-            anchor.textContent = label;
-          }
-        });
-      });
-
-      const figPrefixRegex = /^\s*그림[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
-      const figCaptions = Array.from(
-        document.querySelectorAll("figure figcaption")
-      ).filter((caption) => {
-        const figure = caption.closest("figure");
-        return !(figure && figure.classList.contains("quarto-float-tbl"));
-      });
-      let figIndex = 0;
-      const figIds = [];
-
-      figCaptions.forEach((caption) => {
-        figIndex += 1;
-        const newPrefix = `그림 ${chapterNumber}.${figIndex}:`;
-        const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
-        let textNode = walker.nextNode();
-        while (textNode && !textNode.nodeValue.trim()) {
-          textNode = walker.nextNode();
-        }
-
-        if (textNode) {
-          if (figPrefixRegex.test(textNode.nodeValue)) {
-            textNode.nodeValue = textNode.nodeValue.replace(figPrefixRegex, newPrefix);
-          } else {
-            textNode.nodeValue = `${newPrefix} ${textNode.nodeValue.trim()}`;
-          }
-        } else {
-          caption.prepend(document.createTextNode(`${newPrefix} `));
-        }
-
-        const float = caption.closest(".quarto-float");
-        if (float && float.id && float.id.startsWith("fig-")) {
-          figIds.push(float.id);
-        }
-      });
-
-      figIds.forEach((id, idx) => {
-        const label = `그림 ${chapterNumber}.${idx + 1}`;
-        document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
-          const text = (anchor.textContent || "").trim();
-          if (/^그림[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
-            anchor.textContent = label;
-          }
-        });
-      });
-    }
-  }
-
-  document.querySelectorAll(".carousel-gallery").forEach((carousel) => {
-    const track = carousel.querySelector(".carousel-track");
-    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
-    if (!track || slides.length === 0) {
-      return;
-    }
-
-    const dotsContainer = carousel.querySelector(".carousel-dots");
-    const prevBtn = carousel.querySelector(".carousel-btn.prev");
-    const nextBtn = carousel.querySelector(".carousel-btn.next");
-    let currentIndex = 0;
-    let isPointerDown = false;
-    let isDragging = false;
-    let startX = 0;
-    let startY = 0;
-    let dragStartTranslate = 0;
-    let hasDragged = false;
-
-    const getSlideWidth = () => {
-      const styles = window.getComputedStyle(carousel);
-      const paddingLeft = parseFloat(styles.paddingLeft) || 0;
-      const paddingRight = parseFloat(styles.paddingRight) || 0;
-      return carousel.clientWidth - paddingLeft - paddingRight;
-    };
-
-    const updateDots = () => {
-      if (!dotsContainer) {
-        return;
-      }
-      dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, idx) => {
-        dot.classList.toggle("is-active", idx === currentIndex);
-      });
-    };
-
-    const update = () => {
-      const width = getSlideWidth();
-      slides.forEach((slide) => {
-        slide.style.width = `${width}px`;
-      });
-      track.style.transform = `translateX(-${currentIndex * width}px)`;
-      updateDots();
-    };
-
-    const goTo = (index) => {
-      currentIndex = (index + slides.length) % slides.length;
-      update();
-    };
-
-    if (dotsContainer) {
-      dotsContainer.innerHTML = "";
-      slides.forEach((_, idx) => {
-        const dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "carousel-dot";
-        dot.setAttribute("aria-label", `슬라이드 ${idx + 1}`);
-        dot.addEventListener("click", () => goTo(idx));
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
-    }
-
-    track.addEventListener("pointerdown", (event) => {
-      if (event.button && event.button !== 0) {
-        return;
-      }
-      isPointerDown = true;
-      isDragging = false;
-      hasDragged = false;
-      startX = event.clientX;
-      startY = event.clientY;
-      dragStartTranslate = -currentIndex * getSlideWidth();
-    });
-
-    track.addEventListener("pointermove", (event) => {
-      if (!isPointerDown) {
-        return;
-      }
-      const deltaX = event.clientX - startX;
-      const deltaY = event.clientY - startY;
-      if (!isDragging) {
-        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
-          isDragging = true;
-          hasDragged = true;
-          track.classList.add("is-dragging");
-          try {
-            track.setPointerCapture(event.pointerId);
-          } catch (error) {
-            // ignore if pointer capture fails
-          }
-        } else {
-          return;
-        }
-      }
-      track.style.transform = `translateX(${dragStartTranslate + deltaX}px)`;
-    });
-
-    const endDrag = (event) => {
-      if (!isPointerDown) {
-        return;
-      }
-      isPointerDown = false;
-      if (!isDragging) {
-        return;
-      }
-      isDragging = false;
-      track.classList.remove("is-dragging");
-      try {
-        track.releasePointerCapture(event.pointerId);
-      } catch (error) {
-        // ignore if pointer was not captured
-      }
-      const delta = event.clientX - startX;
-      const width = getSlideWidth();
-      if (Math.abs(delta) > width * 0.2) {
-        goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
-      } else {
-        update();
-      }
-      if (hasDragged) {
-        track.dataset.dragging = "true";
-        window.setTimeout(() => {
-          track.dataset.dragging = "false";
-        }, 0);
-      }
-    };
-
-    track.addEventListener("pointerup", endDrag);
-    track.addEventListener("pointercancel", endDrag);
-
-    track.addEventListener("click", (event) => {
-      if (track.dataset.dragging === "true") {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    });
-
-    window.addEventListener("resize", update);
-    update();
-  });
-
-  const initLightboxSwipe = () => {
-    const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
-    if (!supportsFinePointer) {
-      return;
-    }
-
-    const container = document.querySelector(".glightbox-container");
-    if (!container || container.dataset.swipeInit === "true") {
-      return;
-    }
-    container.dataset.swipeInit = "true";
-
-    const slider = container.querySelector("#glightbox-slider");
-    if (!slider) {
-      return;
-    }
-
-    let isPointerDown = false;
-    let isDragging = false;
-    let hasDragged = false;
-    let startX = 0;
-    let startY = 0;
-
-    const isZoomed = () => {
-      const active = slider.querySelector(".gslide.current");
-      return active && active.classList.contains("zoomed");
-    };
-
-    const goNext = () => {
-      const nextBtn = container.querySelector(".gnext");
-      if (nextBtn && !nextBtn.classList.contains("disabled")) {
-        nextBtn.click();
-      }
-    };
-
-    const goPrev = () => {
-      const prevBtn = container.querySelector(".gprev");
-      if (prevBtn && !prevBtn.classList.contains("disabled")) {
-        prevBtn.click();
-      }
-    };
-
-    slider.addEventListener("pointerdown", (event) => {
-      if (event.button && event.button !== 0) {
-        return;
-      }
-      if (isZoomed()) {
-        return;
-      }
-      if (event.target.closest(".gbtn")) {
-        return;
-      }
-      isPointerDown = true;
-      isDragging = false;
-      hasDragged = false;
-      startX = event.clientX;
-      startY = event.clientY;
-    });
-
-    slider.addEventListener("pointermove", (event) => {
-      if (!isPointerDown) {
-        return;
-      }
-      const deltaX = event.clientX - startX;
-      const deltaY = event.clientY - startY;
-      if (!isDragging) {
-        if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
-          isDragging = true;
-          hasDragged = true;
-          slider.classList.add("is-dragging");
-          try {
-            slider.setPointerCapture(event.pointerId);
-          } catch (error) {
-            // ignore if pointer capture fails
-          }
-        } else {
-          return;
-        }
-      }
-    });
-
-    const endDrag = (event) => {
-      if (!isPointerDown) {
-        return;
-      }
-      isPointerDown = false;
-      if (!isDragging) {
-        return;
-      }
-      isDragging = false;
-      slider.classList.remove("is-dragging");
-      try {
-        slider.releasePointerCapture(event.pointerId);
-      } catch (error) {
-        // ignore if pointer was not captured
-      }
-
-      const deltaX = event.clientX - startX;
-      const deltaY = event.clientY - startY;
-      if (
-        hasDragged &&
-        Math.abs(deltaX) > Math.abs(deltaY) &&
-        Math.abs(deltaX) > 50
-      ) {
-        if (deltaX < 0) {
-          goNext();
-        } else {
-          goPrev();
-        }
-      }
-
-      if (hasDragged) {
-        slider.dataset.dragging = "true";
-        window.setTimeout(() => {
-          slider.dataset.dragging = "false";
-        }, 0);
-      }
-    };
-
-    slider.addEventListener("pointerup", endDrag);
-    slider.addEventListener("pointercancel", endDrag);
-
-    slider.addEventListener("click", (event) => {
-      if (slider.dataset.dragging === "true") {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    });
-  };
-
-  initLightboxSwipe();
-  const lightboxObserver = new MutationObserver(() => initLightboxSwipe());
-  lightboxObserver.observe(document.body, { childList: true, subtree: true });
-});
-</script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -465,7 +91,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -483,7 +109,7 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -491,108 +117,108 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">KRISS 표준과학 연구 데이터북 (Book)</span>
+    <span class="navbar-title">KRISS 표준과학 연구 데이터북</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="https://kisti-globalrnd.github.io/kriss-databook-2025/" aria-current="page"> 
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">홈 / Home</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-databook" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">데이터북 / Databook</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-databook">    
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/index.html">
+    <a class="dropdown-item" href="./index.html">
  <span class="dropdown-text">서문 / Preface</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/part-1-landscape.html">
+    <a class="dropdown-item" href="./book_part1_landscape.html">
  <span class="dropdown-text">문헌 집합 및 연구지형도 구축</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/part-2-capability.html">
+    <a class="dropdown-item" href="./book_part2_capability.html">
  <span class="dropdown-text">기관 연구역량 진단</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/book/part-3-emerging.html">
+    <a class="dropdown-item" href="./book_part3_emerging.html">
  <span class="dropdown-text">유망 연구영역 도출</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">인터랙티브 도구 / Tools</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/keyword_trends.html">
+    <a class="dropdown-item" href="./docs/keyword_trends.html">
  <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/vosviewer_explorer.html">
+    <a class="dropdown-item" href="./docs/vosviewer_explorer.html">
  <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/cluster_dashboard.html">
+    <a class="dropdown-item" href="./docs/cluster_dashboard.html">
  <span class="dropdown-text">클러스터 대시보드 (Shiny)</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">부록 / Appendix</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_detailed_reporting.html">
+    <a class="dropdown-item" href="./docs/appendix_detailed_reporting.html">
  <span class="dropdown-text">상세 리포팅 방법론</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_core_reports.html">
+    <a class="dropdown-item" href="./docs/appendix_core_reports.html">
  <span class="dropdown-text">상세 리포팅 — 핵심 역량</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_expand_reports.html">
+    <a class="dropdown-item" href="./docs/appendix_expand_reports.html">
  <span class="dropdown-text">상세 리포팅 — 확장 가능</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_gap_reports.html">
+    <a class="dropdown-item" href="./docs/appendix_gap_reports.html">
  <span class="dropdown-text">상세 리포팅 — 역량 공백</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix_methodology.html">
+    <a class="dropdown-item" href="./docs/appendix_methodology.html">
  <span class="dropdown-text">클러스터링·키워드 방법론</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="https://kisti-globalrnd.github.io/kriss-databook-2025/docs/appendix.html">
+    <a class="dropdown-item" href="./docs/appendix.html">
  <span class="dropdown-text">용어 및 참고 / Glossary</span></a>
   </li>  
     </ul>
   </li>
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./book_part1_landscape.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">문헌 집합 및 연구지형도 구축</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -607,9 +233,6 @@ window.Quarto = {
         <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
-        <div class="sidebar-tools-collapse">
-    <a href="https://kisti-globalrnd.github.io/kriss-databook-2025/" title="웹 버전 보기" class="quarto-navigation-tool px-1" aria-label="웹 버전 보기"><i class="bi bi-browser"></i></a>
-</div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -638,9 +261,9 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -653,9 +276,9 @@ window.Quarto = {
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">인터랙티브 도구 / Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -682,9 +305,9 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">상세 리포트 — 핵심 역량</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -759,9 +382,9 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">상세 리포트 — 확장 가능</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -836,9 +459,9 @@ window.Quarto = {
   </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">상세 리포트 — 역량 공백</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -852,13 +475,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_189/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">\</span>&nbsp; <span class="chapter-title">9-189 - 다공성골격 가스분리 (역량 공백)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">&lt;/span&gt;&nbsp; <span class="chapter-title">9-189 - 다공성골격 가스분리 (역량 공백)</span></span> [<span class="chapter-number">]</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/detailed_reports/cluster_159/report.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">]</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span></a>
+ <span class="menu-text"><span class="chapter-number"><span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2FwcGVuZGl4X2dhcF9yZXBvcnRzLmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPls8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7IOB7IS4LeumrO2PrO2MhS3igJQt7Jet65+JLeqzteuwsTwvc3Bhbj4="></span>&nbsp; <span class="chapter-title">상세 리포팅 — 역량 공백</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xODkvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPlw8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+OS0xODktLS3ri6Tqs7XshLHqs6jqsqkt6rCA7Iqk67aE66asLSjsl63rn4kt6rO167CxKTwvc3Bhbj4="><span class="chapter-number">&lt;/span&gt;&nbsp; <span class="chapter-title">9-189 - 다공성골격 가스분리 (역량 공백)</span></span> [<span class="chapter-number">]</span>&nbsp; <span class="chapter-title">11-159 - 나노셀룰로오스 소재측정 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMTIvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPl48L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MTUtMTEyLS0t7JeF7Luo67KE7KCELeuCmOuFuOyeheyekC0o7Jet65+JLeqzteuwsSk8L3NwYW4+"><span class="chapter-number">^</span>&nbsp; <span class="chapter-title">15-112 - 업컨버전 나노입자 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMzMvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPl88L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MTgtMTMzLS0t7KCB7Li1LeuwlOydtOyYpOygnOyhsC3suKHsoJUtKOyXreufiS3qs7XrsLEpPC9zcGFuPg=="><span class="chapter-number">_</span>&nbsp; <span class="chapter-title">18-133 - 적층 바이오제조 측정 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMzEvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmA8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MjYtMTMxLS0t7KSR66Cl7YyMLeqygOy2nMK367aE7ISdLSjsl63rn4kt6rO167CxKTwvc3Bhbj4="><span class="chapter-number">`</span>&nbsp; <span class="chapter-title">26-131 - 중력파 검출·분석 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xNzkvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmE8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MjktMTc5LS0t7ZSE66Gc7YWM7Jik66+57IqkLeyniOufieu2hOyEnS0o7Jet65+JLeqzteuwsSk8L3NwYW4+"><span class="chapter-number">a</span>&nbsp; <span class="chapter-title">29-179 - 프로테오믹스 질량분석 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xNjkvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmI8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MzAtMTY5LS0t7JyE7IOBLeyWkeyekOusvOyniC3soITsnpDqtazsobAt7Lih7KCVLSjsl63rn4kt6rO167CxKTwvc3Bhbj4="><span class="chapter-number">b</span>&nbsp; <span class="chapter-title">30-169 - 위상 양자물질 전자구조 측정 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl82Mi9yZXBvcnQuaHRtbDxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Yzwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz4zMi02Mi0tLeynkeyggS3qtJHso7zso7ztjIzsiJjruZctKOyXreufiS3qs7XrsLEpPC9zcGFuPg=="><span class="chapter-number">c</span>&nbsp; <span class="chapter-title">32-62 - 집적 광주주파수빗 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xNjIvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmQ8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+MzQtMTYyLS0t6rak64+E6rCB7Jq064+Z65+JLeq0keqzhOy4oS0o7Jet65+JLeqzteuwsSk8L3NwYW4+"><span class="chapter-number">d</span>&nbsp; <span class="chapter-title">34-162 - 궤도각운동량 광계측 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2RldGFpbGVkX3JlcG9ydHMvY2x1c3Rlcl8xMjUvcmVwb3J0Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmU8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+NDMtMTI1LS0t7Jyg7KCE7LK0LeuzgOydtC3suKHsoJXtkZzspIAtKOyXreufiS3qs7XrsLEpPC9zcGFuPg=="><span class="chapter-number">e</span>&nbsp; <span class="chapter-title">43-125 - 유전체 변이 측정표준 (역량 공백)</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2FwcGVuZGl4X21ldGhvZG9sb2d5Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmY8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7YG065+s7Iqk7YSw66eBwrftgqTsm4zrk5wt67Cp67KV66GgPC9zcGFuPg=="><span class="chapter-number">f</span>&nbsp; <span class="chapter-title">클러스터링·키워드 방법론</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1zaWRlYmFyOi9kb2NzL2FwcGVuZGl4Lmh0bWw8c3Bhbi1jbGFzcz0nY2hhcHRlci1udW1iZXInPmc8L3NwYW4+LS08c3Bhbi1jbGFzcz0nY2hhcHRlci10aXRsZSc+7Jqp7Ja0Leuwjy3ssLjqs6AtLy1HbG9zc2FyeTwvc3Bhbj4="><span class="chapter-number">g</span>&nbsp; <span class="chapter-title">용어 및 참고 / Glossary</span></span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67ZmIIC8gSG9tZQ==">홈 / Home</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2luZGV4Lmh0bWw=">/index.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6642w7J207YSw67aBIC8gRGF0YWJvb2s=">데이터북 / Databook</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67ISc66y4IC8gUHJlZmFjZQ==">서문 / Preface</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI666y47ZeMIOynke2VqSDrsI8g7Jew6rWs7KeA7ZiV64+EIOq1rOy2lQ==">문헌 집합 및 연구지형도 구축</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jvb2tfcGFydDFfbGFuZHNjYXBlLmh0bWw=">/book_part1_landscape.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI66riw6rSAIOyXsOq1rOyXreufiSDsp4Tri6g=">기관 연구역량 진단</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jvb2tfcGFydDJfY2FwYWJpbGl0eS5odG1s">/book_part2_capability.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67Jyg66edIOyXsOq1rOyYgeyXrSDrj4Tstpw=">유망 연구영역 도출</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2Jvb2tfcGFydDNfZW1lcmdpbmcuaHRtbA==">/book_part3_emerging.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67J247YSw656Z7Yuw67iMIOuPhOq1rCAvIFRvb2xz">인터랙티브 도구 / Tools</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67YKk7JuM65OcIOy2lOyEuCDtg5Dsg4nquLAgLyBLZXl3b3JkIFRyZW5kcw==">키워드 추세 탐색기 / Keyword Trends</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3Mva2V5d29yZF90cmVuZHMuaHRtbA==">/docs/keyword_trends.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67Jew6rWs7KeA7ZiV64+EKOyduO2EsOueme2LsOu4jCDrp7UpIC8gVk9Tdmlld2Vy">연구지형도(인터랙티브 맵) / VOSviewer</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3Mvdm9zdmlld2VyX2V4cGxvcmVyLmh0bWw=">/docs/vosviewer_explorer.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67YG065+s7Iqk7YSwIOuMgOyLnOuztOuTnCAoU2hpbnkp">클러스터 대시보드 (Shiny)</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvY2x1c3Rlcl9kYXNoYm9hcmQuaHRtbA==">/docs/cluster_dashboard.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI667aA66GdIC8gQXBwZW5kaXg=">부록 / Appendix</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDrsKnrspXroaA=">상세 리포팅 방법론</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfZGV0YWlsZWRfcmVwb3J0aW5nLmh0bWw=">/docs/appendix_detailed_reporting.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDigJQg7ZW17IusIOyXreufiQ==">상세 리포팅 — 핵심 역량</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfY29yZV9yZXBvcnRzLmh0bWw=">/docs/appendix_core_reports.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDigJQg7ZmV7J6lIOqwgOuKpQ==">상세 리포팅 — 확장 가능</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfZXhwYW5kX3JlcG9ydHMuaHRtbA==">/docs/appendix_expand_reports.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67IOB7IS4IOumrO2PrO2MhSDigJQg7Jet65+JIOqzteuwsQ==">상세 리포팅 — 역량 공백</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfZ2FwX3JlcG9ydHMuaHRtbA==">/docs/appendix_gap_reports.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67YG065+s7Iqk7YSw66eBwrftgqTsm4zrk5wg67Cp67KV66Gg">클러스터링·키워드 방법론</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXhfbWV0aG9kb2xvZ3kuaHRtbA==">/docs/appendix_methodology.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI67Jqp7Ja0IOuwjyDssLjqs6AgLyBHbG9zc2FyeQ==">용어 및 참고 / Glossary</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWludC1uYXZiYXI6L2RvY3MvYXBwZW5kaXguaHRtbA==">/docs/appendix.html</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLW5hdmJhci10b29sczpodHRwczovL2dpdGh1Yi5jb20vS0lTVEktR2xvYmFsUm5EL2tyaXNzLWRhdGFib29rLTIwMjU=">https://github.com/KISTI-GlobalRnD/kriss-databook-2025</span> <span class="hidden quarto-markdown-envelope-contents" data-render-id="cXVhcnRvLWJyZWFkY3J1bWJzLTxzcGFuLWNsYXNzPSdjaGFwdGVyLW51bWJlcic+Mjwvc3Bhbj4tLTxzcGFuLWNsYXNzPSdjaGFwdGVyLXRpdGxlJz7rrLjtl4wt7KeR7ZWpLeuwjy3sl7Dqtazsp4DtmJXrj4Qt6rWs7LaVPC9zcGFuPg=="><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">문헌 집합 및 연구지형도 구축</span></span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1035,13 +658,13 @@ window.Quarto = {
 <p>BIPM 정회원국 및 소속 연구기관 목록은 BIPM 공식 홈페이지에서 추출하였으며 2025년 6월 30일자 정보를 활용하였다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>각 국가별 NMI(National Measurement Institute)를 우선시하되, 표준연과의 협의를 통해 영국, 독일, 러시아 3개 국가에 대해서는 DI(Designated Institutes) 중 일부를 전문 연구기관 목록에 포함하였다. 또한 사전 전처리 작업을 통해 NMI의 WoS 데이터 상 정규화된 기관명(pref_name)이 없으며 (즉, 논문이 충분치 않은) 정부기관에 가까운 국가를 파악한 뒤, 그 중 대표 DI가 논문이 많은 우크라이나와 벨라루스 2개 국가에 대해선 대표 DI를 포함하였다. 그 결과 총 64개 BIPM 정회원국의 62개 NMI와 5개 DI(영국, 독일, 러시아, 우크라이나, 벨라루스)로 이루어진 BIPM 정회원국 대표 연구기관 67개의 목록을 생성할 수 있었다.</p>
 <p>※ 기관 목록의 근거 자료 및 중간 정리 파일은 내부 검증용으로 별도 관리한다.</p>
-<div id="tbl-bipm-institutions" class="datatable quarto-float anchored">
+<div id="tbl-bipm-institutions" class="datatable quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bipm-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 표&nbsp;2.1: BIPM 정회원국의 대표 표준과학 연구기관 목록
 </figcaption>
 <div aria-describedby="tbl-bipm-institutions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="datatable table">
+<table class="datatable caption-top table">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -1407,13 +1030,13 @@ window.Quarto = {
 </ol>
 <p>규칙 기반 선별을 통해 걸러진 문헌들에 대해서는 기관명(org_name_raw), 기관국가명(org_country), 기관도시명(org_city), 기관주소(addr_full)를 종합적으로 확인하여 최종적으로 육안 검토를 수행하였으며 기존 기관 및 문헌 전처리 단계에서 확보되지 않았던 문헌고유번호(uid) 기준 문헌을 1,277건 추가 확보하였다.</p>
 <p>상기 절차를 적용하였음에도, 67개 BIPM 정회원국의 표준과학연구 전문 연구기관 중 아래 7개 기관에 대해서는 WoS 상에서 해당 기관의 논문을 확인하지 못하였다. 그 결과 프로세스를 통해 58개 BIPM 정회원국의 대표 표준과학 연구기관 60개의 논문 데이터 집합(①)을 구축할 수 있었다.</p>
-<div id="tbl-bipm-no-wos" class="quarto-float anchored">
+<div id="tbl-bipm-no-wos" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bipm-no-wos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 표&nbsp;2.2: BIPM 정회원국의 대표 표준과학 연구기관 중 논문을 식별하지 못한 기관 목록
 </figcaption>
 <div aria-describedby="tbl-bipm-no-wos-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
 <col style="width: 50%">
@@ -1459,13 +1082,13 @@ window.Quarto = {
 </figure>
 </div>
 <p>이어 표준과학연구에 특화된 전문 저널들의 목록 정리 및 해당 저널의 모든 문헌 수집을 위해 표준연과의 협의 및 표준연 연구그룹의 검토를 거쳐 <a href="#tbl-metrology-journals" class="quarto-xref">표&nbsp;<span>2.3</span></a>의 저널 9종을 선별하였으며, 해당 저널들에 수록된 문헌을 표준과학 연구 전문 저널의 논문(②)으로 간주하여 추출하였다.</p>
-<div id="tbl-metrology-journals" class="quarto-float anchored">
+<div id="tbl-metrology-journals" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-metrology-journals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 표&nbsp;2.3: 표준과학 연구 전문 저널 목록
 </figcaption>
 <div aria-describedby="tbl-metrology-journals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>표준과학 연구 전문 저널</th>
@@ -1525,13 +1148,13 @@ window.Quarto = {
 <p>WoS의 인용 주제(Citation Topics) 메소(meso)-레벨 클러스터(326개)를 개별 연구영역(노드, node)으로 간주하였다. 클러스터 쌍의 연결(엣지, edge)은 하나의 클러스터 내 문헌들의 지식기반 분포가 다른 클러스터 내 문헌들의 지식기반 분포와 유사할수록 두터워진다. 지식기반의 분포는 참고문헌들이 각기 속한 메소(meso)-레벨 클러스터의 빈도수 벡터를 이용한 코사인 유사도로 측정하였다.</p>
 <p>아래 그림에서는 문헌의 수(노드 크기)와 표준과학연구 연구 영역 논문 문헌의 비율을 나타내고 있다(노드 색상; 적색에 가까울수록 높으며 청색에 가까울수록 낮음). 글로벌 연구지형도는 VOSviewer 기반의 인터랙티브 맵으로도 제공되며, 데이터북의 <a href="./docs/vosviewer_explorer.html">연구지형도(인터랙티브 맵)</a> 페이지에서 확인할 수 있다.</p>
 <p><a href="#tbl-global-landscape-indicators" class="quarto-xref">표&nbsp;<span>2.4</span></a>는 글로벌 연구지형도 시각화에서 활용되는 핵심 지표를 요약한다.</p>
-<div id="tbl-global-landscape-indicators" class="quarto-float anchored">
+<div id="tbl-global-landscape-indicators" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-global-landscape-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 표&nbsp;2.4: 글로벌 연구지형도 시각화 핵심 지표
 </figcaption>
 <div aria-describedby="tbl-global-landscape-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -1570,10 +1193,10 @@ window.Quarto = {
 </div>
 </figure>
 </div>
-<div id="fig-global-landscape-2020-2024" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-global-landscape-2020-2024" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-global-landscape-2020-2024-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1"><img src="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="그림&nbsp;2.1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)"><img src="Final_Report_MD/report_assets/global_landscape_map_stdsciratio.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-global-landscape-2020-2024-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 그림&nbsp;2.1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)
@@ -1604,10 +1227,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <section id="leiden-기반-클러스터링-파이프라인정제탐지후처리" class="level3" data-number="2.4.3">
 <h3 data-number="2.4.3" class="anchored" data-anchor-id="leiden-기반-클러스터링-파이프라인정제탐지후처리"><span class="header-section-number">2.4.3</span> 3. Leiden 기반 클러스터링 파이프라인(정제–탐지–후처리)</h3>
 <p>클러스터링은 하이브리드 인용 네트워크를 구축한 뒤, 연결성이 낮은 고립 노드/극소 컴포넌트가 결과를 불안정하게 만들 수 있다는 점을 고려하여 연결성이 높은 거대 컴포넌트를 중심으로 분석 대상을 정제한다. 다음으로 Leiden 알고리즘을 적용해 네트워크 커뮤니티 구조를 탐지하며(Traag et al.&nbsp;2019), 군집의 세분성을 조절하는 해상도(γ)를 분석 목적(세분화 수준과 해석 가능성의 균형)에 맞추어 설정한다. 또한 재현 가능한 결과를 위해 난수 시드(seed)를 관리하고, 필요 시 해상도와 시드를 함께 변화시키며 NMI(Normalized Mutual Information) 등 일치도 지표로 민감도를 점검할 수 있다. 마지막으로 지나치게 작은 군집은 해석 가능성이 낮고 후속 분석(예: 대표 키워드)의 불안정을 초래할 수 있으므로, 군집 간 연결 가중치 합이 가장 큰 인접 군집으로 병합하는 후처리를 수행하였다.</p>
-<div id="fig-leiden-overview" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-leiden-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-leiden-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2"><img src="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="그림&nbsp;2.2: Leiden 알고리즘 개요(예시; Traag et al., 2019)"><img src="Final_Report_MD/report_assets/Leiden_Algorithm.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leiden-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 그림&nbsp;2.2: Leiden 알고리즘 개요(예시; Traag et al., 2019)
@@ -1618,10 +1241,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <section id="산출물-거시중시미시-3수준-연구주제-클러스터846195" class="level3" data-number="2.4.4">
 <h3 data-number="2.4.4" class="anchored" data-anchor-id="산출물-거시중시미시-3수준-연구주제-클러스터846195"><span class="header-section-number">2.4.4</span> 4. 산출물: 거시–중시–미시 3수준 연구주제 클러스터(8–46–195)</h3>
 <p>상기 절차를 통해 표준과학 연구 영역 최종 문헌 집합을 인용 기반 연구주제 단위로 분할하였다. 최종 연구지형도는 마크로 수준 8개, 메조 수준 46개, 마이크로 수준 195개의 계층 구조로 정리되며, 이후의 후속 분석(측정 그룹 매핑, 키워드 추출, 시계열 분석)에서는 주로 마이크로 수준 연구주제 클러스터를 기본 분석 단위로 활용하였다.</p>
-<div id="fig-cluster-hierarchy-3levels" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-cluster-hierarchy-3levels" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cluster-hierarchy-3levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/download.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" data-glightbox="description: .lightbox-desc-3"><img src="Final_Report_MD/report_assets/download.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/download.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="그림&nbsp;2.3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)"><img src="Final_Report_MD/report_assets/download.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cluster-hierarchy-3levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 그림&nbsp;2.3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)
@@ -1629,10 +1252,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 </figure>
 </div>
 <p>마이크로 클러스터에서 최소 클러스터 문헌 수는 2,000건으로, 이러한 병합과정을 거치지 않으면 너무 자잘한 미세클러스터가 빈번히 등장하여 분석단위의 상대적 크기를 맞추기 어려운 한계점이 존재하였다. 이러한 병합 이전 클러스터 수는 1,662개 였으며, 병합 이후 195로 줄어들었다.</p>
-<div id="fig-cluster-size-before-after" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-cluster-size-before-after" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cluster-size-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/download_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" data-glightbox="description: .lightbox-desc-4"><img src="Final_Report_MD/report_assets/download_1.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/download_1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="그림&nbsp;2.4: 작은 군집 병합 전후 클러스터 크기 분포 비교"><img src="Final_Report_MD/report_assets/download_1.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cluster-size-before-after-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 그림&nbsp;2.4: 작은 군집 병합 전후 클러스터 크기 분포 비교
@@ -1645,10 +1268,10 @@ r_{ij}^{X}=\frac{\tilde r_{ij}^{X}}{\sum_{k}\tilde r_{ik}^{X}}
 <section id="표준과학-연구-분야에-대한-kriss-측정-그룹-4대-영역-매핑" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="표준과학-연구-분야에-대한-kriss-측정-그룹-4대-영역-매핑"><span class="header-section-number">2.5</span> 표준과학 연구 분야에 대한 KRISS 측정 그룹 4대 영역 매핑</h2>
 <p>표준과학 연구지형도는 연구주제의 구조를 보여주지만, 정책·기관 관점의 해석을 위해서는 이를 조직 축으로 재표현하는 단계가 필요하다. 본 사업에서는 도출된 연구주제 클러스터를 KRISS 조직 축(물리측정·화학소재측정·바이오의료측정·양자)으로 요약하는 후처리 절차를 수행하였으며, 본 절에서는 그 기준과 절차를 정리하였다.</p>
-<div id="fig-kriss-org-groups" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-kriss-org-groups" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-kriss-org-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="Final_Report_MD/report_assets/kriss_org_group.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" data-glightbox="description: .lightbox-desc-5"><img src="Final_Report_MD/report_assets/kriss_org_group.png" class="img-fluid figure-img"></a>
+<a href="Final_Report_MD/report_assets/kriss_org_group.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="그림&nbsp;2.5: KRISS 조직도(측정본부 및 측정 그룹)"><img src="Final_Report_MD/report_assets/kriss_org_group.png" class="img-fluid figure-img"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-kriss-org-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 그림&nbsp;2.5: KRISS 조직도(측정본부 및 측정 그룹)
@@ -1712,19 +1335,19 @@ doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
 <p>글로벌 연구지형도와 마찬가지로 앞서 수행한 표준과학 연구 분야 문헌 클러스터링의 마이크로(micro)-레벨 클러스터(195개)를 개별 연구영역(노드, node)으로 간주하였다. 클러스터 쌍의 연결(엣지, edge)은 하나의 클러스터 내 문헌들의 지식기반 분포가 다른 클러스터 내 문헌들의 지식기반 분포와 유사할수록 두터워진다. 지식기반의 분포는 참고문헌들이 각기 속한 WoS 인용주제 메소(meso)-레벨 클러스터의 빈도수 벡터를 이용한 코사인 유사도로 측정하였다.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="Final_Report_MD/report_assets/std_sci_landscape.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" data-glightbox="description: .lightbox-desc-6" title="표준과학 연구영역 클러스터링 기준으로 구성한 표준과학 연구지형도 (2020~2024년)"><img src="Final_Report_MD/report_assets/std_sci_landscape.png" class="img-fluid figure-img" alt="표준과학 연구영역 클러스터링 기준으로 구성한 표준과학 연구지형도 (2020~2024년)"></a></p>
+<p><a href="Final_Report_MD/report_assets/std_sci_landscape.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6" title="표준과학 연구영역 클러스터링 기준으로 구성한 표준과학 연구지형도 (2020~2024년)"><img src="Final_Report_MD/report_assets/std_sci_landscape.png" class="img-fluid figure-img" alt="표준과학 연구영역 클러스터링 기준으로 구성한 표준과학 연구지형도 (2020~2024년)"></a></p>
 <figcaption>표준과학 연구영역 클러스터링 기준으로 구성한 표준과학 연구지형도 (2020~2024년)</figcaption>
 </figure>
 </div>
 <p>위 그림에 나타나는 표준과학 연구지형도 예시에서 노드의 크기는 클러스터 별 문헌수에 비례하며, 노드의 색상은 각 클러스터가 4대 영역 중 어디에 속하는지(자주색은 물리측정, 주황색은 화학소재측정, 노란색은 바이오의료측정, 보라색은 양자기술영역)를 나타낸다. 본 연구지형도는 VOSviewer 기반의 인터랙티브 맵으로도 제공되며, 데이터북의 <a href="./docs/vosviewer_explorer.html">연구지형도(인터랙티브 맵)</a> 페이지에서 확인할 수 있다.</p>
 <p>VOSViewer 상에서 활용할 수 있는 대표 지표는 아래와 같으며, 지도에서는 “노드의 크기/색상”에 서로 다른 지표를 선택적으로 겹쳐서(overlay) 확인할 수 있다.</p>
-<div id="tbl-vosviewer-overlay-indicators" class="quarto-float anchored">
+<div id="tbl-vosviewer-overlay-indicators" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-vosviewer-overlay-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 표&nbsp;2.5: VOSviewer 연구지형도(겹치기 시각화) 주요 지표
 </figcaption>
 <div aria-describedby="tbl-vosviewer-overlay-indicators-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
 <col style="width: 33%">
@@ -1790,14 +1413,6 @@ doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
 </div>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">그림&nbsp;2.1: Web of Science 분류 기준으로 구성한 글로벌 연구지형도(2020~2024년)</span>
-<span class="glightbox-desc lightbox-desc-2">그림&nbsp;2.2: Leiden 알고리즘 개요(예시; Traag et al., 2019)</span>
-<span class="glightbox-desc lightbox-desc-3">그림&nbsp;2.3: 3수준 연구주제 클러스터의 계층 구조(거시–중시–미시)</span>
-<span class="glightbox-desc lightbox-desc-4">그림&nbsp;2.4: 작은 군집 병합 전후 클러스터 크기 분포 비교</span>
-<span class="glightbox-desc lightbox-desc-5">그림&nbsp;2.5: KRISS 조직도(측정본부 및 측정 그룹)</span>
-<span class="glightbox-desc lightbox-desc-6">표준과학 연구영역 클러스터링 기준으로 구성한 표준과학 연구지형도 (2020~2024년)</span>
-</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -1808,43 +1423,58 @@ doc\_cov_{c,y}(k)=\sum_{d\in \mathcal{D}_{c,y}} \mathbf{1}\{k \in d\}
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
       }
+      return false;
     }
-    return false;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
       for (const childEl of codeEl.children) {
         if (isCodeAnnotation(childEl)) {
           childEl.remove();
@@ -1852,162 +1482,184 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
       return codeEl.innerText;
     }
-  });
-  clipboard.on('success', function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
-    };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      return note.innerHTML;
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
     });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-        return container.innerHTML
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -2015,185 +1667,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link" aria-label="서문 / Preface">
@@ -2207,30 +1835,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/book_part1_landscape.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/blob/main/book_part1_landscape.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/KISTI-GlobalRnD/kriss-databook-2025/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 
