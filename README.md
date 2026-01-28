@@ -26,7 +26,12 @@ gh-pages/
   index.html          # contents of _site_website
 ```
 
-The current configuration maintains a single website build.
+### Final Output (Current)
+
+- The final deliverable is the **website build** that embeds the full databook content.
+- `web_home.qmd` serves as the landing page (summary removed).
+- `web_index.qmd` serves as the preface (summary included).
+- The former book-style output is not used for deployment.
 
 ### Current (Manual) Deployment
 
