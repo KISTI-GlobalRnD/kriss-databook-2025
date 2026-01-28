@@ -3,35 +3,33 @@
 This directory hosts the Quarto project for the KRISS keyword extraction final report. It can be
 promoted to a standalone repository or rendered in place during documentation reviews.
 
-## Quickstart
+## Quickstart (Book Only)
 
 Install the Quarto CLI from <https://quarto.org/docs/get-started/>. Then run:
 
 ```bash
 cd final_report_site
-quarto preview
+quarto preview --profile book
 ```
 
-Open `http://127.0.0.1:4200/` (default) to view the site with live reload. To produce a static bundle,
-run `quarto render` (website) or `quarto render --profile book` and deploy `_site_website/` and
-`_site_book/` as needed.
+Open `http://127.0.0.1:4200/` (default) to view the book with live reload. To produce a static bundle,
+run `quarto render --profile book` and deploy `_site_book/`.
 
-## Dual Builds (Website + Book)
+## Deployment Model (Book-Only)
 
-This repo now renders two versions from the same `.qmd` files using Quarto profiles:
+The live GitHub Pages deployment uses **book-only output** from the same `.qmd` sources:
 
-- Website (default): `quarto render` → outputs to `_site_website/`.
-- Book: `quarto render --profile book` → outputs to `_site_book/` with numbered sections and floating sidebar.
+- Book: `quarto render --profile book` → outputs to `_site_book/` with numbered sections, floating sidebar,
+  and the interactive tools included.
 
-To host both on GitHub Pages under sibling paths (e.g., `/website/` and `/book/`), publish a branch with:
+The published branch is expected to have the book output at the repository root (no `/book/` path):
 
 ```
 gh-pages/
-  website/index.html  # contents of _site_website
-  book/index.html     # contents of _site_book
+  index.html          # contents of _site_book
 ```
 
-Preview either locally with `quarto preview` or `quarto preview --profile book`.
+The legacy website profile is retained only for reference and is not deployed.
 
 ## Structure
 
@@ -40,12 +38,12 @@ Preview either locally with `quarto preview` or `quarto preview --profile book`.
 - `index.qmd` – Landing page with usage instructions and document map.
 - `docs/` – Section content for architecture, scoring logic, configuration, diagnostics, and appendices.
 - `docs/assets/` – Images and data assets (architecture diagrams, dashboards, legacy 4PN maps).
+- `web_*.qmd` – Legacy website wrappers (kept for backward compatibility; not used in current deployment).
 
-## Next Steps
+## Notes
 
-- Replace the placeholder repository URL in `_quarto.yml` once the site lives in its own repo.
-- Add real dashboards or diagrams to `docs/assets/` and embed them with Markdown.
-- Integrate with CI to run `quarto render` and publish the site on merge to `main`.
+- The website output (`_site_website/`) is no longer published; use the book profile for all updates.
+- If the website variant is revived in the future, update `_quarto.yml` and reinstate a dual-deploy workflow.
 
 ## Print / Editor Handoffs
 
