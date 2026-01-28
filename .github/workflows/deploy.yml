@@ -28,12 +28,12 @@ jobs:
         run: quarto render
 
       - name: Ensure .nojekyll
-        run: touch _site_book/.nojekyll
+        run: touch _site_website/.nojekyll
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: _site_book
+          publish_dir: _site_website
           publish_branch: gh-pages
           force_orphan: false

@@ -1,11 +1,12 @@
 project:
-  type: book
-  output-dir: _site_book
+  type: website
+  output-dir: _site_website
   render:
-    - index.qmd
-    - book_part1_landscape.qmd
-    - book_part2_capability.qmd
-    - book_part3_emerging.qmd
+    - web_home.qmd
+    - web_index.qmd
+    - web_part1_landscape.qmd
+    - web_part2_capability.qmd
+    - web_part3_emerging.qmd
     - docs/keyword_trends.qmd
     - docs/vosviewer_explorer.qmd
     - docs/cluster_dashboard.qmd
@@ -25,29 +26,128 @@ project:
 filters:
   - filters/fix_single_quotes.lua
 
-book:
-  title: "KRISS 표준과학 연구 데이터북"
-  date-format: iso
-  repo-url: "https://github.com/KISTI-GlobalRnD/kriss-databook-2025"
+website:
+  title: "KRISS 표준과학 연구 데이터북 (Databook)"
+  description: "Curated report with lightweight interactive tools for monitoring the standard-science research landscape"
+  repo-url: https://github.com/KISTI-GlobalRnD/kriss-databook-2025
   repo-actions: [source, issue]
   sidebar:
     style: floating
     search: true
+    border: true
     collapse-level: 1
+    contents:
+      - text: "홈 / Home"
+        href: web_home.qmd
+      - section: "데이터북 / Databook"
+        contents:
+          - text: "1. 서문 / Preface"
+            href: web_index.qmd
+          - text: "2. 문헌 집합 및 연구지형도 구축"
+            href: web_part1_landscape.qmd
+          - text: "3. 기관 연구역량 진단"
+            href: web_part2_capability.qmd
+          - text: "4. 유망 연구영역 도출"
+            href: web_part3_emerging.qmd
+      - section: "인터랙티브 도구 / Tools"
+        contents:
+          - docs/keyword_trends.qmd
+          - docs/vosviewer_explorer.qmd
+          - docs/cluster_dashboard.qmd
+      - section: "부록 / Appendix"
+        contents:
+          - text: "상세 리포팅 방법론"
+            href: docs/appendix_detailed_reporting.qmd
+          - section: "상세 리포트 — 핵심 역량"
+            contents:
+              - text: "개요"
+                href: docs/appendix_core_reports.qmd
+              - text: "9-12 - 배터리 양극·계면 측정"
+                href: docs/detailed_reports/cluster_12/report.qmd
+              - text: "10-173 - 2차원·산화물 가스센서"
+                href: docs/detailed_reports/cluster_173/report.qmd
+              - text: "11-24 - 폴리머 난연성 측정"
+                href: docs/detailed_reports/cluster_24/report.qmd
+              - text: "12-167 - 스핀전류 변환·제어"
+                href: docs/detailed_reports/cluster_167/report.qmd
+              - text: "20-182 - 다이아몬드결함양자센서"
+                href: docs/detailed_reports/cluster_182/report.qmd
+              - text: "34-69 - 메타표면 광학소자"
+                href: docs/detailed_reports/cluster_69/report.qmd
+              - text: "36-77 - 2차원 광전소자 측정"
+                href: docs/detailed_reports/cluster_77/report.qmd
+              - text: "37-145 - 광음향·초음파 나노진단치료"
+                href: docs/detailed_reports/cluster_145/report.qmd
+              - text: "41-127 - 뇌파 감정상태 측정"
+                href: docs/detailed_reports/cluster_127/report.qmd
+              - text: "43-178 - 현장진단 바이오센서"
+                href: docs/detailed_reports/cluster_178/report.qmd
+          - section: "상세 리포트 — 확장 가능"
+            contents:
+              - text: "개요"
+                href: docs/appendix_expand_reports.qmd
+              - text: "2-117 - 레이저 미량가스 분광측정"
+                href: docs/detailed_reports/cluster_117/report.qmd
+              - text: "7-154 - 리튬이온전지 예지진단"
+                href: docs/detailed_reports/cluster_154/report.qmd
+              - text: "9-191 - 물분해 전기촉매 측정"
+                href: docs/detailed_reports/cluster_191/report.qmd
+              - text: "11-15 - 전자파 차폐·흡수 복합재"
+                href: docs/detailed_reports/cluster_15/report.qmd
+              - text: "25-123 - 위상광자·비에르미트상"
+                href: docs/detailed_reports/cluster_123/report.qmd
+              - text: "25-176 - 양자다체 비평형 동역학"
+                href: docs/detailed_reports/cluster_176/report.qmd
+              - text: "37-79 - 미세·나노입자 계측표준"
+                href: docs/detailed_reports/cluster_79/report.qmd
+              - text: "38-84 - 양자알고리즘·오류정정"
+                href: docs/detailed_reports/cluster_84/report.qmd
+              - text: "38-107 - 초전도 회로 양자전기역학"
+                href: docs/detailed_reports/cluster_107/report.qmd
+              - text: "41-141 - 신축성 전자피부 센서"
+                href: docs/detailed_reports/cluster_141/report.qmd
+          - section: "상세 리포트 — 역량 공백"
+            contents:
+              - text: "개요"
+                href: docs/appendix_gap_reports.qmd
+              - text: "9-189 - 다공성골격 가스분리"
+                href: docs/detailed_reports/cluster_189/report.qmd
+              - text: "11-159 - 나노셀룰로오스 소재측정"
+                href: docs/detailed_reports/cluster_159/report.qmd
+              - text: "15-112 - 업컨버전 나노입자"
+                href: docs/detailed_reports/cluster_112/report.qmd
+              - text: "18-133 - 적층 바이오제조 측정"
+                href: docs/detailed_reports/cluster_133/report.qmd
+              - text: "26-131 - 중력파 검출·분석"
+                href: docs/detailed_reports/cluster_131/report.qmd
+              - text: "29-179 - 프로테오믹스 질량분석"
+                href: docs/detailed_reports/cluster_179/report.qmd
+              - text: "30-169 - 위상 양자물질 전자구조 측정"
+                href: docs/detailed_reports/cluster_169/report.qmd
+              - text: "32-62 - 집적 광주주파수빗"
+                href: docs/detailed_reports/cluster_62/report.qmd
+              - text: "34-162 - 궤도각운동량 광계측"
+                href: docs/detailed_reports/cluster_162/report.qmd
+              - text: "43-125 - 유전체 변이 측정표준"
+                href: docs/detailed_reports/cluster_125/report.qmd
+          - text: "클러스터링·키워드 방법론"
+            href: docs/appendix_methodology.qmd
+          - text: "용어 및 참고 / Glossary"
+            href: docs/appendix.qmd
   navbar:
     left:
       - text: "홈 / Home"
-        href: index.qmd
+        href: web_home.qmd
       - text: "데이터북 / Databook"
         menu:
-          - text: "서문 / Preface"
-            href: index.qmd
-          - text: "문헌 집합 및 연구지형도 구축"
-            href: book_part1_landscape.qmd
-          - text: "기관 연구역량 진단"
-            href: book_part2_capability.qmd
-          - text: "유망 연구영역 도출"
-            href: book_part3_emerging.qmd
+          - text: "1. 서문 / Preface"
+            href: web_index.qmd
+          - text: "2. 문헌 집합 및 연구지형도 구축"
+            href: web_part1_landscape.qmd
+          - text: "3. 기관 연구역량 진단"
+            href: web_part2_capability.qmd
+          - text: "4. 유망 연구영역 도출"
+            href: web_part3_emerging.qmd
       - text: "인터랙티브 도구 / Tools"
         menu:
           - text: "키워드 추세 탐색기 / Keyword Trends"
@@ -70,59 +170,7 @@ book:
             href: docs/appendix_methodology.qmd
           - text: "용어 및 참고 / Glossary"
             href: docs/appendix.qmd
-  chapters:
-    - index.qmd
-    - book_part1_landscape.qmd
-    - book_part2_capability.qmd
-    - book_part3_emerging.qmd
-  appendices:
-    - docs/appendix_detailed_reporting.qmd
-    - part: "인터랙티브 도구 / Tools"
-      chapters:
-        - docs/keyword_trends.qmd
-        - docs/vosviewer_explorer.qmd
-        - docs/cluster_dashboard.qmd
-    - part: "상세 리포트 — 핵심 역량"
-      chapters:
-        - docs/appendix_core_reports.qmd
-        - docs/detailed_reports/cluster_12/report.qmd
-        - docs/detailed_reports/cluster_173/report.qmd
-        - docs/detailed_reports/cluster_24/report.qmd
-        - docs/detailed_reports/cluster_167/report.qmd
-        - docs/detailed_reports/cluster_182/report.qmd
-        - docs/detailed_reports/cluster_69/report.qmd
-        - docs/detailed_reports/cluster_77/report.qmd
-        - docs/detailed_reports/cluster_145/report.qmd
-        - docs/detailed_reports/cluster_127/report.qmd
-        - docs/detailed_reports/cluster_178/report.qmd
-    - part: "상세 리포트 — 확장 가능"
-      chapters:
-        - docs/appendix_expand_reports.qmd
-        - docs/detailed_reports/cluster_117/report.qmd
-        - docs/detailed_reports/cluster_154/report.qmd
-        - docs/detailed_reports/cluster_191/report.qmd
-        - docs/detailed_reports/cluster_15/report.qmd
-        - docs/detailed_reports/cluster_123/report.qmd
-        - docs/detailed_reports/cluster_176/report.qmd
-        - docs/detailed_reports/cluster_79/report.qmd
-        - docs/detailed_reports/cluster_84/report.qmd
-        - docs/detailed_reports/cluster_107/report.qmd
-        - docs/detailed_reports/cluster_141/report.qmd
-    - part: "상세 리포트 — 역량 공백"
-      chapters:
-        - docs/appendix_gap_reports.qmd
-        - docs/detailed_reports/cluster_189/report.qmd
-        - docs/detailed_reports/cluster_159/report.qmd
-        - docs/detailed_reports/cluster_112/report.qmd
-        - docs/detailed_reports/cluster_133/report.qmd
-        - docs/detailed_reports/cluster_131/report.qmd
-        - docs/detailed_reports/cluster_179/report.qmd
-        - docs/detailed_reports/cluster_169/report.qmd
-        - docs/detailed_reports/cluster_62/report.qmd
-        - docs/detailed_reports/cluster_162/report.qmd
-        - docs/detailed_reports/cluster_125/report.qmd
-    - docs/appendix_methodology.qmd
-    - docs/appendix.qmd
+  page-navigation: true
 
 language:
   section-title-footnotes: "각주"
@@ -137,14 +185,12 @@ crossref:
 
 format:
   html:
-    theme: [pulse, theme/my_theme.scss]
+    theme: [cosmo, theme/my_theme.scss]
     toc: true
     toc-depth: 3
-    number-sections: true
-    number-depth: 3
+    number-sections: false
     code-copy: true
     anchor-sections: true
-    fig-responsive: true
     lightbox: true
     html-math-method:
       method: mathjax
@@ -157,3 +203,380 @@ format:
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" />
           <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer></script>
           <script src="docs/assets/js/datatable-init.js" defer></script>
+      - text: |
+          <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const chapterTitle = document.querySelector("h1.web-chapter-title");
+            if (chapterTitle) {
+              const titleBlock = document.querySelector(".quarto-title-block");
+              if (titleBlock) {
+                titleBlock.style.display = "none";
+              }
+
+              const chapterNumber =
+                chapterTitle.getAttribute("data-number") ||
+                (chapterTitle.querySelector(".header-section-number") || {}).textContent?.trim();
+
+              if (chapterNumber) {
+                const prefixRegex = /^\s*표[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+                const tableCaptions = Array.from(
+                  document.querySelectorAll("figcaption.quarto-float-tbl")
+                );
+
+                let tableIndex = 0;
+                const tableIds = [];
+
+                tableCaptions.forEach((caption) => {
+                  tableIndex += 1;
+                  const newPrefix = `표 ${chapterNumber}.${tableIndex}:`;
+                  const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+                  const textNode = walker.nextNode();
+
+                  if (textNode && prefixRegex.test(textNode.nodeValue)) {
+                    textNode.nodeValue = textNode.nodeValue.replace(prefixRegex, newPrefix);
+                  }
+
+                  const float = caption.closest(".quarto-float");
+                  if (float && float.id && float.id.startsWith("tbl-")) {
+                    tableIds.push(float.id);
+                  }
+                });
+
+                tableIds.forEach((id, idx) => {
+                  const label = `표 ${chapterNumber}.${idx + 1}`;
+                  document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+                    const text = (anchor.textContent || "").trim();
+                    if (/^표[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+                      anchor.textContent = label;
+                    }
+                  });
+                });
+
+                const figPrefixRegex = /^\s*그림[\s\u00A0]*\d+(?:\.\d+)?[\s\u00A0]*:/;
+                const figCaptions = Array.from(
+                  document.querySelectorAll("figure figcaption")
+                ).filter((caption) => {
+                  const figure = caption.closest("figure");
+                  return !(figure && figure.classList.contains("quarto-float-tbl"));
+                });
+                let figIndex = 0;
+                const figIds = [];
+
+                figCaptions.forEach((caption) => {
+                  figIndex += 1;
+                  const newPrefix = `그림 ${chapterNumber}.${figIndex}:`;
+                  const walker = document.createTreeWalker(caption, NodeFilter.SHOW_TEXT, null);
+                  let textNode = walker.nextNode();
+                  while (textNode && !textNode.nodeValue.trim()) {
+                    textNode = walker.nextNode();
+                  }
+
+                  if (textNode) {
+                    if (figPrefixRegex.test(textNode.nodeValue)) {
+                      textNode.nodeValue = textNode.nodeValue.replace(figPrefixRegex, newPrefix);
+                    } else {
+                      textNode.nodeValue = `${newPrefix} ${textNode.nodeValue.trim()}`;
+                    }
+                  } else {
+                    caption.prepend(document.createTextNode(`${newPrefix} `));
+                  }
+
+                  const float = caption.closest(".quarto-float");
+                  if (float && float.id && float.id.startsWith("fig-")) {
+                    figIds.push(float.id);
+                  }
+                });
+
+                figIds.forEach((id, idx) => {
+                  const label = `그림 ${chapterNumber}.${idx + 1}`;
+                  document.querySelectorAll(`a[href="#${id}"]`).forEach((anchor) => {
+                    const text = (anchor.textContent || "").trim();
+                    if (/^그림[\s\u00A0]*\d+(?:\.\d+)?$/.test(text)) {
+                      anchor.textContent = label;
+                    }
+                  });
+                });
+              }
+            }
+
+            document.querySelectorAll(".carousel-gallery").forEach((carousel) => {
+              const track = carousel.querySelector(".carousel-track");
+              const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+              if (!track || slides.length === 0) {
+                return;
+              }
+
+              const dotsContainer = carousel.querySelector(".carousel-dots");
+              const prevBtn = carousel.querySelector(".carousel-btn.prev");
+              const nextBtn = carousel.querySelector(".carousel-btn.next");
+              let currentIndex = 0;
+              let isPointerDown = false;
+              let isDragging = false;
+              let startX = 0;
+              let startY = 0;
+              let dragStartTranslate = 0;
+              let hasDragged = false;
+
+              const getSlideWidth = () => {
+                const styles = window.getComputedStyle(carousel);
+                const paddingLeft = parseFloat(styles.paddingLeft) || 0;
+                const paddingRight = parseFloat(styles.paddingRight) || 0;
+                return carousel.clientWidth - paddingLeft - paddingRight;
+              };
+
+              const updateDots = () => {
+                if (!dotsContainer) {
+                  return;
+                }
+                dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, idx) => {
+                  dot.classList.toggle("is-active", idx === currentIndex);
+                });
+              };
+
+              const update = () => {
+                const width = getSlideWidth();
+                slides.forEach((slide) => {
+                  slide.style.width = `${width}px`;
+                });
+                track.style.transform = `translateX(-${currentIndex * width}px)`;
+                updateDots();
+              };
+
+              const goTo = (index) => {
+                currentIndex = (index + slides.length) % slides.length;
+                update();
+              };
+
+              if (dotsContainer) {
+                dotsContainer.innerHTML = "";
+                slides.forEach((_, idx) => {
+                  const dot = document.createElement("button");
+                  dot.type = "button";
+                  dot.className = "carousel-dot";
+                  dot.setAttribute("aria-label", `슬라이드 ${idx + 1}`);
+                  dot.addEventListener("click", () => goTo(idx));
+                  dotsContainer.appendChild(dot);
+                });
+              }
+
+              if (prevBtn) {
+                prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+              }
+              if (nextBtn) {
+                nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+              }
+
+              track.addEventListener("pointerdown", (event) => {
+                if (event.button && event.button !== 0) {
+                  return;
+                }
+                isPointerDown = true;
+                isDragging = false;
+                hasDragged = false;
+                startX = event.clientX;
+                startY = event.clientY;
+                dragStartTranslate = -currentIndex * getSlideWidth();
+              });
+
+              track.addEventListener("pointermove", (event) => {
+                if (!isPointerDown) {
+                  return;
+                }
+                const deltaX = event.clientX - startX;
+                const deltaY = event.clientY - startY;
+                if (!isDragging) {
+                  if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+                    isDragging = true;
+                    hasDragged = true;
+                    track.classList.add("is-dragging");
+                    try {
+                      track.setPointerCapture(event.pointerId);
+                    } catch (error) {
+                      // ignore if pointer capture fails
+                    }
+                  } else {
+                    return;
+                  }
+                }
+                track.style.transform = `translateX(${dragStartTranslate + deltaX}px)`;
+              });
+
+              const endDrag = (event) => {
+                if (!isPointerDown) {
+                  return;
+                }
+                isPointerDown = false;
+                if (!isDragging) {
+                  return;
+                }
+                isDragging = false;
+                track.classList.remove("is-dragging");
+                try {
+                  track.releasePointerCapture(event.pointerId);
+                } catch (error) {
+                  // ignore if pointer was not captured
+                }
+                const delta = event.clientX - startX;
+                const width = getSlideWidth();
+                if (Math.abs(delta) > width * 0.2) {
+                  goTo(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+                } else {
+                  update();
+                }
+                if (hasDragged) {
+                  track.dataset.dragging = "true";
+                  window.setTimeout(() => {
+                    track.dataset.dragging = "false";
+                  }, 0);
+                }
+              };
+
+              track.addEventListener("pointerup", endDrag);
+              track.addEventListener("pointercancel", endDrag);
+
+              track.addEventListener("click", (event) => {
+                if (track.dataset.dragging === "true") {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+              });
+
+              window.addEventListener("resize", update);
+              update();
+            });
+
+            const initLightboxSwipe = () => {
+              const supportsFinePointer = window.matchMedia("(pointer: fine)").matches;
+              if (!supportsFinePointer) {
+                return;
+              }
+
+              const container = document.querySelector(".glightbox-container");
+              if (!container || container.dataset.swipeInit === "true") {
+                return;
+              }
+              container.dataset.swipeInit = "true";
+
+              const slider = container.querySelector("#glightbox-slider");
+              if (!slider) {
+                return;
+              }
+
+              let isPointerDown = false;
+              let isDragging = false;
+              let hasDragged = false;
+              let startX = 0;
+              let startY = 0;
+
+              const isZoomed = () => {
+                const active = slider.querySelector(".gslide.current");
+                return active && active.classList.contains("zoomed");
+              };
+
+              const goNext = () => {
+                const nextBtn = container.querySelector(".gnext");
+                if (nextBtn && !nextBtn.classList.contains("disabled")) {
+                  nextBtn.click();
+                }
+              };
+
+              const goPrev = () => {
+                const prevBtn = container.querySelector(".gprev");
+                if (prevBtn && !prevBtn.classList.contains("disabled")) {
+                  prevBtn.click();
+                }
+              };
+
+              slider.addEventListener("pointerdown", (event) => {
+                if (event.button && event.button !== 0) {
+                  return;
+                }
+                if (isZoomed()) {
+                  return;
+                }
+                if (event.target.closest(".gbtn")) {
+                  return;
+                }
+                isPointerDown = true;
+                isDragging = false;
+                hasDragged = false;
+                startX = event.clientX;
+                startY = event.clientY;
+              });
+
+              slider.addEventListener("pointermove", (event) => {
+                if (!isPointerDown) {
+                  return;
+                }
+                const deltaX = event.clientX - startX;
+                const deltaY = event.clientY - startY;
+                if (!isDragging) {
+                  if (Math.abs(deltaX) > 12 && Math.abs(deltaX) > Math.abs(deltaY) + 4) {
+                    isDragging = true;
+                    hasDragged = true;
+                    slider.classList.add("is-dragging");
+                    try {
+                      slider.setPointerCapture(event.pointerId);
+                    } catch (error) {
+                      // ignore if pointer capture fails
+                    }
+                  } else {
+                    return;
+                  }
+                }
+              });
+
+              const endDrag = (event) => {
+                if (!isPointerDown) {
+                  return;
+                }
+                isPointerDown = false;
+                if (!isDragging) {
+                  return;
+                }
+                isDragging = false;
+                slider.classList.remove("is-dragging");
+                try {
+                  slider.releasePointerCapture(event.pointerId);
+                } catch (error) {
+                  // ignore if pointer was not captured
+                }
+
+                const deltaX = event.clientX - startX;
+                const deltaY = event.clientY - startY;
+                if (
+                  hasDragged &&
+                  Math.abs(deltaX) > Math.abs(deltaY) &&
+                  Math.abs(deltaX) > 50
+                ) {
+                  if (deltaX < 0) {
+                    goNext();
+                  } else {
+                    goPrev();
+                  }
+                }
+
+                if (hasDragged) {
+                  slider.dataset.dragging = "true";
+                  window.setTimeout(() => {
+                    slider.dataset.dragging = "false";
+                  }, 0);
+                }
+              };
+
+              slider.addEventListener("pointerup", endDrag);
+              slider.addEventListener("pointercancel", endDrag);
+
+              slider.addEventListener("click", (event) => {
+                if (slider.dataset.dragging === "true") {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+              });
+            };
+
+            initLightboxSwipe();
+            const lightboxObserver = new MutationObserver(() => initLightboxSwipe());
+            lightboxObserver.observe(document.body, { childList: true, subtree: true });
+          });
+          </script>
