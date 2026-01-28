@@ -6,6 +6,7 @@ _site_pdf/
 .quarto/
 book/
 website/
+*_files/
 _tool_runtime/
 final_report_site/
 _archive_site/

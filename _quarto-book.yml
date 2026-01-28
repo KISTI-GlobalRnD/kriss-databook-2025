@@ -81,6 +81,11 @@ book:
     - book_part3_emerging.qmd
   appendices:
     - docs/appendix_detailed_reporting.qmd
+    - part: "인터랙티브 도구 / Tools"
+      chapters:
+        - docs/keyword_trends.qmd
+        - docs/vosviewer_explorer.qmd
+        - docs/cluster_dashboard.qmd
     - part: "상세 리포트 — 핵심 역량"
       chapters:
         - docs/appendix_core_reports.qmd
