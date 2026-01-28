@@ -43,15 +43,15 @@ The legacy website variant has been removed; the current configuration maintains
    git -C ../final_report_site_ghpages push origin gh-pages
    ```
 
-### Recommended (CI) Deployment — Not Yet Configured
+### CI Deployment (GitHub Actions)
 
-Documented target: use GitHub Actions to build and publish `gh-pages` automatically on `main` updates.
-The workflow should:
+GitHub Actions builds and publishes `gh-pages` automatically on `main` updates.
+Workflow: `.github/workflows/deploy.yml`
 
-- Check out the repository.
-- Install Quarto.
-- Run `quarto render` to generate `_site_book/`.
-- Publish `_site_book/` to the `gh-pages` branch root.
+- It checks out the repo.
+- Installs Quarto.
+- Runs `quarto render` to generate `_site_book/`.
+- Publishes `_site_book/` to the `gh-pages` branch root.
 
 ## Structure
 
