@@ -17,7 +17,7 @@ run `quarto render` and deploy `_site_book/`.
 
 ## Deployment Model
 
-GitHub Pages publishes the Quarto book output rendered from the same `.qmd` sources.
+GitHub Pages publishes the Quarto output rendered from the same `.qmd` sources.
 
 The published branch is expected to have the book output at the repository root (no `/book/` path):
 
@@ -27,6 +27,31 @@ gh-pages/
 ```
 
 The legacy website variant has been removed; the current configuration maintains a single build.
+
+### Current (Manual) Deployment
+
+1) Render locally:
+   ```bash
+   cd final_report_site
+   quarto render
+   ```
+2) Copy the output into the gh-pages worktree and push:
+   ```bash
+   rsync -a --delete --exclude='.git' _site_book/ ../final_report_site_ghpages/
+   git -C ../final_report_site_ghpages add -A
+   git -C ../final_report_site_ghpages commit -m "Deploy site"
+   git -C ../final_report_site_ghpages push origin gh-pages
+   ```
+
+### Recommended (CI) Deployment — Not Yet Configured
+
+Documented target: use GitHub Actions to build and publish `gh-pages` automatically on `main` updates.
+The workflow should:
+
+- Check out the repository.
+- Install Quarto.
+- Run `quarto render` to generate `_site_book/`.
+- Publish `_site_book/` to the `gh-pages` branch root.
 
 ## Structure
 
