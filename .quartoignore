@@ -1,5 +1,17 @@
-book/**
-website/**
-_site_book/**
-_site_website/**
-.quarto/**
+# Prevent recursive inclusion of build outputs and local artefacts
+book/
+website/
+_site_website/
+_site_book/
+_site_pdf/
+_tool_runtime/
+_archive_site/
+final_report_site/
+
+# Local print/build artefacts
+index.aux
+index.log
+index.pdf
+index.tex
+index.toc
+kriss_databook_print.pdf.tex

@@ -1,15 +1,6 @@
 project:
   type: book
   output-dir: _site_book
-  exclude:
-    - book/**
-    - website/**
-    - _site_website/**
-    - _site_book/**
-    - _site_pdf/**
-    - _tool_runtime/**
-    - _archive_site/**
-    - final_report_site/**
   render:
     - index.qmd
     - book_part1_landscape.qmd
