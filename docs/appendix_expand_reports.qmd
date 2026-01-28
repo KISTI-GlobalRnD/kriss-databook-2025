@@ -4,6 +4,13 @@ description: "확장 가능 유형의 상세 리포트를 수록하였다."
 page-title: true
 ---
 
+:::{.content-visible when-profile="pdf"}
+확장 가능 유형에 해당하는 상세 리포트는 **대표 1건**만 수록하였다.
+
+- [38-84 - 양자알고리즘·오류정정 (확장 가능)](detailed_reports/cluster_84/report.qmd)
+:::
+
+:::{.content-visible unless-profile="pdf"}
 확장 가능 유형에 해당하는 상세 리포트를 아래와 같이 수록하였다(총 10건).
 
 - [2-117 - 레이저 미량가스 분광측정 (확장 가능)](detailed_reports/cluster_117/report.qmd)
@@ -16,3 +23,4 @@ page-title: true
 - [38-84 - 양자알고리즘·오류정정 (확장 가능)](detailed_reports/cluster_84/report.qmd)
 - [38-107 - 초전도 회로 양자전기역학 (확장 가능)](detailed_reports/cluster_107/report.qmd)
 - [41-141 - 신축성 전자피부 센서 (확장 가능)](detailed_reports/cluster_141/report.qmd)
+:::

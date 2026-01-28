@@ -11,6 +11,7 @@
 아래 지형도는 벤치마킹 기관 중심 협력 네트워크를 전영역과 4개 세부 영역으로 나누어 정리한 결과다. 노드 크기는 협력 강도(협력 기관 수), 색상은 VOSviewer가 추정한 클러스터를 의미한다. 인터랙티브 지도는 별도 도구에서 제공한다.
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -50,6 +51,18 @@
 <button class="carousel-btn next" type="button" aria-label="다음">›</button>
 :::
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
+:::
+:::
+:::{.content-visible when-profile="pdf"}
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
+
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
+
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
+
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
+
+![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
 :::
 :::
 :::{.content-visible when-profile="book"}

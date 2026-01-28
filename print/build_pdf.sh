@@ -11,15 +11,20 @@ mkdir -p _site_pdf
 
 quarto render --profile pdf --to pdf
 
-# Collect build artifacts under _site_pdf/ (Quarto emits them to project root for PDF)
-for ext in aux log pdf tex toc out; do
-  if [[ -f "index.${ext}" ]]; then
-    mv "index.${ext}" "_site_pdf/index.${ext}"
-  fi
-done
+# Quarto may emit PDFs to either _site_pdf/ or the project root depending on version/options.
+if [[ -f "_site_pdf/kriss_databook_print.pdf.pdf" ]]; then
+  mv "_site_pdf/kriss_databook_print.pdf.pdf" "_site_pdf/kriss_databook_print.pdf"
+fi
 
-if [[ -f "_site_pdf/index.pdf" ]]; then
-  mv "_site_pdf/index.pdf" "_site_pdf/kriss_databook_print.pdf"
+if [[ -f "index.pdf" ]]; then
+  for ext in aux log pdf tex toc out; do
+    if [[ -f "index.${ext}" ]]; then
+      mv "index.${ext}" "_site_pdf/index.${ext}"
+    fi
+  done
+  if [[ -f "_site_pdf/index.pdf" ]]; then
+    mv "_site_pdf/index.pdf" "_site_pdf/kriss_databook_print.pdf"
+  fi
 fi
 
 echo "Done. PDF output: _site_pdf/kriss_databook_print.pdf"

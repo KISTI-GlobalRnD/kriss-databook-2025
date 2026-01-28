@@ -2,7 +2,7 @@
 
 ### 2-1. 전체 문헌 수 추이(연도별)
 
-![](figures/02_docs_by_year.svg)
+![](figures/02_docs_by_year.png)
 
 > 좌측 축은 해당 클러스터, 우측 축은 195개 micro 전체 합계의 연도별 문헌 수(N_docs) 입니다(절대값 비교가 아니라 추세 비교 목적).
 

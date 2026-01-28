@@ -9,7 +9,7 @@
 | United States of America | National Institute of Standards & Technology (NIST) - USA |
 | Germany | Federal Institute for Materials Research & Testing (BAM) |
 | Germany | Physikalisch-Technische Bundesanstalt (PTB) |
-| India | CSIR - National Physical Laboratory (NPL) |
+| India | CSIR - National Physical Laboratory (NPLI) |
 | United Kingdom | National Physical Laboratory - UK |
 | Canada | National Research Council Canada [NRC] |
 | Italy | Istituto Nazionale di Ricerca Metrologica (INRIM) |

@@ -8,39 +8,29 @@
 
 다만 이 협력 네트워크 그래프는 벤치마킹 10개 기관의 협력 네트워크를 중점적으로 조망하기 위한 분석용 시각화이며, 표준과학 전 영역에서의 실제 협력 현황을 그대로 대표하는 것으로 해석해서는 안 된다. 특히 표준과학 영역에서는 BIPM 정회원국 표준과학 전문 연구기관들 간 협력뿐 아니라, 해당 기관들이 포함되지 않은 상태로 이루어지는 다양한 대학 및 종합연구소 중심의 협력 연구가 더 큰 비중을 차지할 수 있다. 따라서 여기서 살펴볼 협력 네트워크는 ‘벤치마킹 대상 기관을 중심으로 한 협력의 상대적 구조’로 이해하는 것이 타당하며, 전반적 협력 규모나 전체 협력의 분포를 직접적으로 대변하는 지표로 사용하는 데에는 제한이 따른다.
 
-[그림 21] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (표준과학 전 영역)](../Final_Report_MD/report_assets/stdscience_collaboration_network.png){#fig-stdscience-collaboration-network}
 
-![stdscience_collaboration_network.png](../Final_Report_MD/report_assets/stdscience_collaboration_network.png)
+위 그림에 나타나는 표준과학 전 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSviewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw)).
 
-위 그림에 나타나는 표준과학 전영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw)).
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (물리측정 영역)](../Final_Report_MD/report_assets/physical_collaboration_network.png){#fig-physical-collaboration-network}
 
-[그림 22] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)
+위 그림에 나타나는 물리측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSviewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HCzWTCSrE7yfSh_Ksi_QdryFsRdK6Mg-)).
 
-![physical_collaboration_network.png](../Final_Report_MD/report_assets/physical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (화학소재측정 영역)](../Final_Report_MD/report_assets/chemical_materials_collaboration_network.png){#fig-chemical-materials-collaboration-network}
 
-위 그림에 나타나는 물리측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1HCzWTCSrE7yfSh_Ksi_QdryFsRdK6Mg-)).
+위 그림에 나타나는 화학소재측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSviewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1N2RfNURIGNDnIrJXqs87dol4mKMYLhTR)).
 
-[그림 23] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (바이오의료측정 영역)](../Final_Report_MD/report_assets/biomedical_collaboration_network.png){#fig-biomedical-collaboration-network}
 
-![chemical_materials_collaboration_network.png](../Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
+위 그림에 나타나는 바이오의료측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSviewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SnjTp57fg3N6pXm1yiEJo57sg0TddWF5)).
 
-위 그림에 나타나는 화학소재측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1N2RfNURIGNDnIrJXqs87dol4mKMYLhTR)).
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (양자기술 영역)](../Final_Report_MD/report_assets/quantum_collaboration_network.png){#fig-quantum-collaboration-network}
 
-[그림 24] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)
+위 그림에 나타나는 양자기술 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSviewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1zKWEwz3MisYMVzhz10WMRBryvaF_w6Ao)).
 
-![biomedical_collaboration_network.png](../Final_Report_MD/report_assets/biomedical_collaboration_network.png)
+추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력 비율과 국제협력 논문 수를 살펴보았다. 이를 통해 KRISS의 국제협력이 **벤치마킹 기관 대비 어느 정도 수준인지**, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴볼 수 있다. 
 
-위 그림에 나타나는 바이오의료측정 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1SnjTp57fg3N6pXm1yiEJo57sg0TddWF5)).
-
-[그림 25] 주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)
-
-![quantum_collaboration_network.png](../Final_Report_MD/report_assets/quantum_collaboration_network.png)
-
-위 그림에 나타나는 양자기술 영역의 벤치마킹 기관 중심 협력네트워크 연구지형도 예시에서 노드의 크기는 협력 강도(협력 기관 수)에 비례하며, 노드의 색상은 VOSViewer의 자체 알고리즘이 추정한 클러스터를 이와 같은 협력네트워크는 VOSviewer를 통해 인터랙티브 지도화하였으며 온라인에 게시되어 있다([https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D12fNZlZBBC-yR5v5SAQEUOIuSTlKSGCEw](https://app.vosviewer.com/?json=https%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1zKWEwz3MisYMVzhz10WMRBryvaF_w6Ao)).
-
-추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력비율과 국제협력논문수를 살펴보았다. 이를 통해 KRISS의 국제협력이 **벤치마킹 기관 대비 어느 정도 수준인지**, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴 볼 수 있다. 
-
-아래 표는 각 기관이 2020–2024년 5개년 동안 생산한 논문 중에서 국제공저(해외 기관과 공동저자)로 수행된 논문의 비중을 계산해, 기관별·연구영역별 국제협력 수준을 비교한 결과를 나타내고 있다. 표 안의 각 %는 해당 기관의 전체(또는 해당 영역) 논문 중 국제공저 논문이 차지하는 비율이고, 괄호 안의 분자와 분모는 각각 국제공저 논문 수와 전체 논문 수를 의미한다.
+표 @tbl-international-collaboration-rate는 각 기관이 2020–2024년 5개년 동안 생산한 논문 중에서 국제공저(해외 기관과 공동저자)로 수행된 논문의 비중을 계산해, 기관별·연구영역별 국제협력 수준을 비교한 결과를 나타내고 있다. 표 안의 각 %는 해당 기관의 전체(또는 해당 영역) 논문 중 국제공저 논문이 차지하는 비율이고, 괄호 안의 분자와 분모는 각각 국제공저 논문 수와 전체 논문 수를 의미한다.
 
 | 기관명 | 전체 | 물리측정 | 화학소재측정 | 바이오의료측정 | 양자기술 |
 | --- | --- | --- | --- | --- | --- |
@@ -55,7 +45,7 @@
 | NMIJ/AIST | 22.61% (161/712) | 29.47% (89/302) | 17.42% (31/178) | 11.67% (14/120) | 25.71% (27/105) |
 | NIM | 15.14% (194/1281) | 20.00% (87/435) | 14.17% (36/254) | 12.53% (45/359) | 10.80% (19/176) |
 
-: 표준과학 영역별 KRISS와 주요 벤치마킹 기관의 국제협력 비율(국제협력논문수/전체논문수) {#tbl-international-collaboration-rate}
+: 표준과학 영역별 KRISS와 주요 벤치마킹 기관의 국제협력 비율(국제협력 논문 수/전체 논문 수) {#tbl-international-collaboration-rate}
 
 2020–2024년 기준으로 KRISS의 국제공저 비중은 28.84%(473/1,640)로, 비교 대상 10대 BIPM 기관 중 7위에 위치한다. 상위 기관인 NPL(71.87%), PTB(61.45%), NRC(57.86%)와 비교하면 국제협력 기반의 논문 생산 비중이 낮고, NIST(43.76%)와 비교해도 격차가 크다. 반면 하위권 기관인 NPLI(22.98%), NMIJ/AIST(22.61%), NIM(15.14%)보다는 높은 수준으로, 국제협력이 일정 수준에서는 작동하고 있으나 선도기관 대비 확장 여지가 큰 상태로 해석된다.
 

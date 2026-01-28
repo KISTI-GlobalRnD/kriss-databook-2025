@@ -10,6 +10,9 @@ project:
     - docs/appendix_core_reports.qmd
     - docs/appendix_expand_reports.qmd
     - docs/appendix_gap_reports.qmd
+    - docs/detailed_reports/cluster_182/report.qmd
+    - docs/detailed_reports/cluster_84/report.qmd
+    - docs/detailed_reports/cluster_159/report.qmd
     - docs/appendix_methodology.qmd
     - docs/appendix.qmd
 
@@ -23,9 +26,18 @@ book:
     - book_part3_emerging.qmd
   appendices:
     - docs/appendix_detailed_reporting.qmd
-    - docs/appendix_core_reports.qmd
-    - docs/appendix_expand_reports.qmd
-    - docs/appendix_gap_reports.qmd
+    - part: "상세 리포트 — 핵심 역량"
+      chapters:
+        - docs/appendix_core_reports.qmd
+        - docs/detailed_reports/cluster_182/report.qmd
+    - part: "상세 리포트 — 확장 가능"
+      chapters:
+        - docs/appendix_expand_reports.qmd
+        - docs/detailed_reports/cluster_84/report.qmd
+    - part: "상세 리포트 — 역량 공백"
+      chapters:
+        - docs/appendix_gap_reports.qmd
+        - docs/detailed_reports/cluster_159/report.qmd
     - docs/appendix_methodology.qmd
     - docs/appendix.qmd
 

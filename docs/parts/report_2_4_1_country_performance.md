@@ -15,6 +15,7 @@
 표준과학 연구지형도의 세부 영역별로 주요 국가의 성과수준을 비교 분석한다. 분석은 표준과학 전영역을 포함해 물리측정, 화학소재측정, 바이오의료측정, 양자기술의 4개 영역으로 구분하여 수행하며, 각 영역에서 주요 국가의 성과가 어떤 수준과 분포 형태로 나타나는지를 KISTI의 분위수 분포 기반 수준 비교 모형, 최상위 및 최하위 문헌 비율 시계열, 연평균 문헌수 시계열, 엑셀런스 지수와 최상위 문헌 점유율 결합 분석을 통해 확인한다.
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -56,6 +57,18 @@
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
 :::
 :::
+:::{.content-visible when-profile="pdf"}
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/country_histogram_percentiles_2022_2024_stdscience.png)
+
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역](Final_Report_MD/report_assets/country_histogram_percentiles_2022_2024_physical.png)
+
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/country_histogram_percentiles_2022_2024_chemical_materials.png)
+
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/country_histogram_percentiles_2022_2024_biomedical.png)
+
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역](Final_Report_MD/report_assets/country_histogram_percentiles_2022_2024_quantum.png)
+:::
+:::
 :::{.content-visible when-profile="book"}
 ![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/country_histogram_percentiles_2022_2024_stdscience.png)
 
@@ -69,6 +82,7 @@
 :::
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -110,6 +124,18 @@
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
 :::
 :::
+:::{.content-visible when-profile="pdf"}
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_stdscience.png)
+
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_physical.png)
+
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials.png)
+
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_biomedical.png)
+
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_quantum.png)
+:::
+:::
 :::{.content-visible when-profile="book"}
 ![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_stdscience.png)
 
@@ -123,6 +149,7 @@
 :::
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -164,6 +191,18 @@
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
 :::
 :::
+:::{.content-visible when-profile="pdf"}
+![연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/country_excellence_index10_3yr_stdscience.png)
+
+![연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역](Final_Report_MD/report_assets/country_excellence_index10_3yr_physical.png)
+
+![연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/country_excellence_index10_3yr_chemical_materials.png)
+
+![연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/country_excellence_index10_3yr_biomedical.png)
+
+![연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역](Final_Report_MD/report_assets/country_excellence_index10_3yr_quantum.png)
+:::
+:::
 :::{.content-visible when-profile="book"}
 ![연평균 문헌수 시계열로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/country_excellence_index10_3yr_stdscience.png)
 
@@ -177,6 +216,7 @@
 :::
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -216,6 +256,18 @@
 <button class="carousel-btn next" type="button" aria-label="다음">›</button>
 :::
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
+:::
+:::
+:::{.content-visible when-profile="pdf"}
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/country_excellence_vs_share_3yr_stdscience.png)
+
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 물리측정 영역](Final_Report_MD/report_assets/country_excellence_vs_share_3yr_physical.png)
+
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/country_excellence_vs_share_3yr_chemical_materials.png)
+
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/country_excellence_vs_share_3yr_biomedical.png)
+
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석 결합 분석로 살펴본 표준과학 연구 영역 주요 국가 성과수준: 양자기술 영역](Final_Report_MD/report_assets/country_excellence_vs_share_3yr_quantum.png)
 :::
 :::
 :::{.content-visible when-profile="book"}

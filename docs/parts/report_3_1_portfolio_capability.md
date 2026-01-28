@@ -13,6 +13,7 @@
 이 기준을 적용하여 기관별로 특정 연구영역이 ‘활동이 있는 영역’인지(양적 역량) 또는 ‘상위권 성과까지 확보한 영역’인지(질적 역량)를 구분할 수 있으며, 이를 통해 KRISS의 강점 영역과 개선 필요 영역, 그리고 벤치마킹 기관 대비 공백 영역을 체계적으로 탐색할 수 있다. 예컨대 복수의 벤치마킹 기관들이 공통적으로 역량을 확보하고 있는 영역인데 KRISS가 양적·질적 기준을 동시에 충족하지 못하는 경우, 해당 영역은 전략적 공백 후보로 우선순위를 높게 부여할 수 있다.
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -74,6 +75,24 @@
 <button class="carousel-btn next" type="button" aria-label="다음">›</button>
 :::
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
+:::
+:::
+:::{.content-visible when-profile="pdf"}
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/report_assets/heatmap_div_physical_clusters_2plus_orgs_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 물리측정 영역](Final_Report_MD/report_assets/heatmap_div_physical_clusters_1org_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_2plus_orgs_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 화학소재측정 영역](Final_Report_MD/report_assets/heatmap_div_chemical_materials_clusters_1org_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_2plus_orgs_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 바이오의료측정 영역](Final_Report_MD/report_assets/heatmap_div_biomedical_clusters_1org_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 2개 이상 기관의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/report_assets/heatmap_div_quantum_clusters_2plus_orgs_conditions.png)
+
+![KRISS와 벤치마킹 연구기관 중 1개 기관만의 역량이 뛰어난 연구 영역: 양자기술 영역](Final_Report_MD/report_assets/heatmap_div_quantum_clusters_1org_conditions.png)
 :::
 :::
 :::{.content-visible when-profile="book"}

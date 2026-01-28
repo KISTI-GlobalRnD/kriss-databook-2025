@@ -46,3 +46,7 @@ Preview either locally with `quarto preview` or `quarto preview --profile book`.
 - Replace the placeholder repository URL in `_quarto.yml` once the site lives in its own repo.
 - Add real dashboards or diagrams to `docs/assets/` and embed them with Markdown.
 - Integrate with CI to run `quarto render` and publish the site on merge to `main`.
+
+## Print / Editor Handoffs
+
+- DOCX/HWPX 변환, 머지, 검토용 PDF 생성 워크플로는 `final_report_site/print/README.md` 참고.

@@ -73,6 +73,7 @@
 정책부합성은 연구 영역별로도 차이를 보인다. 물리측정 영역에서는 대부분의 기관이 첨단제조 분야에 높은 비중을 보이며, KRISS 역시 물리측정 기반 연구가 산업·제조 응용에 강하게 연결되는 양상을 나타낸다. 화학소재측정 영역은 첨단제조와 함께 기후·환경 및 식품 분야 비중이 상대적으로 높아, 환경 모니터링과 화학 기반 안전·규제 수요와의 결합이 더 두드러진다. 바이오의료측정 영역은 건강 분야가 모든 기관에서 압도적으로 높아, 바이오 측정 연구가 본질적으로 보건·의료 정책 수요와 밀접하게 결합됨을 반영한다. 양자기술 영역은 전반적으로 정책부합 비율이 낮고 첨단제조 중심의 분포가 나타나, 정책 응용보다는 기초연구 및 인프라 구축 단계의 성격이 상대적으로 강함을 시사한다.
 
 :::{.content-visible unless-profile="book"}
+:::{.content-visible unless-profile="pdf"}
 ::: {.carousel-gallery}
 ::: {.carousel-track}
 ::: {.carousel-slide}
@@ -94,6 +95,12 @@
 <button class="carousel-btn next" type="button" aria-label="다음">›</button>
 :::
 <div class="carousel-caption">좌우 버튼 또는 드래그로 영역별 결과를 확인할 수 있다.</div>
+:::
+:::
+:::{.content-visible when-profile="pdf"}
+![전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율](Final_Report_MD/report_assets/01_by_institution_policy_alignment_ratio_overall_4_domains.png)
+
+![물리측정 영역: 기관별 카테고리 정책부합 논문비율](Final_Report_MD/report_assets/02_physical_by_institution_policy_alignment_ratio_by_category.png)
 :::
 :::
 :::{.content-visible when-profile="book"}

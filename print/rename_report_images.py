@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import argparse
 import csv
 import os
 import re
@@ -10,8 +11,9 @@ from pathlib import Path
 from urllib.parse import quote
 
 
-ASSET_DIR = Path("Final_Report_MD/report_assets")
-MAP_CSV = Path("print/asset_rename_map.csv")
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_ASSET_DIR = PROJECT_ROOT / "Final_Report_MD" / "report_assets"
+DEFAULT_MAP_CSV = PROJECT_ROOT / "print" / "asset_rename_map.csv"
 
 HANGUL_TOKEN_MAP = {
     "표준과학영역": "stdscience",
@@ -52,7 +54,7 @@ def git_mv(src: Path, dst: Path) -> None:
     subprocess.run(["git", "mv", str(src), str(dst)], check=True)
 
 
-def normalise_basename(name: str) -> str:
+def normalise_basename(name: str, *, pad_suffix_numbers: int = 0) -> str:
     stem, ext = os.path.splitext(name)
     ext = ext.lower()
 
@@ -65,6 +67,13 @@ def normalise_basename(name: str) -> str:
 
     # Convert patterns like overall4domains -> overall_4_domains
     stem = re.sub(r"(overall)(\d+)(domains)", r"\1_\2_\3", stem)
+
+    if pad_suffix_numbers > 0:
+        stem = re.sub(
+            r"_(\d+)$",
+            lambda m: f"_{int(m.group(1)):0{pad_suffix_numbers}d}",
+            stem,
+        )
 
     return f"{stem}{ext}"
 
@@ -110,11 +119,49 @@ def replace_in_files(replacements: dict[str, str]) -> None:
 
 
 def main() -> int:
-    if not ASSET_DIR.exists():
-        print(f"ERROR: asset dir not found: {ASSET_DIR}", file=sys.stderr)
+    parser = argparse.ArgumentParser(
+        description="Rename report assets to ASCII-friendly filenames and update references in the Quarto project."
+    )
+    parser.add_argument(
+        "--asset-dir",
+        type=Path,
+        default=DEFAULT_ASSET_DIR,
+        help="Directory containing report image assets (default: final_report_site/Final_Report_MD/report_assets).",
+    )
+    parser.add_argument(
+        "--map-csv",
+        type=Path,
+        default=DEFAULT_MAP_CSV,
+        help="CSV log of rename operations (default: final_report_site/print/asset_rename_map.csv).",
+    )
+    parser.add_argument(
+        "--root",
+        type=Path,
+        default=PROJECT_ROOT,
+        help="Root directory where references are updated (default: final_report_site).",
+    )
+    parser.add_argument(
+        "--pad-suffix-numbers",
+        type=int,
+        default=0,
+        help="Zero-pad trailing '_<number>' tokens in filenames (e.g., image_6.png -> image_06.png when set to 2).",
+    )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print planned changes without modifying files.",
+    )
+    args = parser.parse_args()
+
+    asset_dir = args.asset_dir.resolve()
+    map_csv = args.map_csv.resolve()
+    root_dir = args.root.resolve()
+
+    if not asset_dir.exists():
+        print(f"ERROR: asset dir not found: {asset_dir}", file=sys.stderr)
         return 2
 
-    png_files = sorted(p for p in ASSET_DIR.iterdir() if p.is_file() and p.suffix.lower() == ".png")
+    png_files = sorted(p for p in asset_dir.iterdir() if p.is_file() and p.suffix.lower() == ".png")
     if not png_files:
         print("No PNG files found; nothing to do.")
         return 0
@@ -125,7 +172,7 @@ def main() -> int:
     planned: list[tuple[Path, Path]] = []
     used_names: dict[str, int] = {}
     for src in png_files:
-        dst_name = normalise_basename(src.name)
+        dst_name = normalise_basename(src.name, pad_suffix_numbers=args.pad_suffix_numbers)
         if dst_name == src.name:
             continue
 
@@ -148,10 +195,20 @@ def main() -> int:
         replacements[src.name] = dst.name
         replacements[quote(src.name)] = dst.name
 
+    if args.dry_run:
+        print(f"[DRY-RUN] Would rename {len(planned)} PNG files under {asset_dir}...")
+        for src, dst in planned[:30]:
+            print(f"  - {src.name} -> {dst.name}")
+        if len(planned) > 30:
+            print(f"  ... (+{len(planned) - 30} more)")
+        print(f"[DRY-RUN] Would update references under: {root_dir}")
+        print(f"[DRY-RUN] Would append mapping CSV: {map_csv}")
+        return 0
+
     # Write mapping (append).
-    MAP_CSV.parent.mkdir(parents=True, exist_ok=True)
-    map_exists = MAP_CSV.exists()
-    with MAP_CSV.open("a", newline="", encoding="utf-8") as fp:
+    map_csv.parent.mkdir(parents=True, exist_ok=True)
+    map_exists = map_csv.exists()
+    with map_csv.open("a", newline="", encoding="utf-8") as fp:
         writer = csv.DictWriter(fp, fieldnames=["old_relpath", "new_relpath", "reason"])
         if not map_exists:
             writer.writeheader()
@@ -164,7 +221,7 @@ def main() -> int:
                 }
             )
 
-    print(f"Renaming {len(planned)} PNG files under {ASSET_DIR}...")
+    print(f"Renaming {len(planned)} PNG files under {asset_dir}...")
     for src, dst in planned:
         if dst.exists():
             print(f"ERROR: destination already exists: {dst}", file=sys.stderr)
@@ -175,7 +232,12 @@ def main() -> int:
             src.rename(dst)
 
     print("Updating references in source files...")
-    replace_in_files(replacements)
+    prev_cwd = Path.cwd()
+    try:
+        os.chdir(root_dir)
+        replace_in_files(replacements)
+    finally:
+        os.chdir(prev_cwd)
 
     print("Done.")
     return 0

@@ -4,6 +4,10 @@ _site_website/
 _site_book/
 _site_pdf/
 .quarto/
+book/
+website/
+_tool_runtime/
+final_report_site/
 
 # Python / R caches
 __pycache__/
@@ -46,3 +50,23 @@ Final_Report_MD/report_assets/*.hwpx
 
 # Final report source DOCX (kept locally; avoid large binary commits)
 붙임__빅데이터_기반_*최종보고서*.docx
+빅데이터_기반_*최종보고서*.docx
+빅데이터_기반_*최종보고서*.hwpx
+index.docx
+
+# Local PDF/LaTeX build artefacts
+index.aux
+index.log
+index.pdf
+index.tex
+index.toc
+kriss_databook_print.pdf.tex
+
+# Print outputs (local only)
+print/*.docx
+print/*.hwpx
+print/*.pdf
+
+# Quarto render byproducts (svg -> png duplicates)
+docs/detailed_reports/*/figures/02_docs_by_year.png
+docs/detailed_reports/*/figures/03_keywords_trend.png
