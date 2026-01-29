@@ -124,7 +124,7 @@ website:
                 href: docs/detailed_reports/cluster_179/report.qmd
               - text: "30-169 - 위상 양자물질 전자구조 측정"
                 href: docs/detailed_reports/cluster_169/report.qmd
-              - text: "32-62 - 집적 광주주파수빗"
+              - text: "32-62 - 집적 광주파수빗"
                 href: docs/detailed_reports/cluster_62/report.qmd
               - text: "34-162 - 궤도각운동량 광계측"
                 href: docs/detailed_reports/cluster_162/report.qmd

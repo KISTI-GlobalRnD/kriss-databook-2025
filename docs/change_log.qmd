@@ -3,12 +3,17 @@ title: "Change Log"
 description: "Running log of code and documentation updates applied to the KRISS keyword pipeline workspace."
 ---
 
+## 2026-01-29
+
+- **Benchmark table label fix** — Corrected the India institution abbreviation to NPLI in the rendered benchmark table (`final_report_site/docs/parts/report_2_2_benchmark_institutions.md`).
+- **Mini-report refresh (32-62)** — Regenerated the 32-62 simple report figures from updated Excel sources and synced them into the report site (`Focused_Reports/outputs/reports_md_v3/cluster_62/figures`, `final_report_site/docs/detailed_reports/cluster_62/figures`).
+
 ## 2026-01-28
 
 - **Final report typo table** — Added `final_report_site/docs/typo_corrections.qmd` to catalog typo/notation fixes applied to the report QMDs.
 - **Quarto numbering cleanup** — Removed manual figure/table numbers, added `{#fig-...}`/`{#tbl-...}` labels, and switched to `@fig/@tbl` references for auto numbering.
-- **Typo/spacing fixes** — Normalized key terms (e.g., 표본/메소/비풀러렌/광주주파수빗), spacing (문헌 수/기관 간/전 영역), and acronym casing (InCites, VOSviewer, NPLI) across report QMDs.
-- **Cluster name normalization** — Unified "광주파수콤/광주파수빗" to "광주주파수빗" in master cluster files (`Output/kriss_cluster_division_expanded.csv`, `Output/kriss_cluster_division_overrides_v2.csv`, `Output/claude/cluster_refined_62.json`, `Output/claude/cluster_refined_87.json`, `Output/gpt5/cluster_enriched_87_gpt5.json`) and propagated to report sources (`final_report_site/docs/**`, `Focused_Reports/Resources/Policy_compatibility/df_exp2.csv`, `final_report_site/kriss_databook_print.pdf.tex`, `final_report_site/_quarto.yml`).
+- **Typo/spacing fixes** — Normalized key terms (e.g., 표본/메소/비풀러렌/광주파수빗), spacing (문헌 수/기관 간/전 영역), and acronym casing (InCites, VOSviewer, NPLI) across report QMDs.
+- **Cluster name normalization** — Unified "광주파수콤/광주주파수빗" to "광주파수빗" in master cluster files (`Output/kriss_cluster_division_expanded.csv`, `Output/kriss_cluster_division_overrides_v2.csv`, `Output/claude/cluster_refined_62.json`, `Output/claude/cluster_refined_87.json`, `Output/gpt5/cluster_enriched_87_gpt5.json`) and propagated to report sources (`final_report_site/docs/**`, `Focused_Reports/Resources/Policy_compatibility/df_exp2.csv`, `final_report_site/_quarto.yml`).
 
 ## 2025-10-23
 

@@ -113,7 +113,7 @@
 </tr>
 <tr>
 <td style="text-align: left; vertical-align: top; white-space: nowrap;">AA</td>
-<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">32-87 - 광주주파수빗 계측</td>
+<td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">32-87 - 광주파수빗 계측</td>
 <td style="text-align: left; vertical-align: top; white-space: nowrap;">확장 가능</td>
 <td style="text-align: right; vertical-align: top; white-space: nowrap;">0.42</td>
 <td style="text-align: left; vertical-align: top; word-break: break-word; hyphens: auto;">carrier-envelope, frequency comb, megahertz, mid-infrared, laser</td>

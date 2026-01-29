@@ -12,7 +12,7 @@ description: "final_report_site qmd 기준으로 반영한 오탈자 및 표기 
 | T-03 | 오탈자 | 표준과학연구 연구 영역 | 표준과학 연구 영역 | `final_report_site/docs/report_1_2_1_global_landscape.qmd` |
 | T-04 | 오탈자 | 메조 | 메소 | `final_report_site/docs/report_1_2_2_leiden_clustering.qmd` |
 | T-05 | 오탈자 | 비플러렌 | 비풀러렌 | `final_report_site/docs/report_3_3_2_emergence_scoring.qmd` |
-| T-06 | 표기 통일 | 광주파수콤, 광주파수빗 | 광주주파수빗 | `final_report_site/docs/report_3_2_emerging_candidates.qmd`, `final_report_site/docs/report_3_3_2_emergence_scoring.qmd`, `final_report_site/docs/appendix_gap_reports.qmd`, `final_report_site/docs/detailed_reports/cluster_62/report.qmd` |
+| T-06 | 표기 통일 | 광주파수콤, 광주주파수빗 | 광주파수빗 | `final_report_site/docs/report_3_2_emerging_candidates.qmd`, `final_report_site/docs/report_3_3_2_emergence_scoring.qmd`, `final_report_site/docs/appendix_gap_reports.qmd`, `final_report_site/docs/detailed_reports/cluster_62/report.qmd` |
 | T-07 | 띄어쓰기 | 기반으로한 | 기반으로 한 | `final_report_site/docs/report_1_2_5_landscape_visualization.qmd` |
 | T-08 | 띄어쓰기 | 문헌수 | 문헌 수 | `final_report_site/docs/report_1_2_5_landscape_visualization.qmd`, `final_report_site/docs/report_2_4_1_country_performance.qmd`, `final_report_site/docs/report_2_4_2_institution_performance.qmd`, `final_report_site/docs/report_3_1_portfolio_capability.qmd`, `final_report_site/docs/report_3_2_emerging_candidates.qmd`, `final_report_site/docs/report_3_3_2_emergence_scoring.qmd` |
 | T-09 | 띄어쓰기 | 기관간 | 기관 간 | `final_report_site/docs/report_1_2_5_landscape_visualization.qmd`, `final_report_site/docs/report_2_3_collaboration_network.qmd` |
@@ -24,7 +24,7 @@ description: "final_report_site qmd 기준으로 반영한 오탈자 및 표기 
 | T-15 | 오탈자 | 결합 분석 결합 분석로 | 결합 분석으로 | `final_report_site/docs/report_2_4_1_country_performance.qmd` |
 | T-16 | 오탈자 | 결합 분석로 | 결합 분석으로 | `final_report_site/docs/report_2_4_2_institution_performance.qmd` |
 | T-17 | 대소문자 | VOSViewer | VOSviewer | `final_report_site/docs/report_1_2_5_landscape_visualization.qmd`, `final_report_site/docs/report_2_3_collaboration_network.qmd` |
-| T-18 | 기관 약어 | NPL (India) | NPLI | `final_report_site/docs/report_2_2_benchmark_institutions.qmd` |
+| T-18 | 기관 약어 | NPL (India) | NPLI | `final_report_site/docs/report_2_2_benchmark_institutions.qmd`, `final_report_site/docs/parts/report_2_2_benchmark_institutions.md` |
 | T-19 | 표기 통일 | Co‑Citation | Co-Citation | `final_report_site/docs/report_1_2_2_leiden_clustering.qmd` |
 | T-20 | 표기 통일 | c‑TF‑IDF | c-TF-IDF | `final_report_site/docs/report_1_2_4_keywords_timeseries.qmd` |
 | T-21 | 표기 통일 | Log‑Likelihood Ratio | Log-Likelihood Ratio | `final_report_site/docs/report_1_2_4_keywords_timeseries.qmd` |

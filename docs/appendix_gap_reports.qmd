@@ -20,7 +20,7 @@ page-title: true
 - [26-131 - 중력파 검출·분석 (역량 공백)](detailed_reports/cluster_131/report.qmd)
 - [29-179 - 프로테오믹스 질량분석 (역량 공백)](detailed_reports/cluster_179/report.qmd)
 - [30-169 - 위상 양자물질 전자구조 측정 (역량 공백)](detailed_reports/cluster_169/report.qmd)
-- [32-62 - 집적 광주주파수빗 (역량 공백)](detailed_reports/cluster_62/report.qmd)
+- [32-62 - 집적 광주파수빗 (역량 공백)](detailed_reports/cluster_62/report.qmd)
 - [34-162 - 궤도각운동량 광계측 (역량 공백)](detailed_reports/cluster_162/report.qmd)
 - [43-125 - 유전체 변이 측정표준 (역량 공백)](detailed_reports/cluster_125/report.qmd)
 :::
