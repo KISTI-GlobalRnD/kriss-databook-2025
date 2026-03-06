@@ -56,11 +56,11 @@
 
 정책부합성 분석은 두 가지 차원에서 수행하였다. 첫째, 기관별 연구 영역에 따른 정책부합 논문 집중도를 산출하였다. 이는 각 기관의 특정 영역 내 정책부합 논문 수를 해당 영역 전체 논문 수로 나눈 비율로 정의되며, 다음과 같이 계산된다.
 
-![기관별 정책부합 연구 수 및 점유율 비교 (Full Counting)](../Final_Report_MD/report_assets/image_6.png){#fig-policy-alignment-count-share}
+![기관별 정책부합 연구 수 및 점유율 비교 (Full Counting)](../Final_Report_MD/report_assets/00_by_institution_policy_alignment_count_and_share_full_counting.png){#fig-policy-alignment-count-share}
 
 기관별 정책부합 연구 비율은 NPLI 79.4%, BAM 77.6%, KRISS 71.7%로 상대적으로 높게 나타났으며, NIST는 절대 건수에서는 1위이나 비율은 47.4%로 가장 낮았다. 이는 기관의 연구 규모(총 논문 수)와 정책부합 연구의 절대량이 반드시 같은 방향으로 움직이지 않으며, 기관별 포트폴리오 구성에 따라 정책부합 연구의 비중이 달라질 수 있음을 보여준다.
 
-![기관별 정책부합 연구 비율 비교 (Full Counting)](../Final_Report_MD/report_assets/image_7.png){#fig-policy-alignment-share}
+![기관별 정책부합 연구 비율 비교 (Full Counting)](../Final_Report_MD/report_assets/00_by_institution_policy_alignment_share_full_counting.png){#fig-policy-alignment-share}
 
 정책 카테고리별 분포를 살펴보면, 기관별로 연구 역량이 집중된 정책 분야가 뚜렷하게 다르게 나타난다. 예컨대 KRISS는 첨단제조 비중이 가장 높고 건강 분야가 그 다음을 차지하며, NIST 또한 첨단제조 중심의 분포를 보인다. 반면 일부 기관은 건강이나 에너지 분야에서 상대적 집중이 관측되며, 이는 기관별 측정표준 역량과 응용 수요의 결합 구조가 상이함을 시사한다.
 
@@ -68,10 +68,16 @@
 
 정책 카테고리별 연구 집중도(RTA) 관점에서 KRISS는 첨단제조(1.13)와 건강(1.03)에서 비교우위를 보이며, 에너지(1.00)는 평균 수준이다. 반면 기후·환경(0.57)과 식품(0.87)은 비교열위로 나타나, 표준과학 전영역에서의 정책부합 연구 포트폴리오가 산업·제조 및 보건 응용에 상대적으로 치우쳐 있음을 시사한다.
 
-![기관별 정책 카테고리별 연구 집중도(RTA)](../Final_Report_MD/report_assets/image_8.png){#fig-policy-category-rta}
+![기관별 정책 카테고리별 연구 집중도(RTA)](../Final_Report_MD/report_assets/00_by_institution_policy_alignment_rta_by_category.png){#fig-policy-category-rta}
 
 정책부합성은 연구 영역별로도 차이를 보인다. 물리측정 영역에서는 대부분의 기관이 첨단제조 분야에 높은 비중을 보이며, KRISS 역시 물리측정 기반 연구가 산업·제조 응용에 강하게 연결되는 양상을 나타낸다. 화학소재측정 영역은 첨단제조와 함께 기후·환경 및 식품 분야 비중이 상대적으로 높아, 환경 모니터링과 화학 기반 안전·규제 수요와의 결합이 더 두드러진다. 바이오의료측정 영역은 건강 분야가 모든 기관에서 압도적으로 높아, 바이오 측정 연구가 본질적으로 보건·의료 정책 수요와 밀접하게 결합됨을 반영한다. 양자기술 영역은 전반적으로 정책부합 비율이 낮고 첨단제조 중심의 분포가 나타나, 정책 응용보다는 기초연구 및 인프라 구축 단계의 성격이 상대적으로 강함을 시사한다.
 
 ![전체 영역+4개 세부 영역: 기관별 정책부합 연구 비율](../Final_Report_MD/report_assets/01_by_institution_policy_alignment_ratio_overall_4_domains.png)
 
 ![물리측정 영역: 기관별 카테고리 정책부합 논문비율](../Final_Report_MD/report_assets/02_physical_by_institution_policy_alignment_ratio_by_category.png)
+
+![화학소재측정 영역: 기관별 카테고리 정책부합 논문비율](../Final_Report_MD/report_assets/02_chemical_materials_by_institution_policy_alignment_ratio_by_category.png)
+
+![바이오의료측정 영역: 기관별 카테고리 정책부합 논문비율](../Final_Report_MD/report_assets/02_biomedical_by_institution_policy_alignment_ratio_by_category.png)
+
+![양자기술 영역: 기관별 카테고리 정책부합 논문비율](../Final_Report_MD/report_assets/02_quantum_by_institution_policy_alignment_ratio_by_category.png)
