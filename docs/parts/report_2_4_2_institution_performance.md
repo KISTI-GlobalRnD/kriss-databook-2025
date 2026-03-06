@@ -9,31 +9,31 @@
 ::: {.carousel-slide}
 <div class="slide-title">표준과학 전영역</div>
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_stdscience.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_stdscience.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">물리측정</div>
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_physical.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_physical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">화학소재측정</div>
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_chemical_materials.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_chemical_materials.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">바이오의료측정</div>
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_biomedical.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_biomedical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">양자기술</div>
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_quantum.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_quantum.png)
 :::
 :::
 
@@ -46,27 +46,27 @@
 :::
 :::
 :::{.content-visible when-profile="pdf"}
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_stdscience.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_stdscience.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_physical.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_physical.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_chemical_materials.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_chemical_materials.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_biomedical.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_biomedical.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_quantum.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_quantum.png)
 :::
 :::
 :::{.content-visible when-profile="book"}
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_stdscience.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_stdscience.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_physical.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_physical.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_chemical_materials.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_chemical_materials.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_biomedical.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_biomedical.png)
 
-![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_histogram_percentiles_2022_2024_quantum.png)
+![분위수 분포 기반 수준 비교 모형으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_histogram_percentiles_2022_2024_quantum.png)
 :::
 
 :::{.content-visible unless-profile="book"}
@@ -76,31 +76,31 @@
 ::: {.carousel-slide}
 <div class="slide-title">표준과학 전영역</div>
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_stdscience_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_stdscience.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">물리측정</div>
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_physical_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_physical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">화학소재측정</div>
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">바이오의료측정</div>
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_biomedical_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_biomedical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">양자기술</div>
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_quantum_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_quantum.png)
 :::
 :::
 
@@ -113,28 +113,28 @@
 :::
 :::
 :::{.content-visible when-profile="pdf"}
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_stdscience_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_stdscience.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_physical_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_physical.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_biomedical_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_biomedical.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_quantum_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_quantum.png)
 :::
 :::
 :::{.content-visible when-profile="book"}
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_stdscience_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_stdscience.png)
 
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_physical_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_physical.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_chemical_materials.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_biomedical_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_biomedical.png)
 
-![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_top_bottom10_timeseries_with_log_docs_commonrange_quantum_1.png)
+![최상위 및 최하위 문헌 비율 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_top_bottom10_timeseries_with_log_docs_commonrange_quantum.png)
 :::
 
 :::{.content-visible unless-profile="book"}
@@ -144,31 +144,31 @@
 ::: {.carousel-slide}
 <div class="slide-title">표준과학 전영역</div>
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_stdscience.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_stdscience.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">물리측정</div>
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_physical.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_physical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">화학소재측정</div>
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_chemical_materials.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_chemical_materials.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">바이오의료측정</div>
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_biomedical.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_biomedical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">양자기술</div>
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_quantum.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_quantum.png)
 :::
 :::
 
@@ -181,27 +181,27 @@
 :::
 :::
 :::{.content-visible when-profile="pdf"}
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_stdscience.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_stdscience.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_physical.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_physical.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_chemical_materials.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_chemical_materials.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_biomedical.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_biomedical.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_quantum.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_quantum.png)
 :::
 :::
 :::{.content-visible when-profile="book"}
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_stdscience.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_stdscience.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_physical.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_physical.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_chemical_materials.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_chemical_materials.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_biomedical.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_biomedical.png)
 
-![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_avg_docs_log_3yr_quantum.png)
+![문헌수 시계열로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_avg_docs_log_3yr_quantum.png)
 :::
 
 위 문헌 수 시계열의 해석을 보완하기 위해, 최근 3개년(2022–2024) 평균 문헌 수와 KRISS의 장기 추이를 표로 함께 정리하였다. 최근 3개년 평균 순위는 `BIPM 소속 기관` 합계 행을 제외한 벤치마킹 10개 기관 기준이다.
@@ -214,7 +214,7 @@
 | 바이오의료측정 | NIST (168.0) | 63.7 | 6위 | 65 |
 | 양자기술 | NIST (311.0) | 53.7 | 3위 | 50 |
 
-: 최근 3개년(2022–2024) 평균 문헌 수 기준 영역별 상위 기관과 KRISS의 위치 {#tbl-org-docs-3yr-summary}
+: 최근 3개년(2022–2024) 평균 문헌 수 기준 영역별 상위 기관과 KRISS의 위치 {#tbl-institution-docs-3yr-summary}
 
 | 영역 | KRISS 2000 | KRISS 2010 | KRISS 2020 | KRISS 2024 | 2000→2024 증감 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -233,31 +233,31 @@
 ::: {.carousel-slide}
 <div class="slide-title">표준과학 전영역</div>
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_stdscience.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_stdscience.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">물리측정</div>
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_physical.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_physical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">화학소재측정</div>
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_chemical_materials.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_chemical_materials.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">바이오의료측정</div>
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_biomedical.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_biomedical.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">양자기술</div>
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_quantum.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_quantum.png)
 :::
 :::
 
@@ -270,27 +270,27 @@
 :::
 :::
 :::{.content-visible when-profile="pdf"}
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_stdscience.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_stdscience.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_physical.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_physical.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_chemical_materials.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_chemical_materials.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_biomedical.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_biomedical.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_quantum.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_quantum.png)
 :::
 :::
 :::{.content-visible when-profile="book"}
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_stdscience.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_stdscience.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_physical.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 물리측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_physical.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_chemical_materials.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 화학소재측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_chemical_materials.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_biomedical.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 바이오의료측정 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_biomedical.png)
 
-![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/org_excellence_vs_share_3yr_quantum.png)
+![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 양자기술 영역](Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_quantum.png)
 :::
 
 
