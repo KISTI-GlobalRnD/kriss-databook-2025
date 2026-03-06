@@ -20,6 +20,7 @@ description: "Running log of code and documentation updates applied to the KRISS
 - **원데이터 빠른 선택** — 기관 문헌 수 원데이터 표 상단에 `전체`, `KRISS`, `개별기관`, `전영역`, `2024` 프리셋 버튼을 추가해 자주 보는 필터 조합으로 즉시 이동할 수 있게 했다.
 - **도구 페이지 DataTable 로딩 수정** — `/docs/` 경로의 도구 페이지에서도 원데이터 DataTable 스크립트가 올바르게 로드되도록 헤더 자산 경로를 보정했다.
 - **전역 조회 배지 추가** — 상단 공통 바에 `hitscounter.dev` 기반 조회 배지를 추가해 모든 페이지에서 사이트의 오늘/누적 조회 수를 바로 볼 수 있게 했다.
+- **키워드 탐색기 최종 라벨 정렬** — `final_report_site/docs/assets/keyword_all_timeseries.csv.gz` 자산을 `Output/kriss_cluster_refined_v2.xlsx` 기준 최종 라벨로 재생성하고, 탐색기 UI도 `label_ko_short_final` / `label_ko_long_final`을 우선 사용하도록 정리했다.
 
 ## 2026-02-09
 
