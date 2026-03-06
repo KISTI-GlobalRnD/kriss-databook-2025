@@ -207,7 +207,16 @@ format:
       - text: |
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0/dist/style.css" />
           <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.0" defer></script>
-          <script src="docs/assets/js/datatable-init.js" defer></script>
+          <script>
+          (() => {
+            const script = document.createElement("script");
+            script.src = window.location.pathname.includes("/docs/")
+              ? "assets/js/datatable-init.js"
+              : "docs/assets/js/datatable-init.js";
+            script.defer = true;
+            document.head.appendChild(script);
+          })();
+          </script>
       - text: |
           <script>
           document.addEventListener("DOMContentLoaded", () => {
