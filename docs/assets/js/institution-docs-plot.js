@@ -111,6 +111,13 @@
     return wrapper;
   }
 
+  function normalizeSearchText(value) {
+    return String(value || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
   function buildCheckboxList(institutions, state, onChange) {
     const list = document.createElement("div");
     list.className = "institution-docs-checkbox-list";
@@ -143,6 +150,28 @@
     });
 
     return list;
+  }
+
+  function applyInstitutionSearch(list, query) {
+    const normalizedQuery = normalizeSearchText(query);
+    let visibleCount = 0;
+
+    Array.from(list.querySelectorAll(".institution-docs-checkbox-item")).forEach((item) => {
+      const matches = !normalizedQuery || normalizeSearchText(item.textContent).includes(normalizedQuery);
+      item.hidden = !matches;
+      if (matches) {
+        visibleCount += 1;
+      }
+    });
+
+    let emptyState = list.querySelector(".institution-docs-checkbox-empty");
+    if (!emptyState) {
+      emptyState = document.createElement("div");
+      emptyState.className = "institution-docs-checkbox-empty text-muted small";
+      emptyState.textContent = "일치하는 기관이 없습니다.";
+      list.append(emptyState);
+    }
+    emptyState.hidden = visibleCount > 0;
   }
 
   function buildInstitutionStats(records, payload) {
@@ -221,7 +250,18 @@
     return null;
   }
 
-  function renderControls(payload, state, controlsEl, render, institutionStats) {
+  function buildDownloadFilename(areaId, state, format) {
+    const suffix = [
+      "institution_docs",
+      areaId,
+      state.yearWindow,
+      state.topN === "all" ? "all" : `top${state.topN}`,
+      state.scaleType,
+    ].join("_");
+    return `${suffix}.${format}`;
+  }
+
+  function renderControls(payload, state, controlsEl, render, institutionStats, Plotly, chartEl) {
     controlsEl.replaceChildren();
 
     const areaSelect = document.createElement("select");
@@ -334,6 +374,12 @@
       topnPresets.append(button);
     });
 
+    const searchInput = document.createElement("input");
+    searchInput.type = "search";
+    searchInput.className = "form-control form-control-sm";
+    searchInput.placeholder = "기관 검색";
+    searchInput.value = state.institutionSearch || "";
+
     const resetButton = document.createElement("button");
     resetButton.type = "button";
     resetButton.className = "btn btn-outline-dark btn-sm";
@@ -344,11 +390,39 @@
       state.sortMode = "recent";
       state.yearWindow = "all";
       state.topN = "all";
+      state.institutionSearch = "";
       state.selectedInstitutions = new Set(DEFAULT_SELECTION);
       render();
     });
 
     const checkboxList = buildCheckboxList(sortInstitutionStats(institutionStats, state.sortMode), state, render);
+    applyInstitutionSearch(checkboxList, state.institutionSearch);
+
+    searchInput.addEventListener("input", () => {
+      state.institutionSearch = searchInput.value;
+      applyInstitutionSearch(checkboxList, state.institutionSearch);
+    });
+
+    const saveButtons = document.createElement("div");
+    saveButtons.className = "institution-docs-preset-group";
+
+    ["png", "svg"].forEach((format) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn btn-outline-secondary btn-sm";
+      button.textContent = format.toUpperCase();
+      button.addEventListener("click", () => {
+        const areaId = state.areaId || "stdscience";
+        Plotly.downloadImage(chartEl, {
+          format,
+          filename: buildDownloadFilename(areaId, state, format).replace(/\.[^.]+$/, ""),
+          width: 1600,
+          height: 720,
+          scale: format === "png" ? 2 : 1,
+        });
+      });
+      saveButtons.append(button);
+    });
 
     controlsEl.append(
       createLabeledControl("영역", areaSelect),
@@ -357,6 +431,8 @@
       createLabeledControl("보기", presets),
       createLabeledControl("기간", yearPresets),
       createLabeledControl("표시", topnPresets),
+      createLabeledControl("검색", searchInput),
+      createLabeledControl("저장", saveButtons),
       createLabeledControl("초기화", resetButton),
       createLabeledControl("기관", checkboxList)
     );
@@ -585,6 +661,7 @@
         sortMode: "recent",
         yearWindow: "all",
         topN: "all",
+        institutionSearch: "",
         selectedInstitutions: new Set(DEFAULT_SELECTION),
       };
 
@@ -596,7 +673,7 @@
           ? areaRecords.filter((item) => item.year >= yearRange[0] && item.year <= yearRange[1])
           : areaRecords;
         const institutionStats = buildInstitutionStats(filteredAreaRecords, payload);
-        renderControls(payload, state, controlsEl, render, institutionStats);
+        renderControls(payload, state, controlsEl, render, institutionStats, Plotly, chartEl);
 
         const visibleInstitutionSet = getDisplayedInstitutionSet(institutionStats, state);
         const records = filteredAreaRecords.filter((item) => visibleInstitutionSet.has(item.institution));
