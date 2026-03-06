@@ -45,6 +45,11 @@
     "NMIJ/AIST": "triangle-up",
     NIM: "diamond",
   };
+  const YEAR_WINDOW_PRESETS = [
+    { id: "all", label: "전체" },
+    { id: "last10", label: "최근 10년" },
+    { id: "last5", label: "최근 5년" },
+  ];
 
   function getRoot() {
     return document.getElementById(ROOT_ID);
@@ -135,6 +140,21 @@
     return list;
   }
 
+  function getYearRange(years, windowId) {
+    if (!Array.isArray(years) || !years.length || windowId === "all") {
+      return null;
+    }
+
+    const lastYear = Math.max(...years);
+    if (windowId === "last10") {
+      return [lastYear - 9, lastYear];
+    }
+    if (windowId === "last5") {
+      return [lastYear - 4, lastYear];
+    }
+    return null;
+  }
+
   function renderControls(payload, state, controlsEl, render) {
     controlsEl.replaceChildren();
 
@@ -199,12 +219,42 @@
       presets.append(button);
     });
 
+    const yearPresets = document.createElement("div");
+    yearPresets.className = "institution-docs-preset-group";
+    YEAR_WINDOW_PRESETS.forEach((preset) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `btn btn-sm ${
+        state.yearWindow === preset.id ? "btn-secondary" : "btn-outline-secondary"
+      }`;
+      button.textContent = preset.label;
+      button.addEventListener("click", () => {
+        state.yearWindow = preset.id;
+        render();
+      });
+      yearPresets.append(button);
+    });
+
+    const resetButton = document.createElement("button");
+    resetButton.type = "button";
+    resetButton.className = "btn btn-outline-dark btn-sm";
+    resetButton.textContent = "초기화";
+    resetButton.addEventListener("click", () => {
+      state.areaId = "stdscience";
+      state.scaleType = "linear";
+      state.yearWindow = "all";
+      state.selectedInstitutions = new Set(DEFAULT_SELECTION);
+      render();
+    });
+
     const checkboxList = buildCheckboxList(payload.institutions, state, render);
 
     controlsEl.append(
       createLabeledControl("영역", areaSelect),
       createLabeledControl("Y축", scaleSelect),
       createLabeledControl("보기", presets),
+      createLabeledControl("기간", yearPresets),
+      createLabeledControl("초기화", resetButton),
       createLabeledControl("기관", checkboxList)
     );
   }
@@ -256,7 +306,8 @@
     });
   }
 
-  function buildLayout(areaLabel, state) {
+  function buildLayout(areaLabel, payload, state) {
+    const xRange = getYearRange(payload.years, state.yearWindow);
     return {
       title: {
         text: `${areaLabel} · 기관별 문헌 수 시계열`,
@@ -277,6 +328,7 @@
         showline: true,
         linecolor: "#333333",
         mirror: false,
+        range: xRange || undefined,
       },
       yaxis: {
         title: state.scaleType === "log" ? "문헌 수 (log)" : "문헌 수",
@@ -332,6 +384,7 @@
       const state = {
         areaId: "stdscience",
         scaleType: "linear",
+        yearWindow: "all",
         selectedInstitutions: new Set(DEFAULT_SELECTION),
       };
 
@@ -344,7 +397,7 @@
         );
         const traces = buildTraces(records, payload, state);
 
-        Plotly.react(chartEl, traces, buildLayout(area.label, state), buildConfig());
+        Plotly.react(chartEl, traces, buildLayout(area.label, payload, state), buildConfig());
         noteEl.textContent = "";
       };
 

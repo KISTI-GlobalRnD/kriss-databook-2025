@@ -510,6 +510,10 @@ document.addEventListener("DOMContentLoaded", () => {
  <span class="dropdown-text">키워드 추세 탐색기 / Keyword Trends</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./docs/institution_docs_explorer.html">
+ <span class="dropdown-text">기관 문헌 수 시계열 / Institution Docs</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./docs/vosviewer_explorer.html">
  <span class="dropdown-text">연구지형도(인터랙티브 맵) / VOSviewer</span></a>
   </li>  
@@ -635,6 +639,12 @@ document.addEventListener("DOMContentLoaded", () => {
   <div class="sidebar-item-container"> 
   <a href="./docs/keyword_trends.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Keyword Trend Explorer / 키워드 추세 탐색기</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./docs/institution_docs_explorer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">기관 문헌 수 시계열</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1929,80 +1939,9 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 </figure>
 </div>
-<style>
-  .institution-docs-plot-wrapper {
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    padding: 1rem 1rem 0.75rem;
-    margin: 1rem 0 1.5rem;
-    background: #f8f9fa;
-  }
-  .institution-docs-plot-controls {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.9rem 1rem;
-    margin-bottom: 1rem;
-  }
-  .institution-docs-plot-control .form-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-  }
-  .institution-docs-preset-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem;
-  }
-  .institution-docs-checkbox-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.35rem 0.75rem;
-    max-height: 10rem;
-    overflow-y: auto;
-    padding: 0.15rem 0.1rem;
-    background: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 0.35rem;
-  }
-  .institution-docs-checkbox-item {
-    display: flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.92rem;
-  }
-  .institution-docs-plot-note {
-    margin-top: 0.25rem;
-    min-height: 0.5rem;
-  }
-</style>
-<div id="institution-docs-plot-tool" class="institution-docs-plot-wrapper">
-<div id="institution-docs-plot-controls" class="institution-docs-plot-controls">
-
-</div>
-<div id="institution-docs-plot" style="width: 100%; min-height: 560px;">
-
-</div>
-<div id="institution-docs-plot-note" class="institution-docs-plot-note">
-
-</div>
-</div>
-<script>
-  (function () {
-    const existing = Array.from(document.scripts).some((script) =>
-      /institution-docs-plot\.js(?:\?.*)?$/.test(script.getAttribute("src") || "")
-    );
-    if (existing) {
-      return;
-    }
-
-    const loader = document.createElement("script");
-    loader.defer = true;
-    loader.src = (window.location.pathname || "").includes("/docs/")
-      ? "assets/js/institution-docs-plot.js"
-      : "docs/assets/js/institution-docs-plot.js";
-    document.body.append(loader);
-  })();
-</script>
+<ul>
+<li><a href="docs/institution_docs_explorer.html">기관 문헌 수 시계열 바로가기</a></li>
+</ul>
 <p>아래 데이터테이블은 엑셀 원데이터 전체를 <code>long format</code>으로 정리한 것이다. <code>구분</code>, <code>영역</code>, <code>기관</code>, <code>연도</code> 필터, 헤더 클릭 정렬, 현재 필터 결과 기준 <code>CSV</code>/<code>TSV</code> 내보내기를 지원한다. 기관 표기는 본문 약어 기준으로 정리했다.</p>
 <div id="tbl-institution-docs-raw" class="datatable datatable-filtered quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
