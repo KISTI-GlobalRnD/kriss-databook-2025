@@ -8,6 +8,7 @@ project:
     - web_part2_capability.qmd
     - web_part3_emerging.qmd
     - docs/keyword_trends.qmd
+    - docs/institution_docs_explorer.qmd
     - docs/vosviewer_explorer.qmd
     - docs/cluster_dashboard.qmd
     - docs/appendix_detailed_reporting.qmd
@@ -52,6 +53,8 @@ website:
       - section: "인터랙티브 도구 / Tools"
         contents:
           - docs/keyword_trends.qmd
+          - text: "기관 문헌 수 시계열"
+            href: docs/institution_docs_explorer.qmd
           - docs/vosviewer_explorer.qmd
           - docs/cluster_dashboard.qmd
       - section: "부록 / Appendix"
@@ -152,6 +155,8 @@ website:
         menu:
           - text: "키워드 추세 탐색기 / Keyword Trends"
             href: docs/keyword_trends.qmd
+          - text: "기관 문헌 수 시계열 / Institution Docs"
+            href: docs/institution_docs_explorer.qmd
           - text: "연구지형도(인터랙티브 맵) / VOSviewer"
             href: docs/vosviewer_explorer.qmd
           - text: "클러스터 대시보드 (Shiny)"

@@ -1,0 +1,20 @@
+---
+title: "기관 문헌 수 시계열 / Institution Docs Trends"
+description: "영역과 기관을 선택해 기관별 문헌 수 시계열을 비교할 수 있도록 구성하였다."
+page-title: false
+numbered: false
+format:
+  html:
+    title-block: false
+---
+
+영역, 축, 기간, 기관을 바꿔 문헌 수 시계열을 비교할 수 있다.
+
+::: {.callout-tip}
+## 보기 안내
+- `기본`: 주요 비교 기관 10개
+- `전체`: 개별 기관 전체
+- `합계 포함`: `BIPM 소속 기관` 합계 포함
+:::
+
+{{< include parts/generated/institution_docs_interactive_plot.md >}}
