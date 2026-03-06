@@ -15,6 +15,7 @@ description: "Running log of code and documentation updates applied to the KRISS
 - **Raw-table sorting** — Enabled header-click sorting on the institution raw-data DataTable and inferred numeric column types (`연도`, `문헌 수`) in `final_report_site/docs/assets/js/datatable-init.js` so the interactive table sorts values numerically instead of lexically.
 - **기관 문헌 수 시계열 차트** — 영역과 기관을 선택하며 비교할 수 있는 시계열 차트를 기관 성과 섹션에 추가하고, 정적 시계열 그림과 가까운 색상 체계로 조정했다.
 - **도구 페이지 분리 + 기간 제어** — 기관 문헌 수 시계열을 `final_report_site/docs/institution_docs_explorer.qmd`로 옮기고, 본문에는 바로가기 링크만 남겼다. 차트에는 `전체`/`최근 10년`/`최근 5년` 기간 프리셋과 초기화 버튼을 추가했다.
+- **끝점 라벨 + 상위 보기** — 차트 배경을 흰색으로 정리하고, 선 끝 라벨·최근 연도순 정렬·상위 5/10 보기 제어를 추가했다.
 
 ## 2026-02-09
 
