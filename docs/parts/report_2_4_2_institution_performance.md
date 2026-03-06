@@ -227,6 +227,14 @@
 : KRISS의 영역별 연도별 문헌 수 장기 추이 요약 {#tbl-kriss-docs-milestones}
 
 :::{.content-visible unless-profile="pdf"}
+{{< include docs/parts/generated/institution_docs_interactive_plot.md >}}
+:::
+
+:::{.content-visible when-profile="pdf"}
+기관 문헌 수 인터랙티브 시계열은 웹 버전에서 영역·기관 선택과 함께 확인할 수 있다.
+:::
+
+:::{.content-visible unless-profile="pdf"}
 {{< include docs/parts/generated/institution_docs_raw_table.md >}}
 :::
 

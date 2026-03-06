@@ -13,6 +13,7 @@ description: "Running log of code and documentation updates applied to the KRISS
 - **Interactive institution raw-data table** — Kept the 2 summary tables static for readability and added a separate raw-data DataTable (5개 영역 × 11개 기관 × 25개 연도) via `final_report_site/docs/parts/generated/institution_docs_raw_table.md`, with search and per-column select filters wired through `final_report_site/docs/assets/js/datatable-init.js`.
 - **Filtered table export** — Added `CSV` / `TSV` export buttons to the filtered institution raw-data table so users can download the currently filtered rows directly from the interactive toolbar via `final_report_site/docs/assets/js/datatable-init.js`.
 - **Raw-table sorting** — Enabled header-click sorting on the institution raw-data DataTable and inferred numeric column types (`연도`, `문헌 수`) in `final_report_site/docs/assets/js/datatable-init.js` so the interactive table sorts values numerically instead of lexically.
+- **Institution docs interactive plot** — Added a Plotly-based interactive timeseries viewer driven by a generated JSON asset from `Data/org_yearly_paper_count_stdscience_2000_2024.xlsx`, wired into `final_report_site/docs/report_2_4_2_institution_performance.qmd`, `final_report_site/docs/parts/report_2_4_2_institution_performance.md`, `final_report_site/docs/parts/generated/institution_docs_interactive_plot.md`, and `final_report_site/docs/assets/js/institution-docs-plot.js`.
 
 ## 2026-02-09
 
