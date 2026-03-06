@@ -1155,11 +1155,24 @@ Tip
     return text;
   }
 
+  function getShortLabel(sample, clusterId) {
+    return (
+      cleanText(sample.label_ko_short_final) ||
+      cleanText(sample.short_label_kr) ||
+      cleanText(sample.cluster_micro) ||
+      `Cluster ${clusterId}`
+    );
+  }
+
+  function getLongLabel(sample) {
+    return cleanText(sample.label_ko_long_final) || cleanText(sample.long_label_kr);
+  }
+
   function summariseCluster(cluster) {
     const { id, rows } = cluster;
     const sample = rows[0] || {};
-    const label = cleanText(sample.short_label_kr) || cleanText(sample.cluster_micro) || `Cluster ${id}`;
-    const longLabel = cleanText(sample.long_label_kr);
+    const label = getShortLabel(sample, id);
+    const longLabel = getLongLabel(sample);
     const summary = cleanText(sample.summary_kr);
 
     const keywordsEnRaw = cleanText(sample.keywords_en);
@@ -1244,6 +1257,8 @@ Tip
 
   function updateChart(cluster) {
     const traces = buildTraces(cluster);
+    const sample = cluster.rows[0] || {};
+    const clusterLabel = getShortLabel(sample, cluster.id);
     const years = cluster.rows
       .map(r => r.year)
       .filter(year => year !== null && year !== undefined && !Number.isNaN(year));
@@ -1253,7 +1268,7 @@ Tip
 
     const layout = {
       title: {
-        text: `Cluster ${cluster.id} · ${metricLabel}`,
+        text: `${cluster.id} · ${clusterLabel} · ${metricLabel}`,
         font: { size: 20 }
       },
       xaxis: {
@@ -1470,16 +1485,7 @@ Tip
       .sort((a, b) => a.id - b.id)
       .map(cluster => {
         const sample = cluster.rows[0] || {};
-        const labelParts = [];
-        const shortLabel = cleanText(sample.short_label_kr);
-        const micro = cleanText(sample.cluster_micro);
-        if (shortLabel) {
-          labelParts.push(shortLabel);
-        }
-        if (micro) {
-          labelParts.push(micro);
-        }
-        const label = labelParts.length ? labelParts.join(" · ") : `Cluster ${cluster.id}`;
+        const label = getShortLabel(sample, cluster.id);
         return { value: cluster.id, label };
       });
 
