@@ -440,6 +440,12 @@ table caption {
   gap: 1rem;
 }
 
+.kriss-brandbar-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .kriss-brandbar-label {
   color: var(--kriss-gray);
   font-weight: 700;
@@ -458,11 +464,35 @@ table caption {
   display: block;
 }
 
+.kriss-brandbar-counter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--kriss-gray);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.kriss-brandbar-counter-label {
+  font-size: 0.8rem;
+}
+
+.kriss-brandbar-counter img {
+  height: 20px;
+  width: auto;
+  display: block;
+}
+
 @media (max-width: 576px) {
   .kriss-brandbar-inner {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
+  }
+
+  .kriss-brandbar-group {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .kriss-brandbar-label {
