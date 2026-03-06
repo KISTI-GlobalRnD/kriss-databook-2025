@@ -100,12 +100,14 @@
 
       const hasCustomFilters = table.classList.contains("datatable-filtered");
       const filterConfig = hasCustomFilters ? extractFilterConfig(table) : null;
+      const columnSettings = hasCustomFilters ? inferColumnSettings(table) : [];
 
       const dataTable = new DataTable(table, {
         perPage: 10,
         fixedHeight: !hasCustomFilters,
         searchable: !hasCustomFilters,
-        sortable: false,
+        sortable: hasCustomFilters,
+        columns: columnSettings,
         labels: {
           placeholder: "검색",
           perPage: "행",
@@ -159,6 +161,37 @@
     }
 
     return !values.every(isNumericLike);
+  }
+
+  function inferColumnSettings(table) {
+    const headingCells = Array.from(table.tHead?.rows?.[0]?.cells || []);
+    const bodyRows = Array.from(table.tBodies?.[0]?.rows || []);
+    if (!headingCells.length || !bodyRows.length) {
+      return [];
+    }
+
+    return headingCells
+      .map((cell, index) => {
+        const values = bodyRows
+          .map((row) => getCellText(row.cells[index]))
+          .filter((value) => value.length > 0);
+
+        const settings = {
+          select: index,
+        };
+
+        const type = cell.dataset.type || (values.length && values.every(isNumericLike) ? "number" : "");
+        if (type) {
+          settings.type = type;
+        }
+
+        if (cell.dataset.sortable === "false") {
+          settings.sortable = false;
+        }
+
+        return Object.keys(settings).length > 1 ? settings : null;
+      })
+      .filter(Boolean);
   }
 
   function extractFilterConfig(table) {
