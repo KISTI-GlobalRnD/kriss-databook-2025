@@ -50,6 +50,11 @@
     { id: "last10", label: "최근 10년" },
     { id: "last5", label: "최근 5년" },
   ];
+  const TOPN_PRESETS = [
+    { id: "all", label: "전체" },
+    { id: "5", label: "상위 5" },
+    { id: "10", label: "상위 10" },
+  ];
 
   function getRoot() {
     return document.getElementById(ROOT_ID);
@@ -140,6 +145,67 @@
     return list;
   }
 
+  function buildInstitutionStats(records, payload) {
+    const recordsByInstitution = new Map();
+    records.forEach((record) => {
+      const items = recordsByInstitution.get(record.institution) || [];
+      items.push(record);
+      recordsByInstitution.set(record.institution, items);
+    });
+
+    return payload.institutions.map((institution) => {
+      const items = (recordsByInstitution.get(institution.label) || [])
+        .slice()
+        .sort((left, right) => left.year - right.year);
+      const latest = items.length ? items[items.length - 1] : null;
+      return {
+        ...institution,
+        latestYear: latest ? latest.year : null,
+        latestDocs: latest ? latest.docs : -Infinity,
+      };
+    });
+  }
+
+  function sortInstitutionStats(stats, sortMode) {
+    const items = stats.slice();
+    if (sortMode === "recent") {
+      items.sort((left, right) => {
+        if (right.latestDocs !== left.latestDocs) {
+          return right.latestDocs - left.latestDocs;
+        }
+        return left.order - right.order;
+      });
+      return items;
+    }
+    items.sort((left, right) => left.order - right.order);
+    return items;
+  }
+
+  function getDisplayedInstitutionSet(stats, state) {
+    const selectedStats = stats.filter((item) => state.selectedInstitutions.has(item.label));
+    if (state.topN === "all") {
+      return new Set(selectedStats.map((item) => item.label));
+    }
+
+    const limit = Number.parseInt(state.topN, 10);
+    const aggregates = selectedStats
+      .filter((item) => item.category === "집계")
+      .map((item) => item.label);
+    const rankedIndividuals = selectedStats
+      .filter((item) => item.category !== "집계")
+      .slice()
+      .sort((left, right) => {
+        if (right.latestDocs !== left.latestDocs) {
+          return right.latestDocs - left.latestDocs;
+        }
+        return left.order - right.order;
+      })
+      .slice(0, Number.isFinite(limit) ? limit : selectedStats.length)
+      .map((item) => item.label);
+
+    return new Set([...aggregates, ...rankedIndividuals]);
+  }
+
   function getYearRange(years, windowId) {
     if (!Array.isArray(years) || !years.length || windowId === "all") {
       return null;
@@ -155,7 +221,7 @@
     return null;
   }
 
-  function renderControls(payload, state, controlsEl, render) {
+  function renderControls(payload, state, controlsEl, render, institutionStats) {
     controlsEl.replaceChildren();
 
     const areaSelect = document.createElement("select");
@@ -186,6 +252,23 @@
     });
     scaleSelect.addEventListener("change", () => {
       state.scaleType = scaleSelect.value;
+      render();
+    });
+
+    const sortSelect = document.createElement("select");
+    sortSelect.className = "form-select form-select-sm";
+    [
+      ["recent", "최근 연도순"],
+      ["default", "기본순"],
+    ].forEach(([value, label]) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = label;
+      option.selected = value === state.sortMode;
+      sortSelect.append(option);
+    });
+    sortSelect.addEventListener("change", () => {
+      state.sortMode = sortSelect.value;
       render();
     });
 
@@ -235,6 +318,22 @@
       yearPresets.append(button);
     });
 
+    const topnPresets = document.createElement("div");
+    topnPresets.className = "institution-docs-preset-group";
+    TOPN_PRESETS.forEach((preset) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = `btn btn-sm ${
+        state.topN === preset.id ? "btn-secondary" : "btn-outline-secondary"
+      }`;
+      button.textContent = preset.label;
+      button.addEventListener("click", () => {
+        state.topN = preset.id;
+        render();
+      });
+      topnPresets.append(button);
+    });
+
     const resetButton = document.createElement("button");
     resetButton.type = "button";
     resetButton.className = "btn btn-outline-dark btn-sm";
@@ -242,25 +341,29 @@
     resetButton.addEventListener("click", () => {
       state.areaId = "stdscience";
       state.scaleType = "linear";
+      state.sortMode = "recent";
       state.yearWindow = "all";
+      state.topN = "all";
       state.selectedInstitutions = new Set(DEFAULT_SELECTION);
       render();
     });
 
-    const checkboxList = buildCheckboxList(payload.institutions, state, render);
+    const checkboxList = buildCheckboxList(sortInstitutionStats(institutionStats, state.sortMode), state, render);
 
     controlsEl.append(
       createLabeledControl("영역", areaSelect),
       createLabeledControl("Y축", scaleSelect),
+      createLabeledControl("정렬", sortSelect),
       createLabeledControl("보기", presets),
       createLabeledControl("기간", yearPresets),
+      createLabeledControl("표시", topnPresets),
       createLabeledControl("초기화", resetButton),
       createLabeledControl("기관", checkboxList)
     );
   }
 
-  function groupByInstitution(records, payload) {
-    const orderMap = new Map(payload.institutions.map((item) => [item.label, item.order]));
+  function groupByInstitution(records, orderedLabels) {
+    const orderMap = new Map(orderedLabels.map((label, index) => [label, index]));
     const grouped = new Map();
 
     records.forEach((record) => {
@@ -274,8 +377,8 @@
     );
   }
 
-  function buildTraces(records, payload, state) {
-    return groupByInstitution(records, payload).map(([institution, items]) => {
+  function buildTraces(records, orderedLabels, state) {
+    return groupByInstitution(records, orderedLabels).map(([institution, items]) => {
       const sorted = items.slice().sort((left, right) => left.year - right.year);
       return {
         type: "scatter",
@@ -306,7 +409,101 @@
     });
   }
 
-  function buildLayout(areaLabel, payload, state) {
+  function buildEndAnnotations(traces, state) {
+    const endpoints = traces
+      .map((trace) => {
+        for (let index = trace.x.length - 1; index >= 0; index -= 1) {
+          const year = trace.x[index];
+          const value = trace.y[index];
+          if (value === null || value === undefined || Number.isNaN(value)) {
+            continue;
+          }
+          return {
+            name: trace.name,
+            year,
+            value,
+            color: trace.line.color,
+          };
+        }
+        return null;
+      })
+      .filter(Boolean);
+
+    if (!endpoints.length) {
+      return [];
+    }
+
+    const transformedValues = traces
+      .flatMap((trace) => trace.y)
+      .filter((value) => value !== null && value !== undefined && !Number.isNaN(value))
+      .map((value) => (state.scaleType === "log" ? Math.log10(value) : value));
+    let minValue = Math.min(...transformedValues);
+    let maxValue = Math.max(...transformedValues);
+    if (minValue === maxValue) {
+      minValue -= 1;
+      maxValue += 1;
+    }
+
+    const lower = 0.06;
+    const upper = 0.94;
+    const minGap = Math.min(0.07, 0.84 / Math.max(endpoints.length, 1));
+    const points = endpoints
+      .map((point) => {
+        const transformed = state.scaleType === "log" ? Math.log10(point.value) : point.value;
+        const normalized = lower + ((transformed - minValue) / (maxValue - minValue)) * (upper - lower);
+        return {
+          ...point,
+          normalized,
+        };
+      })
+      .sort((left, right) => right.normalized - left.normalized);
+
+    for (let index = 1; index < points.length; index += 1) {
+      if (points[index - 1].normalized - points[index].normalized < minGap) {
+        points[index].normalized = points[index - 1].normalized - minGap;
+      }
+    }
+
+    const lowerOverflow = lower - points[points.length - 1].normalized;
+    if (lowerOverflow > 0) {
+      points.forEach((point) => {
+        point.normalized += lowerOverflow;
+      });
+    }
+
+    for (let index = points.length - 2; index >= 0; index -= 1) {
+      if (points[index].normalized - points[index + 1].normalized < minGap) {
+        points[index].normalized = points[index + 1].normalized + minGap;
+      }
+    }
+
+    const upperOverflow = points[0].normalized - upper;
+    if (upperOverflow > 0) {
+      points.forEach((point) => {
+        point.normalized -= upperOverflow;
+      });
+    }
+
+    return points.map((point) => ({
+      xref: "paper",
+      yref: "paper",
+      x: 1.01,
+      y: point.normalized,
+      xanchor: "left",
+      yanchor: "middle",
+      align: "left",
+      showarrow: false,
+      text: point.name,
+      font: {
+        size: 12,
+        color: point.color,
+      },
+      bgcolor: "rgba(255,255,255,0.85)",
+      borderpad: 1,
+    }));
+  }
+
+  function buildLayout(areaLabel, payload, state, traces) {
     const xRange = getYearRange(payload.years, state.yearWindow);
     return {
       title: {
@@ -314,9 +511,9 @@
         font: { size: 18, color: "#222222" },
       },
       height: 560,
-      margin: { t: 64, r: 24, b: 56, l: 64 },
+      margin: { t: 64, r: 104, b: 56, l: 64 },
       hovermode: "closest",
-      legend: { orientation: "h", y: -0.22 },
+      showlegend: false,
       xaxis: {
         title: "연도",
         tickmode: "linear",
@@ -342,8 +539,9 @@
         linecolor: "#333333",
         mirror: false,
       },
-      paper_bgcolor: "#e7e7e7",
-      plot_bgcolor: "#e7e7e7",
+      paper_bgcolor: "#ffffff",
+      plot_bgcolor: "#ffffff",
+      annotations: buildEndAnnotations(traces, state),
     };
   }
 
@@ -384,20 +582,30 @@
       const state = {
         areaId: "stdscience",
         scaleType: "linear",
+        sortMode: "recent",
         yearWindow: "all",
+        topN: "all",
         selectedInstitutions: new Set(DEFAULT_SELECTION),
       };
 
       const render = () => {
-        renderControls(payload, state, controlsEl, render);
-
         const area = payload.areas.find((item) => item.id === state.areaId) || payload.areas[0];
-        const records = payload.records.filter(
-          (item) => item.area_id === area.id && state.selectedInstitutions.has(item.institution)
-        );
-        const traces = buildTraces(records, payload, state);
+        const areaRecords = payload.records.filter((item) => item.area_id === area.id);
+        const yearRange = getYearRange(payload.years, state.yearWindow);
+        const filteredAreaRecords = yearRange
+          ? areaRecords.filter((item) => item.year >= yearRange[0] && item.year <= yearRange[1])
+          : areaRecords;
+        const institutionStats = buildInstitutionStats(filteredAreaRecords, payload);
+        renderControls(payload, state, controlsEl, render, institutionStats);
 
-        Plotly.react(chartEl, traces, buildLayout(area.label, payload, state), buildConfig());
+        const visibleInstitutionSet = getDisplayedInstitutionSet(institutionStats, state);
+        const records = filteredAreaRecords.filter((item) => visibleInstitutionSet.has(item.institution));
+        const orderedLabels = sortInstitutionStats(institutionStats, state.sortMode)
+          .map((item) => item.label)
+          .filter((label) => visibleInstitutionSet.has(label));
+        const traces = buildTraces(records, orderedLabels, state);
+
+        Plotly.react(chartEl, traces, buildLayout(area.label, payload, state, traces), buildConfig());
         noteEl.textContent = "";
       };
 
