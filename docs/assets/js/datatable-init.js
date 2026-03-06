@@ -246,9 +246,150 @@
     };
   }
 
+  function getDataTableId(dataTable) {
+    return dataTable.dom?.closest(".quarto-float")?.id || dataTable.dom?.id || "datatable";
+  }
+
+  function getPresetDefinitions(tableId) {
+    if (tableId !== "tbl-institution-docs-raw") {
+      return [];
+    }
+
+    return [
+      {
+        key: "all",
+        label: "전체",
+        values: {},
+      },
+      {
+        key: "kriss",
+        label: "KRISS",
+        values: {
+          구분: "개별기관",
+          기관: "KRISS",
+        },
+      },
+      {
+        key: "individual",
+        label: "개별기관",
+        values: {
+          구분: "개별기관",
+        },
+      },
+      {
+        key: "all-fields",
+        label: "전영역",
+        values: {
+          영역: "표준과학 전 영역",
+        },
+      },
+      {
+        key: "latest-year",
+        label: "2024",
+        values: {
+          연도: "2024",
+        },
+      },
+    ];
+  }
+
+  function setSelectValue(select, value) {
+    if (!select) {
+      return false;
+    }
+
+    if (!value) {
+      select.value = "";
+      return true;
+    }
+
+    const option = Array.from(select.options).find((entry) => entry.value === value);
+    if (!option) {
+      return false;
+    }
+
+    select.value = value;
+    return true;
+  }
+
+  function buildPresetControl(tableId, filterConfig, selects, searchInput, applyFilters) {
+    const presets = getPresetDefinitions(tableId);
+    if (!presets.length) {
+      return null;
+    }
+
+    const headingByIndex = new Map(filterConfig.columns.map((column) => [column.index, column.heading]));
+    const selectByHeading = new Map(
+      selects
+        .map(({ index, select }) => {
+          const heading = headingByIndex.get(index);
+          return heading ? [heading, select] : null;
+        })
+        .filter(Boolean)
+    );
+
+    const control = buildFilterControl("빠른 선택");
+    control.wrapper.style.minWidth = "0";
+
+    const buttonRow = document.createElement("div");
+    buttonRow.className = "d-flex flex-wrap gap-1";
+
+    const buttons = presets.map((preset) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "btn btn-outline-secondary btn-sm";
+      button.textContent = preset.label;
+
+      button.addEventListener("click", () => {
+        searchInput.value = preset.search || "";
+        selects.forEach(({ select }) => {
+          select.value = "";
+        });
+
+        Object.entries(preset.values || {}).forEach(([heading, value]) => {
+          setSelectValue(selectByHeading.get(heading), value);
+        });
+
+        applyFilters();
+      });
+
+      buttonRow.append(button);
+      return {
+        preset,
+        button,
+      };
+    });
+
+    const updateActivePreset = () => {
+      const searchValue = searchInput.value.trim();
+
+      buttons.forEach(({ preset, button }) => {
+        const presetSearch = (preset.search || "").trim();
+        const isActive =
+          searchValue === presetSearch &&
+          selects.every(({ index, select }) => {
+            const heading = headingByIndex.get(index);
+            const expectedValue = (preset.values?.[heading] || "").trim();
+            return select.value.trim() === expectedValue;
+          });
+
+        button.classList.toggle("btn-primary", isActive);
+        button.classList.toggle("btn-outline-secondary", !isActive);
+      });
+    };
+
+    control.wrapper.append(buttonRow);
+
+    return {
+      wrapper: control.wrapper,
+      updateActivePreset,
+    };
+  }
+
   function attachCustomFilters(dataTable, filterConfig) {
     const toolbar = document.createElement("div");
     toolbar.className = "datatable-toolbar d-flex flex-wrap gap-2 align-items-end mb-3";
+    const tableId = getDataTableId(dataTable);
 
     const searchControl = buildFilterControl("검색");
     const searchInput = document.createElement("input");
@@ -285,23 +426,22 @@
       };
     });
 
+    let syncPresetState = () => {};
+
     const resetButton = document.createElement("button");
     resetButton.type = "button";
     resetButton.className = "btn btn-outline-secondary btn-sm";
     resetButton.textContent = "초기화";
-    toolbar.append(resetButton);
 
     const exportCsvButton = document.createElement("button");
     exportCsvButton.type = "button";
     exportCsvButton.className = "btn btn-outline-primary btn-sm";
     exportCsvButton.textContent = "CSV 내보내기";
-    toolbar.append(exportCsvButton);
 
     const exportTsvButton = document.createElement("button");
     exportTsvButton.type = "button";
     exportTsvButton.className = "btn btn-outline-primary btn-sm";
     exportTsvButton.textContent = "TSV 내보내기";
-    toolbar.append(exportTsvButton);
 
     const applyFilters = () => {
       const queries = [];
@@ -324,7 +464,16 @@
       });
 
       dataTable.multiSearch(queries);
+      syncPresetState();
     };
+
+    const presetControl = buildPresetControl(tableId, filterConfig, selects, searchInput, applyFilters);
+    if (presetControl) {
+      syncPresetState = presetControl.updateActivePreset;
+      toolbar.append(presetControl.wrapper);
+    }
+
+    toolbar.append(resetButton, exportCsvButton, exportTsvButton);
 
     searchInput.addEventListener("input", applyFilters);
     selects.forEach(({ select }) => {
@@ -348,6 +497,7 @@
     });
 
     dataTable.wrapperDOM.prepend(toolbar);
+    syncPresetState();
   }
 
   function getCurrentRowIndices(dataTable) {
@@ -391,7 +541,7 @@
       }),
     ];
 
-    const tableId = dataTable.dom?.closest(".quarto-float")?.id || dataTable.dom?.id || "datatable";
+    const tableId = getDataTableId(dataTable);
     downloadTextFile(
       `${tableId}.${extension}`,
       lines.join("\n"),
