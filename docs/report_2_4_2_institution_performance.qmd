@@ -55,19 +55,11 @@
 : KRISS의 영역별 연도별 문헌 수 장기 추이 요약 {#tbl-kriss-docs-milestones}
 
 :::{.content-visible unless-profile="pdf"}
-- [기관 문헌 수 시계열 바로가기](institution_docs_explorer.html)
+- [기관 문헌 수 탐색기 바로가기](institution_docs_explorer.html)
 :::
 
 :::{.content-visible when-profile="pdf"}
 웹 버전에서 별도 도구 페이지로 제공한다.
-:::
-
-:::{.content-visible unless-profile="pdf"}
-{{< include parts/generated/institution_docs_raw_table.md >}}
-:::
-
-:::{.content-visible when-profile="pdf"}
-원데이터 전체(영역·기관·연도별)는 웹 버전에서 검색·필터·내보내기가 가능한 인터랙티브 데이터테이블로 제공한다.
 :::
 
 ![엑셀런스 지수와 최상위 문헌 점유율 결합 분석으로 살펴본 표준과학 연구 영역 벤치마킹 기관 성과수준: 표준과학 전 영역](../Final_Report_MD/report_assets/institution_excellence_vs_share_3yr_stdscience.png){#fig-institution-excellence-vs-share-3yr-stdscience}

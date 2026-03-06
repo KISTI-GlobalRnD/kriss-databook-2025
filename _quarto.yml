@@ -53,7 +53,7 @@ website:
       - section: "인터랙티브 도구 / Tools"
         contents:
           - docs/keyword_trends.qmd
-          - text: "기관 문헌 수 시계열"
+          - text: "기관 문헌 수 탐색기"
             href: docs/institution_docs_explorer.qmd
           - docs/vosviewer_explorer.qmd
           - docs/cluster_dashboard.qmd
@@ -155,7 +155,7 @@ website:
         menu:
           - text: "키워드 추세 탐색기 / Keyword Trends"
             href: docs/keyword_trends.qmd
-          - text: "기관 문헌 수 시계열 / Institution Docs"
+          - text: "기관 문헌 수 탐색기 / Institution Docs"
             href: docs/institution_docs_explorer.qmd
           - text: "연구지형도(인터랙티브 맵) / VOSviewer"
             href: docs/vosviewer_explorer.qmd
