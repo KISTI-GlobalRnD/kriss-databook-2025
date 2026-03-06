@@ -7,19 +7,43 @@
   const ROOT_ID = "institution-docs-plot-tool";
   const DATA_PATH = "docs/assets/institution_docs_timeseries.json";
   const PLOTLY_URL = "https://cdn.plot.ly/plotly-2.27.1.min.js";
-  const DEFAULT_SELECTION = ["BIPM 소속 기관", "KRISS", "NIST", "BAM", "PTB"];
+  const DEFAULT_SELECTION = [
+    "KRISS",
+    "NIST",
+    "BAM",
+    "PTB",
+    "NPLI",
+    "NPL",
+    "NRC",
+    "INRIM",
+    "NMIJ/AIST",
+    "NIM",
+  ];
   const COLOR_MAP = {
-    "BIPM 소속 기관": "#495057",
-    KRISS: "#dc3545",
-    NIST: "#0d6efd",
-    BAM: "#fd7e14",
-    PTB: "#6f42c1",
-    NPLI: "#20c997",
-    NPL: "#198754",
-    NRC: "#0dcaf0",
-    INRIM: "#6610f2",
-    "NMIJ/AIST": "#e83e8c",
-    NIM: "#6c757d",
+    "BIPM 소속 기관": "#3d3d3d",
+    KRISS: "#f3a000",
+    NIST: "#6f87c5",
+    BAM: "#666666",
+    PTB: "#f2bf8a",
+    NPLI: "#4fb07f",
+    NPL: "#7383b5",
+    NRC: "#ff6b6b",
+    INRIM: "#74c69d",
+    "NMIJ/AIST": "#f0aaaa",
+    NIM: "#e58f84",
+  };
+  const SYMBOL_MAP = {
+    "BIPM 소속 기관": "diamond-open",
+    KRISS: "circle",
+    NIST: "square",
+    BAM: "cross",
+    PTB: "circle-open",
+    NPLI: "star",
+    NPL: "triangle-down",
+    NRC: "x",
+    INRIM: "asterisk",
+    "NMIJ/AIST": "triangle-up",
+    NIM: "diamond",
   };
 
   function getRoot() {
@@ -103,7 +127,7 @@
       });
 
       const text = document.createElement("span");
-      text.textContent = `${institution.label} (${institution.category})`;
+      text.textContent = institution.label;
       item.append(checkbox, text);
       list.append(item);
     });
@@ -131,8 +155,8 @@
     const scaleSelect = document.createElement("select");
     scaleSelect.className = "form-select form-select-sm";
     [
-      ["linear", "선형 축"],
-      ["log", "로그 축"],
+      ["linear", "선형"],
+      ["log", "로그"],
     ].forEach(([value, label]) => {
       const option = document.createElement("option");
       option.value = value;
@@ -150,15 +174,15 @@
 
     const presetConfigs = [
       {
-        label: "KRISS 비교",
+        label: "기본",
         values: DEFAULT_SELECTION,
       },
       {
-        label: "개별기관 전체",
+        label: "전체",
         values: payload.institutions.filter((item) => item.category === "개별기관").map((item) => item.label),
       },
       {
-        label: "전체 기관",
+        label: "합계 포함",
         values: payload.institutions.map((item) => item.label),
       },
     ];
@@ -180,7 +204,7 @@
     controlsEl.append(
       createLabeledControl("영역", areaSelect),
       createLabeledControl("Y축", scaleSelect),
-      createLabeledControl("선택 프리셋", presets),
+      createLabeledControl("보기", presets),
       createLabeledControl("기관", checkboxList)
     );
   }
@@ -216,13 +240,16 @@
           dash: institution === "BIPM 소속 기관" ? "dash" : "solid",
         },
         marker: {
-          size: institution === "KRISS" ? 8 : 6,
+          size: institution === "KRISS" ? 8 : 7,
           color: COLOR_MAP[institution] || undefined,
+          symbol: SYMBOL_MAP[institution] || "circle",
+          line: {
+            width: institution === "PTB" ? 1.5 : 0.6,
+            color: COLOR_MAP[institution] || undefined,
+          },
         },
         hovertemplate:
           "<b>%{fullData.name}</b><br>" +
-          "영역: %{customdata[0]}<br>" +
-          "구분: %{customdata[1]}<br>" +
           "연도: %{x}<br>" +
           "문헌 수: %{customdata[2]:,.0f}<extra></extra>",
       };
@@ -233,24 +260,38 @@
     return {
       title: {
         text: `${areaLabel} · 기관별 문헌 수 시계열`,
-        font: { size: 18 },
+        font: { size: 18, color: "#222222" },
       },
       height: 560,
       margin: { t: 64, r: 24, b: 56, l: 64 },
-      hovermode: "x unified",
+      hovermode: "closest",
       legend: { orientation: "h", y: -0.22 },
       xaxis: {
         title: "연도",
         tickmode: "linear",
         dtick: 2,
+        showgrid: true,
+        gridcolor: "#c9c9c9",
+        gridwidth: 1,
+        zeroline: false,
+        showline: true,
+        linecolor: "#333333",
+        mirror: false,
       },
       yaxis: {
-        title: state.scaleType === "log" ? "문헌 수 (로그 축)" : "문헌 수",
+        title: state.scaleType === "log" ? "문헌 수 (log)" : "문헌 수",
         type: state.scaleType,
         rangemode: "tozero",
+        showgrid: true,
+        gridcolor: "#c9c9c9",
+        gridwidth: 1,
+        zeroline: false,
+        showline: true,
+        linecolor: "#333333",
+        mirror: false,
       },
-      paper_bgcolor: "#ffffff",
-      plot_bgcolor: "#ffffff",
+      paper_bgcolor: "#e7e7e7",
+      plot_bgcolor: "#e7e7e7",
     };
   }
 
@@ -304,9 +345,7 @@
         const traces = buildTraces(records, payload, state);
 
         Plotly.react(chartEl, traces, buildLayout(area.label, state), buildConfig());
-
-        const selectedCount = state.selectedInstitutions.size;
-        noteEl.textContent = `선택된 기관 ${selectedCount}개 · 범례 클릭으로 개별 곡선을 임시 숨길 수 있습니다.`;
+        noteEl.textContent = "";
       };
 
       render();

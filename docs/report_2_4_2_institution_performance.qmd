@@ -59,7 +59,7 @@
 :::
 
 :::{.content-visible when-profile="pdf"}
-기관 문헌 수 인터랙티브 시계열은 웹 버전에서 영역·기관 선택과 함께 확인할 수 있다.
+웹 버전에서 영역과 기관을 선택해 시계열을 확인할 수 있다.
 :::
 
 :::{.content-visible unless-profile="pdf"}

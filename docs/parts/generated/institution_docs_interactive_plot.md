@@ -1,5 +1,3 @@
-원데이터를 바탕으로 영역별·기관별 문헌 수 시계열을 직접 비교할 수 있는 인터랙티브 plot이다. 영역, 축 스케일, 기관 선택을 바꾸면서 비교할 수 있다.
-
 <style>
   .institution-docs-plot-wrapper {
     border: 1px solid #dee2e6;
@@ -42,9 +40,8 @@
     font-size: 0.92rem;
   }
   .institution-docs-plot-note {
-    margin-top: 0.75rem;
-    color: #495057;
-    font-size: 0.92rem;
+    margin-top: 0.25rem;
+    min-height: 0.5rem;
   }
 </style>
 
