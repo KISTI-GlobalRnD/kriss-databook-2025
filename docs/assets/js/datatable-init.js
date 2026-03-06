@@ -146,8 +146,12 @@
   }
 
   function shouldFilterColumn(heading, values) {
-    if (!values.length || values.length > 12) {
+    if (!values.length || values.length > 30) {
       return false;
+    }
+
+    if (/연도|year/i.test(heading)) {
+      return true;
     }
 
     if (/영역|기관|순위|구분|유형/i.test(heading)) {

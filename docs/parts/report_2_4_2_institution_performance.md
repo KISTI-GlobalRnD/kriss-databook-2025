@@ -214,7 +214,7 @@
 | 바이오의료측정 | NIST (168.0) | 63.7 | 6위 | 65 |
 | 양자기술 | NIST (311.0) | 53.7 | 3위 | 50 |
 
-: 최근 3개년(2022–2024) 평균 문헌 수 기준 영역별 상위 기관과 KRISS의 위치 {#tbl-institution-docs-3yr-summary .datatable .datatable-filtered}
+: 최근 3개년(2022–2024) 평균 문헌 수 기준 영역별 상위 기관과 KRISS의 위치 {#tbl-institution-docs-3yr-summary}
 
 | 영역 | KRISS 2000 | KRISS 2010 | KRISS 2020 | KRISS 2024 | 2000→2024 증감 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -224,7 +224,15 @@
 | 바이오의료측정 | 12 | 33 | 58 | 65 | +53 |
 | 양자기술 | 45 | 52 | 47 | 50 | +5 |
 
-: KRISS의 영역별 연도별 문헌 수 장기 추이 요약 {#tbl-kriss-docs-milestones .datatable .datatable-filtered}
+: KRISS의 영역별 연도별 문헌 수 장기 추이 요약 {#tbl-kriss-docs-milestones}
+
+:::{.content-visible unless-profile="pdf"}
+{{< include docs/parts/generated/institution_docs_raw_table.md >}}
+:::
+
+:::{.content-visible when-profile="pdf"}
+원데이터 전체(영역·기관·연도별)는 웹 버전에서 검색·필터·내보내기가 가능한 인터랙티브 데이터테이블로 제공한다.
+:::
 
 :::{.content-visible unless-profile="book"}
 :::{.content-visible unless-profile="pdf"}
