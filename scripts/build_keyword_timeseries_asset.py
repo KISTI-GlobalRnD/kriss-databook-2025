@@ -13,6 +13,19 @@ if str(ROOT) not in sys.path:
 
 from scripts.process_cluster import build_record, parse_rows  # type: ignore
 
+REQUIRED_TIMESERIES_COLUMNS = {
+    "cluster_id",
+    "term",
+    "year",
+    "score",
+    "frequency",
+    "doc_coverage",
+    "ppm_series_val",
+    "doc_coverage_year_val",
+    "cluster_year_docs",
+    "doc_ppm_series_val",
+}
+
 
 def load_final_labels(path: Path) -> dict[str, dict[str, str]]:
     headers, rows = parse_rows(path)
@@ -32,7 +45,11 @@ def load_final_labels(path: Path) -> dict[str, dict[str, str]]:
 
 
 def build_fieldnames(fieldnames: list[str]) -> list[str]:
-    output = list(fieldnames)
+    output = [
+        name
+        for name in fieldnames
+        if str(name).strip() and str(name).strip().lower() != "unnamed: 0"
+    ]
     for column in ("label_ko_short_final", "label_ko_long_final"):
         if column not in output:
             output.append(column)
@@ -46,8 +63,8 @@ def main() -> None:
     parser.add_argument(
         "--timeseries",
         type=Path,
-        default=ROOT / "Output" / "keyword_all_timeseries.csv",
-        help="Source keyword timeseries CSV.",
+        default=ROOT / "Output" / "keyword_all_timeseries_with_doccov.csv",
+        help="Source keyword timeseries CSV with yearly doc coverage columns.",
     )
     parser.add_argument(
         "--labels-xlsx",
@@ -76,7 +93,19 @@ def main() -> None:
         if reader.fieldnames is None:
             raise ValueError(f"No header found in {args.timeseries}")
 
-        writer = csv.DictWriter(target, fieldnames=build_fieldnames(reader.fieldnames))
+        missing_columns = sorted(REQUIRED_TIMESERIES_COLUMNS - set(reader.fieldnames))
+        if missing_columns:
+            missing_text = ", ".join(missing_columns)
+            raise ValueError(
+                f"{args.timeseries} is missing required columns: {missing_text}. "
+                "Use Output/keyword_all_timeseries_with_doccov.csv."
+            )
+
+        writer = csv.DictWriter(
+            target,
+            fieldnames=build_fieldnames(reader.fieldnames),
+            extrasaction="ignore",
+        )
         writer.writeheader()
 
         for raw_row in reader:

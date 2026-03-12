@@ -3,6 +3,10 @@ title: "Change Log"
 description: "Running log of code and documentation updates applied to the KRISS keyword pipeline workspace."
 ---
 
+## 2026-03-12
+
+- **Keyword explorer timeseries fix** — Fixed the keyword trend explorer blank-chart regression by rebuilding `final_report_site/docs/assets/keyword_all_timeseries.csv.gz` from `Output/keyword_all_timeseries_with_doccov.csv` instead of the legacy CSV that lacked `doc_coverage_year_val` / `cluster_year_docs` / `doc_ppm_series_val`. Hardened `final_report_site/scripts/build_keyword_timeseries_asset.py` to validate those required columns and fail fast on the wrong source file.
+
 ## 2026-03-06
 
 - **Figure audit + asset cleanup** — Verified the capability/policy/emerging report figures against the actual rendered image contents, corrected the country excellence captions in `final_report_site/docs/report_2_4_1_country_performance.qmd` and `final_report_site/docs/parts/report_2_4_1_country_performance.md`, repointed country top/bottom panels to semantic `country_top_bottom10_*` asset names, and removed stale duplicate assets left under misleading legacy filenames.
