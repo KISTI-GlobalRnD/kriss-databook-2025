@@ -17,31 +17,31 @@
 ::: {.carousel-slide}
 <div class="slide-title">표준과학 전영역</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">물리측정</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">화학소재측정</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">바이오의료측정</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
 :::
 
 ::: {.carousel-slide}
 <div class="slide-title">양자기술</div>
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
 :::
 :::
 
@@ -54,30 +54,30 @@
 :::
 :::
 :::{.content-visible when-profile="pdf"}
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
 :::
 :::
 :::{.content-visible when-profile="book"}
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (표준과학 전영역)](Final_Report_MD/report_assets/stdscience_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (물리측정 영역)](Final_Report_MD/report_assets/physical_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (화학소재측정 영역)](Final_Report_MD/report_assets/chemical_materials_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (바이오의료측정 영역)](Final_Report_MD/report_assets/biomedical_collaboration_network.png)
 
-![주요 표준과학 연구 기관간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
+![주요 표준과학 연구 기관 간 협력 네트워크 지형도 (양자기술 영역)](Final_Report_MD/report_assets/quantum_collaboration_network.png)
 :::
 
-추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력비율과 국제협력논문수를 살펴보았다. 이를 통해 KRISS의 국제협력이 **벤치마킹 기관 대비 어느 정도 수준인지**, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴 볼 수 있다. 
+추가로 KRISS를 비롯한 10대 BIPM 표준과학 전문 연구기관의 국제협력 비율과 국제협력 논문 수를 살펴보았다. 이를 통해 KRISS의 국제협력이 **벤치마킹 기관 대비 어느 정도 수준인지**, 그리고 국제협력이 어떤 연구영역에서 강하거나 약한지를 한눈에 확인할 수 있다. 이를 통해 국제협력 성과를 기관 간에 비교하고, KRISS가 협력을 강화해야 할 영역과 상대적으로 경쟁력이 있는 영역을 살펴볼 수 있다. 
 
 [@tbl-international-collaboration-rate]는 각 기관이 2020–2024년 5개년 동안 생산한 논문 중에서 국제공저(해외 기관과 공동저자)로 수행된 논문의 비중을 계산해, 기관별·연구영역별 국제협력 수준을 비교한 결과를 나타낸다. 표 안의 각 %는 해당 기관의 전체(또는 해당 영역) 논문 중 국제공저 논문이 차지하는 비율이고, 괄호 안의 분자와 분모는 각각 국제공저 논문 수와 전체 논문 수를 의미한다.
 
@@ -94,7 +94,7 @@
 | NMIJ/AIST | 22.61% (161/712) | 29.47% (89/302) | 17.42% (31/178) | 11.67% (14/120) | 25.71% (27/105) |
 | NIM | 15.14% (194/1281) | 20.00% (87/435) | 14.17% (36/254) | 12.53% (45/359) | 10.80% (19/176) |
 
-: 표준과학 영역별 KRISS와 주요 벤치마킹 기관의 국제협력 비율(국제협력논문수/전체논문수) {#tbl-international-collaboration-rate}
+: 표준과학 영역별 KRISS와 주요 벤치마킹 기관의 국제협력 비율(국제협력 논문 수/전체 논문 수) {#tbl-international-collaboration-rate}
 
 2020–2024년 기준으로 KRISS의 국제공저 비중은 28.84%(473/1,640)로, 비교 대상 10대 BIPM 기관 중 7위에 위치한다. 상위 기관인 NPL(71.87%), PTB(61.45%), NRC(57.86%)와 비교하면 국제협력 기반의 논문 생산 비중이 낮고, NIST(43.76%)와 비교해도 격차가 크다. 반면 하위권 기관인 NPLI(22.98%), NMIJ/AIST(22.61%), NIM(15.14%)보다는 높은 수준으로, 국제협력이 일정 수준에서는 작동하고 있으나 선도기관 대비 확장 여지가 큰 상태로 해석된다.
 
