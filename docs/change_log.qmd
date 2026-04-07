@@ -3,6 +3,10 @@ title: "Change Log"
 description: "Running log of code and documentation updates applied to the KRISS keyword pipeline workspace."
 ---
 
+## 2026-04-07
+
+- **Dashboard v2 embed update** — Switched the interactive cluster dashboard page to embed `https://road2you.shinyapps.io/kriss-cluster-dashboard-v2/`, kept the legacy v1 dashboard as a small fallback link below the embed, and updated the direct dashboard URL in `final_report_site/docs/report_3_4_databook_dashboard.qmd`.
+
 ## 2026-03-30
 
 - **Landscape figure period correction** — Corrected the year range in the Part 1 landscape figure captions from `2020~2024년` to `2000~2024년` in `final_report_site/docs/report_1_2_1_global_landscape.qmd`, `final_report_site/docs/parts/report_1_2_1_global_landscape.md`, `final_report_site/docs/report_1_2_5_landscape_visualization.qmd`, `final_report_site/docs/parts/report_1_2_5_landscape_visualization.md`, and the raw report source `final_report_site/Final_Report_MD/최종보고서 내용 2c4c6e66ff88807cb40fffc981037ae6.md` to match the document-set definition used for the maps.
