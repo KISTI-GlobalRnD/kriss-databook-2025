@@ -2051,7 +2051,7 @@
     "href": "docs/cluster_dashboard.html",
     "title": "클러스터 대시보드 / Cluster Dashboard",
     "section": "",
-    "text": "과제 제공/수행 기관\n      \n        \n          \n        \n        \n          \n        \n      \n    \n    \n      조회\n      \n    \n  \n\n\n\n\n\n\n\n클러스터 분석 결과를 탐색할 수 있는 Shiny 대시보드를 임베드 형태로 제공하였다.\n\n\n\n\n\n\nTip보기 안내\n\n\n\n\n임베드가 차단되거나 느리게 동작하는 경우, 아래 링크를 눌러 새 탭에서 열어볼 수 있다.\n\n\n\n\n새 탭에서 열기\n\n\n\n\n기존 v1 대시보드: https://road2you.shinyapps.io/kriss_cluster_dashboard/",
+    "text": "과제 제공/수행 기관\n      \n        \n          \n        \n        \n          \n        \n      \n    \n    \n      조회\n      \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\nTip보기 안내\n\n\n\n\n임베드가 차단되거나 느리게 동작하는 경우, 아래 링크를 눌러 새 탭에서 열어볼 수 있다.\n\n\n\n\n새 탭에서 열기\n\n\n\n\n기존 v1 대시보드: https://road2you.shinyapps.io/kriss_cluster_dashboard/",
     "crumbs": [
       "홈 / Home",
       "인터랙티브 도구 / Tools",
